@@ -7,7 +7,7 @@
 
 
 
-\usepackage{endfloat}
+\usepackage[nolists, nomarkers]{endfloat}
 \linenumbers
 \doublespacing
 
@@ -98,12 +98,11 @@ Point 4: These models provide an effective, and currently the only, method to es
 
 In this section we outline the general process for deriving the models. However, as the full derivation is long, it is included in the supplementary material.
 
-The model presented by \citep{rowcliffe2008estimating} is derived assuming a sensor with a viewing angle less than 
-$\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$. While they named this central angle $\theta$, here we will call it $\theta_s$.
+The model presented by \citep{rowcliffe2008estimating} is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$.
 
-Furthermore, as they modeled a camera trap, an animal can be detected from any direction. We however want to relax this assumption to allow for acoustically detected animals. We therefore model the animal as having an associated call angle $\theta_a$.
+Furthermore, as they modeled a camera trap, an animal can be detected from any direction. We however want to relax this assumption to allow for acoustically detected animals. We therefore model the animal as having an associated call angle $\alpha$.
 
-In general we are aiming to derive models for any sensor angle, $ \theta_s$, between 0 and $2\pi$ and any call angle, $ \theta_a$, between 0 and $2\pi$. We can easily derive the gas model which is the case where $ \theta_a =  2\pi$ and $ \theta_s =  2\pi$.
+In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and $ \theta =  2\pi$.
 
 We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our sensor can detect animals at a distance r and that if an animal moves within this detection region they are detected with a probability of 1, independent of distance from the sensor while animals outside the region are never detected.
 
@@ -117,26 +116,26 @@ However, in practice we have the opposite situation. We know the number of encou
 \end{equation}
 For different values of s and a, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter or profile $p$, the rest of the derivation is just calculating this value for all values of a and s. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive p for each region.
 
-Figure \ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \theta_a \le \pi, \pi \le \theta_a < 2π\pi$ and $ \theta_a = 2\pi$) and four columns ($ \theta_s \le \pi/2,  \pi/2 \le \theta_s \le  \pi,  \pi \le \theta_s < 2\pi$ and $\theta_s = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
+Figure \ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi, \pi \le \alpha < 2π\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,  \pi/2 \le \theta \le  \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
 
 For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
 
-To work through one example that contains both a and s we will examine p321. Following \citep{rowcliffe2008estimating} we use $\gamma_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $\gamma_4$ with  $\gamma_4 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:p231schem}).
+To work through one example that contains both a and s we will examine p321. Following \citep{rowcliffe2008estimating} we use $\gamma_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:p231schem}).
 
-We can see that, rotating anticlockwise, from $\gamma_4  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\theta_a/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(θa/2)$. At $\gamma_4  = \theta_s/2 + \pi/2 – \theta_a/2$ we reach a point where the right hand side of the profile (relative to the approach direction) isn't limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \theta_a/2) + r\cos( \gamma_4  – \theta_s/2)$. Finally, at $\gamma_4  = 5\pi/2 - \theta_s/2  - \theta_a/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $\gamma_4  = 3\pi/2$, the width of the profile is again $2r\sin( \theta_a/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $\gamma_4 $ and divide by $\pi$.
+We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(θa/2)$. At $x_1  = \theta/2 + \pi/2 – \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) isn't limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  – \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$.
 \begin{align}
-    p321 =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta_{s}}{2} - \frac{\theta_{a}}{2}}2 r \sin{\left (\frac{\theta_{a}}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{\pi}{2} + \frac{\theta_{s}}{2} - \frac{\theta_{a}}{2}}^{\frac{5 \pi}{2} - \frac{\theta_{s}}{2} - \frac{\theta_{a}}{2}}r \sin{\left (\frac{\theta_{a}}{2} \right )} + r \cos{\left (\gamma_{4} - \frac{\theta_{s}}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{5 \pi}{2} - \frac{\theta_{s}}{2} - \frac{\theta_{a}}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\theta_{a}}{2} \right )}\;\mathrm{d}\gamma_{4}\right)\\
-    p321 =& \frac{r}{\pi} \left(\theta_{s} \sin{\left (\frac{\theta_{a}}{2} \right )} - \cos{\left (\frac{\theta_{a}}{2} \right )} + \cos{\left (\frac{\theta_{a}}{2} + \theta_{s} \right )}\right)
+    p321 =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\left (\frac{\alpha}{2} \right )} + r \cos{\left (\gamma_{4} - \frac{\theta}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}\gamma_{4}\right)\\
+    p321 =& \frac{r}{\pi} \left(\theta \sin{\left (\frac{\alpha}{2} \right )} - \cos{\left (\frac{\alpha}{2} \right )} + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right)
 \end{align}
 Then, as with the gas model, this term is used to calculate density
 \begin{equation}
 D = z/vtp321. 
 \end{equation}
-We can also see what causes this model to be discontinuously different to p322. Examine the profile at $\gamma_4 = \theta_s/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin( \theta_a/2)$ while the right side is zero. This profile doesn't exist if we return to the full $2r\sin( \theta_a/2)$ profile before $\gamma_4  = \theta_s/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta_s/2 - \theta_a/2 <  \theta_s/2 + \pi/2$. We find that this new profile only exists if $ \theta_a < 4\pi - 2 \theta_s$. This inequality defines the line separating p321 and p322.
+We can also see what causes this model to be discontinuously different to p322. Examine the profile at $x_1 = 	\theta/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin( \alpha/2)$ while the right side is zero. This profile doesn't exist if we return to the full $2r\sin( \alpha/2)$ profile before $x_1  = \theta/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta/2 - \alpha/2 <  \theta/2 + \pi/2$. We find that this new profile only exists if $ \alpha < 4\pi - 2 \theta$. This inequality defines the line separating p321 and p322.
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. 
 
-The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \theta_a = 0$ should have $p = 0$ when $ \theta_a = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$.
+The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$.
 
 To make the application of these models simple, we have included an R script in S1. 
 
@@ -221,7 +220,6 @@ To make the application of these models simple, we have included an R script in 
 
 \section{Data Accessibility}
 
-\section{References}
 
 
 
@@ -232,13 +230,13 @@ To make the application of these models simple, we have included an R script in 
 \begin{tabular}{lll}
 Symbol 	& Description & Units\\\hline
 $v$		& Velocity & Metres per second\\
-$\beta$	& Angle of detection & Radians \\
+$\theta$	& Angle of detection & Radians \\
 $\alpha$	& Animal call/beam width & Radians \\
 $r$ 		& Detection distance & Metres\\
 $t$			& Time & Seconds\\
 $z$			& Number of dections & \\
-$D$		& Animal density & Animals per metre$^2$ \\
-$x_i$	& Focal Angle (See Figure \ref{f:segments})		& Radians\\
+$D$		& Animal density & Animals m$^{-2}$ \\
+$x_i$	& Focal Angle 	& Radians\\
 \end{tabular}
 \caption{List of symbols used}
 \label{t:paras}
