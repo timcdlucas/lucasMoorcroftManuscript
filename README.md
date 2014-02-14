@@ -1,6 +1,10 @@
 # Manuscript repo for REM paper with Moorcroft
 
+This is a private repo with our manuscript.
+
+
 Main .tex file is `tim liz paper draft.tex`. 
+.bib file and .bst files are included. `mee.bst` should be fine to submit as is.
 
 ### Images
 
@@ -21,6 +25,8 @@ All supplementary is in `/supplementary/`
 
 
 ## Author guidelines
+
+#### All the important bits from the MEE site
 
 STANDARD ARTICLES
 Standard papers should describe new methods and how they may be used. We place emphasis on methods that are applicable as broadly as possible.
