@@ -1,0 +1,7 @@
+# Ignore temporary files (with ~)
+*~
+
+# Ignore LaTeX log files etc.
+*.ttt
+*.lot
+*.log
