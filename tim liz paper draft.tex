@@ -4,6 +4,7 @@
 %\usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,program,subcaption,array,verbatim,setspace}
 \usepackage[pagewise,displaymath, mathlines]{lineno}
+\usepackage{epstopdf}
 
 
 
@@ -15,6 +16,11 @@
 %\newcolumntype{H}{@{}>{\lrbox0}l<{\endlrbox}}
 
 
+\renewcommand{\theequation}{eqn \arabic{equation}}
+
+
+
+
 
 \begin{document}
 
@@ -22,15 +28,24 @@
 \title{A generalisation of REM models for camera traps or acoustic sensors}
 \maketitle
 
-Running title: REM models for camera traps or acoustic sensors
+\noindent {\bf Running title: REM models for camera traps or acoustic sensors}
 
-Word count:
+\noindent {\bf Word count:}
 
-Authors\\
+\noindent {\bf Authors:\\}
 Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,5}, Kate E. Jones\textsuperscript{2,5}, Marcus J. Rowcliffe\textsuperscript{5}, Robin Freeman\textsuperscript{5}\\
 
-Corresponding author\\
-Tim Lucas,\\
+
+\noindent {\bf Addresses:\\}
+1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
+2 Department of Genetics, Environment and Evolution, UCL, Gower Street, London, WC1E 6BT, UK\\ 
+3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
+4 Department of Computer Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
+5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK
+
+
+\noindent {\bf Corresponding author:\\}
+Tim C.D. Lucas,\\
 CoMPLEX,\\
 University College London,\\
 Gower Street,\\
@@ -40,14 +55,11 @@ UK\\
 timcdlucas@gmail.com\\
 
 
-Addresses\\
-1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
-2 Department of Genetics, Environment and Evolution, UCL, Gower Street, London, WC1E 6BT, UK\\ 
-3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
-4 Department of Computer Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
-5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK
-
 \clearpage
+
+
+%max word count 250 words. Currently too long.
+
 \section{Abstract}
 Point 1: Camera traps and acoustic detectors are becoming common in ecology but the methods needed to estimate population abundance and density with these technologies, specifically when individuals are not identifiable, are not established. Both camera traps and acoustics detectors are becoming cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate population densities and abundance. Current methods often require individual identification or an estimate of the distance from the animal to the sensor
 
@@ -57,6 +69,8 @@ Point 3: The resultant models are suitable for any combination of sensor width a
 
 Point 4: These models provide an effective, and currently the only, method to estimate animal abundance when animals are individually unidentifiable and the distance between sensor and animal is unknown. This allows estimates of abundance for a range of taxa that have been currently very hard to study using teleprinter cheap technologies that can be spread over wide areas and left to run autonomously. Furthermore, the ability to estimate absolute abundance rather than relative abundance or indices is important in a range of fields such as disease dynamics, conservationgenetics and ecosystem services. 
 
+\subsection{Keywords}
+Gas model, acoustic detection, abundance estimate, random encounter model, bat detector, camera trap
 
 \section{Introduction}
 
@@ -115,6 +129,13 @@ However, in practice we have the opposite situation. We know the number of encou
 	D = z/(2rvt).
 \end{equation}
 For different values of s and a, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter or profile $p$, the rest of the derivation is just calculating this value for all values of a and s. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive p for each region.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{imgs/equalRegions.eps}
+\caption{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that cell. The models for $\alpha = 2\pi$ or $theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
+\label{f:regions}
+\end{figure}
 
 Figure \ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi, \pi \le \alpha < 2π\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,  \pi/2 \le \theta \le  \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
 
@@ -217,6 +238,8 @@ To make the application of these models simple, we have included an R script in 
 
 
 \section{Acknowledgements}
+Cheers all.
+
 
 \section{Data Accessibility}
 
