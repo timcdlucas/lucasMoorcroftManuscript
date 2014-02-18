@@ -162,31 +162,15 @@ To make the application of these models simple, we have included an R script in 
 
 \subsection{Simulation Methods}
 
-\begin{itemize}
-\item General simulation
-	\begin{itemize}
-	\item Simulation created in C++
-	\item A homogeneous world with periodic boundaries is created, 
-	\item A single sensor placed in the middle if the world, with a given width and radius
-	\item The world is populated with a known density of animals of up to 70animals per km2 \citep{damuth1981population}, which are placed randomly at the beginning of each simulation.
-	\item The animals move through the world with a set average speed, and movement strategy
-	\item When an animal moves through the edge of the detector range it is captured
-	\item The total number of capture event is summed for each simulation and the relevant model applied and the density estimated
-	\item The true density in the simulation is compared to the estimated density and the bias calculated
-	\end{itemize}
+The simulated world consists of $56.25km^2$ and is populated with a density of  70 animals per $km^2$ \cite{damuth1981population}, creating a total of 3937 animal per simulation randomly placed at the start of the simulation. 
 
-\item Subsampling to access variance
-	\begin{itemize}
-	\item In order to calculated the effect that variables have precision of the results
-		\begin{itemize}
-		\item Values are subsamples with respect to time, density and call width.
-		\item A range of speeds between 0.00012m/s and 0.46m/s \citep{carbone2005far} were simulationed
-		\item Along with a range of correlated walks with set maximum turn angle, (straight-line movement and random walks are special cases)
-		\end{itemize}
-	\end{itemize}
- 
-\end{itemize}
+The animals move with a simple movement model, where the animals moves in discrete time steps and there is assumed to be continuous movement, and, no directional change at the end each step. The simulation lasts for N steps of length,t, during which the animals move with an average constant speed, v. 
 
+The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} =$40km/day, was chosen as this represents the largest day range of terrestrial animals \cite{carbone2005far}, and represents the upper limit of realistic speeds.
+  
+The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true, and estimated, densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
+
+In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. The total sampling time that the simulation generates, and density population have been subsampled from the original run. Additional simulations have been run to simulate a range of speeds, between 10m/day through to 40km/day to look at full range of terrestrial movement speeds \cite{carbone2005far}. Additional simulations were also run for more complex movement models, such as, correlated random walks, and stationary, or perching, time steps whilst keeping the same longterm average speed. Further simulations were run to identify the sensitivity of the sensor to changes in the radius and width of the detection angle.
 
 
 
