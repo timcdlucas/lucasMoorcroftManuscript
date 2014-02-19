@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt,reqno,oneside]{amsart}
-%\usepackage[small]{caption}
+\usepackage{caption}
 %\usepackage[usenames,dvipsnames]{color}
 %\usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,program,subcaption,array,verbatim,setspace}
@@ -13,7 +13,7 @@
 \doublespacing
 
 \usepackage[sort&compress,comma]{natbib}
-%\newcolumntype{H}{@{}>{\lrbox0}l<{\endlrbox}}
+
 
 
 \renewcommand{\theequation}{eqn \arabic{equation}}
@@ -110,7 +110,7 @@ Gas model, acoustic detection, abundance estimate, random encounter model, bat d
 
 \subsection{Analytical Model}
 
-In this section we outline the general process for deriving the models. However, as the full derivation is long, it is included in the supplementary material.
+In this section we outline the general process for deriving the models. However, as the full derivation is long, it is included in the supplementary material S2.
 
 The model presented by \citep{rowcliffe2008estimating} is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$.
 
@@ -158,19 +158,27 @@ While specifying the models had to be done by hand, the calculation of the solut
 
 The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$.
 
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{imgs/equalModelResults.pdf}
+\caption{The results of the models grouped so that all the regions with equal results are presented only once.}
+\label{f:equalModelResults}
+\end{figure}
+
 To make the application of these models simple, we have included an R script in S1. 
 
 \subsection{Simulation Methods}
 
-The simulated world consists of $56.25km^2$ and is populated with a density of  70 animals per $km^2$ \cite{damuth1981population}, creating a total of 3937 animal per simulation randomly placed at the start of the simulation. 
+The simulated world consists of $56.25km^2$ and is populated with a density of  70 animals per $km^2$ \citep{damuth1981population}, creating a total of 3937 animal per simulation randomly placed at the start of the simulation. 
 
 The animals move with a simple movement model, where the animals moves in discrete time steps and there is assumed to be continuous movement, and, no directional change at the end each step. The simulation lasts for N steps of length,t, during which the animals move with an average constant speed, v. 
 
-The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} =$40km/day, was chosen as this represents the largest day range of terrestrial animals \cite{carbone2005far}, and represents the upper limit of realistic speeds.
+The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} = $40km/day, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
   
 The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true, and estimated, densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
 
-In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. The total sampling time that the simulation generates, and density population have been subsampled from the original run. Additional simulations have been run to simulate a range of speeds, between 10m/day through to 40km/day to look at full range of terrestrial movement speeds \cite{carbone2005far}. Additional simulations were also run for more complex movement models, such as, correlated random walks, and stationary, or perching, time steps whilst keeping the same longterm average speed. Further simulations were run to identify the sensitivity of the sensor to changes in the radius and width of the detection angle.
+In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. The total sampling time that the simulation generates, and density population have been subsampled from the original run. Additional simulations have been run to simulate a range of speeds, between 10m/day through to 40km/day to look at full range of terrestrial movement speeds \citep{carbone2005far}. Additional simulations were also run for more complex movement models, such as, correlated random walks, and stationary, or perching, time steps whilst keeping the same longterm average speed. Further simulations were run to identify the sensitivity of the sensor to changes in the radius and width of the detection angle.
 
 
 
