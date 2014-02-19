@@ -132,7 +132,7 @@ For different values of s and a, the only thing that changes is that the area co
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{imgs/equalRegions.eps}
+\includegraphics[width=1\textwidth]{imgs/equalRegions.pdf}
 \caption{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that cell. The models for $\alpha = 2\pi$ or $theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
 \label{f:regions}
 \end{figure}
@@ -141,7 +141,7 @@ Figure \ref{f:regions} shows the different regions with the upper right being th
 
 For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
 
-To work through one example that contains both a and s we will examine p321. Following \citep{rowcliffe2008estimating} we use $\gamma_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:p231schem}).
+To work through one example that contains both a and s we will examine p321. We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:xis}). \cite{rowcliffe2008estimating} use $\gamma_i$ and different subscripts.
 
 We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(θa/2)$. At $x_1  = \theta/2 + \pi/2 – \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) isn't limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  – \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$.
 \begin{align}
