@@ -7,6 +7,12 @@
 \usepackage{epstopdf}
 
 
+%\makeatletter
+%\def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+%\makeatother
+
+
+
 
 \usepackage[nolists, nomarkers]{endfloat}
 \linenumbers
@@ -33,7 +39,7 @@
 \noindent {\bf Word count:}
 
 \noindent {\bf Authors:\\}
-Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,5}, Kate E. Jones\textsuperscript{2,5}, Marcus J. Rowcliffe\textsuperscript{5}, Robin Freeman\textsuperscript{5}\\
+Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,5}, %Kate E. Jones\textsuperscript{2,5}, Marcus J. Rowcliffe\textsuperscript{5}, Robin Freeman\textsuperscript{5}\\
 
 
 \noindent {\bf Addresses:\\}
@@ -110,7 +116,7 @@ Gas model, acoustic detection, abundance estimate, random encounter model, bat d
 
 \subsection{Analytical Model}
 
-In this section we outline the general process for deriving the models. However, as the full derivation is long, it is included in the supplementary material S2.
+In this section we show the derivation for the simple gas model and outline the general process for deriving other models by working through one example. However, as the full derivation is long, it is included in the supplementary material S2.
 
 The model presented by \citep{rowcliffe2008estimating} is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$.
 
@@ -118,15 +124,17 @@ Furthermore, as they modeled a camera trap, an animal can be detected from any d
 
 In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and $ \theta =  2\pi$.
 
+\subsubsection{Gas Model}
+
 We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our sensor can detect animals at a distance r and that if an animal moves within this detection region they are detected with a probability of 1, independent of distance from the sensor while animals outside the region are never detected.
 
 We then consider movement from the reference frame of the animals so that now, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving through space, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is
 \begin{equation}
-	z = 2rvtD.
+	z = 2rvtD
 \end{equation}
-However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this be simply rearranging to get
+However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this be simply rearranging to get:
 \begin{equation}
-	D = z/(2rvt).
+	D = z/(2rvt)
 \end{equation}
 For different values of s and a, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter or profile $p$, the rest of the derivation is just calculating this value for all values of a and s. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive p for each region.
 
@@ -137,26 +145,30 @@ For different values of s and a, the only thing that changes is that the area co
 \label{f:regions}
 \end{figure}
 
-Figure \ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi, \pi \le \alpha < 2π\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,  \pi/2 \le \theta \le  \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
+Fig.~\ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi, \pi \le \alpha < 2π\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,  \pi/2 \le \theta \le  \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
 
 For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
 
-To work through one example that contains both a and s we will examine p321. We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:xis}). \cite{rowcliffe2008estimating} use $\gamma_i$ and different subscripts.
+\subsubsection{Example derivation}
 
-We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(θa/2)$. At $x_1  = \theta/2 + \pi/2 – \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) isn't limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  – \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$.
+To work through one example that contains both a and s we will examine p321. All other derivations are included in S2. We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Fig.~\ref{f:xis}). \cite{rowcliffe2008estimating} use $\gamma_i$ and different subscripts.
+
+We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(θa/2)$. At $x_1  = \theta/2 + \pi/2 – \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) isn't limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  – \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
+
 \begin{align}
     p321 =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\left (\frac{\alpha}{2} \right )} + r \cos{\left (\gamma_{4} - \frac{\theta}{2} \right )}\;\mathrm{d}\gamma_{4}+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}\gamma_{4}\right)\\
     p321 =& \frac{r}{\pi} \left(\theta \sin{\left (\frac{\alpha}{2} \right )} - \cos{\left (\frac{\alpha}{2} \right )} + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right)
 \end{align}
+
 Then, as with the gas model, this term is used to calculate density
 \begin{equation}
-D = z/vtp321. 
+D = z/vtp321
 \end{equation}
 We can also see what causes this model to be discontinuously different to p322. Examine the profile at $x_1 = 	\theta/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin( \alpha/2)$ while the right side is zero. This profile doesn't exist if we return to the full $2r\sin( \alpha/2)$ profile before $x_1  = \theta/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta/2 - \alpha/2 <  \theta/2 + \pi/2$. We find that this new profile only exists if $ \alpha < 4\pi - 2 \theta$. This inequality defines the line separating p321 and p322.
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. 
 
-The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$.
+The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S3.
 
 
 \begin{figure}
@@ -174,7 +186,7 @@ The simulated world consists of $56.25km^2$ and is populated with a density of  
 
 The animals move with a simple movement model, where the animals moves in discrete time steps and there is assumed to be continuous movement, and, no directional change at the end each step. The simulation lasts for N steps of length,t, during which the animals move with an average constant speed, v. 
 
-The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} = $40km/day, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
+The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} = $ 40km/day, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
   
 The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true, and estimated, densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
 
@@ -186,12 +198,18 @@ In order to assess the precision of the analytical models for different sampling
 
 \section{Results}
 
+\subsection{Analytical results}
 \begin{itemize}
 \item The model equations
 	\begin{itemize}
 	\item Number of different model extensions that have been calculated
 	\item Figure with model numbers in which can be used to reference the appendix?
 	\end{itemize}
+\end{itemize}
+
+
+\subsection{Simulation results}
+\begin{itemize}
 \item Bias is approximately zero for all models as demonstrated by simulation: 
 	\begin{itemize}
 	\item At a given speed, density, sampling effort, sensor radius, and a given movement strategy
