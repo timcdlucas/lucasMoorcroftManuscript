@@ -2,6 +2,8 @@
 
 This is a private repo with our manuscript.
 
+Tim's code is in [this repo](https://github.com/timcdlucas/REMpaper)
+Liz's code is in [this repo](https://github.com/ElizabethMoorcroft/Test2)
 
 Main .tex file is `tim liz paper draft.tex`. 
 .bib file and .bst files are included. `mee.bst` should be fine to submit as is.
