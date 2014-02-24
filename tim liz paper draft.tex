@@ -209,11 +209,45 @@ In order to assess the precision of the analytical models for different sampling
 
 
 \subsection{Simulation results}
+
+A hundred simulations were completed for each of the model derivations, with a density of 70 animals/$km^2$, for a 150 days of simulated time, straight-line movement at a speed of 40km/day and a sensor with 100m radius. None of the estimated densities produced showed significant deviation from the true density in the simulation, Figure~\ref{f:ModelBias}.
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
+\caption{The simulated bias per derivation with 95\% confidence intervals.
+ p344: $\alpha$= 0.3491, $\theta$=0.2856;  
+ p345: $\alpha$= 0.3491, $\theta$=0.5712;
+ p346: $\alpha$= 0.3491, $\theta$=0.8568;
+ p244: $\alpha$= 0.3491, $\theta$=1.4280;
+ p242: $\alpha$= 0.3491, $\theta$=1.7136;
+ p241: $\alpha$= 0.3491, $\theta$=2.5704;
+ p141: $\alpha$= 0.3491, $\theta$=3.1416;
+ p341: $\alpha$= 0.6981, $\theta$=0.2856; 
+ p342: $\alpha$= 0.6981, $\theta$=0.8568;
+ p333: $\alpha$= 1.0472, $\theta$=0.2856;      
+ p332: $\alpha$= 1.0472, $\theta$=0.8568;
+ p331: $\alpha$= 1.0472, $\theta$=1.4280;
+ p233: $\alpha$= 1.0472, $\theta$=1.7136;
+ p232: $\alpha$= 1.0472, $\theta$=2.5704;
+ p231: $\alpha$= 1.0472, $\theta$=2.8560;
+ p131: $\alpha$= 1.0472, $\theta$=3.1416;
+ p323: $\alpha$= 1.7453, $\theta$=0.2856;  
+ p322: $\alpha$= 1.7453, $\theta$=1.4280;
+ p223: $\alpha$= 1.7453, $\theta$=1.7136;       
+ p321: $\alpha$= 2.7925, $\theta$=1.4280;         
+ p222: $\alpha$= 2.7925, $\theta$=1.7136; 
+ p221: $\alpha$= 2.7925, $\theta$=2.8560;       
+ p311: $\alpha$= 3.1416, $\theta$=0.2856;  
+ Gas: $\alpha$= 3.1416, $\theta$=2.8560;                                         
+    }
+\label{f:ModelBias}
+\end{figure}
+
 \begin{itemize}
-\item Bias is approximately zero for all models as demonstrated by simulation: 
-	\begin{itemize}
-	\item At a given speed, density, sampling effort, sensor radius, and a given movement strategy
-	\end{itemize}
+%\item Bias is approximately zero for all models as demonstrated by simulation: 
+%	\begin{itemize}
+%	\item At a given speed, density, sampling effort, sensor radius, and a given movement strategy
+%	\end{itemize}	
 \item The expected number of captures will vary, dependent on the system that is being monitored and how it is monitored. This will affect the precision of the estimated: 
 	\begin{itemize}
 	\item Animal movement strategy
