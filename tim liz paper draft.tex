@@ -6,10 +6,10 @@
 \usepackage[pagewise,displaymath, mathlines]{lineno}
 \usepackage{epstopdf}
 
-
-%\makeatletter
-%\def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
-%\makeatother
+\renewcommand{\theequation}{eqn \arabic{equation}}
+\makeatletter
+\def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+\makeatother
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-\renewcommand{\theequation}{eqn \arabic{equation}}
+
 
 
 
@@ -34,15 +34,15 @@
 \title{A generalisation of REM models for camera traps or acoustic sensors}
 \maketitle
 
-\noindent {\bf Running title: REM models for camera traps or acoustic sensors}
+\subsection*{ Running title: REM models for camera traps or acoustic sensors}
 
-\noindent {\bf Word count:}
+\subsection*{ Word count:}
 
-\noindent {\bf Authors:\\}
+\subsection*{ Authors:\\}
 Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,5}, %Kate E. Jones\textsuperscript{2,5}, Marcus J. Rowcliffe\textsuperscript{5}, Robin Freeman\textsuperscript{5}\\
 
 
-\noindent {\bf Addresses:\\}
+\subsection*{ Addresses:\\}
 1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
 2 Department of Genetics, Environment and Evolution, UCL, Gower Street, London, WC1E 6BT, UK\\ 
 3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
@@ -50,7 +50,7 @@ Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,
 5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK
 
 
-\noindent {\bf Corresponding author:\\}
+\subsection*{ Corresponding authors:\\}
 Tim C.D. Lucas,\\
 CoMPLEX,\\
 University College London,\\
@@ -61,19 +61,30 @@ UK\\
 timcdlucas@gmail.com\\
 
 
+Elizabeth Moorcroft,\\
+CoMPLEX,\\
+University College London,\\
+Gower Street,\\
+London,\\
+WC1E 6BT, \\
+UK\\
+e.moorcroft@ucl.ac.uk\\
+
+
 \clearpage
 
 
 %max word count 250 words. Currently too long.
 
 \section{Abstract}
-Point 1: Camera traps and acoustic detectors are becoming common in ecology but the methods needed to estimate population abundance and density with these technologies, specifically when individuals are not identifiable, are not established. Both camera traps and acoustics detectors are becoming cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate population densities and abundance. Current methods often require individual identification or an estimate of the distance from the animal to the sensor
+\subsection*{Point 1:} Camera traps and acoustic detectors are becoming common in ecology but the methods needed to estimate population abundance with these technologies. Both camera traps and acoustics detectors are becoming cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate population densities and abundance; current methods often require individual identification or an estimate of the distance between animal and sensor.
 
-Point 2: We have generalised the 'ideal gas' model to account for camera traps and acoustic detectors that cannot detect animals within a full 360 degree arc and to account for animals whose acoustic calls are directional. We model both animals and sensors as geometric shapes and drive equations for the expected number of encounters per unit time between the animal population and the sensor. The models are tested using spatially explicit simulations. 
+\subsection*{Point 2:} We have generalised the `ideal gas' model to account for camera traps and acoustic detectors that cannot detect animals within a full 360 degree arc and to account for animals whose acoustic calls are directional. We model both animals and sensors as geometric shapes and drive equations for the expected number of encounters per unit time between the animal population and the sensor. The models are validated using spatially explicit simulations. 
 
-Point 3: The resultant models are suitable for any combination of sensor width and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases with effective survey effort. The estimate remains remains unbiased under the range of assumptions about animal movement. 
+\subsection*{Point 3:} The resultant models are suitable for any combination of sensor width and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases with effective survey effort. The estimate remains unbiased under a range of assumptions about animal movement. 
 
-Point 4: These models provide an effective, and currently the only, method to estimate animal abundance when animals are individually unidentifiable and the distance between sensor and animal is unknown. This allows estimates of abundance for a range of taxa that have been currently very hard to study using teleprinter cheap technologies that can be spread over wide areas and left to run autonomously. Furthermore, the ability to estimate absolute abundance rather than relative abundance or indices is important in a range of fields such as disease dynamics, conservationgenetics and ecosystem services. 
+\subsection*{Point 4:} These models provide an effective method to estimate animal abundance when animals are individually unidentifiable and the distance between sensor and animal is unknown. This allows estimates of abundance for a range of taxa that have been currently very hard to study using cheap technologies that can survey large areas and over long time periods. 
+
 
 \subsection{Keywords}
 Gas model, acoustic detection, abundance estimate, random encounter model, bat detector, camera trap
