@@ -62,12 +62,12 @@ Point 4: identify the conclusions, the wider implications and the relevance to m
 
 GENERAL
 
-    All manuscripts should be typed in double-spacing with a large margin
-    All pages should be numbered consecutively, including those containing acknowledgements, references, tables and figures.
-    All lines should be numbered.
-    All spelling and typescripts should be in English.
-    All manuscripts should ideally be a single Word or LaTeX file, with figures embedded at the end of the text. Please note that we currently cannot accept OpenDocument format submissions.
-    All files will be converted to PDF for review. Authors must therefore open each of the PDF files created during submission to check that conversion has not introduced any errors.
+All manuscripts should be typed in double-spacing with a large margin
+All pages should be numbered consecutively, including those containing acknowledgements, references, tables and figures.
+All lines should be numbered.
+All spelling and typescripts should be in English.
+All manuscripts should ideally be a single Word or LaTeX file, with figures embedded at the end of the text. Please note that we currently cannot accept OpenDocument format submissions.
+All files will be converted to PDF for review. Authors must therefore open each of the PDF files created during submission to check that conversion has not introduced any errors.
 
 
 FIGURES

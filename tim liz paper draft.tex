@@ -98,11 +98,20 @@ Gas model, acoustic detection, abundance estimate, random encounter model, bat d
 
 An estimate of the size of an animal population is one of the fundemental measures needed in ecology and conservation. Monitoring can be done in different ways, by a direct count or through taking samples \citep{pollock2002large}. Sampling can be easily used as a relative measure to track population changes. However, using a population sample to estimate absolute density can be difficult. However, this absolute information has important implications for a range of issues such as genetic diversity, sensitivity to stochastic fluctuations and between species comparisons.
 
-The methods for sampling populations are varied. Traditionally, human surveys were the primary method but technology is becoming increasingly important. Newer methods include camera traps and sound recorders. Technological sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive. \citep{gese2001monitoring}
-
-Samples collected from sensors can then be used in methods like REM or Capture-Recapture in order to estimate density of the population.
+The methods for sampling populations are varied. Traditionally, human surveys were the primary method but technology is becoming increasingly important. Newer methods include camera traps and sound recorders. Technological sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive \citep{gese2001monitoring}. With respect to efficiency, the use of sensors allows a small team to survey a very large area, for long periods of time. Furthermore shy species may be sampled more easily with an autonomous sensor. Acoustic detectors offer many benefits for suitable taxa. These species are often difficult to capture on camera, but are easier to detect using an acoustic sensor \citep{rogers2013density}, such as bats \citep{ofarrel1999comparison}, whales \citep{mcdonald1999passive}, and potentially for species such as monkeys. 
 
 
+However, the problem of converting sampled count data to estimates of density remains. Samples collected from sensors be used in Capture-Recapture \citep{leslie1953estimation,schwarz1999} methods if individuals can be recognised e.g. \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}. If individual recognition is impossible but the distance between animal and sensor can be estimated transect methods can be used, although these ignore animal movement \citep{barlow2005estimates, marques2011estimating}. Finally, methods based on ideal gas models from physics have been developed \citep{yapp1956theory, Hutchinson_Waser_2007} and modified to be used for camera traps \citep{rowcliffe2008estimating}.
+
+However, there are still a large number of species for which none of the methods are appropriate leaving these taxa with poor density estimates. The use of acoustic detectors when animal-sensor distance is not known is not adequetely treated with any of the models, and methods for camera traps with detection angles of greater the $\pi/2$ radians have also not been published.
+
+
+In this study we created a general model, as an extension to the camera trap model of \citep{rowcliffe2008estimating}, to estimate absolute abundance from count data from acoustic or visual sensors  where the angle of detection of the sensor can vary from 0 to $2\pi$ radians, and the signal given off from the animal can be directional. We tested the model using simulations in order to assess the validity of the models and in order to give suggestions for best practice. Specifically, we test that the analytical model can accurately predict density when the assumptions of a homogeneous environment and straight-line animal movement are met and that the accuracy of the model is not affected by changes in the movement model. We also quantify the effect of sampling effort, radius of detection, call angle and detection angle, animal speed and density on the precisions of the analytical models.
+
+
+
+
+\begin{comment}
 \begin{itemize}
 \item Monitoring the size of populations is necessary for maintaining biodiversity.
 \item Monitoring can be done in different ways, by a direct count or through taking samples. \citep{pollock2002large}
@@ -134,7 +143,7 @@ Samples collected from sensors can then be used in methods like REM or Capture-R
 \item The accuracy of the model is not affected by changes in the movement model, however the precision of the analytical models are affected
 \item The precisions of the analytical models are also affected by sampling effort, radius of detection, call angle and detection angle, animal speed and density.
 \end{itemize}
-
+\end{comment}
 
 \section{Methods}
 
@@ -325,14 +334,18 @@ Cheers all.
 \centering
 \begin{tabular}{lll}
 Symbol 	& Description & Units\\\hline
-$v$		& Velocity & Metres per second\\
+$v$		& Velocity & \SI{}{\meter\per\second}\\
 $\theta$	& Angle of detection & Radians \\
 $\alpha$	& Animal call/beam width & Radians \\
 $r$ 		& Detection distance & Metres\\
-$t$			& Time & Seconds\\
-$z$			& Number of dections & \\
+$t$		& Time & Seconds\\
+$z$		& Number of dections & \\
 $D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
-$x_i$	& Focal Angle 	& Radians\\
+$x_i$	        & Focal Angle 	& Radians\\
+$T$ 		& Step length & Seconds\\
+$N$ 		& Number of steps per simulation & \\
+$d$ 		& Time step index &
+
 \end{tabular}
 \caption{List of symbols used}
 \label{t:paras}
