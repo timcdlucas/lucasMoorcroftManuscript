@@ -31,7 +31,7 @@
 \begin{document}
 
 
-\title{A generalisation of REM models for camera traps or acoustic sensors}
+\title{A generalisation of ideal gas models for camera traps and acoustic sensors}
 \maketitle
 
 \subsection*{ Running title: REM models for camera traps or acoustic sensors}
@@ -74,16 +74,16 @@ e.moorcroft@ucl.ac.uk\\
 \clearpage
 
 
-%max word count 250 words. Currently too long.
+%max word count 250 words. 
 
 \section{Abstract}
-\subsection*{Point 1:} Camera traps and acoustic detectors are becoming common in ecology but the methods needed to estimate population abundance with these technologies. Both camera traps and acoustics detectors are becoming cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate population densities and abundance; current methods often require individual identification or an estimate of the distance between animal and sensor.
+\subsection*{Point 1:} Camera traps and acoustic detectors are becoming common in ecology. Both camera traps and acoustics detectors are becoming cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate population densities; current methods often require individual identification or an estimate of the distance between animal and sensor.
 
-\subsection*{Point 2:} We have generalised the `ideal gas' model to account for camera traps and acoustic detectors that cannot detect animals within a full 360 degree arc and to account for animals whose acoustic calls are directional. We model both animals and sensors as geometric shapes and drive equations for the expected number of encounters per unit time between the animal population and the sensor. The models are validated using spatially explicit simulations. 
+\subsection*{Point 2:} We have generalised the `ideal gas' model to account for camera traps and acoustic detectors and for animals whose acoustic calls are directional. The models are validated using spatially explicit simulations. 
 
 \subsection*{Point 3:} The resultant models are suitable for any combination of sensor width and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases with effective survey effort. The estimate remains unbiased under a range of assumptions about animal movement. 
 
-\subsection*{Point 4:} These models provide an effective method to estimate animal abundance when animals are individually unidentifiable and the distance between sensor and animal is unknown. This allows estimates of abundance for a range of taxa that have been currently very hard to study using cheap technologies that can survey large areas and over long time periods. 
+\subsection*{Point 4:} These models provide an effective method to estimate animal density when animals are individually unidentifiable and the distance between sensor and animal is unknown. This allows estimates of abundance for a range of taxa that have been currently very hard to study while using cheap technologies that can survey large areas and over long time periods. 
 
 
 \subsection{Keywords}
@@ -91,25 +91,25 @@ Gas model, acoustic detection, abundance estimate, random encounter model, bat d
 
 \section{Introduction}
 
+An estimate of the size of an animal population is one of the fundemental measures needed in ecology and conservation. Monitoring can be done in different ways, by a direct count or through taking samples \citep{pollock2002large}. Sampling can be easily used as a relative measure to track population changes. However, using a population sample to estimate absolute density can be difficult. However, this absolute information has important implications for a range of issues such as genetic diversity, sensitivity to stochastic fluctuations and between species comparisons.
+
+The methods for sampling populations are varied. Traditionally, human surveys were the primary method but technology is becoming increasingly important. Newer methods include camera traps and sound recorders. Technological sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive. \citep{gese2001monitoring}
+
+Samples collected from sensors can then be used in methods like REM or Capture-Recapture in order to estimate density of the population.
+
+
 \begin{itemize}
 \item Monitoring the size of populations is necessary for maintaining biodiversity.
 \item Monitoring can be done in different ways, by a direct count or through taking samples. \citep{pollock2002large}
 \item Methods for collecting samples can vary from human surveys to sensor records, such as the results from cameras or sound recorders placed throughout an environment. 
 \item Sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive. \citep{gese2001monitoring}
-\item Samples collected from sensors can then be used in methods like REM or Capture-Recapture in order to estimate density of the population.
-\item Current methods are not suitable for all species, so some species have no, or unreliable, population information. 
 \item These species are often difficult to capture on camera, but are easier to detect using an acoustic sensor \citep{rogers2013density}, such as bats \citep{ofarrel1999comparison}, whales \citep{mcdonald1999passive}, and potentially for species such as monkeys. 
-\item But these data collection methods are incompatible with REM, because the width of the sensor can be greater than 90, and because the animal may give off a directional signal 
+\item Samples collected from sensors can then be used in methods like REM or Capture-Recapture in order to estimate density of the population.
+\item Current methods are not suitable for all species, so some species have no, or unreliable, population information. Because the width of the sensor can be greater than 90, and because the animal may give off a directional signal 
 \item We are going to extend REM methods so that it can be used with acoustic data as well as data collected via camera traps
 \end{itemize}
 
-\subsection{Hypotheses}
 
-\begin{itemize}
-\item The analytical model can accurately predict density when the assumptions of a homogeneous environment and straight-line animal movement are met.
-\item The accuracy of the model is not affected by changes in the movement model, however the precision of the analytical models are affected
-\item The precisions of the analytical models are also affected by sampling effort, radius of detection, call angle and detection angle, animal speed and density.
-\end{itemize}
 
 \subsection{Aims}
 
@@ -122,22 +122,29 @@ Gas model, acoustic detection, abundance estimate, random encounter model, bat d
 \end{itemize}
 \end{itemize}
 
+\subsection{Hypotheses}
+
+\begin{itemize}
+\item The analytical model can accurately predict density when the assumptions of a homogeneous environment and straight-line animal movement are met.
+\item The accuracy of the model is not affected by changes in the movement model, however the precision of the analytical models are affected
+\item The precisions of the analytical models are also affected by sampling effort, radius of detection, call angle and detection angle, animal speed and density.
+\end{itemize}
+
 
 \section{Methods}
 
 \subsection{Analytical Model}
 
-In this section we show the derivation for the simple gas model and outline the general process for deriving other models by working through one example. However, as the full derivation is long, it is included in the supplementary material S2.
+Due to the nature of the problem, we find there are many discontinuously different models that need to be derived seperately (see Figure~\ref{f:equalRegions}. In this section we show the derivation for the simple gas model and outline the general process for deriving other models by working through one example. However, as the derivation of the many different models is long, it is included in the supplementary material S2.
 
-The model presented by \citep{rowcliffe2008estimating} is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$.
+Our derivations follow the model presented by \citep{rowcliffe2008estimating}. This model is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$ (see Table~\ref{t:paras
+} for a list of symbols.) We call this segment the sensor region. Furthermore, as they modeled a camera trap, an animal can be detected from any direction as long as it is within the segment shaped sensor region. We however want to relax this assumption to allow for acoustically detected animals with directional calls. We therefore model the animal as having an associated call angle $\alpha$. In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. 
 
-Furthermore, as they modeled a camera trap, an animal can be detected from any direction. We however want to relax this assumption to allow for acoustically detected animals. We therefore model the animal as having an associated call angle $\alpha$.
 
-In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and $ \theta =  2\pi$.
 
 \subsubsection{Gas Model}
 
-We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our sensor can detect animals at a distance r and that if an animal moves within this detection region they are detected with a probability of 1, independent of distance from the sensor while animals outside the region are never detected.
+We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and $ \theta =  2\pi$. We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our sensor can detect animals at a distance r and that if an animal moves within this detection region they are detected with a probability of 1, independent of distance from the sensor while animals outside the region are never detected.
 
 We then consider movement from the reference frame of the animals so that now, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving through space, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is
 \begin{equation}
@@ -179,7 +186,7 @@ We can also see what causes this model to be discontinuously different to p322. 
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. 
 
-The models are checked for errors with a number of tests. They are checked against each other by checking that adjacent models are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S3.
+The models are checked for errors with a number of tests. They are checked against each other by checking that models that are adjacent in parameter space are equal at the boundary between them. Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for. We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S3.
 
 
 \begin{figure}
@@ -193,11 +200,15 @@ To make the application of these models simple, we have included an R script in 
 
 \subsection{Simulation Methods}
 
+% @liz: Why is it 56.25km^2? 
+
 The simulated world consists of $56.25km^2$ and is populated with a density of  70 animals per $km^2$ \citep{damuth1981population}, creating a total of 3937 animal per simulation randomly placed at the start of the simulation. 
 
 The animals move with a simple movement model, where the animals moves in discrete time steps and there is assumed to be continuous movement, and, no directional change at the end each step. The simulation lasts for N steps of length,t, during which the animals move with an average constant speed, v. 
 
-The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} = $ 40km/day, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
+% @liz. Any reason to wrap stuff in mathnormal? Not sure it's needed.
+
+The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = \mathnormal{v} \times \mathnormal{t}$,  and standard deviation of $\sigma_d = \frac{\mathnormal{v} \times \mathnormal{t}}{10}$. An average speed, $\mathnormal{v} = $ 40km day^-1$, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
   
 The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true, and estimated, densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
 
