@@ -1,0 +1,289 @@
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\textwidth]{/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/equalRegions.pdf}
+\caption[REM Model numbers]{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that area. The models for $\alpha = 2\pi$ or $\theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
+\label{f:equalRegions}
+\end{figure}
+
+
+\section{Contents}
+\begin{itemize}
+        \item \ref{gas}: {\bf Gas model}
+        \item \ref{p311}: {\bf  p311}
+        \item \ref{p22}: {\bf  p22}
+        \begin{itemize}
+                \item \ref{p221}: {\bf  p221}
+                \item \ref{p222}: {\bf  p222}
+                \item \ref{p223}: {\bf  p223}
+        \end{itemize}
+        \item \ref{p32}: {\bf  p32}
+        \begin{itemize}
+                \item \ref{p321}: {\bf  p321}
+                \item \ref{p322}: {\bf  p322}
+                \item \ref{p323}: {\bf  p323}
+        \end{itemize}
+        \item \ref{p131}: {\bf  p131}
+        \item \ref{p23}: {\bf  p23}
+        \begin{itemize}
+                \item \ref{p231}: {\bf  p231}
+                \item \ref{p232}: {\bf  p232}
+                \item \ref{p233}: {\bf p233}
+        \end{itemize}
+        \item \ref{p33}: {\bf  p33}
+        \begin{itemize}
+                \item \ref{p331}: {\bf  p331}
+                \item \ref{p332}: {\bf  p332}
+                \item \ref{p333}: {\bf  p333}
+        \end{itemize}
+        \item \ref{p141}: {\bf  p141}
+        \item \ref{p24}: {\bf  p24}
+        \begin{itemize}
+                \item \ref{p241}: {\bf  p241}
+                \item \ref{p242}: {\bf  p242}
+                \item \ref{p243}: {\bf  p243}
+        \end{itemize}
+        \item \ref{p34}: {\bf  p34}
+        \begin{itemize}
+                \item \ref{p341}: {\bf  p341}
+                \item \ref{p342}: {\bf  p342}
+                \item \ref{p343}: {\bf  p343}
+        \end{itemize}
+\end{itemize}
+
+Figure \ref{f:equalRegions} shows the different regions with the upper right being the gas model as derived above and p141 being the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($\alpha \le \pi, \pi \le \alpha < 2\pi$ and $\alpha = 2\pi$) and four columns $(\theta \le \pi/2,  \pi/2 \le \theta \le \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$.) Rows and columns define cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell.
+
+
+\section{Gas model} \label{gas}
+
+We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity v. We allow that our sensor can detect animals at a distance $r$ and that if an animal moves within this detection region they are detected with a probability of 1, independent of distance from the sensor while animals outside the region are never detected.
+
+We then consider movement from the reference frame of the animals so that now, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. We calculate this as the average width of the sensor region $p$ multiplied by $v$. The average width of the profile is the integral of the profile width over a full circle, divided by $2\pi$. As all models are bilaterally symetric, we can integrate over a half circle, and divide by $\pi$.
+\begin{align}
+p\text{Gas} =& \frac{1}{\pi}\int\limits_{\frac{\pi}{2}}^{\frac{3\pi}{2}} 2r \; \mathrm{d}x_1\\
+p\text{Gas} =& 2r
+\end{align}
+The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is then
+\begin{equation}
+	z = 2rvtD.
+\end{equation}
+However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this be simply rearranging to get
+\begin{equation}
+	D = z/(2rvt).
+\end{equation}
+For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. The rest of the derivation is just calculating this value for all values of $\alpha$ and $\theta$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region.
+
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+
+\approachtwo{60}{70}{4}{6}
+\segment{70}{4};
+\profilextwo{60}{70}{4}
+
+\end{tikzpicture}
+\caption{Test tikz figure}
+\end{figure}
+
+
+\section{p311} \label{p311}
+
+p311 is very similar to the gas model except that as $\alpha \le \pi$ the profile width is no longer $2r$ but is instead limited by the width of the animal call. We therefore get a profile width of $2r\sin(\alpha/2)$ instead.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p311.tex}
+
+\section{p22} \label{p22}
+
+For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
+
+We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For models in p22 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure \ref{f:xis}).
+
+There are three regions within cell p22. Note that p221 covers the area $\alpha=2\pi$ as well as the triangle below it as these two models are specified exactly the same, rather than happening to have equal results.
+
+These models have up to five regions. 1) The profile width starts, from $x_1=\frac{\pi}{2}$ as $2r$. 2) At $x_1 = \theta/2$, the right hand side of the profile cannot be $r$ wide as the corner of the blind spot limits its size to being $r\cos(x_1 - \theta/2)$ wide. 
+
+3) The third profile is only found in p223. If $\alpha < 4\pi - 2\theta$, then at $x_1=\theta/2$, when the profile is perpendicular to the edge of the blind spot, the whole right side of the profile is invisible to the sensor. This gives a profile size of just $r$.
+
+4) At some point, the sensor can detect animals once they have passed the blind spot giving a profile width of $r + r\cos(x_1 + \theta/2)$. From $x_1=\pi/2$, if the animal call is wide enough to be detected in this area, this is the wider profile. This then defines the split between p221 and p222. In p221, with $\alpha > 3\pi - \theta$, the animal call is wide enough that at $x_1=\pi/2$ the animal can already be detected past the blind spot and so this profile is used. In p222, with $\alpha < 3\pi - \theta$, the latter profile is reached at $5\pi/2 - \theta/2 - \alpha/2$ and is therefore dependant on the sizes of $\alpha$ and $\theta$. 
+
+5) Finally, common to all three models, at $x_1 = 2\pi - \theta/2$ the profile becomes a full $2r$ once again.
+
+
+\subsection{p221} \label{p221}
+
+Model p221 exists within the area bounded by $\alpha\le2\pi$, $\theta\le2\pi$ and $\alpha \ge 3\pi - \theta$. It has four regions; it does not include the $r$ profile at $x_1=\frac{\pi}{2}$. Furthermore, $\theta$ is wide enough that the $r + r\cos(x_1 + \theta/2)$ profile starts at $\pi$. This then gives us
+
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p221.tex}
+
+\subsection{p222} \label{p222}
+
+Model p222 is bounded by $\alpha \le 3\pi - \theta$, $\alpha \ge 4\pi - 2\theta$ and $\alpha \ge \pi$. It is the same as p221 except that the third profile starts at $5\pi/2 - \theta/2 - \alpha/2$ instead of at$\pi$ which is reflected in the different bounds in the second and third integral.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p222.tex}
+
+\subsection{p223} \label{p223}
+
+Model p223 is bound by $\alpha \le 4\pi - 2\theta$, $\alpha \ge \pi$ and $\theta \ge \pi$. It is the same as p222 except that it contains the extra profile with width $r$ (third integral).
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p223.tex}
+
+\section{p32} \label{p32}
+
+Cell p32 contains three regions that differ in ways reminiscent of the models in p22. There are four possible profile widths. 1) As $\alpha$ is less than $\pi$ the profile is smaller than $2r$, even when the sensor width is a full diameter. When this is the case, the profile width is instead $2r\sin(\alpha/2$. 2) Similar to p22, at a certain point the blind spot of the sensor area limits the profile width. This gives a profile width of $r\sin(\alpha/2) + r\cos(x_1 - \theta/2)$. 3) Also similar to p22, there can be a point where the right side of the profile is 0 giving a profile width of $r\sin(\alpha/2)$. 4) If $\alpha \le 2\pi - \theta$, then at $\theta/2 + \pi/2 + \alpha/2 $ the profile width become 0. This inequality distinguishes between p322 and p323. 
+
+The profile $r\sin(\alpha/2)$ starts at $\theta/2 + \pi/2$ while at $5\pi/2 - \alpha/2 - \theta/2$ the profile returns to size $2r\sin(\alpha/2)$. If $\theta/2 + \pi/2 \ge 5\pi/2 - \alpha/2 - \theta/2$ we go straight into the  $2r\sin(\alpha/2)$ profile and miss the $r\sin(\alpha/2)$ profile.  p321 and p322 are seperated by this inequatility which simplifies to $\alpha \le 4\pi - 2\theta$. 
+
+\subsection{p321} \label{p321}
+
+p321 is bounded by $\alpha \ge 4\pi - 2\theta$, $\alpha \le \pi$ and $\theta \le 2\pi$. As $\alpha \ge 4\pi - 2\theta$, there is no $r\sin(\alpha/2$ profile. As $\alpha \le 4\pi - 2\theta$, the profile returns to $2r\sin(\alpha/2$ rather than going to 0.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p321.tex}
+
+\subsection{p322} \label{p322}
+
+p322 is bounded by $4\pi - 2\theta \le \alpha \le 4\pi - 2\theta$ and $\alpha \le \pi$. Therefore there is a $r\sin(\alpha/2$ profile but no $0r$ profile.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p322.tex}
+
+\subsection{p323} \label{p323}
+
+Finally p323 is bounded by  $\alpha \le 4\pi - 2\theta $, $\alpha\le\pi$ and $\theta \le \pi$. It is the same as p322 except that the profile becomes $2r$ rather than returning to $2r\sin(\alpha/2$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p323.tex}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\textwidth]{/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/equalModelResults.pdf}
+\caption[REM model solutions]{The results of the models grouped so that all the regions with equal results are presented only once.}
+\label{f:equalModelResults}
+\end{figure}
+
+\section{p131} \label{p131}
+
+p131 is the first model with $\theta < \pi$. Whereas previously the focal angle has always been $x_1$, we now use different focal angles. $x_2$ and $x_3$ correspond to $\gamma_1$ and $\gamma_2$ in \cite{rowcliffe2008estimating} while $x_4$ is new. They are described in Figure~\ref{f:xis}. 
+
+There are five different profiles in p131. 1) $x_2$ has an interval of $[\pi/2, \theta/2]$ which is from the angle of approach being directly towards the sensor until the profile is parellel to the left hand radius of the sensor segment. During this region the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$ which is calculated using the equation for the length of a chord. Note that while rotating anti-clockwise (as usual) $x_2$ decreases in size. 2) From here, we examine focal angle $x_4$ (note that $x_3$ is used in later models, but is not relevant here.)  The left side of the profile is a full radius while the right side is limited to $- r\cos(x_4 - \theta)$. 3) At $x_4 =  \theta - \pi/2$, the profile is perpendicular to the edge of the sensor area. Here, the right side of the profile is $0r$. 4) When $x_4 = \pi/2$ the angle of approach is from behind the sensor, but we can once again be detected on the right side of the sensor. Therefore the width of the profile is $r - r\cos(x_4)$. 5) Finally, we enter the $x_2$ region, but from behind. 
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p131.tex}
+
+\section{p23} \label{p23}
+
+The models in cell p23 have the five potential profiles in p131 but not all profiles occur in each model, and the angle at which transitions occur are different. Furthermore, there is one extra profile possible. When approaching the sensor from behind, there is a period where the profile is $r$ wide as in p131. At some point the right side of the profile becomes viable again. If this occurs in the $x_4$ region, the profile width becomes  $r - r\cos(x_4)$ as in p131. However, as $\alpha$ is now less than $2\pi$, the right side of the profile might not be viable until we are in the second $x_2$ region. In this case, when we first enter the second $x_2$ region, the profile has a width of $r\cos(x_2 - \theta/2)$. This occurs only if $\alpha \le 3\pi - 2\theta$. This is inequality is found by noting that the right side of the profile become viable at $x_4 = 3\pi/2 - \alpha$ but the $x_2$ region starts at $x_4 = \theta$. The new profile in $x_2$ will only occur if  $ \theta < 3\pi/2 - \alpha/2$ which is rearranged to find the inequality above. This defines the boundary between p231 and p232.
+
+As $\alpha \le 2\pi$ it is possible that when the angle of approach is from directly behind the sensor the animal will now be detected at all. This is the case if $\alpha\le 2\pi-\theta$. This inequality defines the boundary between p232 and p233.
+
+
+
+\subsection{p231} \label{p231}
+
+p231 is bounded by $\alpha \ge 3\pi - 2\theta$, $\alpha \le 2\pi$ and $\theta\le\pi$.
+
+p231 has all five profiles as found in p131. However, the change from the $r$ profile (third integral) to the $r - r\cos(x_4)$ profile (fourth integral) occurs at $x_4 = 3\pi/2 - \alpha/2$ instead of at $x_4 = \pi/2$. 
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p231.tex}
+
+
+\subsection{p232} \label{p232}
+
+p232 is bounded by $\alpha \le 3\pi - 2\theta$, $\alpha\ge 2\pi-\theta$ and $\theta\le\pi$.
+
+p232 does not have the fourth integral from p231 as the right side of the profile does not become viable until after the $x_4$ region has ended and the $x_2$ region has begun. Therefore the second $x_4$ integral has an upper limit of $\theta $ and the integral after has a width of $r\cos(x_2 - \theta/2)$ and is integrated with respect to $x_2$. The final integral starts at $x_4 = 3\pi/2 - \alpha$ and has the full width of $2r\sin(x_2)\sin(\theta/2)$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p232.tex}
+
+\subsection{p233} \label{p233}
+
+Finally, p233 is bounded by $\alpha\le \pi$, $\theta\ge \pi/2$ and $\alpha \le 3\pi - 2\theta$. p233 is the same as p232 except that the final profile width is zero and this profile is reached at $\alpha/2+\theta/2-\pi/2$. 
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p233.tex}
+
+\section{p33} \label{p33}
+ 
+The models in p33 are described with the two focal angles used in models p23, $x_2$ and $x_4$. As $\alpha \le\pi$ an animal can never be detected if it is approaching the detector from behind. This makes these models simpler in that they go through the $x_2$ and $x_4$ eons only once each. 
+
+There are five potential profile sizes. At the beginning of $x_2$, with an approach direction directly towards the sensor, the factor that limits the width of the profile can either be 1) the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$, or 2) the call width, in which case the profile width is instead $2r\sin(\alpha /2)$. 
+
+3) The next potential profile in $x_2$ has a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$ as the right side of the profile is limited by the width of the sensor region while the left side is limited by the call width. However, the angle at which the profile starts depends on whether the first profile was 1) or 2) above. If the first profile is profile 1) then the profile is limited on both sides by the sensor region and then the left side of the profile becomes limited by the call width. This happens at $x_2 = \pi/2 - \alpha/2 + \theta/2$. If however the first profile was 2) then the first profile is limited by the call width. We move into the new profile when the right side of the profile becomes limited by the sensor region. This occurs at $x_2 = \pi/2 + \alpha/2 - \theta/2$.
+
+
+In the $x_4$ region the left side of the profile is always $r\sin(\alpha /2)$ while the right side is either 4) 0, giving a profile of $r\sin(\alpha /2)$, or 5) limited by the sensor giving a profile of size $r\sin (\alpha /2) -r\cos(x_4-\theta) $.
+
+\subsection{p331} \label{p331}
+
+p331 is bounded by $\alpha \ge \theta$, $\alpha \le\pi$ and $\theta \le \pi$.
+
+As $\alpha $ is large the first profile is limited by the size of the sensor region giving it a width of $2r\sin\left(\theta/2\right)\sin(x_2)$. It is the only one of the three p33 models to start in this way. Later on, still with $x_2$ as the focal angle the left side of the profile does become limited by the call width. So at $x_2= \pi/2 - \alpha/2 + \theta/2$ the profile width becomes $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. 
+
+As we enter the $x_4$ region, the profile remains limited by the call on the left and by the sensor on the right, giving a profile width of  $r\sin (\alpha /2) -r\cos(x_4-\theta) $. Finally, at $x_4 = \theta_4 - \pi/2$ the right side of the profile becomes zero and the profile is width is $r\sin(\alpha /2)$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p331.tex}
+
+\subsection{p332} \label{p332}
+
+p332 is bounded by $\theta \ge \pi/2$, $\alpha \le \theta$ and $\alpha \ge 2\theta -\pi$.
+
+p332 is largely similar to p331. However, as $\alpha \le \theta$ the first profile is limited by $\alpha$ and not by the detection region. Therefore the first profile has width $2r\sin(\alpha /2)$. This also means the transition to the second profile occurs at  $x_2 = \pi/2 + \alpha/2 - \theta/2$ instead of  $x_2 = \pi/2 - \alpha/2 + \theta/2$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p332.tex}
+
+
+
+\subsection{p333} \label{p333}
+
+p333 is bounded by $\alpha \le 2\theta -\pi$ and $\theta \le \pi$.
+
+p333 is similar to p332 except that the profile does not become limited by sensor at all during the the $x_4$ regions. Therefore, at $x_4 = 0 $ the profile is still of width $2r\sin(\alpha /2)$. Only at $x_4 = \theta - \pi/2 - \alpha/2$ does the profile become limited on the right by the sensor region.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p333.tex}
+
+\section{p141} \label{p141}
+
+p141 is the model from \citep{rowcliffe2008estimating}. It has $\alpha =2\pi$ and $\theta \le \pi/2$. It has three profile widths, the two of which are repeated, once as the animal approaches from on front of the sensor and once as the animal approaches from behind the sensor.
+
+Starting with an approach direction of directly towards the sensor, and examining focal angle $x_2$, the profile width is $2r\sin(x_2)\sin(\theta/2)$. When the profile is perpendicular to the radius edge of the segment sensor region, we instead examine $x_3$ where the profile width is $r\sin(x_3)$. At $x_3=\pi/2$ the profile becomes simply $r$ and this continues for $\theta $ radians of $x_4$. Finally the $x_3$ and $x_2$ are repeated with an approach direction from behind the sensor. 
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p141.tex}
+
+\section{p24} \label{p24}
+
+In the models in p24, the sensor has $\theta \le pi/2$ as in p141. As $\alpha \ge \pi/2$ a lot of the profiles are similar to p141. Specifically, the first three profiles are always the same as the first three profiles of p141. This is because when an animal is moving towards the sensor, the $\alpha \ge \pi$ call is no different to a $2\pi$ call. However, when approach the sensor from behind, things are slightly different.
+
+
+
+\subsection{p241} \label{p241}
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p241.tex}
+
+\subsection{p242} \label{p242}
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p242.tex}
+
+\subsection{p243} \label{p243}
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p243.tex}
+
+
+
+
+
+\section{p34} \label{p34}
+
+
+\subsection{p341} \label{p341}
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p341.tex}
+
+\subsection{p342} \label{p342}
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p342.tex}
+
+\subsection{p343} \label{p343}
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p343.tex}
+
+
+
+
