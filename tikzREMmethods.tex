@@ -1,0 +1,39 @@
+
+
+\definecolor{approachCol}{rgb}{0.96,0.96,0.96}
+
+
+\newcommand{\segment}[2]{
+	\draw[ultra thick] (0,0) -- ++(90-#1/2:#2cm)
+     	      (0,0) -- ++(90+#1/2:#2cm);
+	\draw[ultra thick] (0,0) ++(90-#1/2:#2cm) arc (90-#1/2:90+#1/2:#2cm);
+}
+
+
+\newcommand{\profilextwo}[3]{ % angle, sensor width, r
+	\draw[ultra thick, red] ({#3*cos(90-#2/2)}, {#3*sin(90-#2/2)}) 
+	--++ (270-#1: {2*#3*sin(#2/2)*sin(#1)});
+}
+
+\newcommand{\profilexthree}[3]{ % angle, sensor width, r
+	\draw[ultra thick, red] ({#3*cos(90-#2/2)}, {#3*sin(90-#2/2)}) 
+	--++ (180-#2/2+#1: {#3*sin(#1)});
+}
+
+
+
+\newcommand{\approachtwo}[4]{ % angle, sensor width, r
+	\fill[ approachCol] ({#3*cos(90-#2/2)}, {#3*sin(90-#2/2)}) 
+	--++ (180-#1: #4/2)
+	--++ (270-#1: {2*#3*sin(#2/2)*sin(#1)}) 
+	--++ (360-#1: #4)
+	--++ (90-#1: {2*#3*sin(#2/2)*sin(#1)})
+	-- cycle;
+	\fill[ approachCol ] ({#3*cos(90-#2/2)+1.1*#4*sin(90-#1)/2}, {#3*sin(90-#2/2)-1.1*#4*cos(90-#1)/2}) 
+	--++ (270-#1: {2*#3*sin(#2/2)*sin(#1)})
+	--++ (-15-#1+90: {#3*sin(#2/2)*sin(#1)/cos(15)})
+	-- cycle;
+}
+
+
+
