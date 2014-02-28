@@ -7,6 +7,7 @@ Liz's code is in [this repo](https://github.com/ElizabethMoorcroft/Test2)
 
 Main .tex file is `tim liz paper draft.tex`. 
 .bib file and .bst files are included. `mee.bst` should be fine to submit as is.
+`tikzREMmethods.tex` is functions for plotting schematics of the calls. It's used a lot in `supplemtoryText.tex`. Not sure if tikz images are allowed in the main text though.
 
 ### Images
 
@@ -16,7 +17,9 @@ Vector files should be pdfs. Raster files should be .tiffs.
 
 ### Supplementary material
 
-All supplementary is in `/supplementary/`
+All supplementary is in `/supplementary-material/`
+
+
 
 
 
