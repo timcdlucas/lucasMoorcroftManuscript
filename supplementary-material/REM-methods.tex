@@ -73,18 +73,45 @@ However, in practice we have the opposite situation. We know the number of encou
 	D = z/(2rvt).
 \end{equation}
 For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. The rest of the derivation is just calculating this value for all values of $\alpha$ and $\theta$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region.
-
-
 \begin{figure}[t]
-\centering
-\begin{tikzpicture}
-
-\approachtwo{60}{70}{4}{6}
-\segment{70}{4};
-\profilextwo{60}{70}{4}
-
-\end{tikzpicture}
-\caption{Test tikz figure}
+        \centering
+        \begin{subfigure}[t]{0.25\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.4]
+                \fullOne{0}{210}{0};
+                \end{tikzpicture}
+                \caption{1st}
+                \label{f:tikz1}
+        \end{subfigure}
+        ~ 
+        \begin{subfigure}[t]{0.25\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.4]
+                \fullTwo{0}{60}{70};
+                \end{tikzpicture}
+                \caption{$x_2$}
+                \label{f:x2}
+        \end{subfigure}
+        ~ 
+	\begin{subfigure}[t]{0.25\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.4]
+                \fullThree{0}{60}{70};
+                \end{tikzpicture}
+                \caption{$x_3$}
+                \label{f:x3}
+        \end{subfigure}%%
+	~
+	\begin{subfigure}[t]{0.25\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.4]
+                \fullFour{0}{60}{50};
+                \end{tikzpicture}
+                \caption{$x_4$}
+                \label{f:x4}
+        \end{subfigure}%%
+\caption{The location of the focal angles $x_{i\in[1,4]}$.}
+\label{f:xis}
 \end{figure}
 
 
@@ -250,11 +277,18 @@ Starting with an approach direction of directly towards the sensor, and examinin
 
 \section{p24} \label{p24}
 
-In the models in p24, the sensor has $\theta \le pi/2$ as in p141. As $\alpha \ge \pi/2$ a lot of the profiles are similar to p141. Specifically, the first three profiles are always the same as the first three profiles of p141. This is because when an animal is moving towards the sensor, the $\alpha \ge \pi$ call is no different to a $2\pi$ call. However, when approach the sensor from behind, things are slightly different.
+In the models in p24, the sensor has $\theta \le pi/2$ as in p141. As $\alpha \ge \pi/2$ a lot of the profiles are similar to p141. Specifically, the first three profiles are always the same as the first three profiles of p141. This is because when an animal is moving towards the sensor, the $\alpha \ge \pi$ call is no different to a $2\pi$ call. However, when approaching the sensor from behind, things are slightly different. The animal can only be detected by the sensor if it's call is wide enough that it can be detected once it has passed the sensor. 
 
+The second $x_3$ profile is always the same width as in p141. This is because there is no detection region to one side of the sensor so this side is unaffected by angle width, while the width of the other side of the profile is unaffected by $\alpha$ as when $\alpha>\pi$ the profile width will never be limited by $\alpha$. When $\alpha \le 2\pi + 2\theta$, the animal becomes undetectable during this profile when  $x_3$ has decreased in size to $\pi - \alpha/2$. This inequality marks the boundary between p243 and p242. 
+
+As the focal angle moves from $x_3$ to $x_2$  at $x_3=\theta$, we can see that if $\alpha \ge 2\pi + 2\theta$, then the $x_2$ region is reached before the animal become undetectable. When this second $x_2$ region is reached, the profile starts with width $r\cos(x_2 - \theta/2)$ as at the beginning of the $x_2$ profile as only animals approaching to the left of the sensor are detectable. The sensor is directly behind the right side of the profile.
+
+During this second $x_2$ profile the call angle needed for animals to be detected to the left of the detector is increasing while the angle needed for animals to be detected to the right of the detector is decreasing. Therefore, either the left side becomes undetectable, making both sides undetectable (this occurs if $\alpha \le 2\pi - \theta$ as in p242) or the right becomes detectable (if $\alpha \ge 2\pi - \theta$ as in p241), making both sides detectable and giving a profile width of $2r\sin(x_2)\sin(\theta/2)$.
 
 
 \subsection{p241} \label{p241}
+
+
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p241.tex}
 
