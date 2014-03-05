@@ -7,7 +7,7 @@
 \label{f:equalRegions}
 \end{figure}
 
-
+\begin{comment}
 \section{Contents}
 \begin{itemize}
         \item \ref{gas}: {\bf Gas model}
@@ -52,6 +52,8 @@
         \end{itemize}
 \end{itemize}
 
+\end{comment}
+
 Figure \ref{f:equalRegions} shows the different regions with the upper right being the gas model as derived above and p141 being the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($\alpha \le \pi, \pi \le \alpha < 2\pi$ and $\alpha = 2\pi$) and four columns $(\theta \le \pi/2,  \pi/2 \le \theta \le \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$.) Rows and columns define cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell.
 
 
@@ -78,7 +80,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
         \begin{subfigure}[t]{0.25\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.4]
-                \fullOne{0}{210}{0};
+                \fullOne{0}{210}{10};
                 \end{tikzpicture}
                 \caption{1st}
                 \label{f:tikz1}
@@ -288,11 +290,17 @@ During this second $x_2$ profile the call angle needed for animals to be detecte
 
 \subsection{p241} \label{p241}
 
+p241 is bounded by $\alpha \ge 2\pi - \theta$, $\alpha \le 2\pi$ and $\theta \le \pi/2$.
 
+It isn he same as p141 except that it includes the extra profile in $x_2$ (the fifth integral) where only the left side of the profile is counted.
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p241.tex}
 
 \subsection{p242} \label{p242}
+
+
+
+
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p242.tex}
 
 \subsection{p243} \label{p243}
