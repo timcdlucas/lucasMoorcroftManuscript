@@ -1,4 +1,4 @@
-\usepackage{ifthen}
+\usepackage{etoolbox}
 
 \def\r{4}
 \def\o{0.3}
@@ -14,42 +14,68 @@
 \tikzstyle{profile}=[ultra thick, red]
 
 
+
+\newlength{\x}
+\newlength{\y}
+
 \newcommand{\call}[1]{ % callAngle
         \fill[opacity=\o, red] (-{\r*sin(#1/2)}, \lwr) rectangle ({\r*sin(#1/2)}, \upr);       
 }
 
-
-
 \newcommand{\profileOne}[2]{ % sensor width, x1
-	\def\x{#2}
-	\def\y{#1}
-	\ifthenelse{\lengthtest{0.5\y pt < \x pt} \AND \lengthtest{\x pt < 360 pt - 2\y pt}}{
-                \pgfmathsetmacro{\leftProf}{max({\r*cos(#2 - #1/2)},{\r*cos(#2 + #1/2)})}
+
+	\setlength{\x}{#2 pt}
+	\setlength{\y}{#1 pt}
+	\ifboolexpr{%
+		test {\ifdimless{0.5\y}{\x}} 
+		and
+		test{\ifdimless{\x}{360 pt -0.5\y}} 
 	}{
-                \pgfmathsetmacro{\leftProf}{\r}
+		\pgfmathsetmacro{\leftProf}{max({\r*cos(#2 - #1/2)},{\r*cos(#2 + #1/2)})};
+	}{
+		\pgfmathsetmacro{\leftProf}{\r};
 	}
-	
-        \draw[profile]  (0,0)  -- (0:\leftProf)
-                        (0,0)  -- (180:\r)  ;	
-%	%\draw[profile] (0,0) ++ (\angRad,0) arc (0:-#2:\angRad);
-       \node[below right] at (0,0) {\leftProf}
+	\draw[profile]  (0,0)  -- (180:\leftProf)
+                        (0,0)  -- (0:\r);  
 }
 
+
+
 \newcommand{\sensorOne}[2]{ % sensorAngle, x1
-        \fill[opacity=\o, blue] (0, \lwr) rectangle ({\r}, \upr);       
+	\setlength{\x}{#2 pt}
+	\setlength{\y}{#1 pt}
+	\ifboolexpr{%
+		test {\ifdimless{0.5\y}{\x}} 
+		and
+		test{\ifdimless{\x}{360 pt -0.5\y}} 
+	}{
+		\pgfmathsetmacro{\leftProf}{max({\r*cos(#2 - #1/2)},{\r*cos(#2 + #1/2)})};
+	}{
+		\pgfmathsetmacro{\leftProf}{\r};
+	}
+        \fill[opacity=\o, blue] (-\leftProf, \lwr) rectangle ({\r}, \upr);       
 }
 
 \newcommand{\segmentOne}[2]{ % sensor width, x1
-	\draw[] (0,0) -- ++(90 + #1/2 - #2:\r)
-     	        (0,0) -- ++(90 - #1/2 - #2:\r);
-	\draw[] (0,0) ++(90 + #1/2 - #2:\r) arc (90 + #1/2 - #2:90 - #1/2 - #2:\r);
-	%\draw[] (0,0) ++(90 + #1 - #2:\r) -- (90 - #1 - #2:\r);
+	\draw[] (0,0) -- ++(180 + #1/2 - #2:\r)
+     	        (0,0) -- ++(180 - #1/2 - #2:\r);
+	\draw[] (0,0) ++(180 + #1/2 - #2:\r) arc (180 + #1/2 - #2:180 - #1/2 - #2:\r);
 }
 
 \newcommand{\directionArrowOne}[3]{ % callAngle, sensorAngle, x1
-        \pgfmathsetmacro{\leftPoi}{min({-\r*sin(#1/2)},0)}
+	\setlength{\x}{#3 pt}
+	\setlength{\y}{#2 pt}
+	\ifboolexpr{%
+		test {\ifdimless{0.5\y}{\x}} 
+		and
+		test{\ifdimless{\x}{360 pt - 0.5\y}} 
+	}{
+		\pgfmathsetmacro{\leftPoi}{max({\r*cos(#3 - #2/2)},{\r*cos(#3 + #2/2)})};
+	}{
+		\pgfmathsetmacro{\leftPoi}{\r};
+	}
         \pgfmathsetmacro{\rightPoi}{max({\r*sin(#1/2)},{\r)})}
-        \fill[ arrowCol ] (\leftPoi, \lwr-\gap) -- (\rightPoi, \lwr-\gap) -- ({(\leftPoi+\rightPoi)/2},\lwr-\gap - \arrowSz) -- cycle;
+        \fill[ arrowCol ] (-\leftPoi, \lwr-\gap) -- (\rightPoi, \lwr-\gap) -- ({(-\leftPoi+\rightPoi)/2},\lwr-\gap - \arrowSz) -- cycle;
 
 }
 
