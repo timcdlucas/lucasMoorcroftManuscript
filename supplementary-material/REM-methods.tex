@@ -79,8 +79,8 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
         \centering
         \begin{subfigure}[t]{0.25\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.4]
-                \fullOne{0}{210}{10};
+                \begin{tikzpicture}[scale=0.45]
+                \fullOne{0}{300}{120};
                 \end{tikzpicture}
                 \caption{1st}
                 \label{f:tikz1}
@@ -88,7 +88,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
         ~ 
         \begin{subfigure}[t]{0.25\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.4]
+                \begin{tikzpicture}[scale=0.45]
                 \fullTwo{0}{60}{70};
                 \end{tikzpicture}
                 \caption{$x_2$}
@@ -97,7 +97,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
         ~ 
 	\begin{subfigure}[t]{0.25\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.4]
+                \begin{tikzpicture}[scale=0.45]
                 \fullThree{0}{60}{70};
                 \end{tikzpicture}
                 \caption{$x_3$}
@@ -106,7 +106,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
 	~
 	\begin{subfigure}[t]{0.25\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.4]
+                \begin{tikzpicture}[scale=0.45]
                 \fullFour{0}{60}{50};
                 \end{tikzpicture}
                 \caption{$x_4$}
@@ -115,6 +115,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
 \caption{The location of the focal angles $x_{i\in[1,4]}$.}
 \label{f:xis}
 \end{figure}
+
 
 
 \section{p311} \label{p311}
@@ -281,7 +282,7 @@ Starting with an approach direction of directly towards the sensor, and examinin
 
 In the models in p24, the sensor has $\theta \le pi/2$ as in p141. As $\alpha \ge \pi/2$ a lot of the profiles are similar to p141. Specifically, the first three profiles are always the same as the first three profiles of p141. This is because when an animal is moving towards the sensor, the $\alpha \ge \pi$ call is no different to a $2\pi$ call. However, when approaching the sensor from behind, things are slightly different. The animal can only be detected by the sensor if it's call is wide enough that it can be detected once it has passed the sensor. 
 
-The second $x_3$ profile is always the same width as in p141. This is because there is no detection region to one side of the sensor so this side is unaffected by angle width, while the width of the other side of the profile is unaffected by $\alpha$ as when $\alpha>\pi$ the profile width will never be limited by $\alpha$. When $\alpha \le 2\pi + 2\theta$, the animal becomes undetectable during this profile when  $x_3$ has decreased in size to $\pi - \alpha/2$. This inequality marks the boundary between p243 and p242. 
+The second $x_3$ profile is always the same width as in p141. This is because there is no detection region to one side of the sensor so this side is unaffected by call width, while the width of the other side of the profile is unaffected by $\alpha$ as when $\alpha>\pi$ the profile width will never be limited by $\alpha$. When $\alpha \le 2\pi + 2\theta$, the animal becomes undetectable during this profile when  $x_3$ has decreased in size to $\pi - \alpha/2$. This inequality marks the boundary between p243 and p242. 
 
 As the focal angle moves from $x_3$ to $x_2$  at $x_3=\theta$, we can see that if $\alpha \ge 2\pi + 2\theta$, then the $x_2$ region is reached before the animal become undetectable. When this second $x_2$ region is reached, the profile starts with width $r\cos(x_2 - \theta/2)$ as at the beginning of the $x_2$ profile as only animals approaching to the left of the sensor are detectable. The sensor is directly behind the right side of the profile.
 
@@ -292,18 +293,25 @@ During this second $x_2$ profile the call angle needed for animals to be detecte
 
 p241 is bounded by $\alpha \ge 2\pi - \theta$, $\alpha \le 2\pi$ and $\theta \le \pi/2$.
 
-It isn he same as p141 except that it includes the extra profile in $x_2$ (the fifth integral) where only the left side of the profile is counted.
+It is the same as p141 except that it includes the extra profile in $x_2$ (the fifth integral) where only animals approaching to the left of the profile are detected.
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p241.tex}
 
 \subsection{p242} \label{p242}
 
+p242 is bounded by $\alpha \le 2\pi - \theta$, $\alpha \ge 2\pi + 2\theta$ and $\theta \le \pi/2$
 
-
+p242 is the same p241 except that as $\alpha \le 2\pi - \theta$, animals that approach from directly behind the detector are not detected. Therefore at $x_2 = \alpha/2 + \theta/2 - \pi/2$ the profile width goes to zero and therefore the last integral in p241 is not included.
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p242.tex}
 
+
+
 \subsection{p243} \label{p243}
+
+p243 is bounded by $\alpha \ge 2\pi + 2\theta$, \alpha \ge \pi$ and $\theta \ge 0$.
+
+It is similar to p242 but doesn't include the last integral as during the $x_3$ profile, at $x_3 = \pi - \alpha/2$ the call width is too small for any animals to be detected, so the profile width goes to zero.
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p243.tex}
 
@@ -316,15 +324,43 @@ It isn he same as p141 except that it includes the extra profile in $x_2$ (the f
 
 \subsection{p341} \label{p341}
 
+p341 is bounded by $\alpha \le \theta$, $\alpha \ge \pi - 2\theta$ and $\theta \le \pi/2$
+
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p341.tex}
 
 \subsection{p342} \label{p342}
+
+p342 is the only model with a tetrahedral bounding region. It is bounded by $\alpha \ge \theta$, $\alpha \ge \pi - 2\theta$, $\alpha \le 2\theta$ and $\theta \le \pi/2$
 
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p342.tex}
 
 \subsection{p343} \label{p343}
 
+p343 is bounded by $\alpha \ge \pi - 2\theta$,  $\alpha \ge 2\theta$ and $\alpha \le \pi$
+
 \input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p343.tex}
+
+
+\subsection{p344} \label{p344}
+
+p344 is bounded by $\alpha \le \pi - 2\theta$, $\alpha \le \theta$ and $\alpha < 0$. 
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p344.tex}
+
+\subsection{p345} \label{p345}
+
+p345 is bounded by $\alpha \le \pi - 2\theta$, $\alpha \ge \theta$ and $alpha \le 2\theta$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p345.tex}
+
+
+\subsection{p346} \label{p346}
+
+Finally, p346, the last model, is bounded by y $\alpha \le \pi - 2\theta$, $alpha \ge 2\theta$ and $\theta \ge 0$.
+
+\input{/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/p346.tex}
+
+
 
 
 
