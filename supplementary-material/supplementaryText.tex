@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt,reqno,oneside]{amsart}
-\usepackage{caption}
+\usepackage[small]{caption}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, tikz}
@@ -11,10 +11,15 @@
 \def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
 \makeatother
 
+\renewcommand\thefigure{S\arabic{figure}} 
+\renewcommand\thetable{S\arabic{table}}       
 
+\setcounter{tocdepth}{1}
 
 %\linenumbers
 %\doublespacing
+
+\setcounter{totalnumber}{1}
 
 \usepackage[sort&compress,comma]{natbib}
 
@@ -34,7 +39,7 @@
 
 \begin{document}
 
-\title{Supplementary text: A generalisation of ideal gas models for camera traps and acoustic sensors}
+\title[Supp. Text: Gas models.]{Supplementary text: A generalisation of ideal gas models for camera traps and acoustic sensors}
 \maketitle
 
 \tableofcontents
