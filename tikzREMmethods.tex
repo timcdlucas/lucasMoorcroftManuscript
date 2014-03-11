@@ -120,8 +120,8 @@
 }
 
 \newcommand{\directionArrowTwo}[3]{ % callAngle, sensorAngle, x2
-        \pgfmathsetmacro{\leftPoi}{min({-\r*sin(#1/2)},{\r*cos(#2/2 + #3)})}
-        \pgfmathsetmacro{\rightPoi}{max({\r*sin(#1/2)},{\r*cos(#3 - #2/2)})}
+        \pgfmathsetmacro{\leftPoi}{min({\r*cos(#2/2 + #3)})}
+        \pgfmathsetmacro{\rightPoi}{max({\r*cos(#3 - #2/2)})}
         \fill[ arrowCol ] (\leftPoi, \lwr-\gap) -- (\rightPoi, \lwr-\gap) -- ({(\leftPoi+\rightPoi)/2},\lwr-\gap - \arrowSz) -- cycle;
 
 }
@@ -157,8 +157,27 @@
 
 
 
-\newcommand{\profileFour}{ % sensor width, x4
-        \draw[profile] (0,0)  -- ++(0:\r) ;
+\newcommand{\profileFour}[2]{ % sensor width, x4
+	\setlength{\y}{#1 pt}
+	\setlength{\x}{#2 pt}
+	\ifboolexpr{%
+		test {\ifdimgreater{\y}{90 pt}} 
+		and
+		test{\ifdimless{\x}{\y-90 pt}}  
+	}{
+		\pgfmathsetmacro{\leftPoi}{{\r*cos(#1-#2)}};
+	}{
+		\ifboolexpr{%
+			test {\ifdimgreater{\y}{90 pt}} 
+			and
+			test{\ifdimgreater{\x}{90 pt}}
+			}{
+				\pgfmathsetmacro{\leftPoi}{{\r*cos(#2)}}; 
+			}{ 		
+				\pgfmathsetmacro{\leftPoi}{0};
+			}
+	}
+        \draw[profile] (\leftPoi,0)  -- (0:\r) ;
 }
 
 \newcommand{\angleFour}[2]{
@@ -197,7 +216,25 @@
 }
 
 \newcommand{\directionArrowFour}[3]{ % callAngle, sensorAngle, x4
-        \pgfmathsetmacro{\leftPoi}{min({-\r*sin(#1/2)},0)}
+\setlength{\y}{#2 pt}
+	\setlength{\x}{#3 pt}
+	\ifboolexpr{%
+		test {\ifdimgreater{\y}{90 pt}} 
+		and
+		test{\ifdimless{\x}{\y-90 pt}}  
+	}{
+		\pgfmathsetmacro{\leftPoi}{{\r*cos(#2-#3)}};
+	}{
+		\ifboolexpr{%
+			test {\ifdimgreater{\y}{90 pt}} 
+			and
+			test{\ifdimgreater{\x}{90 pt}}
+			}{
+				\pgfmathsetmacro{\leftPoi}{{\r*cos(#3)}}; 
+			}{ 		
+				\pgfmathsetmacro{\leftPoi}{0};
+			}
+	}
         \pgfmathsetmacro{\rightPoi}{max({\r*sin(#1/2)},{\r)})}
         \fill[ arrowCol ] (\leftPoi, \lwr-\gap) -- (\rightPoi, \lwr-\gap) -- ({(\leftPoi+\rightPoi)/2},\lwr-\gap - \arrowSz) -- cycle;
 
