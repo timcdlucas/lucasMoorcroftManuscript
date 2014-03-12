@@ -149,15 +149,70 @@ In this study we created a general model, as an extension to the camera trap mod
 
 \subsection{Analytical Model}
 
-Due to the nature of the problem, we find there are many discontinuously different models that need to be derived seperately (see Figure~\ref{f:regions}. In this section we show the derivation for the simple gas model and outline the general process for deriving other models by working through one example. However, as the derivation of the many different models is long, it is included in the supplementary material S2 with computer algebra scripts in S3.
+
+
+\begin{table}[t]
+\centering
+\begin{tabular}{lll}
+Symbol 	& Description & Units\\\hline
+$v$		& Velocity & \SI{}{\meter\per\second}\\
+$\theta$	& Angle of detection & Radians \\
+$\alpha$	& Animal call/beam width & Radians \\
+$r$ 		& Detection distance & Metres\\
+$p$ 		& Average profile width & Metres\\
+$t$		& Time & Seconds\\
+$z$		& Number of dections & \\
+$D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
+$x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& Radians\\
+$T$ 		& Step length & Seconds\\
+$N$ 		& Number of steps per simulation & \\
+$d$ 		& Time step index &
+
+\end{tabular}
+\caption{List of symbols used}
+\label{t:paras}
+\end{table}
+
+
+
+Due to the nature of the problem, we find there are many discontinuously different models that need to be derived seperately (see Figure~\ref{f:regions}. In this section we show the derivation for the simple gas model and outline the general process for deriving other models by working through one example. 
 
 Our derivations follow the model presented by \citep{rowcliffe2008estimating}. This model is derived assuming a sensor with a viewing angle less than $\pi/2$ radians and so the sensor is modeled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$ (see Table~\ref{t:paras} for a list of symbols.) We call this segment the sensor region. Furthermore, as they modeled a camera trap, an animal can be detected from any direction as long as it is within the segment shaped sensor region. We however want to relax this assumption to allow for acoustically detected animals with directional calls. We therefore model the animal as having an associated call angle $\alpha$. In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. 
 
 
 
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{imgs/equalRegions.pdf}
+\caption{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that cell (black lines). The models for $\alpha = 2\pi$ or $\theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
+\label{f:regions}
+\end{figure}
+
+
 \subsubsection{Gas Model}
 
 We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and $ \theta =  2\pi$. We assume that animals are in an homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our stationary sensor can detect animals at a distance $r$ and that if an animal moves within this detection region they are detected with a probability of one, independent of distance from the sensor, while animals outside the region are never detected.
+
+We then consider relative velocity from the reference frame of the animals so that now, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is
+\begin{equation}
+	z = 2rvtD.
+\end{equation}
+However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this by simply rearranging to get
+\begin{equation}
+	D = z/2rvt.
+\end{equation}
+For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter the profile $p$, the rest of the derivation is just calculating this value for all values of $\theta$ and $\alpha$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. We find that despite their independant derivation, many of the models end up with the same result as seen in Figure~\ref{f:equalModelResults}.
+
+
+Figure~\ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \cite{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi,\; \pi \le \alpha < 2\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,\;  \pi/2 \le \theta \le  \pi,\;  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
+
+For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
+
+\subsubsection{Example derivation}
+
+To work through one example that contains both $\theta$ and $\alpha$ we will examine p321. All other derivations are included in S1 with computer algebra scripts in S2. 
+
+We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). \cite{rowcliffe2008estimating} use the notation $\gamma_i$ with different numbering.
 
 \begin{figure}[t]
         \centering
@@ -199,33 +254,6 @@ We can easily derive the gas model which is the case where $ \alpha =  2\pi$ and
 \caption{The location of the focal angles $x_{i\in[1,4]}$. In these figures, the segment shaped detection region is shown in black. The width of this region is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow.}
 \label{f:xis}
 \end{figure}
-We then consider relative velocity from the reference frame of the animals so that now, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is
-\begin{equation}
-	z = 2rvtD.
-\end{equation}
-However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this by simply rearranging to get
-\begin{equation}
-	D = z/2rvt.
-\end{equation}
-For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter the profile $p$, the rest of the derivation is just calculating this value for all values of $\theta$ and $\alpha$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. We find that despite their independant derivation, many of the models end up with the same result as seen in Figure~\ref{f:equalModelResults}.
-
-
-Figure~\ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \cite{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi,\; \pi \le \alpha < 2\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,\;  \pi/2 \le \theta \le  \pi,\;  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
-
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth]{imgs/equalRegions.pdf}
-\caption{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that cell (black lines). The models for $\alpha = 2\pi$ or $\theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
-\label{f:regions}
-\end{figure}
-
-For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
-
-\subsubsection{Example derivation}
-
-To work through one example that contains both $\theta$ and $\alpha$ we will examine p321. All other derivations are included in S2. We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). \cite{rowcliffe2008estimating} use the notation $\gamma_i$ with different numbering.
-
 We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(\alpha/2)$. At $x_1  = \theta/2 + \pi/2 - \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) is not limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
 
 \begin{align}
@@ -241,10 +269,10 @@ We can also see what causes this model to be discontinuously different to p322. 
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. 
 
-The models are checked for errors with a number of tests. They are checked against each other by checking that models that are adjacent in parameter space are equal at the boundary between them (e.g. eqn~\ref{e:p321} is equal to 2r as in the gas model when $\alpha=\pi$ and $\theta=2\pi$). Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for (e.g. eqn~\ref{e:p321} is zero when $\alpha=0$ and $\theta=2\pi$). We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S3.
+The models are checked for errors with a number of tests. They are checked against each other by checking that models that are adjacent in parameter space are equal at the boundary between them (e.g. eqn~\ref{e:p321} is equal to 2r as in the gas model when $\alpha=\pi$ and $\theta=2\pi$). Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for (e.g. eqn~\ref{e:p321} is zero when $\alpha=0$ and $\theta=2\pi$). We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S2.
 
 
-To make the application of these models simple, we have included an R script in S1. 
+To make the application of these models simple, we have included an R script in S3. 
 
 \subsection{Simulation Methods}
 
@@ -325,6 +353,25 @@ p344: $\alpha$= 0.3491; $\theta$=0.2856.
 \label{f:ModelBias}
 \end{figure}
 
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/ResultsTimeSubsample.pdf}
+                \caption{Time}
+                \label{f:Time}
+        \end{subfigure}
+        ~ 
+        \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/ResultsDensitySubsample.pdf}
+                \caption{Density}
+                \label{f:Density}
+        \end{subfigure}
+	\caption{Discrepency between known simulation density and estimated density with increasing survey time (A) and animal density (B) with 95\% confidence intervals. As survey time or animal density increases, precision of the estimate increases. However, the accuracy, or systematic bias, appears to be zero.}
+	\label{}
+\end{figure}
+
 \begin{itemize}
 %\item Bias is approximately zero for all models as demonstrated by simulation: 
 %	\begin{itemize}
@@ -395,30 +442,6 @@ An interesting, and so far untackled problem, is edge effects caused by trigger 
 
 %\section{Data Accessibility}
 
-
-
-
-\begin{table}[t]
-\centering
-\begin{tabular}{lll}
-Symbol 	& Description & Units\\\hline
-$v$		& Velocity & \SI{}{\meter\per\second}\\
-$\theta$	& Angle of detection & Radians \\
-$\alpha$	& Animal call/beam width & Radians \\
-$r$ 		& Detection distance & Metres\\
-$p$ 		& Average profile width & Metres\\
-$t$		& Time & Seconds\\
-$z$		& Number of dections & \\
-$D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
-$x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& Radians\\
-$T$ 		& Step length & Seconds\\
-$N$ 		& Number of steps per simulation & \\
-$d$ 		& Time step index &
-
-\end{tabular}
-\caption{List of symbols used}
-\label{t:paras}
-\end{table}
 
 
 
