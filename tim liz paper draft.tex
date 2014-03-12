@@ -75,7 +75,6 @@ WC1E 6BT, \\
 UK\\
 e.moorcroft@ucl.ac.uk\\
 
-
 \clearpage
 
 
@@ -276,23 +275,19 @@ To make the application of these models simple, we have included an R script in 
 
 \subsection{Simulation Methods}
 
-% @liz: Why is it 56.25km^2? 
-
 The simulated world consists of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square and is populated with a density of  \SI{70}{\animals\per\kilo\meter\squared} \citep{damuth1981population}, creating a total of 3937 animals per simulation randomly placed at the start of the simulation. To reduce computation effort, simulations were run at  \SI{70}{\animals\per\kilo\meter\squared} and then subsampled to achieve lower densities.
 
 The animals move with a simple movement model. The animals moves in discrete time steps but movement is assumed to be continuous. There is no directional change at the end each step. The simulation lasts for $N$ steps of length $T$ during which the animals move with an average constant speed, $v$. 
 
-% @liz. Any reason to wrap stuff in mathnormal? Not sure it's needed. 
-% Also the style guide (which I've copied into README.md) says use km^-1 rather than /km so I've put that in.
-% Also, not sure it's the best plan but I've switched to units using the siunitx package. This seems the most consistent and will be easiest to change everything consistently if need be.
-% changed t to T as t is used above.
-
-The distance travelled in each time step, $\mathnormal{d}$, is a random distance picked from Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds. In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. The total sampling time that the simulation generates, and density population have been subsampled from the original run. Additional simulations have been run to simulate a range of speeds, between \SI{10}{\meter\per\day} through to \SI{40}{\kilo\meter\per\day} to look at full range of terrestrial movement speeds \citep{carbone2005far}.
+The distance travelled in each time step, $d$, is a random distance picked from Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds. In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. The total sampling time that the simulation generates, and density population have been subsampled from the original run. Additional simulations have been run to simulate a range of speeds, between \SI{10}{\meter\per\day} through to \SI{40}{\kilo\meter\per\day} to look at full range of terrestrial movement speeds \citep{carbone2005far}.
   
 Additional simulations were also run for more complex movement models, such as, correlated random walks, and stationary, or perching, time steps whilst keeping the same longterm average speed. Further simulations were run to identify the sensitivity of the sensor to changes in the radius and width of the detection angle.
 
 The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true, and estimated, densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
 
+Four models, p141 (REM model), p343, p221, and p322, have been selected to demonstrate how the precision and accuracy varying with model inputs. Such as average distance travelled per animal during the survey time, density of the animal, sensor radius, tortuosity of movement, and proportion of time spent stationary. 
+
+To be able to produce guidelines for best practise we need to identify the point where the standard deviation of the percentage error falls below an acceptable value. We have chosen this point to be the standard deviation less than five, in real terms this can be equated to saying that at this point if you were to same the same area multiple times 95\% of the density estimates would be within $\pm10\%$ of the true density. 
 
 
 \section{Results}
@@ -301,6 +296,7 @@ The simulation of movement outputs the details of each individual capture events
 
 Model results have been derived for each region in Figure~\ref{f:regions} with all models except the gas model and p141 being newly derived here. However, many models, although derived seperately, have the same expression for $p$. Figure~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct model for $p$ is then
 \begin{equation}
+\label{e:D}
 	D = z/pvt.
 \end{equation}
 
@@ -315,51 +311,67 @@ Although more thorough checks are performed in S3, it can be seen that all adjac
 
 
 
+
 \subsection{Simulation results}
 
-A hundred simulations were completed for each of the model derivations, with a density of   \SI{70}{\animals\per\kilo\meter\squared}, for \SI{150}{\day} of simulated time, straight-line movement at a speed of \SI{40}{\kilo\meter\per\day} and a sensor with \SI{100}{\meter} radius. None of the estimated densities produced showed significant deviation from the true density in the simulation, Figure~\ref{f:ModelBias}.
+A hundred simulations were completed for each of the model derivations, with a density of   \SI{70}{\animals\per\kilo\meter\squared}, for \SI{150}{\day} of simulated time, straight-line movement at a speed of \SI{40}{\kilo\meter\per\day} and a sensor with \SI{100}{\meter} radius. None of the estimated densities produced showed significant deviation from the true density in the simulation, Figure~\ref{f:ModelBias}. The precision of the models so differ however with the standard deviation of the error being strongly related to the angles of the call and the width of the sensor, Figure~\ref{f:StandardDevaition}.
+
 \begin{figure}
-\centering
-\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
-\caption{The average density estimation bias generated by the simulation per model derivation, shown with 95\% confidence intervals. Simulation settings were: $r = $\SI{100}{\meter}; $t = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models.}
-\begin{comment} 
-p344: $\alpha$= 0.3491; $\theta$=0.2856.  
- p345: $\alpha$= 0.3491; $\theta$=0.5712.
- p346: $\alpha$= 0.3491; $\theta$=0.8568.
- p244: $\alpha$= 0.3491; $\theta$=1.4280.
- p242: $\alpha$= 0.3491; $\theta$=1.7136.
- p241: $\alpha$= 0.3491; $\theta$=2.5704.
- p141: $\alpha$= 0.3491; $\theta$=3.1416.
- p341: $\alpha$= 0.6981; $\theta$=0.2856. 
- p342: $\alpha$= 0.6981; $\theta$=0.8568.
- p333: $\alpha$= 1.0472; $\theta$=0.2856.      
- p332: $\alpha$= 1.0472; $\theta$=0.8568.
- p331: $\alpha$= 1.0472; $\theta$=1.4280.
- p233: $\alpha$= 1.0472; $\theta$=1.7136.
- p232: $\alpha$= 1.0472; $\theta$=2.5704.
- p231: $\alpha$= 1.0472; $\theta$=2.8560.
- p131: $\alpha$= 1.0472; $\theta$=3.1416.
- p323: $\alpha$= 1.7453; $\theta$=0.2856.  
- p322: $\alpha$= 1.7453; $\theta$=1.4280.
- p223: $\alpha$= 1.7453; $\theta$=1.7136.       
- p321: $\alpha$= 2.7925; $\theta$=1.4280.         
- p222: $\alpha$= 2.7925; $\theta$=1.7136. 
- p221: $\alpha$= 2.7925; $\theta$=2.8560.       
- p311: $\alpha$= 3.1416; $\theta$=0.2856.  
- Gas: $\alpha$= 3.1416; $\theta$=2.8560.  
-                                     
-    }
-\end{comment}
-\label{f:ModelBias}
+	\centering
+	\begin{subfigure}[t]{0.5\textwidth}
+	\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
+	\caption{Bias}
+	\label{f:ModelBias}
+	\end{subfigure}
+	~
+	\begin{subfigure}[t]{0.5\textwidth}
+		\includegraphics[width=1\textwidth]{imgs/ResultStandardDeviation.pdf}
+		\caption{Standard deviation}
+		\label{f:StandardDevaition}
+	\end{subfigure}
+	\caption{Percentage error and standard deviation of analytical model calculated from the simulation when settings are: $r = $\SI{100}{\meter}; $t = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. (A) The average percentage error generated by the simulation per model derivation, shown with 95\% confidence intervals. (B) The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ }
+	\begin{comment} 
+	p344: $\alpha$= 0.3491; $\theta$=0.2856.  
+	 p345: $\alpha$= 0.3491; $\theta$=0.5712.
+	 p346: $\alpha$= 0.3491; $\theta$=0.8568.
+	 p244: $\alpha$= 0.3491; $\theta$=1.4280.
+	 p242: $\alpha$= 0.3491; $\theta$=1.7136.
+	 p241: $\alpha$= 0.3491; $\theta$=2.5704.
+	 p141: $\alpha$= 0.3491; $\theta$=3.1416.
+	 p341: $\alpha$= 0.6981; $\theta$=0.2856. 
+	 p342: $\alpha$= 0.6981; $\theta$=0.8568.
+	 p333: $\alpha$= 1.0472; $\theta$=0.2856.      
+	 p332: $\alpha$= 1.0472; $\theta$=0.8568.
+	 p331: $\alpha$= 1.0472; $\theta$=1.4280.
+	 p233: $\alpha$= 1.0472; $\theta$=1.7136.
+	 p232: $\alpha$= 1.0472; $\theta$=2.5704.
+	 p231: $\alpha$= 1.0472; $\theta$=2.8560.
+ 	p131: $\alpha$= 1.0472; $\theta$=3.1416.
+ 	p323: $\alpha$= 1.7453; $\theta$=0.2856.  
+ 	p322: $\alpha$= 1.7453; $\theta$=1.4280.
+ 	p223: $\alpha$= 1.7453; $\theta$=1.7136.       
+ 	p321: $\alpha$= 2.7925; $\theta$=1.4280.         
+ 	p222: $\alpha$= 2.7925; $\theta$=1.7136. 
+ 	p221: $\alpha$= 2.7925; $\theta$=2.8560.       
+ 	p311: $\alpha$= 3.1416; $\theta$=0.2856.  
+ 	Gas: $\alpha$= 3.1416; $\theta$=2.8560.                                      
+	\end{comment}
 \end{figure}
+
+
+The appropriate length of the survey is closely linked with the average speed of the animal, \ref{e:D}, rather than looking at the two variables separately they can be studied together as the average distance moved by the animal within the duration of the survey. For all distances there is no significant deviation from the true value, and as the average distance moved during the survey increases the precision of the estimator increases, Figure~\ref{f:Distance}. The standard deviation for the error falls below five when the average distance moved per animal is greater than 40km, 55km, 25km and 25km for models p14, p343, p221, and p322 respectively. 
+
+
+The density of the population also affects the precision of the estimates with the larger population densities being associated with greater precision. 
+
 
 \begin{figure}[t]
         \centering
         \begin{subfigure}[t]{0.5\textwidth}
                 \centering
-		\includegraphics[width=1\textwidth]{imgs/ResultsTimeSubsample.pdf}
-                \caption{Time}
-                \label{f:Time}
+		\includegraphics[width=1\textwidth]{imgs/ResultsDistance.pdf}
+                \caption{Distance}
+                \label{f:Distance}
         \end{subfigure}
         ~ 
         \begin{subfigure}[t]{0.5\textwidth}
@@ -368,7 +380,7 @@ p344: $\alpha$= 0.3491; $\theta$=0.2856.
                 \caption{Density}
                 \label{f:Density}
         \end{subfigure}
-	\caption{Discrepency between known simulation density and estimated density with increasing survey time (A) and animal density (B) with 95\% confidence intervals. As survey time or animal density increases, precision of the estimate increases. However, the accuracy, or systematic bias, appears to be zero.}
+	\caption{Discrepency between known simulation density and estimated density with increasing animal movement (A) and animal density (B) with 95\% confidence intervals. As distance moved or animal density increases, precision of the estimate increases. However, the accuracy, or systematic bias, appears to be zero.}
 	\label{}
 \end{figure}
 
