@@ -276,7 +276,7 @@ To make the application of these models simple, we have included an R script in 
 
 \subsection{Simulation Methods}
 
-The simulated world consists of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square and is populated with a density of  \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild\citep{damuth1981population}, creating a total of 3937 animals per simulation randomly placed at the start of the simulation. 
+The simulated world consists of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square and is populated with a density of  \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild \citep{damuth1981population}, creating a total of 3937 animals per simulation randomly placed at the start of the simulation. 
 
 The animals move with a simple movement model, characterised by a random continuous displacement for each discrete time step. The directional change at the end each step can be randomly picked from a uniform distribution with a given maximum amplitude, with the basic simulation has no directional change between steps. The simulation lasts for $N$ steps of length $T$ during which the animals move with an average constant speed, $v$. The distance travelled in each time step, $d$, is a random distance picked from Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
 
@@ -358,10 +358,10 @@ A hundred simulations were completed for each of the model derivations, with a d
 \end{figure}
 
 
-The average distance travelled by an animal within the survey has no significant impact on the accuracy of the model, but the precision of the estimator will increase with the distance travelled by the animal, Figure~\ref{f:Distance}. The precision of the model falls below the benchmark when the animals on average move less than 40km, 55km, 25km and 25km for models p141, p343, p221, and p322 respectively. 
+A useful metric for survey effort is the expected distance travelled by an animal during the entire survey or $vt$. The average distance travelled by an animal within the survey has no significant impact on the accuracy of the model, but the precision of the estimator will increase with distance travelled, Figure~\ref{f:Distance}. If we set a benchmark precision of 5\% (that is, 95\% of estimates will be within 10\% of the true value) the precision of the model falls below the benchmark when the animals on average move less than 40km, 55km, 25km and 25km for models p141, p343, p221, and p322 respectively. 
 
 
-The density of the population also affects the precision of the estimates with the larger population densities being associated with greater precision, however there was no observed affect of the accuracy of the models, Figure~\ref{f:Density}. 
+The density of the population also affects the precision of the estimates with the larger population densities being associated with greater precision, however there was no observed affect on the accuracy of the models, Figure~\ref{f:Density}. 
 %The density of the populations becomes a limiting factor for the precision of the model if it falls below %VALUE NOT CALCULATED YET% . 
 
 
