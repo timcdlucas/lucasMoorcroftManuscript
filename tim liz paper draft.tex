@@ -36,10 +36,10 @@
 \begin{document}
 
 
-\title{A generalisation of ideal gas models for camera traps and acoustic sensors}
+\title[Estimating abundance using camera traps and acoustic sensors]{Ideal gas models for estimating abundance using camera trap and acoustic sensor count data}
 \maketitle
 
-\subsection*{ Running title: REM models for camera traps or acoustic sensors}
+\subsection*{ Running title: Estimating abundance using camera traps and acoustic sensors}
 
 \subsection*{ Word count:}
 
@@ -49,7 +49,7 @@ Tim C.D. Lucas\textsuperscript{1,2,3*}, Elizabeth Moorcroft\textsuperscript{1,4,
 
 \subsection*{ Addresses:\\}
 1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
-2 Department of Genetics, Environment and Evolution, UCL, Gower Street, London, WC1E 6BT, UK\\ 
+2 Centre for Biodiversity and Environment Research within Genetics, Evolution and Environment, UCL, Gower Street, London, WC1E 6BT, UK\\ 
 3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
 4 Department of Computer Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
 5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK
@@ -75,15 +75,24 @@ WC1E 6BT, \\
 UK\\
 e.moorcroft@ucl.ac.uk\\
 
+Kate E. Jones,\\
+CBER,\\
+University College London,\\
+Gower Street,\\
+London,\\
+WC1E 6BT, \\
+UK\\
+kate.e.jones@ucl.ac.uk\\
+
 \clearpage
 
 
 %max word count 250 words. 
 
 \section{Abstract}
-\subsection*{Point 1:} Camera traps and acoustic detectors are becoming common in ecology as they become cheaper and more practical for broad scale ecological studies. However, their usefulness is currently limited by a lack of methods to estimate absolute population densities; current methods often require individual identification or an estimate of the distance between animal and sensor.
+\subsection*{Point 1:} Camera traps and acoustic detectors are becoming a common tool in ecology for monitoring animal populations. As they become cheaper and more practical they are increasingly useful for monitoring animal populations across broad spatial, temporal or taxonomic scales. However, their usefulness is currently limited by a lack of methods to estimate absolute population densities. Current methods often require individual identification or an estimate of the distance between animal and sensor. Another approach, `gas models', have so far been extended for a restricted set of camera traps and are still unsuitable acoustically detected animals with directional calls. 
 
-\subsection*{Point 2:} We have generalised the `ideal gas' model to account for camera traps and acoustic detectors with animals whose acoustic calls are directional. The models are validated using spatially explicit simulations. 
+\subsection*{Point 2:} We have generalised the `ideal gas' model. so that data collected with any camera trap and acoustic detectors with animals whose acoustic calls are directional. The models are validated using spatially explicit simulations. 
 
 \subsection*{Point 3:} The resultant models are suitable for any combination of sensor width and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases with effective survey effort. The estimate remains unbiased under a range of assumptions about animal movement. 
 
@@ -280,11 +289,14 @@ The simulated world consists of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter
 
 The animals move with a simple movement model, characterised by a random continuous displacement for each discrete time step. The directional change at the end each step can be randomly picked from a uniform distribution with a given maximum amplitude, with the basic simulation has no directional change between steps. The simulation lasts for $N$ steps of length $T$ during which the animals move with an average constant speed, $v$. The distance travelled in each time step, $d$, is a random distance picked from Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
 
-The simulation of movement outputs the details of each individual capture events, including the angle of front of the animal to the sensor, from which the number of capture event can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true and estimated densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
+The simulation of movement outputs the details of each individual capture event, including the angle of front of the animal to the sensor, from which the number of capture events can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true and estimated densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
 
-In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulation have been subsampled, and rerun with different movement parameters. To reduce computation effort, simulations at a maximum density then subsampled to achieve lower densities,  similarly the average distance travelled by the animal in the during the survey period. From the gas model it is possible to see that an appropriate length of the survey is closely linked with the average speed of the animal, \ref{e:gas}, rather than looking at the two variables separately they can be studied together as the average distance moved by the animal within the duration of the survey. Additional simulations were also run for more complex movement models, such as, correlated random walks, and where a proportion of time is spend stationary. Further simulations were also run to identify the sensitivity of the sensor to changes in the radius.
+% I edited this, but need to check it's correct. The survey length is subsampled rather than the average distance travelled?
+In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulations have been subsampled, and rerun with different movement parameters. To reduce computation effort, simulations are run at a maximum density then subsampled to achieve lower densities. Similarly the length of the survey period is subsampled. From the gas model it is possible to see that the number of captures is proportional to the length of the survey and the speed of the animal population, \ref{e:gas}. An appropriate length of time to survey is closely linked to the number of captures. Rather than looking at the animal speed and survey time separately they can be studied together as the average distance moved by the animal within the duration of the survey. 
 
-To be able to produce guidelines for best practise we need to identify the point where the standard deviation of the percentage error falls below an acceptable value. We have chosen this point to be the standard deviation less than five, in real terms this can be equated to saying that at this point if you were to same the same area multiple times approximately 95\% of the density estimates would be within $\pm10\%$ of the true density, assuming normality. 
+Additional simulations were also run for more complex movement models, such as, correlated random walks, and a model where a proportion of time is spent stationary. Further simulations were also run to identify the sensitivity of the sensor to changes in the radius.
+
+To be able to produce guidelines for best practise we need to identify the point where the standard deviation of the percentage error falls below an acceptable value. We have chosen this benchmark to be the standard deviation less than five, in real terms this can be equated to saying that at this point if you were to same the same area multiple times approximately 95\% of the density estimates would be within $\pm10\%$ of the true density, assuming normality. 
 
 Four models, p141 (REM model), p343, p221, and p322, have been selected to demonstrate how the precision and accuracy varying with model inputs. These models have been chosen to represent 1 equation from each quadrant, however the overall trend in accuracy and precision for all models should be similar.
 
@@ -358,7 +370,7 @@ A hundred simulations were completed for each of the model derivations, with a d
 \end{figure}
 
 
-A useful metric for survey effort is the expected distance travelled by an animal during the entire survey or $vt$. The average distance travelled by an animal within the survey has no significant impact on the accuracy of the model, but the precision of the estimator will increase with distance travelled, Figure~\ref{f:Distance}. If we set a benchmark precision of 5\% (that is, 95\% of estimates will be within 10\% of the true value) the precision of the model falls below the benchmark when the animals on average move less than 40km, 55km, 25km and 25km for models p141, p343, p221, and p322 respectively. 
+The average distance travelled by an animal within the survey has no significant impact on the accuracy of the model, but the precision of the estimator will increase with distance travelled, Figure~\ref{f:Distance}. The precision of the model falls below the benchmark when the animals on average move less than \SI{40}{\kilo\meter}, \SI{55}{\kilo\meter}, \SI{25}{\kilo\meter} and \SI{25}{\kilo\meter} for models p141, p343, p221, and p322 respectively. 
 
 
 The density of the population also affects the precision of the estimates with the larger population densities being associated with greater precision, however there was no observed affect on the accuracy of the models, Figure~\ref{f:Density}. 

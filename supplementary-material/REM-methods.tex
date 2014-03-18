@@ -372,7 +372,31 @@ Finally, p233 is bounded by $\alpha\le \pi$, $\theta\ge \pi/2$ and $\alpha \le 3
  
 The models in p33 are described with the two focal angles used in models p23, $x_2$ and $x_4$. As $\alpha \le\pi$ an animal can never be detected if it is approaching the detector from behind. This makes these models simpler in that they go through the $x_2$ and $x_4$ eons only once each. 
 
-There are five potential profile sizes. At the beginning of $x_2$, with an approach direction directly towards the sensor, the factor that limits the width of the profile can either be 1) the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$, or 2) the call width, in which case the profile width is instead $2r\sin(\alpha /2)$. 
+There are five potential profile sizes. At the beginning of $x_2$, with an approach direction directly towards the sensor, the factor that limits the width of the profile can either be 1) the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$, or 2) the call width, in which case the profile width is instead $2r\sin(\alpha /2)$ (see Figure~\ref{f:p33})
+
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.38]
+		\fullTwo{170}{100}{80};
+                \end{tikzpicture}
+                \caption{}
+                \label{f:p33x2a}
+        \end{subfigure}
+	~
+	\begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.38]
+		\fullTwo{40}{100}{80};
+                \end{tikzpicture}
+                \caption{}
+                \label{f:p33x2t}
+        \end{subfigure}
+
+\caption{A) As $\alpha > \theta$ the profile width (purple) is limited by the sensor region, not the call angle (red). The profile width is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$. B) As $\alpha < \theta$ the profile width is limited by the call angle rather than the sensor region (blue). The profile width is $2r\sin\left(\frac{\alpha}{2}\right)$   }
+\label{f:p33}
+\end{figure}
 
 3) The next potential profile in $x_2$ has a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$ as the right side of the profile is limited by the width of the sensor region while the left side is limited by the call width. However, the angle at which the profile starts depends on whether the first profile was 1) or 2) above. If the first profile is profile 1) then the profile is limited on both sides by the sensor region and then the left side of the profile becomes limited by the call width. This happens at $x_2 = \pi/2 - \alpha/2 + \theta/2$. If however the first profile was 2) then the first profile is limited by the call width. We move into the new profile when the right side of the profile becomes limited by the sensor region. This occurs at $x_2 = \pi/2 + \alpha/2 - \theta/2$.
 
@@ -460,11 +484,40 @@ It is similar to p242 but doesn't include the last integral as during the $x_3$ 
 
 Cell p34 is split into six models rather than three like most of the other cells. As $\alpha < \pi$, animals approaching the sensor from behind can never be detected, so unlike p141, the second $x_2$ and $x_3$ profiles are always zero. The six models are split by three inequalities that relate to the models as follows.
 
-Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected.
+\begin{figure}[t]
+        \centering
 
-Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region, rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
+        \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.38]
+                \fullFour{0}{40}{0};
+		\fill[ focus] (40:3*\angRad) -- ++  (-90:3.5*\angRad) arc (-90:-90-40:3.5*\angRad) --cycle;
+		\draw (40:3*\angRad) -- ++  (-90:5*\angRad) node[ left] {$\frac{\alpha}{2}$};
+		%\segmentOne{220}{240};
+		%\node[left] at (180 - 220/2 - 240:\r) {$\frac{\alpha}{2}$};
+                \end{tikzpicture}
+                \caption{$x_4=0$}
+                \label{f:p34nox4}
+        \end{subfigure}
+	~
+        \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.38]
+		\fullTwo{50}{80}{65};
+                \end{tikzpicture}
+                \caption{}
+                \label{f:p34taprof}
+        \end{subfigure}
+        
+\caption{A) At $x_4 = 0$, if $\alpha < \pi - 2\theta$ then $\alpha/2$ is too small for an animal to be detected at all during the $x_4$ profile. B) The left of the profile is limited by the call width, not the sensor (blue). On the right, the profile is limited by the sensor and not the call (red). Overall the profile width is $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$.     }
+\label{f:p34}
+\end{figure}
 
-Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$. This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile doesn't occur in models with $\alpha \ge 2\theta$.
+Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected as can be seen in Figure~\ref{f:p34nox4} where $\alpha/2 < \pi/2 - \theta$ which simplifies to give the previous inequality.
+
+Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region (see Figure~\ref{f:p33}), rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
+
+Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$ is (see Figure~\ref{f:p34taprof}). This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile doesn't occur in models with $\alpha \ge 2\theta$.
 
 \subsubsection{Model p341} \label{p341}
 
