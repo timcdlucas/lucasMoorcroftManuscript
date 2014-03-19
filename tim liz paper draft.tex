@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt,reqno,oneside]{amsart}
-\usepackage{caption}
+\usepackage[small]{caption}
 %\usepackage[usenames,dvipsnames]{color}
 %\usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, siunitx, tikz, flafter}
@@ -107,10 +107,10 @@ An estimate of the size of an animal population is one of the fundamental measur
 
 The methods for sampling populations are varied. Traditionally, human surveyors collecting data were the primary method but technological sensors, such as camera traps \citep{ahumada2011community, rowcliffe2008surveys} and acoustic detectors \citep{ofarrel1999comparison, jones2011indicator, mellinger2007fixed} are becoming increasingly used to survey animal populations.  Technological sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive \citep{gese2001monitoring, o2003crouching, silveira2003camera}. With respect to efficiency, the use of autonomous sensors allows for surveys over continental areas, for years or decades. 
 
-Some species are much more easily detected or identified by acoustic detectors. For example, while bat identification by hand requires much training, methods are being developed to automatically identify species from their calls \citep{walters_2012, Adams_2010}. With respect to distance (or the radius of detection), large Cetaceans are loud enough to detected from tens of kilometers away, further than is possible visually \cite{clark1995application, barlow2005estimates, mcdonald2004difar}.  
+Some species are much more easily detected or identified by acoustic detectors. For example, while bat identification by hand requires much training, methods are being developed to automatically identify species from their calls \citep{walters_2012, Adams_2010}. With respect to distance (or the radius of detection), large Cetaceans are loud enough to detected from tens of \SI{}{\kilo \meter} away, further than is possible visually \cite{clark1995application, barlow2005estimates, mcdonald2004difar}.  
 
 
-The problem of converting sampled count data to estimates of density remains. The preferred method for estimating density is capture-recapture methods \citep{leslie1953estimation,schwarz1999} if individuals can be recognised e.g. \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}. If individual recognition is impossible but the distance between animal and sensor can be estimated transect methods can be used to estimate density, although these often ignore animal movement which may bias estimates \citep{barlow2005estimates, marques2011estimating}. Finally, methods for density estimation, based on ideal gas models (originally formulated by physicists to estimate contact rates between molecules) have been developed \citep{yapp1956theory, Hutchinson_Waser_2007}. The gas model has been modified for use with camera traps with an angle of detection (the maximum angle from center that an animal can still be detected)  of $\pi/2$ radians \citep{rowcliffe2008estimating}. These models have not been formulated to account for the reduced detection that occurs when an animals' call is directional.
+The problem of converting sampled count data to estimates of density remains. The preferred method for estimating density is capture-recapture methods \citep{leslie1953estimation,schwarz1999} if individuals can be recognised e.g. \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}. If individual recognition is impossible but the distance between animal and sensor can be estimated transect methods can be used to estimate density, although these often ignore animal movement which may bias estimates \citep{barlow2005estimates, marques2011estimating}. Finally, methods for density estimation, based on ideal gas models (originally formulated by physicists to estimate contact rates between molecules) have been developed \citep{yapp1956theory, Hutchinson_Waser_2007}. The gas model has been modified for use with camera traps with an angle of detection (the maximum angle from centre that an animal can still be detected)  of $\pi/2$ radians \citep{rowcliffe2008estimating}. These models have not been formulated to account for the reduced detection that occurs when an animals' call is directional.
 
 In this study we create a general model, as an extension to the camera trap model of \cite{rowcliffe2008estimating}, to estimate absolute abundance from count data from acoustic detectors or camera traps  where the sensor angle can vary from 0 to $2\pi$ radians, and the acoustic signal given off from the animal can be directional (we call the width of an animals acoustic call the call angle). Specifically, we break the model into many different models for different values of the sensor angle and the call angle. We then derive the gas model as an illustration of the general principle and then derive one of the more complicated models. The remaining derivations are included in the supplementary material (S1). We tested the model using simulations in order to assess the validity of the models and in order to give suggestions for best practice. Specifically, we test that the analytical model can accurately predict density when the assumptions of a homogeneous environment and straight-line animal movement are met and that the accuracy of the model is not affected by changes in the assumptions we make about animal movement. We also quantify the effect of sampling effort, radius of detection, call angle and directionality, animal movement speed and density on the precision of the analytical models.
 
@@ -155,7 +155,7 @@ In this study we create a general model, as an extension to the camera trap mode
 
 \subsection{Analytical Model}
 
-Our derivations follow the model presented by \cite{rowcliffe2008estimating} which extends the gas model to model camera trap surveys. This model is derived assuming a sensor with a detection angle less than $\pi/2$ radians and so the sensor is modelled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$ (see Table~\ref{t:paras} for a list of symbols.) We call this segment the sensor region. Furthermore, as \cite{rowcliffe2008estimating}  modelled a camera trap, an animal can be detected from any angle as long as it is within the segment shaped sensor region; an in front of the camera trap but moving away from it can be detected. We however want to relax this assumption to allow for acoustically detected animals with directional calls. We therefore model the animal as having an associated call angle $\alpha$. In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. Although these two parameters vary continuously, there are many models which need to be derived and analysed seperately. The values of $\theta$ and $\alpha$ for these different models are shown in Figure~\ref{f:regions}. In this section we show the derivation for the gas model (which is the simplest of the models) and outline the general process for deriving other models by working through one example. 
+Our derivations follow the model presented by \cite{rowcliffe2008estimating} which extends the gas model to model camera trap surveys. This model is derived assuming a sensor with a detection angle less than $\pi/2$ radians and so the sensor is modelled as a circular segment with a central angle between 0 and  $\pi/2$ named  $\theta$ (see Table~\ref{t:paras} for a list of symbols.) We call this segment the sensor region. Furthermore, as \cite{rowcliffe2008estimating}  modelled a camera trap, an animal can be detected from any angle as long as it is within the segment shaped sensor region; an in front of the camera trap but moving away from it can be detected. We however want to relax this assumption to allow for acoustically detected animals with directional calls. We therefore model the animal as having an associated call angle $\alpha$. In general we are aiming to derive models for any sensor angle, $ \theta$, between 0 and $2\pi$ and any call angle, $ \alpha$, between 0 and $2\pi$. Although these two parameters vary continuously, there are many models which need to be derived and analysed separately. The values of $\theta$ and $\alpha$ for these different models are shown in Figure~\ref{f:regions}. In this section we show the derivation for the gas model (which is the simplest of the models) and outline the general process for deriving other models by working through one example. 
 
 
 
@@ -194,11 +194,12 @@ However, in practice we have the opposite situation. We know the number of encou
 \begin{equation}
 	D = z/2rvt.
 \end{equation}
-For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter the profile $p$, the rest of the derivation is just calculating this value for all values of $\theta$ and $\alpha$. However, there is not one equation that models any combination of these parameters. Instead, different areas of parameter space have different models which must be derived seperately. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. 
+For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter the profile $p$, the rest of the derivation is just calculating this value for all values of $\theta$ and $\alpha$. However, there is not one equation that models any combination of these parameters. Instead, different areas of parameter space have different models which must be derived separately. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. 
+
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{imgs/equalRegions.pdf}
-\caption{The independently derived models for the whole of parameter space. Regions whose solution for $p$ are equal are coloured similarly. Models are numbered by their row, column and then numbered within that cell (black lines). The models for $\alpha = 2\pi$ or $\theta =  2\pi$ are shown by extending these regions outside of their real boundaries.}
+\caption{The two major parameters, call width $\alpha$ and sensor width $\theta$. Grey lines divide parameter space into a set of models which must be derived separately. Despite independent derivation the results of many models are equal. Those that are equal are filled with the same colour. Models with similar derivation are grouped together in cells which are shown with black lines. The rows and columns of these cells are used to number the models, e.g. the three models in the second row and  third column (from the top right) are called p231--p233.}
 \label{f:regions}
 \end{figure}
 
@@ -210,7 +211,7 @@ For regions with profiles that are more complex than a circle we need to explici
 
 \subsubsection{Example derivation}
 
-To work through one example that contains both $\theta$ and $\alpha$ we will examine p321. All other derivations are included in S1 with computer algebra scripts in S2. 
+To work through one example that contains both $\theta$ and $\alpha$ we will examine p321. All other derivations are described in S1 with computer algebra scripts in S2. 
 
 We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). \cite{rowcliffe2008estimating} use the notation $\gamma_i$ with different numbering.
 
@@ -224,7 +225,18 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
                 \caption{$x_1$}
                 \label{f:tikz1}
         \end{subfigure}
-        ~ 
+        
+	\begin{subfigure}[t]{0.22\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.39]
+                \fullAngleTwo{0}{80}{90};
+		\draw [black, ultra thick] (90 - 80/2: \angRad) arc (90 - 80/2:90 + 80/2:\angRad);
+		\node [right] at (0,0) {$\theta$};
+                \end{tikzpicture}
+                \caption{$x_2=\pi/2$}
+                \label{f:x2start}
+        \end{subfigure}%%
+	~ 
         \begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
@@ -237,6 +249,16 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
+                \fullAngleTwo{0}{80}{50};
+                \end{tikzpicture}
+                \caption{$x_2 \rightarrow x_3$}
+                \label{f:x3}
+        \end{subfigure}%%
+	
+
+	\begin{subfigure}[t]{0.22\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.39]
                 \fullAngleThree{0}{50}{70};
                 \end{tikzpicture}
                 \caption{$x_3$}
@@ -246,14 +268,24 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
+                \fullAngleThree{0}{50}{90};
+                \end{tikzpicture}
+                \caption{$x_3 \rightarrow x_4$}
+                \label{f:x4}
+        \end{subfigure}%%
+	~ 
+	\begin{subfigure}[t]{0.22\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.39]
                 \fullAngleFour{0}{80}{70};
                 \end{tikzpicture}
                 \caption{$x_4$}
                 \label{f:x4}
         \end{subfigure}%%
-\caption{The location of the focal angles $x_{i\in[1,4]}$. In these figures, the segment shaped detection region is shown in black. The width of this region is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow.}
+\caption{The location of the focal angles $x_{i\in[1,4]}$ and the transitions between them. These are the angles that are integrated over to find the average profile size. In these figures, the segment shaped detection region is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow.}
 \label{f:xis}
 \end{figure}
+
 We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(\alpha/2)$. At $x_1  = \theta/2 + \pi/2 - \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) is not limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
 
 \begin{align}
@@ -270,27 +302,33 @@ We can also see what causes this model to be discontinuously different to p322. 
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. The models are checked for errors with a number of tests. The models are checked against each other by checking that models which are adjacent in parameter space are equal at the boundary between them (e.g. eqn~\ref{e:p321} is equal to 2r as in the gas model when $\alpha=\pi$ and $\theta=2\pi$). Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for (e.g. eqn~\ref{e:p321} is zero when $\alpha=0$ and $\theta=2\pi$). We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S2. The models are implemented in an R script in S3. 
 
-\subsection{Simulation Methods}
+\subsection{Simulation Model}
 
-The simulated world consists of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square and is populated with a density of  \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild \citep{damuth1981population}, creating a total of 3937 animals per simulation randomly placed at the start of the simulation. 
+We wrote spatially explicit simulations of animal movement to validate the analytical models. By simulating animal movement and modelling a sensor surveying the population we got count data on how many animals the sensors detected. We applied the analytical models to this data and compared it to the known input animal density. We then tested whether the estimates are accurate (unbiased) and examined how precise they are.
 
-The animals move with a simple movement model, characterised by a random continuous displacement for each discrete time step. The directional change at the end each step can be randomly picked from a uniform distribution with a given maximum amplitude, with the basic simulation having no directional change between steps. The simulation lasts for $N$ steps of length $T$ during which the animals move with an average constant speed, $v$. The distance travelled in each time step, $d$, is a random distance picked from Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds.
+To reduce computation effort, a single set of 100 simulations were run at the highest animal density and longest survey duration. Six sensors, with different sensor angles, were simulated during each simulation. From this one set of simulations, data for all parameter values could be computed by subsampling. To get data for lower densities, only detections of a subset of the animal population was counted. The details of each individual capture event, including the angle between the animals heading and the sensor were saved from the simulation.  From this the number of capture events can be calculated for different call widths. And finally, to achieve different survey periods, only part of the simulation was used e.g. to achieve a survey period half that of the longest survey, only the first half of the simulation was used. Therefore we get 100 replicates of each set of parameters.
 
-The simulation of movement outputs the details of each individual capture event, including the angle of front of the animal to the sensor, from which the number of capture events can be calculated for different call widths. The total number of capture events are summed and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true and estimated densities can be used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values should converge to zero as sample size increases. 
+Each of the 100 simulations consisted of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square (with periodic boundaries) and was populated with a density of \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild \citep{damuth1981population}, creating a total of 3937 animals per simulation randomly placed at the start of the simulation. Animal movement was simulated with a simple movement model, characterised by a random movement distance for each discrete time step. The animals do not change direction during the simulation. The simulation lasts for $N$ steps of duration $T$ during which the animals move with an average speed, $v$. The distance travelled in each time step, $d$, was sample from a Normal distribution with mean distance, $\mu_d = vT$,  and standard deviation of $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds. The detection radius $r$ is set to a value of 100m and simulations are run for \SI{150}{\day}.
+
+
+%The directional change at the end each step can be randomly picked from a uniform distribution with a given maximum amplitude, with the basic simulation having no directional change between steps. 
+%Additional simulations were also run for more complex movement models, such as, correlated random walks, and a model where a proportion of time is spent stationary. Further simulations were also run to identify the sensitivity of the sensor to changes in the radius.
+
+
+The total number of capture events were counted for each simulation and each set of parameters and the analytical model applied to the results in order to estimate the density in the simulation. From this the difference between the true and estimated densities were used to evaluate the bias in the analytical models. If the analytical models are correct the mean difference between the two values were expected to converge to zero as sample size increases. For each of the 100 simulations we calculate the error (the difference between the known and estimated density) and so we got a distribution of errors which was approximately normal. We constructed 95\% confidence intervals for these normal distributions and used these to graphically test for significant differences between the true and estimated densities. The standard deviation of these distributions is our metric of precision.
+
+To be able to produce guidelines for best practise we identified when the standard deviation of the error fell below a benchmark value which we considered acceptably precise. We chose this benchmark to be a standard deviation of less than five. In real terms this can be equated to saying that at this point if you were to sample the same area multiple times, approximately 95\% of the density estimates would be within $\pm10\%$ of the true density. From the gas model it is possible to see that the number of captures is directly proportional to the length of the survey and the speed of the animal population (eqn~\ref{e:gas}). The standard deviation of estimate error, and therefore the  appropriate survey duration for use in the field is closely linked to the number of captures. Rather than looking at the animal speed and survey time separately we studied them together as the average distance moved by the animal within the duration of the survey. 
+
 
 % I edited this, but need to check it's correct. The survey length is subsampled rather than the average distance travelled?
-In order to assess the precision of the analytical models for different sampling conditions and animal behaviours, the results of the movement simulations have been subsampled, and rerun with different movement parameters. To reduce computation effort, simulations are run at a maximum density then subsampled to achieve lower densities. Similarly the length of the survey period is subsampled. From the gas model it is possible to see that the number of captures is proportional to the length of the survey and the speed of the animal population, \ref{e:gas}. An appropriate length of time to survey is closely linked to the number of captures. Rather than looking at the animal speed and survey time separately they can be studied together as the average distance moved by the animal within the duration of the survey. 
 
-Additional simulations were also run for more complex movement models, such as, correlated random walks, and a model where a proportion of time is spent stationary. Further simulations were also run to identify the sensitivity of the sensor to changes in the radius.
 
-To be able to produce guidelines for best practise we need to identify the point where the standard deviation of the percentage error falls below an acceptable value. We have chosen this benchmark to be the standard deviation less than five, in real terms this can be equated to saying that at this point if you were to same the same area multiple times approximately 95\% of the density estimates would be within $\pm10\%$ of the true density, assuming normality. 
-
-Four models, p141 (REM model), p343, p221, and p322, have been selected to demonstrate how the precision and accuracy varying with model inputs. These models have been chosen to represent one equation from each quadrant, however the overall trend in accuracy and precision for all models should be similar.
+Four models, p141 (REM model), p343, p221, and p322, were selected to demonstrate how the precision and accuracy varied with model inputs. These models were chosen as they represent one model from each quadrant of Figure~\ref{f:regions}. The accuracy and precision of all models should be similar to these.
 
 
 \section{Results}
 
-\subsection{Analytical results}
+\subsection{Analytical model}
 
 Model results have been derived for each region in Figure~\ref{f:regions} with all models except the gas model and p141 being newly derived here. However, many models, although derived separately, have the same expression for $p$. Figure~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct model for $p$ is then
 \begin{equation}
@@ -300,19 +338,19 @@ Model results have been derived for each region in Figure~\ref{f:regions} with a
 
 Although more thorough checks are performed in S3, it can be seen that all adjacent expressions in Figure~\ref{f:equalModelResults} are equal when expressions for the boundaries between them are substituted in.
 
+
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth]{imgs/equalModelResults.pdf}
-\caption{The results of the models grouped so that all the regions with equal results are presented only once.}
+\caption{The derived expressions of for calculating the average profile width $p$. Despite independent derivation, many models result in the same expression. These are collected together and presented as one block of colour.}
 \label{f:equalModelResults}
 \end{figure}
 
 
 
+\subsection{Simulation model}
 
-\subsection{Simulation results}
-
-A hundred simulations were completed for each of the model derivations, with a density of   \SI{70}{\animals\per\kilo\meter\squared}, for \SI{150}{\day} of simulated time, straight-line movement at a speed of \SI{40}{\kilo\meter\per\day} and a sensor with \SI{100}{\meter} radius. None of the estimated densities produced showed significant deviation from the true density in the simulation, Figure~\ref{f:ModelBias}. The precision of the models do differ, the standard deviation of the error is strongly related to the angles of the call and the width of the sensor, Figure~\ref{f:StandardDevaition}, such that larger widths have greater precision. Even the models with small call widths and sensor apertures have an acceptable level of precision. 
+None of the estimated densities from the simulation showed significant deviation from the true density in the simulation (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. Even the models with small call and sensor widths have an acceptable level of precision relative to our benchmark when the full length simulation is used. 
 
 \begin{figure}
 	\centering
@@ -357,10 +395,7 @@ A hundred simulations were completed for each of the model derivations, with a d
 \end{figure}
 
 
-The average distance travelled by an animal within the survey has no significant impact on the accuracy of the model, but the precision of the estimator will increase with distance travelled, Figure~\ref{f:Distance}. The precision of the model falls below the benchmark when the animals on average move less than \SI{40}{\kilo\meter}, \SI{55}{\kilo\meter}, \SI{25}{\kilo\meter} and \SI{25}{\kilo\meter} for models p141, p343, p221, and p322 respectively. 
-
-
-The density of the population also affects the precision of the estimates with the larger population densities being associated with greater precision, however there was no observed affect on the accuracy of the models, Figure~\ref{f:Density}. 
+Neither the average distance travelled by an animal during the survey, or animal density, had a significant impact on the accuracy of the model (Figure~\ref{f:distanceDensity}). However, both these factors affected the precision of estimates. The precision of estimates increased with distance travelled, Figure~\ref{f:Distance}. The precision of the model fell below the benchmark when the animals on average moved less than \SI{40}{\kilo\meter}, \SI{55}{\kilo\meter}, \SI{25}{\kilo\meter} and \SI{25}{\kilo\meter} for models p141, p343, p221, and p322 respectively. The density of the population also affected the precision of the estimates with larger population densities being associated with greater precision (Figure~\ref{f:Density}). 
 %The density of the populations becomes a limiting factor for the precision of the model if it falls below %VALUE NOT CALCULATED YET% . 
 
 
@@ -380,14 +415,18 @@ The density of the population also affects the precision of the estimates with t
                 \label{f:Density}
         \end{subfigure}
 	\caption{Discrepancy between known simulation density and estimated density with increasing animal movement (A) and animal density (B) with 95\% confidence intervals.}
-	\label{}
+	\label{f:distanceDensity}
 \end{figure}
 
+
+\begin{comment}
 \begin{itemize}
 %\item Bias is approximately zero for all models as demonstrated by simulation: 
 %	\begin{itemize}
 %	\item At a given speed, density, sampling effort, sensor radius, and a given movement strategy
 %	\end{itemize}	
+
+
 \item The expected number of captures will vary, dependent on the system that is being monitored and how it is monitored. This will affect the precision of the estimated: 
 	\begin{itemize}
 	\item Animal movement strategy
@@ -397,19 +436,19 @@ The density of the population also affects the precision of the estimates with t
 	\item Radius of the sensor
 	\end{itemize}
 \end{itemize}
+\end{comment}
+
 
 
 \section{Discussion}
 
 %• Discussion: Point out the importance of the results and place them in the context of previous studies and in relation to the application of the work (expanding on the Synthesis and applications section of the Summary). Where appropriate, set out recommendations for management or policy.
 
-We have developed a number of models that can be used to estimate density from acoustic and optical sensors. This has entailed a generalisation of the gas model and the model in \cite{rowcliffe2008estimating} to be applicable to any combination of sensor width and call directionality. 
+We have developed a number of models that can be used to estimate density from acoustic and optical sensors. This has entailed a generalisation of the gas model and the model in \cite{rowcliffe2008estimating} to be applicable to any combination of sensor width and call directionality. We have used simulations to show, as a proof of principle, that these models are accurate and precise. %We have broken  the ideal gas assumptions of animal movement and still retained accurate results, although precision is lowered. Finally we have given some general advise on best practice, although this is given based on similar assumptions those used in the derivation in the models.
 
-We have used simulations to show, as a proof of principle, that these models are accurate and precise. %We have broken  the ideal gas assumptions of animal movement and still retained accurate results, although precision is lowered. Finally we have given some general advise on best practice, although this is given based on similar assumptions those used in the derivation in the models.
+These model are therefore available for the estimation of density of a number of taxa of importance to conservation, zoonotic diseases and ecosystem services. The models are suitable for certain groups for which there are currently no, or few, effective methods for density estimation. 
 
-These model are therefore available to for the estimation of density of a number of taxa of importance to conservation, zoonotic diseases and ecosystem services. The models are suitable for certain groups for which there are currently no, or few, effective methods for density estimation. 
-
-Importantly the methods are noninvasive and do not require human marking (as required for mark recapture models). This makes them suitable for large, continuous monitoring projects with limited human resources. It also makes them suitable for sensitive species or species that are difficult or dangerous to catch.
+Importantly the methods are noninvasive and do not require human marking (as required for mark-recapture models). This makes them suitable for large, continuous monitoring projects with limited human resources. It also makes them suitable for sensitive species or species that are difficult or dangerous to catch.
 
 Although we have used simulations to validate these models, much more robust testing is needed. Although difficult, proper field test validation would be required before the models could be fully trusted. Note, however, that the gas model and model of \cite{rowcliffe2008estimating} have been been field tested and many of the assumptions between these models and those derived here are the same. As the utility of the models is that they can be used with taxa that are difficult to study with other methods, there are not many obvious groups that have reliable, gold standard estimates of density from other methods that could then be used to validate these models.
 
@@ -419,7 +458,7 @@ There are many possible extensions to these models. As has been noted before \ci
 
 The original gas model was formulated for the case where both the animal population and the sensors are moving. Indeed any of the models with animals that are equally detectable in all directions ($\alpha = 2\pi$) can be trivially expanded for moving by substituting the sum of the average animal velocity and the sensor velocity for $v$ as used here. However, when the animal has a directional call, the extension becomes much less simple. The approach would be to calculate again the mean profile width. However, for each angle of approach, one would have to average the profile width for an animal facing in any direction (i.e. not necessarily moving towards the sensor) weighted by the relative velocity of that direction.
 
-An interesting, and so far untackled problem, is edge effects caused by trigger delays (the delay between sensing an animal and attempting to record the encounter) and time expansion acoustic detectors which repeatedly turn on an off during sampling. Both of these have potential biases as animals can move through the detection region without being detected. The models herein are formulated assuming constant surveillance and so the error quickly becomes negligible.
+An interesting, and so far unstudied problem, is edge effects caused by trigger delays (the delay between sensing an animal and attempting to record the encounter) and time expansion acoustic detectors which repeatedly turn on an off during sampling. Both of these have potential biases as animals can move through the detection region without being detected. The models herein are formulated assuming constant surveillance and so the error quickly becomes negligible.
 
 
 
