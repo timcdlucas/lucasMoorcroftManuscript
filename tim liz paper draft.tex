@@ -419,6 +419,30 @@ Neither the average distance travelled by an animal during the survey, or animal
 \end{figure}
 
 
+If an animal displays a start-stop move of movement this will not effect the accuracy, or the precision, of the estimates as long as the average speed over the length of the study is known (Figure~\ref{f:Perch}). 
+
+The range of the camera has an affect of the precision of the estimator, but not on the accuracy. The precision remains relatively small even with a range as small as 5 meters (Figure~\ref{f:Radii}). 
+
+
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/ResultsPerching.pdf}
+                \caption{Proportion of time spent stationary}
+                \label{f:Perch}
+        \end{subfigure}
+        ~ 
+        \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/ResultsRadii.pdf}
+                \caption{Radius of the detector}
+                \label{f:Radii}
+        \end{subfigure}
+	\caption{Discrepancy between known simulation density and estimated density when animals spend increasing proportion of time stationary (A) and when the range of  the detectors used (B) with 95\% confidence intervals.}
+	\label{f:distanceDensity}
+\end{figure}
+
 \begin{comment}
 \begin{itemize}
 %\item Bias is approximately zero for all models as demonstrated by simulation: 
