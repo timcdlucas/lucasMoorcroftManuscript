@@ -198,22 +198,22 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{imgs/equalRegions.pdf}
-\caption{The two major parameters, call width $\alpha$ and sensor width $\theta$. Grey lines divide parameter space into a set of models which must be derived separately. Despite independent derivation the results of many models are equal. Those that are equal are filled with the same colour. Models with similar derivation are grouped together in cells which are shown with black lines. The rows and columns of these cells are used to number the models, e.g. the three models in the second row and  third column (from the top right) are called p231--p233.}
+\includegraphics[width=0.6\textwidth]{imgs/equalRegions.pdf}
+\caption{The two major parameters, call width $\alpha$ and sensor width $\theta$. Grey lines divide parameter space into a set of models which must be derived separately. Despite independent derivation the results of many models are equal. Those that are equal are filled with the same colour. Parameter space is split into four quadrants (black lines) and the models are named by the compass direction of their quadrant.}
 \label{f:regions}
 \end{figure}
 
 
 
-Figure~\ref{f:regions} shows the different regions with the upper right being the gas model as derived above and p141 is the model from \cite{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($ \alpha \le \pi,\; \pi \le \alpha < 2\pi$ and $ \alpha = 2\pi$) and four columns ($ \theta \le \pi/2,\;  \pi/2 \le \theta \le  \pi,\;  \pi \le \theta < 2\pi$ and $\theta = 2\pi$) which define rectangular regions we will call cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell. 
+Figure~\ref{f:regions} shows the different regions with the upper right being the gas model as derived above and `REM' is the model from \cite{rowcliffe2008estimating}. Parameter space is split into four quadrants with models being named after the compass direction of their quadrant.
 
 For regions with profiles that are more complex than a circle we need to explicitly write functions for the width of the profile for every approach angle. We then use these functions to find the average profile for all approach angles by integrating across all $2\pi$ angles of approach and dividing by $2\pi$. In practice, as the models are all left/right symmetrical we can integrate across $\pi$ angles of approach and divide by $\pi$.
 
 \subsubsection{Example derivation}
 
-To work through one example that contains both $\theta$ and $\alpha$ we will examine p321. All other derivations are described in S1 with computer algebra scripts in S2. 
+To work through one example that contains both $\theta$ and $\alpha$ we will examine SE2. All other derivations are described in S1 with computer algebra scripts in S2. 
 
-We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model p321 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). \cite{rowcliffe2008estimating} use the notation $\gamma_i$ with different numbering.
+We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different angles. For model SE2 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). \cite{rowcliffe2008estimating} use the notation $\gamma_i$ with different numbering.
 
 \begin{figure}[t]
         \centering
@@ -289,16 +289,16 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection region is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(\alpha/2)$. At $x_1  = \theta/2 + \pi/2 - \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) is not limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
 
 \begin{align}
-    p321 =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\left (\frac{\alpha}{2} \right )} + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1\right)\\
-    p321 =& \frac{r}{\pi} \left(\theta \sin{\left (\frac{\alpha}{2} \right )} - \cos{\left (\frac{\alpha}{2} \right )} + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right) \label{e:p321}
+    p =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\left (\frac{\alpha}{2} \right )} + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1\right)\\
+    p =& \frac{r}{\pi} \left(\theta \sin{\left (\frac{\alpha}{2} \right )} - \cos{\left (\frac{\alpha}{2} \right )} + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right) \label{e:p321}
 \end{align}
 
 Then, as with the gas model, this term is used to calculate density
 \begin{equation}
 \label{e:gas}
-D = z/vtp321
+D = z/vtp
 \end{equation}
-We can also see what causes this model to be discontinuously different to p322. Examine the profile at $x_1 = 	\theta/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin( \alpha/2)$ while the right side is zero. This profile does not exist if we return to the full $2r\sin( \alpha/2)$ profile before $x_1  = \theta/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta/2 - \alpha/2 <  \theta/2 + \pi/2$. We find that this new profile only exists if $ \alpha < 4\pi - 2 \theta$. This inequality defines the line separating p321 and p322.
+We can also see what causes this model to be discontinuously different to SE3. Examine the profile at $x_1 = 	\theta/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin( \alpha/2)$ while the right side is zero. This profile does not exist if we return to the full $2r\sin( \alpha/2)$ profile before $x_1  = \theta/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta/2 - \alpha/2 <  \theta/2 + \pi/2$. We find that this new profile only exists if $ \alpha < 4\pi - 2 \theta$. This inequality defines the line separating SE2 and SE3.
 
 While specifying the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. The models are checked for errors with a number of tests. The models are checked against each other by checking that models which are adjacent in parameter space are equal at the boundary between them (e.g. eqn~\ref{e:p321} is equal to 2r as in the gas model when $\alpha=\pi$ and $\theta=2\pi$). Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this is checked for (e.g. eqn~\ref{e:p321} is zero when $\alpha=0$ and $\theta=2\pi$). We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests, as well as analytical derivations, are in supplementary script S2. The models are implemented in an R script in S3. 
 
@@ -323,14 +323,14 @@ To be able to produce guidelines for best practise we identified when the standa
 % I edited this, but need to check it's correct. The survey length is subsampled rather than the average distance travelled?
 
 
-Four models, p141 (REM model), p343, p221, and p322, were selected to demonstrate how the precision and accuracy varied with model inputs. These models were chosen as they represent one model from each quadrant of Figure~\ref{f:regions}. The accuracy and precision of all models should be similar to these.
+Four models (the REM model, SW6, NE1, and SE3) were selected to demonstrate how the precision and accuracy varied with model inputs. These models were chosen as they represent one model from each quadrant of Figure~\ref{f:regions}. The accuracy and precision of all models should be similar to these.
 
 
 \section{Results}
 
 \subsection{Analytical model}
 
-Model results have been derived for each region in Figure~\ref{f:regions} with all models except the gas model and p141 being newly derived here. However, many models, although derived separately, have the same expression for $p$. Figure~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct model for $p$ is then
+Model results have been derived for each region in Figure~\ref{f:regions} with all models except the gas model and REM being newly derived here. However, many models, although derived separately, have the same expression for $p$. Figure~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct expression for $p$ is then
 \begin{equation}
 \label{e:D}
 	D = z/pvt.
@@ -341,7 +341,7 @@ Although more thorough checks are performed in S3, it can be seen that all adjac
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth]{imgs/equalModelResults.pdf}
+\includegraphics[width=0.6\textwidth]{imgs/equalModelResults.pdf}
 \caption{The derived expressions of for calculating the average profile width $p$. Despite independent derivation, many models result in the same expression. These are collected together and presented as one block of colour.}
 \label{f:equalModelResults}
 \end{figure}
@@ -350,14 +350,13 @@ Although more thorough checks are performed in S3, it can be seen that all adjac
 
 \subsection{Simulation model}
 
-None of the estimated densities from the simulation showed significant deviation from the true density in the simulation (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. Even the models with small call and sensor widths have an acceptable level of precision relative to our benchmark when the full length simulation is used. 
-
 \begin{figure}
 	\centering
 	%\begin{subfigure}[t]{0.5\textwidth}
 	\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
-	\label{f:ModelBias}
 	\caption{Percentage error and standard deviation of analytical model calculated from the simulation when settings are: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. The average percentage error generated by the simulation per model derivation, shown with 95\% confidence intervals.}
+	\label{f:ModelBias}
+\end{figure}
 	\begin{comment} 
 	p344: $\alpha$= 0.3491; $\theta$=0.2856.  
 	 p345: $\alpha$= 0.3491; $\theta$=0.5712.
@@ -384,10 +383,12 @@ None of the estimated densities from the simulation showed significant deviation
  	p311: $\alpha$= 3.1416; $\theta$=0.2856.  
  	Gas: $\alpha$= 3.1416; $\theta$=2.8560.                                      
 	\end{comment}
-\end{figure}
+
+None of the estimated densities from the simulation showed significant deviation from the true density in the simulation (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. Even the models with small call and sensor widths have an acceptable level of precision relative to our benchmark when the full length simulation is used. 
 
 
-Neither the average distance travelled by an animal during the survey, or animal density, had a significant impact on the accuracy of the model (Figure~\ref{f:distanceAnimal}). However, both these factors affected the precision of estimates. The precision of estimates increased with distance travelled, Figure~\ref{f:Distance}. The precision of the model fell below the benchmark when the animals on average moved less than \SI{40}{\kilo\meter}, \SI{55}{\kilo\meter}, \SI{25}{\kilo\meter} and \SI{25}{\kilo\meter} for models p141, p343, p221, and p322 respectively. The density of the population also affected the precision of the estimates with larger population densities being associated with greater precision (Figure~\ref{f:Density}). 
+
+Neither the average distance travelled by an animal during the survey, or animal density, had a significant impact on the accuracy of the model (Figure~\ref{f:distanceAnimal}). However, both these factors affected the precision of estimates. The precision of estimates increased with distance travelled, Figure~\ref{f:Distance}. The precision of the model fell below the benchmark when the animals on average moved less than \SI{40}{\kilo\meter}, \SI{55}{\kilo\meter}, \SI{25}{\kilo\meter} and \SI{25}{\kilo\meter} for the REM model, SW6, NE1, and SE3 respectively. The density of the population also affected the precision of the estimates with larger population densities being associated with greater precision (Figure~\ref{f:Density}). 
 %The density of the populations becomes a limiting factor for the precision of the model if it falls below %VALUE NOT CALCULATED YET% . 
 
 \begin{figure}[t]
