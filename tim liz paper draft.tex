@@ -157,25 +157,27 @@ For sector shaped detection zones, we need to explicitly write functions for the
 \subsubsection{Example derivation}
 
 To work through one example that contains both $\theta$ and $\alpha$ we will examine SE2. All other derivations are described in S1 with computer algebra scripts in S2. 
-
-We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different approach angles. For model SE2 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:xis}). 
-
 \begin{figure}[t]
         \centering
-        \begin{subfigure}[t]{0.34\textwidth}
-                \centering
                 \begin{tikzpicture}[scale=0.39]
                 \fullAngleOne{0}{300}{120};
                 \end{tikzpicture}
-                \caption{$x_1$}
-                \label{f:tikz1}
-        \end{subfigure}
+\caption{The location of the focal angle $x_1$ as used in models with $\theta>\pi$. This is the angle that is integrated over to find the average profile size. The sector  shaped detection region (with $\theta>\pi$) is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is downwards, as indicated by the grey arrow. %MR: I’m struggling to understand this figure – I’d understood it was a for a specific theta, for which the first picture makes sense, but the rest of them seem to have different thetas, which is doing my head in! Also I can’t grasp how the animal call zone interacts with this (I guess that’s what I’m failing to get my head round?). In general it’s a heroic effort to explain a really hard concept, but I’m not sure it’s quite there 
+%@tim: This bit still needs to be been changed.
+     }
+\label{f:x1}
+\end{figure}
 
+We use $x_i$ to denote the focal angle which is the angle we integrate over. The subscript $i$ distinguishes different approach angles. For model SE2 we examine $x_1$ with  $x_1 = \pi/2$ being an approach angle directly towards the sensor (see Figure~\ref{f:x1}). 
+
+\begin{figure}[t]
+        \centering
+        
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleTwo{0}{50}{90};
-		\draw [black, ultra thick] (90 - 80/2: \angRad) arc (90 - 80/2:90 + 80/2:\angRad);
+                \fullAngleTwo{0}{60}{90};
+		\draw [black, ultra thick] (90 - 60/2: \angRad) arc (90 - 60/2:90 + 60/2:\angRad);
 		\node [right] at (0,0) {$\theta$};
                 \end{tikzpicture}
                 \caption{$x_2=\pi/2$}
@@ -185,7 +187,7 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
         \begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleTwo{0}{50}{75};
+                \fullAngleTwo{0}{60}{75};
                 \end{tikzpicture}
                 \caption{$x_2$}
                 \label{f:x2}
@@ -194,7 +196,7 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleTwo{0}{50}{50};
+                \fullAngleTwo{0}{60}{60};
                 \end{tikzpicture}
                 \caption{$x_2 \rightarrow x_3$}
                 \label{f:x3}
@@ -204,7 +206,7 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleThree{0}{50}{70};
+                \fullAngleThree{0}{60}{70};
                 \end{tikzpicture}
                 \caption{$x_3$}
                 \label{f:x3}
@@ -213,7 +215,7 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleThree{0}{50}{90};
+                \fullAngleThree{0}{60}{90};
                 \end{tikzpicture}
                 \caption{$x_3 \rightarrow x_4$}
                 \label{f:x4}
@@ -222,18 +224,18 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.39]
-                \fullAngleFour{0}{50}{70};
+                \fullAngleFour{0}{60}{40};
                 \end{tikzpicture}
                 \caption{$x_4$}
                 \label{f:x4}
         \end{subfigure}%%
-\caption{The location of the focal angles $x_{i\in[1,4]}$ and the transitions between them. These are the angles that are integrated over to find the average profile size. In these figures, the sector shaped detection region is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow. %MR: I’m struggling to understand this figure – I’d understood it was a for a specific theta, for which the first picture makes sense, but the rest of them seem to have different thetas, which is doing my head in! Also I can’t grasp how the animal call zone interacts with this (I guess that’s what I’m failing to get my head round?). In general it’s a heroic effort to explain a really hard concept, but I’m not sure it’s quite there 
+\caption{The location of the focal angles $x_{i\in[2,4]}$ and the transitions between them as used in models with $\theta<\pi$. These are the angles that are integrated over to find the average profile size. In these figures, the sector shaped detection region is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow. %MR: I’m struggling to understand this figure – I’d understood it was a for a specific theta, for which the first picture makes sense, but the rest of them seem to have different thetas, which is doing my head in! Also I can’t grasp how the animal call zone interacts with this (I guess that’s what I’m failing to get my head round?). In general it’s a heroic effort to explain a really hard concept, but I’m not sure it’s quite there 
 %@tim: This bit still needs to be been changed.
      }
 \label{f:xis}
 \end{figure}
 
-We can see that, rotating anticlockwise, from $x_1  = \pi/2$ the detection zone is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(\alpha/2)$. At $x_1  = \theta/2 + \pi/2 - \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) is not limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
+We can see that, rotating anticlockwise , from $x_1  = \pi/2$ the detection zone is $2r$ wide. However, an animal will only be detected if it approaches the detector so that as it enters the detection region the angle between the direction of approach and the direction towards the sensor is less than $\alpha/2$. The width of the profile within which the animal will be detected is therefore $2r\sin(\alpha/2)$. At $x_1  = \theta/2 + \pi/2 - \alpha/2$ we reach a point where the right hand side of the profile (relative to the approach direction) is not limited by the call angle but is limited by the detection angle instead. From here the profile width is therefore $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin( \alpha/2)$. We have therefore characterised the profile width for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor.) To find the average profile width for any angle of approach, we integrate these functions over their appropriate intervals of $x_1 $ and divide by $\pi$ giving us:
 
 \begin{align}
     p =&\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\left (\frac{\alpha}{2} \right )} + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_1\right)\\
