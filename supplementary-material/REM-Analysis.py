@@ -66,7 +66,7 @@ def checkBounds(model, reps):
 # There's some if statements to split longer equations on two lines and get +s in the right place.
 def parseLaTeX(prof):
         m = eval( 'm' + prof[1:] )
-        f = open('/home/tim/Dropbox/PhD/Analysis/REM-chapter/latexFiles/'+prof+'.tex', 'w')
+        f = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/latexFiles/'+prof+'.tex', 'w')
         f.write('\\begin{align}\n    ' + prof + ' =&\\frac{1}{\pi} \left(\;\;')
         for i in range(len(m)):
                 f.write('\int\limits_{'+latex(m[i][2], order='rev-lex')+'}^{'+latex(m[i][3], order='rev-lex')+'}'+latex(m[i][0], order='rev-lex')+'\;\mathrm{d}' +latex(m[i][1]))
@@ -807,7 +807,7 @@ zeroRegions = ['p346', 'p345', 'p344', 'p341', 'p332', 'p333', 'p323', 'p322', '
 
 # Run through all the comparisons. Need simplify(). Even together() gives some false negatives.
 
-checkFile = open('/home/tim/Dropbox/PhD/Analysis/REM-chapter/checksFile.tex','w')
+checkFile = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/checksFile.tex','w')
 
 checkFile.write('All checks evaluated.\nTim Lucas - ' + str(datetime.now()) + '\n')
 for i in range(len(allComps)):
@@ -837,17 +837,17 @@ checkFile.close()
 xRange = np.arange(0,pi/2, 0.01)
 y332Range = [p332.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
 plot332 = pl.plot(xRange, y332Range)
-pl.savefig('/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/p332Profile.pdf')
+pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p332Profile.pdf')
 pl.close()
 
 y341Range = [p341.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
 plot341 = pl.plot(xRange, y341Range)
-pl.savefig('/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/p341Profile.pdf')
+pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p341Profile.pdf')
 pl.close()
 
 
 
-#pl.savefig('/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/p221Profile.pdf')
+#pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p221Profile.pdf')
 #pl.close()
 
 
@@ -904,7 +904,7 @@ pImage = np.flipud(pArray)
 pl.imshow(pImage, interpolation='none', cmap=pl.get_cmap('Blues') )
 #pl.show()
 
-pl.savefig('/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/profilesCalculated.png')
+pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/profilesCalculated.png')
 
 
 
@@ -913,15 +913,34 @@ pl.savefig('/home/tim/Dropbox/PhD/Analysis/REM-chapter/imgs/profilesCalculated.p
 ############################
 
 # To reduce mistakes, output R function directly from python.
-# However, the if statements are not automatic.
+# However, the if statements, which correspond to the bounds of each model, are not automatic.
 
-Rfunc = open('/home/tim/Dropbox/PhD/Analysis/REM-chapter/calculateProfileWidth.R', 'w')
+Rfunc = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/supplementaryRscript.R', 'w')
 
-Rfunc.write("""calcProfileWidth <- function(alpha, theta, r){
+Rfunc.write("""
+# Functions to calculate density.
+#
+# Tim C.D. Lucas, Elizabeth Moorcroft, Robin Freeman, Marcus J. Rowcliffe, Kate E. Jones.
+#
+# calcDensity is the main function to calculate density.
+# It takes parameters z, alpha, theta, r, animalSpeed, t
+# z - The number of camera/acoustic counts or captures.
+# alpha - Call width in radians.
+# theta - Sensor width in radians.
+# r - Sensor range in metres.
+# animalSpeed - Average animal speed in metres per second.
+# t - Length of survey in sensor seconds i.e. number of sensors x survey duration.
+#
+# calcAbundance calculates abundance rather than density and requires an extra parameter
+# area - In metres squared. The size of the region being examined.
+
+
+# Internal function to calculate profile width as described in the text
+calcProfileWidth <- function(alpha, theta, r){
         if(alpha > 2*pi | alpha < 0) 
-		stop('alpha is out of bounds. alpha should be in 0<a<2*pi')
+		stop('alpha is out of bounds. alpha should be in interval 0<a<2*pi')
         if(theta > 2*pi | theta < 0) 
-		stop('theta is out of bounds. theta should be in 0<a<2*pi')
+		stop('theta is out of bounds. theta should be in interval 0<a<2*pi')
 
 	if(alpha > pi){
 	        if(alpha < 4*pi - 2*theta){
@@ -940,9 +959,29 @@ Rfunc.write("""calcProfileWidth <- function(alpha, theta, r){
 '\n                }'
 '\n        }'
 '\n        return(p)'
-'\n}'
+'\n}' +
+"""
+# Calculate a population density. See above for units etc.
+calcDensity <- function(z, alpha, theta, r, animalSpeed, t){
+        # Check the parameters are suitable.
+        if(z <= 0 | !is.numeric(z)) stop('Counts, z, must be a positive number.')
+        if(animalSpeed <= 0 | !is.numeric(animalSpeed)) stop('animalSpeed must be a positive number.')
+        if(t <= 0 | !is.numeric(t)) stop('Time, t, must be a positive number.')
 
+        # Calculate profile width, then density.
+        p <- calcProfileWidth(alpha, theta, r)
+        D <- z/{animalSpeed*t*p}
+        return(D)
+}
 
+# Calculate abundance rather than density.
+calcAbundance <- function(z, alpha, theta, r, animalSpeed, t, area){
+        if(area <= 0 | !is.numer(area)) stop('Area must be a positive number')
+        D <- calcDensity(z, alpha, theta, r, animalSpeed, t)
+        A <- D*area
+        return(A)
+}
+"""
 )
 
 Rfunc.close()
