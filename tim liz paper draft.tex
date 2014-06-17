@@ -14,7 +14,7 @@
 
 
 
-%\usepackage[nolists, nomarkers]{endfloat}
+\usepackage[nolists, nomarkers]{endfloat}
 \linenumbers
 \doublespacing
 
@@ -36,10 +36,10 @@
 \begin{document}
 
 
-\title[Estimating abundance using camera traps and acoustic detectors]{A generalised random encounter model for estimating animal density with acoustic and camera data}
+\title[Estimating density using camera traps and acoustic detectors]{A generalised random encounter model for estimating animal density with acoustic and camera data}
 \maketitle
 
-\subsection*{ Running title: Estimating abundance using camera traps and acoustic detectors}
+\subsection*{ Running title: Estimating density using camera traps and acoustic detectors}
 
 \subsection*{ Word count:}
 
@@ -78,7 +78,7 @@ marcus.rowcliffe@ioz.ac.uk
 \clearpage
 
 
-%max word count 250 words. 
+%max word count 350 words. - current count 345
 
 \section{Abstract}
 \subsection*{1:}   It is currently difficult to estimate population densities using data collected using remote sensors. Current methods require either individual identification in order to apply capture recapture analysis, or mobile sensors and static animals together with known distance between animal and sensor on detection in order to apply distance analysis. An approach without these requirements, `ideal gas' models, have so far only been extended for camera traps with a small range of detection angles and acoustically detected animals with directional calls currently do not fit the assumptions of the random encounter model (REM) as developed for camera trapping.
@@ -89,12 +89,12 @@ marcus.rowcliffe@ioz.ac.uk
 
 \subsection*{4:} We conclude that these models provide an effective method to estimate animal density from sensor count data. We anticipate that surveys of acoustically detected species, or camera trap surveys, which before could only give relative metrics of population size will now be able to estimate population density controlling for detectability.   As sensors such as camera traps and acoustic detectors become cheaper and more practical these models will be increasingly useful for monitoring animal populations across broad spatial, temporal or taxonomic scales.
 
-\subsection{Keywords}
-Acoustic detection, animal density, random encounter model, bat detector.
+\subsection{Keywords} %max keywords/phrase 10 - current 3
+Acoustic detection, density estimation, bat detector.
 
 \section{Introduction}
 
-Animal population size is one of the fundamental measures needed in ecology and conservation. The absolute size of a population has important implications for a range of issues such as genetic diversity \citep{o1985genetic, fischer2000genetic, willi2005threefold} and sensitivity to stochastic fluctuations \citep{wright1983stochastic, richter1972extinction}. However, many authors highlight the need to consider detectability when estimating abundance, since failure to do so will usually give biased results. In particular, this bias has been highlighted as a problem for the interpretation of count rates from sensors such as camera traps as abundance indices \citep{jennelle2002use, foster2012critique}.
+Animal population size is one of the fundamental measures needed in ecology and conservation. The absolute size of a population has important implications for a range of issues such as genetic diversity \citep{o1985genetic, fischer2000genetic, willi2005threefold} and sensitivity to stochastic fluctuations \citep{wright1983stochastic, richter1972extinction}. However, many authors highlight the need to consider detectability when estimating density, since failure to do so will usually give biased results. In particular, this bias has been highlighted as a problem for the interpretation of count rates from sensors such as camera traps as abundance indices \citep{jennelle2002use, foster2012critique}.
 
 The methods for sampling populations are varied. Traditionally, human surveyors collecting data were the primary method, but sensor technology, such as camera traps \citep{ahumada2011community, rowcliffe2008surveys} and acoustic detectors \citep{ofarrel1999comparison, jones2011indicator, mellinger2007fixed} are becoming increasingly used to survey animal populations.  Sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive \citep{gese2001monitoring, o2003crouching, silveira2003camera}. With respect to efficiency, the use of autonomous sensors allows for surveys over large areas and long periods. 
 
@@ -290,35 +290,8 @@ Although more thorough checks are performed in S3, it can be seen that all adjac
   }
 	\label{f:ModelBias}
 \end{figure}
-	\begin{comment} 
-	p344: $\alpha$= 0.3491; $\theta$=0.2856.  
-	 p345: $\alpha$= 0.3491; $\theta$=0.5712.
-	 p346: $\alpha$= 0.3491; $\theta$=0.8568.
-	 p244: $\alpha$= 0.3491; $\theta$=1.4280.
-	 p242: $\alpha$= 0.3491; $\theta$=1.7136.
-	 p241: $\alpha$= 0.3491; $\theta$=2.5704.
-	 p141: $\alpha$= 0.3491; $\theta$=3.1416.
-	 p341: $\alpha$= 0.6981; $\theta$=0.2856. 
-	 p342: $\alpha$= 0.6981; $\theta$=0.8568.
-	 p333: $\alpha$= 1.0472; $\theta$=0.2856.      
-	 p332: $\alpha$= 1.0472; $\theta$=0.8568.
-	 p331: $\alpha$= 1.0472; $\theta$=1.4280.
-	 p233: $\alpha$= 1.0472; $\theta$=1.7136.
-	 p232: $\alpha$= 1.0472; $\theta$=2.5704.
-	 p231: $\alpha$= 1.0472; $\theta$=2.8560.
- 	p131: $\alpha$= 1.0472; $\theta$=3.1416.
- 	p323: $\alpha$= 1.7453; $\theta$=0.2856.  
- 	p322: $\alpha$= 1.7453; $\theta$=1.4280.
- 	p223: $\alpha$= 1.7453; $\theta$=1.7136.       
- 	p321: $\alpha$= 2.7925; $\theta$=1.4280.         
- 	p222: $\alpha$= 2.7925; $\theta$=1.7136. 
- 	p221: $\alpha$= 2.7925; $\theta$=2.8560.       
- 	p311: $\alpha$= 3.1416; $\theta$=0.2856.  
- 	Gas: $\alpha$= 3.1416; $\theta$=2.8560.                                      
-	\end{comment}
 
 None of the estimated densities from the simulation showed significant deviation from the true density in the simulation (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. However, even the models with small call and sensor widths have a relativity high level of precision. 
-
 
 \begin{figure}[t]
         \centering
@@ -359,7 +332,7 @@ We ran simulations that broke the assumptions of model in order to see whether t
                 \caption{Angle of correlated walk}
                 \label{f:Tort}
         \end{subfigure}
-	\caption{Discrepancy between known simulation density and estimated density when animals spend increasing proportion of time stationary (A) where:  $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Discrepancy between known simulation density and estimated density when they move with different types of correlated walk (B) where:  $r = $\SI{10}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. } 
+	\caption{Discrepancy between known simulation density and estimated density when animals spend increasing proportion of time stationary (A) where:  $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Discrepancy between known simulation density and estimated density when they move with different types of correlated walk (B) where:  $r = $\SI{10}{\meter}; $T = $\SI{352}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. } 
 	\label{f:distanceMovement}
 \end{figure}
 
@@ -377,7 +350,7 @@ Importantly the methods are noninvasive and do not require human marking or natu
 
 From our simulations  we believe that this method has the potential produce accurate and precise estimates for many different species, using either camera or acoustic detectors. When choosing detectors a researcher should pick the detector with the largest radius and detection angle possible, but whilst a small capture area may reduce precision there is only a limited impact on the overall precision of the model (Figure~\ref{f:StandardDevaition}). A range of factors will affect the overall precision of the model, like size of detection zone, speed of animal, density of animals and length of survey which are reflected in the number of captures. Increasing the number of captures leads to more precise estimates, for species which more slower, or have occur at lower densities, then the detection zone and length of survey need to be increased to compensate so that at least 100 captures are collected (Figure~\ref{f:Captures}).
 
-Within the simulation we have assumed an equal density across the entire world, however in a field environment the situation would be much more complex, with additional variation coming from local changes in abundance between camera sites. We also assume perfect knowledge of the average speed of an animal and size of the detection zone, and instant triggering of the camera. All of which may lead to possible bias or decreased precision.    
+Within the simulation we have assumed an equal density across the entire world, however in a field environment the situation would be much more complex, with additional variation coming from local changes in density between camera sites. We also assume perfect knowledge of the average speed of an animal and size of the detection zone, and instant triggering of the camera. All of which may lead to possible bias or decreased precision.    
 
 Although we have used simulations to validate these models, much more robust testing is needed. Although difficult, proper field test validation would be required before the models could be fully trusted. Note, however, that the REM \citep{rowcliffe2008estimating} has been been field tested. Both Rowcliffe et al. and Zero at el. both found that the REM were effective manner of estimating animal densities \citep{rowcliffe2008estimating, zero2013monitoring}. There was some discrepancies between the REM and the census methodologies found by Rovero and Marshall which may have been down to lack of knowledge of wild animal speed, and an underestimate in census results \citep{rovero2009camera}. In some taxa gold standard methods of estimating animal density exist, such as capture mark recapture. Where these gold standard exist, and have been proved to work, a simultaneous gREM study could be completed to test the accuracy under field conditions. An easier way to continue to evaluate the models is to run more extensive simulations which break the assumptions of the analytical models. The main element that cannot be analytically treated is the complex movement of real animals. Therefore testing these methods against true animal traces, or more complex movement models would be useful.
 
@@ -386,17 +359,6 @@ There are a numb of positive extensions to the gREM which could be developed in 
 
 Another interesting, and so far unstudied problem, is edge effects caused by trigger delays (the delay between sensing an animal and attempting to record the encounter) and time expansion acoustic detectors which repeatedly turn on an off during sampling. Both of these have potential biases as animals can move through the detection region without being detected. The models herein are formulated assuming constant surveillance and so the error quickly becomes negligible. For example, if it takes longer for the recording device to be switched on than the length of some animal calls there could be a systematic underestimation of density. 
                   
-
-
-
-%\section{Acknowledgements}
-
-
-
-%\section{Data Accessibility}
-
-
-
 
 \bibliographystyle{mee.bst}	
 \bibliography{lucas-moorcroft-etal-refs.bib}	
