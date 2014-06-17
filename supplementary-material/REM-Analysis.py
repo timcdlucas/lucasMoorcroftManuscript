@@ -66,8 +66,8 @@ def checkBounds(model, reps):
 # There's some if statements to split longer equations on two lines and get +s in the right place.
 def parseLaTeX(prof):
         m = eval( 'm' + prof[1:] )
-        f = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/latexFiles/'+prof+'.tex', 'w')
-        f.write('\\begin{align}\n    ' + prof + ' =&\\frac{1}{\pi} \left(\;\;')
+        f = open('/home/tim/Dropbox/liz-paper/lucasMoorcroftManuscript/supplementary-material/latexFiles/'+prof+'.tex', 'w')
+        f.write('\\begin{align}\n    \\mathrm{' + prof + '} =&\\frac{1}{\pi} \left(\;\;')
         for i in range(len(m)):
                 f.write('\int\limits_{'+latex(m[i][2], order='rev-lex')+'}^{'+latex(m[i][3], order='rev-lex')+'}'+latex(m[i][0], order='rev-lex')+'\;\mathrm{d}' +latex(m[i][1]))
                 if len(m)>3 and i==(len(m)/2)-1:
@@ -75,7 +75,7 @@ def parseLaTeX(prof):
                 if i<len(m)-1:
                         f.write('+')                                            
         f.write('\\right)\label{' + prof + 'Def}\\\\\n    ')
-        f.write(prof + ' =& ' + latex(eval(prof)) + '\label{' + prof + 'Sln}\n\\end{align}')
+        f.write('\\mathrm{' + prof + '} =& ' + latex(eval(prof)) + '\label{' + prof + 'Sln}\n\\end{align}')
         f.close()
 
 
@@ -91,58 +91,58 @@ def allChecks(prof):
         checkBounds(model, reps)
 
 #########################################################
-# 221 animal: a = 2*pi.  sensor: t > pi, a > 3pi - t  #
+# NE1 animal: a = 2*pi.  sensor: t > pi, a > 3pi - t  #
 #########################################################
 
 
 
-m221 = [ [2*r,                 x1, pi/2, t/2        ],
+mNE1 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  pi         ],
          [r + r*cos(x1 + t/2), x1, pi,   2*pi-t/2   ],
          [2*r,                 x1, 2*pi-t/2, 3*pi/2 ] ]
 
 # Replacement values in range
-rep221 = {t:3*pi/2, a:2*pi} 
+repNE1 = {t:3*pi/2, a:2*pi} 
 
 # Define conditions for model
-cond221 = [pi <= t, a >= 3*pi - t]
+condNE1 = [pi <= t, a >= 3*pi - t]
 
 # Calculate model, run checks, write output.
-p221 = calcModel(m221)
-allChecks('p221')
-parseLaTeX('p221')
+pNE1 = calcModel(mNE1)
+allChecks('pNE1')
+parseLaTeX('pNE1')
 
 ###############################################################################
-# 222 animal: a > pi.  sensor: t > pi Condition: a < 3pi - t, a > 4pi - 2t  #
+# NE2 animal: a > pi.  sensor: t > pi Condition: a < 3pi - t, a > 4pi - 2t  #
 ###############################################################################
 
 
 
-m222 = [ [2*r,                 x1, pi/2, t/2        ],
+mNE2 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  5*pi/2 - t/2 - a/2 ],
          [r + r*cos(x1 + t/2), x1, 5*pi/2 - t/2 - a/2,   2*pi-t/2 ],
          [2*r,                 x1, 2*pi-t/2, 3*pi/2 ] ]
 
 
 # Replacement values in range
-rep222 = {t:5*pi/3, a:4*pi/3-0.1} 
+repNE2 = {t:5*pi/3, a:4*pi/3-0.1} 
 
 # Define conditions for model
-cond222 = [pi <= t, a >= pi, a <= 3*pi - t, a >= 4*pi - 2*t]
+condNE2 = [pi <= t, a >= pi, a <= 3*pi - t, a >= 4*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p222 = calcModel(m222)
-allChecks('p222')
-parseLaTeX('p222')
+pNE2 = calcModel(mNE2)
+allChecks('pNE2')
+parseLaTeX('pNE2')
 
 
 ##################################################################
-# 223 animal: a > pi.  sensor: t > pi Condition: a < 4pi - 2t  #
+# NE3 animal: a > pi.  sensor: t > pi Condition: a < 4pi - 2t  #
 ##################################################################
 
 
 
-m223 = [ [2*r,                 x1, pi/2, t/2        ],
+mNE3 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  t/2 + pi/2         ],
          [r                  , x1, t/2 + pi/2,   5*pi/2 - t/2 - a/2 ],
          [r + r*cos(x1 + t/2), x1, 5*pi/2 - t/2 - a/2,   2*pi-t/2 ],
@@ -150,134 +150,134 @@ m223 = [ [2*r,                 x1, pi/2, t/2        ],
 
 
 # Replacement values in range
-rep223 = {t:5*pi/4-0.1, a:3*pi/2}
+repNE3 = {t:5*pi/4-0.1, a:3*pi/2}
 
 # Define conditions for model
-cond223 = [pi <= t, a >= pi, a <= 4*pi - 2*t]
+condNE3 = [pi <= t, a >= pi, a <= 4*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p223 = calcModel(m223)
-allChecks('p223')
-parseLaTeX('p223')
+pNE3 = calcModel(mNE3)
+allChecks('pNE3')
+parseLaTeX('pNE3')
 
 
 
 
 ########################################################
-# 131 animal: a = 2*pi.   sensor:  pi/2 <= t <= pi      #
+# NW1 animal: a = 2*pi.   sensor:  pi/2 <= t <= pi      #
 ########################################################
 
-m131 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,      pi/2     ],
+mNW1 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,      pi/2     ],
         [r - r*cos(x4 - t),     x4, 0,        t - pi/2 ],
         [r,                     x4, t - pi/2, pi/2     ],
         [r - r*cos(x4),         x4, pi/2,     t        ],
         [2*r*sin(t/2)*sin(x2),  x2, t/2,      pi/2     ] ]
 
 # Replacement values in range
-rep131 = {t:3*pi/4} 
+repNW1 = {t:3*pi/4} 
 
 # Define conditions for model
-cond131 = [pi/2 <= t, t <= pi]
+condNW1 = [pi/2 <= t, t <= pi]
 
 # Calculate model, run checks, write output.
-p131 = calcModel(m131)
-allChecks('p131')
-parseLaTeX('p131')
+pNW1 = calcModel(mNW1)
+allChecks('pNW1')
+parseLaTeX('pNW1')
 
 
 
 #################################################################################
-# 231 animal: a > pi.  Sensor: pi/2 <= t <= pi. Condition: a > 2pi - t          #
+# NW2 animal: a > pi.  Sensor: pi/2 <= t <= pi. Condition: a > 2pi - t          #
 #################################################################################
 
 
-m231 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,          pi/2        ],
+mNW2 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,          pi/2        ],
          [r - r*cos(x4 - t),    x4, 0,            t - pi/2    ],
          [r,                    x4, t - pi/2,     3*pi/2 - a/2],
          [r - r*cos(x4),        x4, 3*pi/2 - a/2, t           ],
          [2*r*sin(t/2)*sin(x2), x2, t/2,          pi/2        ] ]
 
 
-rep231 = {t:3*pi/4, a:15*pi/8} # Replacement values in range
+repNW2 = {t:3*pi/4, a:15*pi/8} # Replacement values in range
 
 # Define conditions for model
-cond231 = [a > pi, pi/2 <= t, t <= pi, a >= 3*pi - 2*t]
+condNW2 = [a > pi, pi/2 <= t, t <= pi, a >= 3*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p231 = calcModel(m231)
-allChecks('p231')
-parseLaTeX('p231')
+pNW2 = calcModel(mNW2)
+allChecks('pNW2')
+parseLaTeX('pNW2')
 
 
 #################################################################################
-# 232 animal: a > pi.  Sensor: pi/2 <= t <= pi. Cond: 2pi - t < a < 3pi - 2t    #
+# NW3 animal: a > pi.  Sensor: pi/2 <= t <= pi. Cond: 2pi - t < a < 3pi - 2t    #
 #################################################################################
 
 
-m232 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,                pi/2              ],
+mNW3 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,                pi/2              ],
          [r - r*cos(x4 - t),    x4, 0,                  t - pi/2          ],
          [r,                    x4, t - pi/2,           t                 ],
          [r*cos(x2 - t/2),      x2, t/2,                3*pi/2 - a/2 - t/2],
          [2*r*sin(t/2)*sin(x2), x2, 3*pi/2 - a/2 - t/2, pi/2              ] ]
 
 
-rep232 = {t:5*pi/8, a:6*pi/4} # Replacement values in range
+repNW3 = {t:5*pi/8, a:6*pi/4} # Replacement values in range
 
 # Define conditions for model
-cond232 = [a > pi, pi/2 <= t, t <= pi, 2*pi - t <= a, a <= 3*pi - 2*t]
+condNW3 = [a > pi, pi/2 <= t, t <= pi, 2*pi - t <= a, a <= 3*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p232 = calcModel(m232)
-allChecks('p232')
-parseLaTeX('p232')
+pNW3 = calcModel(mNW3)
+allChecks('pNW3')
+parseLaTeX('pNW3')
 
 
 #################################################################################
-# 233 animal:  a > pi.  Sensor: pi/2 <= t <= pi. Condition: a <= 2pi - t      #
+# NW4 animal:  a > pi.  Sensor: pi/2 <= t <= pi. Condition: a <= 2pi - t      #
 #################################################################################
 
-m233 = [ [2*r*sin(t/2)*sin(x2), x2, t/2, pi/2],
+mNW4 = [ [2*r*sin(t/2)*sin(x2), x2, t/2, pi/2],
          [r - r*cos(x4 - t),    x4, 0, t - pi/2],
          [r,                    x4, t - pi/2, t],
          [r*cos(x2 - t/2),      x2, t/2, a/2 + t/2 - pi/2] ]
 
-rep233 = {t:3*pi/4, a:9*pi/8} # Replacement values in range
+repNW4 = {t:3*pi/4, a:9*pi/8} # Replacement values in range
 
 # Define conditions for model
-cond233 = [a > pi,  pi/2 <= t, t <= pi, a <= 2*pi - t]
+condNW4 = [a > pi,  pi/2 <= t, t <= pi, a <= 2*pi - t]
 
 # Calculate model, run checks, write output.
-p233 = calcModel(m233)
-allChecks('p233')
-parseLaTeX('p233')
+pNW4 = calcModel(mNW4)
+allChecks('pNW4')
+parseLaTeX('pNW4')
 
 ###############################################################################
-# 141 animal: a=2pi.  Sensor: t <= pi/2.                                      #
+# REM animal: a=2pi.  Sensor: t <= pi/2.                                      #
 ###############################################################################
 
-m141 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
+mREM = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
          [r,                    x4, 0*t,          t],
          [r*sin(x3),            x3, t,          pi/2],
          [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2] ]
 
 
-rep141 = {t:3*pi/8, a:2*pi} # Replacement values in range
+repREM = {t:3*pi/8, a:2*pi} # Replacement values in range
 
 # Define conditions for model
-cond141 = [ t <= pi/2  ]
+condREM = [ t <= pi/2  ]
 
 # Calculate model, run checks, write output.
-p141 = calcModel(m141)
-allChecks('p141')
-parseLaTeX('p141')
+pREM = calcModel(mREM)
+allChecks('pREM')
+parseLaTeX('pREM')
 
 
 ###############################################################################
-# 241 animal: a>pi.  Sensor: t <= pi/2. Condition: 2*pi - t < a               #
+# NW5 animal: a>pi.  Sensor: t <= pi/2. Condition: 2*pi - t < a               #
 ###############################################################################
 
-m241 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
+mNW5 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
          [r,                    x4, 0,          t],
          [r*sin(x3),            x3, t,          pi/2],
@@ -285,140 +285,140 @@ m241 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [2*r*sin(t/2)*sin(x2), x2, 3*pi/2 - t/2 - a/2, pi/2] ]
 
 
-rep241 = {t:3*pi/8, a:29*pi/16} # Replacement values in range
+repNW5 = {t:3*pi/8, a:29*pi/16} # Replacement values in range
 
 # Define conditions for model
-cond241 = [a >= pi, t <= pi/2, 2*pi - t <= a  ]
+condNW5 = [a >= pi, t <= pi/2, 2*pi - t <= a  ]
 
 # Calculate model, run checks, write output.
-p241 = calcModel(m241)
-allChecks('p241')
-parseLaTeX('p241')
+pNW5 = calcModel(mNW5)
+allChecks('pNW5')
+parseLaTeX('pNW5')
 
 ####################################################################################
-# 242 animal: a>pi.  Sensor: t <= pi/2. Condition:  2*pi - 2*t <= a <= 2*pi - t  #
+# NW6 animal: a>pi.  Sensor: t <= pi/2. Condition:  2*pi - 2*t <= a <= 2*pi - t  #
 ####################################################################################
 
-m242 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
+mNW6 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
          [r,                    x4, 0,          t],
          [r*sin(x3),            x3, t,          pi/2],
          [r*cos(x2 - t/2),      x2, pi/2 - t/2, a/2 + t/2 - pi/2] ]
 
-rep242 = {t:3*pi/8, a:3*pi/2} # Replacement values in range
+repNW6 = {t:3*pi/8, a:3*pi/2} # Replacement values in range
 
 # Define conditions for model
-cond242 = [a >= pi, t <= pi/2, 2*pi - 2*t <= a, a <= 2*pi - t]
+condNW6 = [a >= pi, t <= pi/2, 2*pi - 2*t <= a, a <= 2*pi - t]
 
 # Calculate model, run checks, write output.
-p242 = calcModel(m242)
-allChecks('p242')
-parseLaTeX('p242')
+pNW6 = calcModel(mNW6)
+allChecks('pNW6')
+parseLaTeX('pNW6')
 
 
 #####################################################################
-# 243 animal: a>pi.  Sensor: t <= pi/2. Condition: a <= 2pi - 2t  #
+# NW7 animal: a>pi.  Sensor: t <= pi/2. Condition: a <= 2pi - 2t  #
 #####################################################################
 
-m243 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
+mNW7 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
          [r,                    x4, 0,          t   ],
          [r*sin(x3),            x3, pi - a/2,   pi/2] ]
 
 
-rep243 = {t:pi/9, a:10*pi/9} # Replacement values in range
+repNW7 = {t:pi/9, a:10*pi/9} # Replacement values in range
 
 # Define conditions for model
-cond243 = [t <= pi/2, a >= pi, a <= 2*pi - 2*t]
+condNW7 = [t <= pi/2, a >= pi, a <= 2*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p243 = calcModel(m243)
-allChecks('p243')
-parseLaTeX('p243')
+pNW7 = calcModel(mNW7)
+allChecks('pNW7')
+parseLaTeX('pNW7')
 
 ####################################################
-# 311 animal: a <= pi.  Sensor: t =2pi.            #
+# SE1 animal: a <= pi.  Sensor: t =2pi.            #
 ####################################################
 
 
-m311 = [ [ 2*r*sin(a/2),                        x1, pi/2, 3*pi/2       ],
+mSE1 = [ [ 2*r*sin(a/2),x1, pi/2, 3*pi/2       ],
          ]
 
 
-rep311 = {a:pi/4} # Replacement values in range
+repSE1 = {a:pi/4} # Replacement values in range
 
 # Define conditions for model
-cond311 = [a <= pi]
+condSE1 = [a <= pi]
 
 # Calculate model, run checks, write output.
-p311 = calcModel(m311)
-allChecks('p311')
-parseLaTeX('p311')
+pSE1 = calcModel(mSE1)
+allChecks('pSE1')
+parseLaTeX('pSE1')
 
 
 
 #################################################################################
-# 321 animal: a <= pi.  Sensor: t > pi. Condition: a > 2pi - t, a > 4pi - 2t    #
+# SE2 animal: a <= pi.  Sensor: t > pi. Condition: a > 2pi - t, a > 4pi - 2t    #
 #################################################################################
 
 
-m321 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2       ],
+mSE2 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2       ],
          [ r*sin(a/2) + r*cos(x1 - t/2),        x1, t/2 + pi/2 - a/2,   5*pi/2 - a/2 - t/2 ], 
          [ 2*r*sin(a/2),                        x1, 5*pi/2 - a/2 - t/2, 3*pi/2]  ]
 
 
-rep321 = {t:19*pi/10, a:pi/2} # Replacement values in range
+repSE2 = {t:19*pi/10, a:pi/2} # Replacement values in range
 
 # Define conditions for model
-cond321 = [a <= pi, t >= pi,  a >= 4*pi - 2*t]
+condSE2 = [a <= pi, t >= pi,  a >= 4*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p321 = calcModel(m321)
-allChecks('p321')
-parseLaTeX('p321')
+pSE2 = calcModel(mSE2)
+allChecks('pSE2')
+parseLaTeX('pSE2')
 
 
 
 #########################################################################################
-# 322 animal: a <= pi.  Sensor: t > pi. Condition: 2pi - t < a < 4pi - 2t #
+# SE3 animal: a <= pi.  Sensor: t > pi. Condition: 2pi - t < a < 4pi - 2t #
 #########################################################################################
 
-m322 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2  ],
+mSE3 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2  ],
          [ r*sin(a/2) + r*cos(x1 - t/2),        x1, t/2 + pi/2 - a/2,   t/2 + pi/2        ],
          [ r*sin(a/2),                          x1, t/2 + pi/2,         5*pi/2 - a/2 - t/2],
          [ 2*r*sin(a/2),                        x1, 5*pi/2 - a/2 - t/2, 3*pi/2            ] ]
 
-rep322 = {t:3*pi/2 + 0.1, a:pi/2} # Replacement values in range
+repSE3 = {t:3*pi/2 + 0.1, a:pi/2} # Replacement values in range
 
 # Define conditions for model
-cond322 = [a <= pi, t >= pi,  a >= 2*pi - t, a <= 4*pi - 2*t]
+condSE3 = [a <= pi, t >= pi,  a >= 2*pi - t, a <= 4*pi - 2*t]
 
 # Calculate model, run checks, write output.
-p322 = calcModel(m322)
-allChecks('p322')
-parseLaTeX('p322')
+pSE3 = calcModel(mSE3)
+allChecks('pSE3')
+parseLaTeX('pSE3')
 
 
 
 ###################################################################################
-# 323 animal: a <= pi.  Sensor: t > pi. Condition: a <= 4*pi - 2*t and a < 2*pi - t #
+# SE4 animal: a <= pi.  Sensor: t > pi. Condition: a <= 4*pi - 2*t and a < 2*pi - t #
 ###################################################################################
 
-m323 = [ [ 2*r*sin(a/2),                       x1, pi/2,             t/2 + pi/2 - a/2  ],
+mSE4 = [ [ 2*r*sin(a/2),                       x1, pi/2,             t/2 + pi/2 - a/2  ],
          [ r*sin(a/2) + r*cos(x1 - t/2),       x1, t/2 + pi/2 - a/2, t/2 + pi/2        ], 
          [ r*sin(a/2),                         x1, t/2 + pi/2,       t/2 + pi/2 + a/2  ] ]
 
 
-rep323 = {t:3*pi/2, a:pi/3} # Replacement values in range
+repSE4 = {t:3*pi/2, a:pi/3} # Replacement values in range
 
 
 # Define conditions for model
-cond323 = [a <= pi, t >= pi/2, a <= 4*pi - 2*t , a <= 2*pi - t]
+condSE4 = [a <= pi, t >= pi/2, a <= 4*pi - 2*t , a <= 2*pi - t]
 
 # Calculate model, run checks, write output.
-p323 = calcModel(m323)
-allChecks('p323')
-parseLaTeX('p323')
+pSE4 = calcModel(mSE4)
+allChecks('pSE4')
+parseLaTeX('pSE4')
 
 
 ###############################################################################
@@ -442,49 +442,49 @@ p3 = (r*sin(x3) - (2*r*sin(x3/2 - a/4)*sin(pi/2 - x3/2 - a/4)).simplify()).trigs
 
 
 ###########################################################################################
-# 331 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a >= t and a/2 >= t - pi/2 #
+# SW1 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a >= t and a/2 >= t - pi/2 #
 ###########################################################################################
 
 
-m331 =  [ [2*r*sin(t/2)*sin(x2),              x2, pi/2 - a/2 + t/2, pi/2            ],
+mSW1 =  [ [2*r*sin(t/2)*sin(x2),              x2, pi/2 - a/2 + t/2, pi/2            ],
           [r*sin(a/2) - r*cos(x2 + t/2),      x2, t/2,              pi/2 - a/2 + t/2],
           [r*sin(a/2) - r*cos(x4 - t),        x4, 0,                t - pi/2        ],
           [r*sin(a/2),                        x4, t-pi/2,           t - pi/2 + a/2  ] ]
 
 
-rep331 = {t:5*pi/8, a:6*pi/8} # Replacement values in range
+repSW1 = {t:5*pi/8, a:6*pi/8} # Replacement values in range
 
 # Define conditions for model
-cond331 = [a <= pi, pi/2 <= t, t <= pi, a >= t, a/2 >= t - pi/2]
+condSW1 = [a <= pi, pi/2 <= t, t <= pi, a >= t, a/2 >= t - pi/2]
 
 # Calculate model, run checks, write output.
-p331 = calcModel(m331)
-allChecks('p331')
-parseLaTeX('p331')
+pSW1 = calcModel(mSW1)
+allChecks('pSW1')
+parseLaTeX('pSW1')
 
 
 
 
 ##########################################################################################
-# 332 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 >= t- pi/2 #
+# SW2 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 >= t- pi/2 #
 ##########################################################################################
 
 
-m332 =  [ [2*r*sin(a/2),                 x2, pi/2 + a/2 - t/2, pi/2             ],
+mSW2 =  [ [2*r*sin(a/2),                 x2, pi/2 + a/2 - t/2, pi/2             ],
           [r*sin(a/2) - r*cos(x2 + t/2), x2, t/2,              pi/2 + a/2 - t/2],
           [r*sin(a/2) - r*cos(x4 - t),   x4, 0*t,              t - pi/2       ],
           [r*sin(a/2),                   x4, t - pi/2,         t - pi/2 + a/2 ] ]
 
 
-rep332 = {t:7*pi/8, a:7*pi/8-0.1} # Replacement values in range
+repSW2 = {t:7*pi/8, a:7*pi/8-0.1} # Replacement values in range
 
 # Define conditions for model
-cond332 = [a <= pi, pi/2 <= t, t <= pi, a/2 <= t/2, a/2 >= t - pi/2]
+condSW2 = [a <= pi, pi/2 <= t, t <= pi, a/2 <= t/2, a/2 >= t - pi/2]
 
 # Calculate model, run checks, write output.
-p332 = calcModel(m332)
-allChecks('p332')
-parseLaTeX('p332')
+pSW2 = calcModel(mSW2)
+allChecks('pSW2')
+parseLaTeX('pSW2')
 
 
 
@@ -493,165 +493,165 @@ parseLaTeX('p332')
 
 
 ##########################################################################################
-# 333 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 <= t- pi/2 #
+# SW3 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 <= t- pi/2 #
 ##########################################################################################
 
 
 
-m333 =  [ [2*r*sin(a/2),                      x2, t/2,            pi/2           ],
+mSW3 =  [ [2*r*sin(a/2),                      x2, t/2,            pi/2           ],
           [2*r*sin(a/2),                      x4, 0,              t - pi/2 - a/2 ],
           [r*sin(a/2) - r*cos(x4 - t),        x4, t - pi/2 - a/2, t - pi/2       ],
           [r*sin(a/2),                        x4, t - pi/2,       t - pi/2 + a/2 ] ]
 
 
-rep333 = {t:7*pi/8, a:2*pi/8} # Replacement values in range
+repSW3 = {t:7*pi/8, a:2*pi/8} # Replacement values in range
 
 # Define conditions for model
-cond333 = [a <= pi, pi/2 <= t, t <= pi, a/2 <= t/2, a/2 <= t - pi/2]
+condSW3 = [a <= pi, pi/2 <= t, t <= pi, a/2 <= t/2, a/2 <= t - pi/2]
 
 # Calculate model, run checks, write output.
-p333 = calcModel(m333)
-allChecks('p333')
-parseLaTeX('p333')
+pSW3 = calcModel(mSW3)
+allChecks('pSW3')
+parseLaTeX('pSW3')
 
 
 
 
 
 ##################################################################################
-# 341 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a <= t      #
+# SW4 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a <= t      #
 ##################################################################################
 
 
-m341 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
+mSW4 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 - t/2 + a/2],
          [r*sin(a/2),                   x3, t,                pi/2            ],
          [r*sin(a/2),                   x4, 0,                a/2 + t - pi/2  ] ]
 
-rep341 = {t:pi/2-0.1, a:pi/4} # Replacement values in range
+repSW4 = {t:pi/2-0.1, a:pi/4} # Replacement values in range
 
 # Define conditions for model
-cond341 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  a <= t]
+condSW4 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  a <= t]
 
 # Calculate model, run checks, write output.
-p341 = calcModel(m341)
-allChecks('p341')
-parseLaTeX('p341')
+pSW4 = calcModel(mSW4)
+allChecks('pSW4')
+parseLaTeX('pSW4')
 
 
 ######################################################################################
-# 342 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  t <= a <= 2t    #
+# SW5 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  t <= a <= 2t    #
 ######################################################################################
 
 
-m342 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
+mSW5 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 + t/2 - a/2],
          [r*sin(a/2),                   x3, t,                pi/2        ],
          [r*sin(a/2),                   x4, 0,                a/2 + t -pi/2   ] ]
 
 
-rep342 = {t:pi/2-0.1, a:pi/2} # Replacement values in range
+repSW5 = {t:pi/2-0.1, a:pi/2} # Replacement values in range
 
 # define conditions for model
-cond342 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  t <= a, a <= 2*t]
+condSW5 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  t <= a, a <= 2*t]
 
 
 # Calculate model, run checks, write output.
-p342 = calcModel(m342)
-allChecks('p342')
-parseLaTeX('p342')
+pSW5 = calcModel(mSW5)
+allChecks('pSW5')
+parseLaTeX('pSW5')
 
 
 
 
 
 ##################################################################################
-# 343 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a > 2t      #
+# SW6 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a > 2t      #
 ##################################################################################
 
 
 
-m343 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2            ],
+mSW6 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2            ],
          [r*sin(x3),            x3, t,          a/2             ],
          [r*sin(a/2),           x3, a/2,        pi/2            ],
          [r*sin(a/2),           x4, 0,          a/2 + t -pi/2   ] ]
 
 
-rep343 = {t:pi/4, a:3*pi/4} # Replacement values in range
+repSW6 = {t:pi/4, a:3*pi/4} # Replacement values in range
 
 
 # Define conditions for model
-cond343 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  a > 2*t]
+condSW6 = [a <= pi,  t <= pi/2,  a >= pi - 2*t,  a > 2*t]
 
 # Calculate model, run checks, write output.
-p343 = calcModel(m343)
-allChecks('p343')
-parseLaTeX('p343')
+pSW6 = calcModel(mSW6)
+allChecks('pSW6')
+parseLaTeX('pSW6')
 
 
 
 
 ###################################################################################
-# 344 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & a <= t     #
+# SW7 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & a <= t     #
 ###################################################################################
 
-m344 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
+mSW7 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 - t/2 + a/2],
          [r*sin(a/2),                   x3, t,                t + a/2         ] ]
 
 
-rep344 = {t:2*pi/8, a:pi/8} # Replacement values in range
+repSW7 = {t:2*pi/8, a:pi/8} # Replacement values in range
 
 # Define conditions for model
-cond344 = [a <= pi, t <= pi/2, a <= pi - 2*t, a <= t]
+condSW7 = [a <= pi, t <= pi/2, a <= pi - 2*t, a <= t]
 
 # Calculate model, run checks, write output.
-p344 = calcModel(m344)
-allChecks('p344')
-parseLaTeX('p344')
+pSW7 = calcModel(mSW7)
+allChecks('pSW7')
+parseLaTeX('pSW7')
 
 
 
 
 #######################################################################################
-# 345 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & t <= a <= 2t   #
+# SW8 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & t <= a <= 2t   #
 #######################################################################################
 
 
-m345 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
+mSW8 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 + t/2 - a/2],
          [r*sin(a/2),                   x3, t,                t + a/2         ] ]
 
-rep345 = {t:2*pi/8, a:pi/2-0.1} # Replacement values in range
+repSW8 = {t:2*pi/8, a:pi/2-0.1} # Replacement values in range
 
 # Define conditions for model
-cond345 = [a <= pi, t <= pi/2, a <= pi - 2*t, t <= a, a <= 2*t]
+condSW8 = [a <= pi, t <= pi/2, a <= pi - 2*t, t <= a, a <= 2*t]
 
 # Calculate model, run checks, write output.
-p345 = calcModel(m345)
-allChecks('p345')
-parseLaTeX('p345')
+pSW8 = calcModel(mSW8)
+allChecks('pSW8')
+parseLaTeX('pSW8')
 
 
 
 ##################################################################################
-# 346 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t &  2t <= a      #
+# SW9 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t &  2t <= a      #
 ##################################################################################
 
-m346 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2    ],
+mSW9 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2    ],
          [r*sin(x3),            x3, t,          a/2     ],
          [r*sin(a/2),           x3, a/2,        t + a/2 ] ]
 
 
-rep346 = {t:1*pi/8, a:pi/2} # Replacement values in range
+repSW9 = {t:1*pi/8, a:pi/2} # Replacement values in range
 
 # Define conditions for model
-cond346 = [a <= pi,  t <= pi/2,  a <= pi - 2*t,  2*t <= a]
+condSW9 = [a <= pi,  t <= pi/2,  a <= pi - 2*t,  2*t <= a]
 
 # Calculate model, run checks, write output.
-p346 = calcModel(m346)
-allChecks('p346')
-parseLaTeX('p346')
+pSW9 = calcModel(mSW9)
+allChecks('pSW9')
+parseLaTeX('pSW9')
 
 
 
@@ -672,138 +672,138 @@ gas = 2*r
 
 
 allComps = [
-['gas', 'p221', {t:2*pi}],
-['gas', 'p311', {a:pi}],
+['gas', 'pNE1', {t:2*pi}],
+['gas', 'pSE1', {a:pi}],
 
-['p221', 'gas', {t:2*pi}],
-['p221', 'p131', {t:pi}],
-['p221', 'p222',{a:3*pi-t}],
-['p221', 'p222',{t:3*pi-a}],
+['pNE1', 'gas', {t:2*pi}],
+['pNE1', 'pNW1', {t:pi}],
+['pNE1', 'pNE2',{a:3*pi-t}],
+['pNE1', 'pNE2',{t:3*pi-a}],
 
-['p222', 'p221',{a:3*pi-t}],
-['p222', 'p221',{t:3*pi-a}],
-['p222', 'p223',{a:4*pi-2*t}],
-['p222', 'p223',{t:2*pi-a/2}],
-['p222', 'p321',{a:pi}],
+['pNE2', 'pNE1',{a:3*pi-t}],
+['pNE2', 'pNE1',{t:3*pi-a}],
+['pNE2', 'pNE3',{a:4*pi-2*t}],
+['pNE2', 'pNE3',{t:2*pi-a/2}],
+['pNE2', 'pSE2',{a:pi}],
 
-['p223', 'p222',{a:4*pi-2*t}],
-['p223', 'p222',{t:2*pi-a/2}],
-['p223', 'p322',{a:pi}],
-['p223', 'p231',{t:pi}],
+['pNE3', 'pNE2',{a:4*pi-2*t}],
+['pNE3', 'pNE2',{t:2*pi-a/2}],
+['pNE3', 'pSE3',{a:pi}],
+['pNE3', 'pNW2',{t:pi}],
 
-['p131','p221', {t:pi}],
-['p131','p231',{a:2*pi}],
+['pNW1','pNE1', {t:pi}],
+['pNW1','pNW2',{a:2*pi}],
 
-['p231','p223',{t:pi}],
-['p231','p232',{a:3*pi-2*t}],
-['p231','p232',{t:3*pi/2-a/2}],
-['p231','p131',{a:2*pi}],
+['pNW2','pNE3',{t:pi}],
+['pNW2','pNW3',{a:3*pi-2*t}],
+['pNW2','pNW3',{t:3*pi/2-a/2}],
+['pNW2','pNW1',{a:2*pi}],
 
-['p232','p241',{t:pi/2}],
-['p232','p233',{a:2*pi-t}],
-['p232','p233',{t:2*pi-a}],
-['p232','p231',{a:3*pi-2*t}],
-['p232','p231',{t:3*pi/2-a/2}],
+['pNW3','pNW5',{t:pi/2}],
+['pNW3','pNW4',{a:2*pi-t}],
+['pNW3','pNW4',{t:2*pi-a}],
+['pNW3','pNW2',{a:3*pi-2*t}],
+['pNW3','pNW2',{t:3*pi/2-a/2}],
 
-['p233','p242',{t:pi/2}],
-['p233','p232',{t:2*pi-a}],
-['p233','p232',{a:2*pi-t}],
-['p233','p331',{a:pi}],
+['pNW4','pNW6',{t:pi/2}],
+['pNW4','pNW3',{t:2*pi-a}],
+['pNW4','pNW3',{a:2*pi-t}],
+['pNW4','pSW1',{a:pi}],
 
-['p141','p131', {t:pi/2}],
-['p141','p241',{a:2*pi}],
+['pREM','pNW1', {t:pi/2}],
+['pREM','pNW5',{a:2*pi}],
 
-['p241','p141',{a:2*pi}],
-['p241','p242',{a:2*pi-t}],
-['p241','p242',{t:2*pi-a}],
-['p241','p232',{t:pi/2}],
+['pNW5','pREM',{a:2*pi}],
+['pNW5','pNW6',{a:2*pi-t}],
+['pNW5','pNW6',{t:2*pi-a}],
+['pNW5','pNW3',{t:pi/2}],
 
-['p242','p241',{a:2*pi-t}], 
-['p242','p241',{t:2*pi-a}],
-['p242','p243',{t:pi-a/2}],
-['p242','p243',{a:2*pi-2*t}],
-['p241','p233',{t:pi/2}],
+['pNW6','pNW5',{a:2*pi-t}], 
+['pNW6','pNW5',{t:2*pi-a}],
+['pNW6','pNW7',{t:pi-a/2}],
+['pNW6','pNW7',{a:2*pi-2*t}],
+['pNW5','pNW4',{t:pi/2}],
 
-['p243','p242',{t:2*pi-2*a}],
-['p243','p242',{a:2*pi-2*t}],
-['p243','p343',{a:pi}],
+['pNW7','pNW6',{t:2*pi-2*a}],
+['pNW7','pNW6',{a:2*pi-2*t}],
+['pNW7','pSW6',{a:pi}],
 
-['p311','p321',{t:2*pi}],
-['p311','gas',{a:pi}],
+['pSE1','pSE2',{t:2*pi}],
+['pSE1','gas',{a:pi}],
 
-['p321','p322',{t:2*pi-a/2}],
-['p321','p322',{a:4*pi-2*t}],
-['p321','p311',{t:2*pi}],
-['p321','p222',{a:pi}],
+['pSE2','pSE3',{t:2*pi-a/2}],
+['pSE2','pSE3',{a:4*pi-2*t}],
+['pSE2','pSE1',{t:2*pi}],
+['pSE2','pNE2',{a:pi}],
 
-['p322','p321',{a:4*pi-2*t}],
-['p322','p321',{t:2*pi-a/2}],
-['p322','p323',{a:2*pi-t}],
-['p322','p323',{t:2*pi-a}],
-['p322','p223',{a:pi}],
+['pSE3','pSE2',{a:4*pi-2*t}],
+['pSE3','pSE2',{t:2*pi-a/2}],
+['pSE3','pSE4',{a:2*pi-t}],
+['pSE3','pSE4',{t:2*pi-a}],
+['pSE3','pNE3',{a:pi}],
 
-['p323','p322',{t:2*pi-a}],
-['p323','p322',{a:2*pi-t}],
-['p323','p333',{t:pi}],
+['pSE4','pSE3',{t:2*pi-a}],
+['pSE4','pSE3',{a:2*pi-t}],
+['pSE4','pSW3',{t:pi}],
 
-['p331','p342',{t:pi/2}],
-['p331','p332',{a:t}],
-['p331','p332',{t:a}],
-['p331','p233',{a:pi}],
+['pSW1','pSW5',{t:pi/2}],
+['pSW1','pSW2',{a:t}],
+['pSW1','pSW2',{t:a}],
+['pSW1','pNW4',{a:pi}],
 
-['p332','p331',{a:t}],
-['p332','p331',{t:a}],
-['p332','p341',{t:pi/2}],
-['p332','p333',{a:2*t-pi}],
-['p332','p333',{t:a/2+pi/2}],
+['pSW2','pSW1',{a:t}],
+['pSW2','pSW1',{t:a}],
+['pSW2','pSW4',{t:pi/2}],
+['pSW2','pSW3',{a:2*t-pi}],
+['pSW2','pSW3',{t:a/2+pi/2}],
 
-['p333','p332',{t:a/2+pi/2}],
-['p333','p332',{a:2*t-pi}],
-['p333','p323',{t:pi}],
-
-
-['p341','p344',{a:pi-2*t}],
-['p341','p344',{t:pi/2-a/2}],
-['p341','p342',{t:a}],
-['p341','p342',{a:t}],
-['p341','p332',{t:pi/2}],
-
-['p342','p341',{t:a}],
-['p342','p341',{a:t}],
-['p342','p345',{t:pi/2-a/2}],
-['p342','p345',{a:pi-2*t}],
-['p342','p343',{a:2*t}],
-['p342','p343',{t:a/2}],
-['p342','p331',{t:pi/2}],
-
-['p343','p346',{t:pi/2-a/2}],
-['p343','p346',{a:pi-2*t}],
-['p343','p342',{a:2*t}],
-['p343','p342',{t:a/2}],
-['p343','p243',{a:pi}],
+['pSW3','pSW2',{t:a/2+pi/2}],
+['pSW3','pSW2',{a:2*t-pi}],
+['pSW3','pSE4',{t:pi}],
 
 
-['p344','p345',{t:a}],
-['p344','p345',{a:t}],
-['p344','p341',{t:pi/2-a/2}],
-['p344','p341',{a:pi-2*t}],
+['pSW4','pSW7',{a:pi-2*t}],
+['pSW4','pSW7',{t:pi/2-a/2}],
+['pSW4','pSW5',{t:a}],
+['pSW4','pSW5',{a:t}],
+['pSW4','pSW2',{t:pi/2}],
 
-['p345','p344',{a:t}],
-['p345','p344',{t:a}],
-['p345','p346',{a:2*t}],
-['p345','p346',{t:a/2}],
-['p345','p342',{a:pi-2*t}],
-['p345','p342',{t:pi/2-a/2}],
+['pSW5','pSW4',{t:a}],
+['pSW5','pSW4',{a:t}],
+['pSW5','pSW8',{t:pi/2-a/2}],
+['pSW5','pSW8',{a:pi-2*t}],
+['pSW5','pSW6',{a:2*t}],
+['pSW5','pSW6',{t:a/2}],
+['pSW5','pSW1',{t:pi/2}],
 
-['p346','p345',{a:2*t}],
-['p346','p345',{t:a/2}],
-['p346','p343',{a:pi-2*t}],
-['p346','p343',{t:pi/2-a/2}]
+['pSW6','pSW9',{t:pi/2-a/2}],
+['pSW6','pSW9',{a:pi-2*t}],
+['pSW6','pSW5',{a:2*t}],
+['pSW6','pSW5',{t:a/2}],
+['pSW6','pNW7',{a:pi}],
+
+
+['pSW7','pSW8',{t:a}],
+['pSW7','pSW8',{a:t}],
+['pSW7','pSW4',{t:pi/2-a/2}],
+['pSW7','pSW4',{a:pi-2*t}],
+
+['pSW8','pSW7',{a:t}],
+['pSW8','pSW7',{t:a}],
+['pSW8','pSW9',{a:2*t}],
+['pSW8','pSW9',{t:a/2}],
+['pSW8','pSW5',{a:pi-2*t}],
+['pSW8','pSW5',{t:pi/2-a/2}],
+
+['pSW9','pSW8',{a:2*t}],
+['pSW9','pSW8',{t:a/2}],
+['pSW9','pSW6',{a:pi-2*t}],
+['pSW9','pSW6',{t:pi/2-a/2}]
 ]
 
 
 # List of regions that cover a=0. Should equal 0 when a=0.
-zeroRegions = ['p346', 'p345', 'p344', 'p341', 'p332', 'p333', 'p323', 'p322', 'p321', 'p311']
+zeroRegions = ['pSW9', 'pSW8', 'pSW7', 'pSW4', 'pSW2', 'pSW3', 'pSE4', 'pSE3', 'pSE2', 'pSE1']
 
 # Run through all the comparisons. Need simplify(). Even together() gives some false negatives.
 
@@ -835,19 +835,19 @@ checkFile.close()
 #####################################
 
 xRange = np.arange(0,pi/2, 0.01)
-y332Range = [p332.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
-plot332 = pl.plot(xRange, y332Range)
-pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p332Profile.pdf')
+ySW2Range = [pSW2.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
+plotSW2 = pl.plot(xRange, ySW2Range)
+pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pSW2Profile.pdf')
 pl.close()
 
-y341Range = [p341.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
-plot341 = pl.plot(xRange, y341Range)
-pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p341Profile.pdf')
+ySW4Range = [pSW4.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
+plotSW4 = pl.plot(xRange, ySW4Range)
+pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pSW4Profile.pdf')
 pl.close()
 
 
 
-#pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/p221Profile.pdf')
+#pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pNE1Profile.pdf')
 #pl.close()
 
 
@@ -866,16 +866,16 @@ def calcP(A, T, R):
  	
 	if A > pi:
 		if A < 4*pi - 2* T:
-			p = p243.subs({a:A,  t:T, r:R}).n()
+			p = pNW7.subs({a:A,  t:T, r:R}).n()
 		elif A <= 3*pi -  T:
-                        p = p222.subs({a:A,  t:T, r:R}).n()
+                        p = pNE2.subs({a:A,  t:T, r:R}).n()
 		else:
-                        p = p221.subs({a:A,  t:T, r:R}).n()
+                        p = pNE1.subs({a:A,  t:T, r:R}).n()
 	else:
 		if A < 4*pi - 2* T:
-                        p = p322.subs({a:A,  t:T, r:R}).n()
+                        p = pSE3.subs({a:A,  t:T, r:R}).n()
 		else:
-                        p = p321.subs({a:A,  t:T, r:R}).n()
+                        p = pSE2.subs({a:A,  t:T, r:R}).n()
         return p
 
 
@@ -945,17 +945,17 @@ calcProfileWidth <- function(alpha, theta, r){
 	if(alpha > pi){
 	        if(alpha < 4*pi - 2*theta){
 """ +
-'		        p <- ' + str(p243) +
+'		        p <- ' + str(pNW7) +
 '\n                } else if(alpha <= 3*pi - theta){'  
-'\n                        p <- ' + str(p222) +
+'\n                        p <- ' + str(pNE2) +
 '\n                } else {'
-'\n                        p <- ' + str(p221) +
+'\n                        p <- ' + str(pNE1) +
 '\n                }'
 '\n        } else {' 
 '\n        	if(alpha < 4*pi - 2*theta){'
-'\n                        p <- ' + str(p322) +
+'\n                        p <- ' + str(pSE3) +
 '\n 		} else {'
-'\n                        p <- ' + str(p321) +
+'\n                        p <- ' + str(pSE2) +
 '\n                }'
 '\n        }'
 '\n        return(p)'
