@@ -162,8 +162,7 @@ To work through one example that contains both $\theta$ and $\alpha$ we will exa
                 \begin{tikzpicture}[scale=0.39]
                 \fullAngleOne{0}{300}{120};
                 \end{tikzpicture}
-\caption{The location of the focal angle $x_1$ as used in models with $\theta>\pi$. This is the angle that is integrated over to find the average profile size. The sector  shaped detection region (with $\theta>\pi$) is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is downwards, as indicated by the grey arrow. %MR: IÕm struggling to understand this figure Ð IÕd understood it was a for a specific theta, for which the first picture makes sense, but the rest of them seem to have different thetas, which is doing my head in! Also I canÕt grasp how the animal call zone interacts with this (I guess thatÕs what IÕm failing to get my head round?). In general itÕs a heroic effort to explain a really hard concept, but IÕm not sure itÕs quite there 
-%@tim: This bit still needs to be been changed.
+\caption{The focal angle $x_1$ used in models with $\theta>\pi$. This angle is integrated over to find the average profile size. The sector shaped detection region (with $\theta>\pi$) is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is downwards, as indicated by the grey arrow. 
      }
 \label{f:x1}
 \end{figure}
@@ -229,8 +228,7 @@ We use $x_i$ to denote the focal angle which is the angle we integrate over. The
                 \caption{$x_4$}
                 \label{f:x4}
         \end{subfigure}%%
-\caption{The location of the focal angles $x_{i\in[2,4]}$ and the transitions between them as used in models with $\theta<\pi$. These are the angles that are integrated over to find the average profile size. In these figures, the sector shaped detection region is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow. %MR: IÕm struggling to understand this figure Ð IÕd understood it was a for a specific theta, for which the first picture makes sense, but the rest of them seem to have different thetas, which is doing my head in! Also I canÕt grasp how the animal call zone interacts with this (I guess thatÕs what IÕm failing to get my head round?). In general itÕs a heroic effort to explain a really hard concept, but IÕm not sure itÕs quite there 
-%@tim: This bit still needs to be been changed.
+\caption{The location of the focal angles $x_{i\in[2,4]}$ and the transitions between them as used in models with $\theta<\pi$. These are the angles that are integrated over to find the average profile size. In these figures, the sector shaped detection region is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow. 
      }
 \label{f:xis}
 \end{figure}
@@ -286,7 +284,7 @@ Although more thorough checks are performed in S3, it can be seen that all adjac
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
-	\caption{Percentage error and standard deviation of analytical model calculated from the simulation when settings are: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. The number numbers referred to here can be found in Figure~\ref{f:regions} in the supplementary material, and the colour of each box plot match the functional form of the equation as seen in Figure~\ref{f:equalModelResults}.
+	\caption{Distribution of the bias for each model. Percentage error of analytical model calculated from the simulation when settings are: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. The number numbers referred to here can be found in Figure~\ref{f:regions} in the supplementary material, and the colour of each box plot match the functional form of the equation as seen in Figure~\ref{f:equalModelResults}.
   }
 	\label{f:ModelBias}
 \end{figure}
@@ -295,20 +293,18 @@ None of the estimated densities from the simulation showed significant deviation
 
 \begin{figure}[t]
         \centering
-	\begin{subfigure}[t]{0.5\textwidth}
 		\includegraphics[width=1\textwidth]{imgs/ResultStandardDeviation.pdf}
 		\caption{Angle of detector}
 		\label{f:StandardDevaition}
-	\end{subfigure}
-	~
-	 \begin{subfigure}[t]{0.5\textwidth}
-                \centering
-		\includegraphics[width=1\textwidth]{imgs/ResultsNoCaptures.pdf}
-                \caption{Number of captures}
-                \label{f:Captures}
-        \end{subfigure}
-        \label{f:Precision}
-        \caption{ The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ (A) where: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. The accuracy and precision of the four test models when given different numbers of captures(B) where: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. . 
+        \caption{ The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ where: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models.        } 
+\end{figure}
+
+\begin{figure}[t]
+       \centering
+	\includegraphics[width=1\textwidth]{imgs/ResultsNoCaptures.pdf}
+         \caption{Number of captures}
+           \label{f:Captures}
+        \caption{ The accuracy and precision of the four test models when given different numbers of captures where: $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models.
         } 
 \end{figure}
 
@@ -318,22 +314,18 @@ The precision of the model is dependent on the number of captures during the sur
 We ran simulations that broke the assumptions of model in order to see whether the model was still accurate when these assumptions were broken. We specifically looked at a a non-continuous movement, and a range of correlated random walks, both of which would be seen in real field conditions. Simulating start-stop instead of continuous movement had no effect the accuracy, or the precision, of the estimates (Figure~\ref{f:Perch}) as long as the true overall speed of the animal is known. Relaxing straight line movement to allow random or correlated random walks did not effect the accuracy of the method (Figure~\ref{f:Tort}). We allowed animals to change direction up to a maximum value at the end of each step, picked from a uniform distribution where the maximum angle ranged from 0 to $\pi$, which corresponds to straight line movement and random walk respectively. There is no significant difference in the variance for the change, this could be because of the between the step length of the animal movement, 15 minutes, means that immediate double counting of the same animal is unlikely.  In the case where large directional changes are likely to occur within short periods of time leading to double counting of the same animal within a short period of time may need to be adjusted because of this. 
 
 \begin{figure}[t]
-        \centering
-        \begin{subfigure}[t]{0.5\textwidth}
-                \centering
-		\includegraphics[width=1\textwidth]{imgs/ResultsPerch.pdf}
-                \caption{Proportion of time spent stationary}
-                \label{f:Perch}
-        \end{subfigure}
-        ~ 
-	\begin{subfigure}[t]{0.5\textwidth}
+      \centering
+	\includegraphics[width=1\textwidth]{imgs/ResultsPerch.pdf}
+          \caption{Proportion of time spent stationary}
+          \label{f:Perch}
+	\caption{Discrepancy between known simulation density and estimated density when animals spend increasing proportion of time stationary where:  $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models.  } 
+\end{figure}
+\begin{figure}[t]
                 \centering
 		\includegraphics[width=1\textwidth]{imgs/ResultsTort.pdf}
                 \caption{Angle of correlated walk}
                 \label{f:Tort}
-        \end{subfigure}
-	\caption{Discrepancy between known simulation density and estimated density when animals spend increasing proportion of time stationary (A) where:  $r = $\SI{100}{\meter}; $T = $\SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Discrepancy between known simulation density and estimated density when they move with different types of correlated walk (B) where:  $r = $\SI{10}{\meter}; $T = $\SI{352}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. } 
-	\label{f:distanceMovement}
+	\caption{Discrepancy between known simulation density and estimated density when they move with different types of correlated walk where:  $r = $\SI{10}{\meter}; $T = $\SI{352}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D=$\SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. } 
 \end{figure}
 
                   
