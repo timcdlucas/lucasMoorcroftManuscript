@@ -140,14 +140,8 @@ $d$ 		& Time step index &
 
 Here we derive the gas model which models a sensor that can detect animals in any direction and animals which can be detected no matter the direction they face ($ \alpha =  2pi$ and $ \theta =  2\pi$). This is the simplest model and serves to illustrate the general principle behind all the models. We assume that animals are in a homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our stationary sensor can detect animals at a distance $r$ and that if an animal moves within this detection region they are detected with a probability of one, while animals outside the region are never detected.
 
-We then consider relative velocity from the reference frame of the animals so that conceptually, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is
-\begin{equation}
-	z = 2rvtD.
-\end{equation}
-However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this by simply rearranging to get
-\begin{equation}
-	D = z/2rvt.
-\end{equation}
+We then consider relative velocity from the reference frame of the animals so that conceptually, all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the study period we can estimate the number of animals it should encounter. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected encounters, $z$, for a survey of duration $t$, with an animal density of $D$ is z = 2rvtD.
+However, in practice we have the opposite situation. We know the number of encounters and want to estimate the density. We do this by simply rearranging to get D = z/2rvt.
 For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. If we call this average diameter the profile $p$, the rest of the derivation is just calculating this value for all values of $\theta$ and $\alpha$. However, there is not one equation that models any combination of these parameters. Instead, different areas of parameter space have different models which must be derived separately. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. 
 
 Many of these models have the same functional form, and are therefore grouped together as can be seen in figure \ref{f:equalModelResults}, all of the sub models can be seen in figure~\ref{f:regions} in the supplementary material. The upper right  corner of figure \ref{f:equalModelResults} being the gas model as derived above and `REM' is the model from \cite{rowcliffe2008estimating}. 
