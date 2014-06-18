@@ -44,20 +44,22 @@
 \subsection*{ Word count:}
 
 \subsection*{ Authors:\\}
-Tim C.D. Lucas\textsuperscript{1,2,3}, Elizabeth Moorcroft\textsuperscript{1,4,5}, Robin Freeman\textsuperscript{5}, Marcus J. Rowcliffe\textsuperscript{5}, Kate E. Jones\textsuperscript{2,5}
+Tim C.D. Lucas\textsuperscript{1,2,3}, Elizabeth A. Moorcroft\textsuperscript{1,4,5}, Robin Freeman\textsuperscript{5}, Marcus J. Rowcliffe\textsuperscript{5}, Kate E. Jones\textsuperscript{2,5}
 
 
 \subsection*{ Addresses:\\}
 1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
-2 Centre for Biodiversity and Environment Research within Genetics, Evolution and Environment, UCL, Gower Street, London, WC1E 6BT, UK\\ 
+2 Centre for Biodiversity and Environment Research, Department of Genetics, Evolution and Environment, University College London, Gower Street, London, WC1E 6BT, UK\\ 
 3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
 4 Department of Computer Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
 5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK
 
 
 \subsection*{ Corresponding authors:\\}
+\noindent
 Kate E. Jones,\\
-CBER,\\
+Centre for Biodiversity and Environment Research,\\
+Department of Genetics, Evolution and Environment,\\
 University College London,\\
 Gower Street,\\
 London,\\
@@ -65,6 +67,7 @@ WC1E 6BT, \\
 UK\\
 kate.e.jones@ucl.ac.uk\\
 
+\noindent 
 Marcus J. Rowcliffe, \\
 Institute of Zoology, \\
 Zoological Society of London, \\
@@ -78,23 +81,23 @@ marcus.rowcliffe@ioz.ac.uk
 \clearpage
 
 
-%max word count 350 words. - current count 345
+%max word count 350 words. - current count 347
 
 \section{Abstract}
-\subsection*{1:}   It is currently difficult to estimate population densities using data collected using remote sensors. Current methods require either individual identification in order to apply capture recapture analysis, or mobile sensors and static animals together with known distance between animal and sensor on detection in order to apply distance analysis. An approach without these requirements, `ideal gas' models, have so far only been extended for camera traps with a small range of detection angles and acoustically detected animals with directional calls currently do not fit the assumptions of the random encounter model (REM) as developed for camera trapping.
+\subsection*{1:}  Wildlife monitoring technology has advanced rapidly and the use of remote sensors such as camera traps, and acoustic detectors is becoming common in both the terrestrial and marine environments. Current capture recapture or distance methods require individual recognition of animals or knowing the distance of the animal from the sensor, which is often difficult. Current methods require either individual identification in order to apply capture recapture analysis, or mobile sensors and static animals together with known distance between animal and sensor on detection in order to apply distance analysis. A method without these requirements, the random encounter model (REM), has been successfully applied to estimate animal densities from count data generated from camera traps. However, count data from acoustic detectors do not fit the assumptions of the REM model due to the directionality of animal calls.
 
-\subsection*{2:} We have created a generalised REM (gREM) model so that animal density can be estimated from count data obtained using acoustic detection of animals with directional calls, as well as data from camera trap surveys. We have then tested the robustness of the gREM by simulating a sensor survey of an animal population moving through space. From these surveys we estimated animal density using our new models and compared this to the known input density of animals to test the validity of the new models.
+\subsection*{2:} We developed a generalised REM model (gREM) to estimate animal density from count data from both camera traps and acoustic detectors. We tested the validity of this model using simulations of different survey lengths, sensor detection angles, call directionality, animal speeds and animal densities. We have then tested the robustness of the gREM by simulating a sensor survey of an animal population moving through space. From these surveys we estimated animal density using our new models and compared this to the known input density of animals to test the validity of the new models.
 
-\subsection*{3:} The new models can be used to estimate animal density from surveys with any combination of sensor detection angle and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases the number of captures during the survey which is influenced by including detection zone and length of survey, the speed and density of animal. We found that for highly precise estimates at least 100 number of captures is necessary.
+\subsection*{3:} We find that the gREM model produces unbiased estimates of animal density but the precision of the estimate increases with the number of captures. Higher capture numbers can be achieved with longer surveys, wider sensor detection zones, lower call directionality, faster animal speeds and higher animal densities. Our simulations suggest that at least 100 captures is necessary for high estimate precision. %The new models can be used to estimate animal density from surveys with any combination of sensor detection angle and call directionality. We find that the models give an unbiased estimate of density. The precision of the estimate increases the number of captures during the survey which is influenced by including detection zone and length of survey, the speed and density of animal. We found that for highly precise estimates at least 100 number of captures is necessary.
 
-\subsection*{4:} We conclude that these models provide an effective method to estimate animal density from sensor count data. We anticipate that surveys of acoustically detected species, or camera trap surveys, which before could only give relative metrics of population size will now be able to estimate population density controlling for detectability.   As sensors such as camera traps and acoustic detectors become cheaper and more practical these models will be increasingly useful for monitoring animal populations across broad spatial, temporal or taxonomic scales.
+\subsection*{4:} We conclude that the gREM model provides an effective method to estimate animal densities from remote sensor count data controlling for detectability. As sensors such as camera traps and acoustic detectors become more ubiquitous, this model will be increasingly useful for monitoring animal populations across broad spatial, temporal and taxonomic scales.  %We conclude that these models provide an effective method to estimate animal density from sensor count data. We anticipate that surveys of acoustically detected species, or camera trap surveys, which before could only give relative metrics of population size will now be able to estimate population density controlling for detectability.   As sensors such as camera traps and acoustic detectors become cheaper and more practical these models will be increasingly useful for monitoring animal populations across broad spatial, temporal or taxonomic scales.
 
 \subsection{Keywords} %max keywords/phrase 10 - current 3
-Acoustic detection, density estimation, bat detector.
+ Population density, Sensors, Simulations, Wildlife monitoring %Acoustic detection, density estimation, bat detector,
 
 \section{Introduction}
 
-Animal population size is one of the fundamental measures needed in ecology and conservation. The absolute size of a population has important implications for a range of issues such as genetic diversity \citep{o1985genetic, fischer2000genetic, willi2005threefold} and sensitivity to stochastic fluctuations \citep{wright1983stochastic, richter1972extinction}. However, many authors highlight the need to consider detectability when estimating density, since failure to do so will usually give biased results. In particular, this bias has been highlighted as a problem for the interpretation of count rates from sensors such as camera traps as abundance indices \citep{jennelle2002use, foster2012critique}.
+Animal population size is one of the fundamental measures needed in ecology and conservation. The absolute size of a population has important implications for a range of issues such as genetic diversity \citep{o1985genetic, fischer2000genetic, willi2005threefold}, sensitivity to stochastic fluctuations \citep{wright1983stochastic, richter1972extinction} and risk of extinction \citep{purvis2000predicting}. However, many authors highlight the need to consider detectability when estimating density, since failure to do so will usually give biased results. In particular, this bias has been highlighted as a problem for the interpretation of count rates from sensors such as camera traps \citep{jennelle2002use, foster2012critique}.
 
 The methods for sampling populations are varied. Traditionally, human surveyors collecting data were the primary method, but sensor technology, such as camera traps \citep{ahumada2011community, rowcliffe2008surveys} and acoustic detectors \citep{ofarrel1999comparison, jones2011indicator, mellinger2007fixed} are becoming increasingly used to survey animal populations.  Sensors are growing in popularity, as they are efficient, relativity cheap and non-invasive \citep{gese2001monitoring, o2003crouching, silveira2003camera}. With respect to efficiency, the use of autonomous sensors allows for surveys over large areas and long periods. 
 
