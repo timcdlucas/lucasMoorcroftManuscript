@@ -1,0 +1,38 @@
+%Wildlife montoring important (declines in populations, global declines)
+Animal population size is one of the fundamental measures needed in ecology and conservation. The absolute size of a population has important implications for a range of issues such as genetic diversity \citep{o1985genetic, fischer2000genetic, willi2005threefold}, sensitivity to stochastic fluctuations \citep{richter1972extinction,wright1983stochastic} and risk of extinction \citep{purvis2000predicting}.
+
+%Wildlife monitoring tech growing in sophication and widespread (remote sensors visual and acoustic)
+Sensor technology, such as camera traps \citep{rowcliffe2008surveys,ahumada2011community} and acoustic detectors \citep{ofarrel1999comparison,mellinger2007fixed,jones2011indicator} are becoming increasingly used to survey animal populations, as they are efficient, relativity cheap and non-invasive \citep{gese2001monitoring, o2003crouching, silveira2003camera}, allowing for surveys over large areas and long periods. 
+
+
+%Difficult to estimate abundance and densities (needed for monitoring)
+However, the problem of converting sampled count data to estimates of density remains. 
+
+
+%Current methods are often inadequate because of specific data requirements (marked indivudals)
+The preferred method for estimating density if individuals can be recognised is capture-recapture e.g. \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}. If individual recognition is impossible but the distance between animal and sensor can be estimated, distance sampling methods can be used to estimate density, although these often ignore animal movement which may bias estimates \citep{barlow2005estimates, marques2011estimating}
+
+
+%REM developed for camera trap data, doesnt need this assumptions 
+The gas model has been modified for use with camera traps, which have an angle of detection (the angle within which an animal can be detected)  up to $\pi$ radians \citep{rowcliffe2008estimating}. 
+
+%but has limitations
+This angle limitation may not apply to acoustic detectors, or all types of camera traps. Furthermore, animal calls may be directional, and the existing random encounter model (REM) designed for camera trap data does not handle this case.
+
+%Specifically sensor widths - different environments might need more flexibility (examples) and signal directionality assumptions (examples) - method has been optimised for terrestrial large animals
+Fisheye lenses have been developed for monitoring wildlife and the canopy, but any count data collected with these cameras could not be inputted into the REM. 
+Any camera looking down on a terrestrial landscape or in a marine environment would have a circular view point, and once again this data would not be suitable for use with the REM. 
+
+
+
+%acoustic monitoring becoming more common method of monitoring but has additional sensor width problems (examples) and directionality of signals (examples). 
+
+%Currently the count data from acoustic monitoring is used for monitoring in different ways (examples). 
+Acoustic monitoring is being developed for study the interactions of animals and their environments \citep{blumstein2011acoustic, straight2014passive, marcoux2011local, rogers2013density}, as well as the presence and relative abundances of species \citep{mckown2012wireless, marcoux2011local}, and biodiversity of an area \citep{ depraetere2012monitoring}
+
+
+%Another limitation to using these sensors is lack of guidelines on how survey effort impacts the accuracy and precision of estimates (guidelines would be useful. practically can only be done within simulated environment, rarely done)
+
+
+%We develop gREM and tested it and come up with specific recommedations for its use (providing code for implementation). we controlled for different animal movement by testing the robustness of gREM with different movement model (examples).
+
