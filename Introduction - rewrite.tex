@@ -6,25 +6,24 @@ Sensor technology, such as camera traps \citep{rowcliffe2008surveys,ahumada2011c
 
 
 %Difficult to estimate abundance and densities (needed for monitoring)
-However, the problem of converting sampled count data to estimates of density remains. 
+However, the problem of converting sampled count data to estimates of density remains as efforts must be made to account for detectability of the animals \citep{dail2011models, chandler2011inference}.
 
 
 %Current methods are often inadequate because of specific data requirements (marked indivudals)
-The preferred method for estimating density if individuals can be recognised is capture-recapture e.g. \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}. If individual recognition is impossible but the distance between animal and sensor can be estimated, distance sampling methods can be used to estimate density, although these often ignore animal movement which may bias estimates \citep{barlow2005estimates, marques2011estimating}
+Methods do already exist for estimating animal density if the distance between the animal and the sensor can be estimated, although these often ignore animal movement which may bias estimates \citep{barlow2005estimates, marques2011estimating}, or if the individuals can be individually recognised, capture-mark-recapture \citep{karanth1995, trolle2003estimation, soisalo2006estimating, trolle2007camera}.
+
 
 %REM developed for camera trap data, doesnt need this assumptions 
-The gas model has been modified for use with camera traps, which have an angle of detection (the angle within which an animal can be detected)  up to $\pi$ radians \citep{rowcliffe2008estimating}, removing the need for individual recognition and distance estimation. 
+Individual recognition and distance estimation are not always possible however. The random encounter model (REM) removes the need for these assumptions but is only suitable for use with camera traps. The REM is a modified version of the gas model where the sensors have an angle of detection (the angle within which an animal can be detected) up to $\pi$ radians \citep{rowcliffe2008estimating}. 
 
 %but has limitations
-This angle limitation may not apply to acoustic detectors \citep{adams2012you}, or all types of camera traps. Furthermore, animal calls may be directional, and the existing random encounter model (REM) designed for camera trap data does not handle this case.
+This angle limitation may not apply to acoustic detectors \citep{adams2012you}, or all types of camera traps. Furthermore, animal calls may be directional, and the existing REM designed for camera trap data does not handle this case.
 
 %Specifically sensor widths - different environments might need more flexibility (examples) and signal directionality assumptions (examples) - method has been optimised for terrestrial large animals
-Fisheye lenses have been developed for monitoring wildlife and the canopy, but any count data collected with these cameras could not be inputted into the REM. 
-Any camera looking down on a terrestrial landscape or in a marine environment would have a circular view point, and once again this data would not be suitable for use with the REM. 
+Fisheye lenses have been developed for monitoring of the canopy \citep{brusa2014increasing}, but any count data collected with these cameras could not be inputted into the REM as they do not meet the angular assumptions. Any camera looking down on a terrestrial landscape or in a marine environment would have a circular view point, and once again this data would not be suitable for use with the REM. 
 
 %acoustic monitoring becoming more common method of monitoring but has additional sensor width problems (examples) and directionality of signals (examples). 
-There has been a sharp rise in the number of publications with passive acoustic detectors, with fewer than 10 studies published in 2000, and more than 60 published in 2010, a more than 6 fold increase in a decade \citep{kessel2014review}. 
-Different families and species of animals will display different directionality in their calls, there will even be different widths of call from the same animal depending on that calls purpose \citep{jakobsen2012convergent}
+There has been a sharp rise in interest around passive acoustic detectors in recent years, with an increase in publications of at least 500\% in the decade between 2000 and 2010 \citep{kessel2014review}. However there is not uniformity in the data collected, with microphones having a wide range of detection angles and different species of animals will display different directionality in their calls. There will even be different widths of call from the same animal depending on that calls purpose \citep{jakobsen2012convergent}.
 
 %Currently the count data from acoustic monitoring is used for monitoring in different ways (examples). 
 Acoustic monitoring is being developed for study the interactions of animals and their environments \citep{blumstein2011acoustic, straight2014passive, marcoux2011local, rogers2013density}, as well as the presence and relative abundances of species \citep{mckown2012wireless, marcoux2011local}, and biodiversity of an area \citep{ depraetere2012monitoring}
