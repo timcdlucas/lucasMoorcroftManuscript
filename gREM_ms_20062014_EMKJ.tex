@@ -123,9 +123,9 @@ The REM presented by \citep{rowcliffe2008estimating} adapts the gas model to mod
 %%% Put in new diagram.
 \begin{figure}[t]
         \centering
+	\includegraphics[width=0.6\textwidth]{imgs/angleDefinitions.pdf}
 \label{f:Slide2}
 \caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); r, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled sqaure and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.}
-     }
 
 \end{figure}
 
@@ -162,7 +162,7 @@ Following \cite{yapp1956theory}, we derive the gas model where sensors can captu
 For derivation purposes, we consider relative velocity from the reference frame of the animals. Conceptually, this requires us to imagine that all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the survey period we can estimate the number of animals it should capture. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected captures, $z$, for a survey period of $t$, with an animal density of $D$ is $z = 2rvtD$. To estimate the density, we rearrange to get $D = z/2rvt$.
 
 \subsubsection{gREM derivations for different detection and signal widths}
-Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g., sensors have different detection widths and animals have different signal widths). For different combinations $\theta$ and $\alpha$, the area covered per unit time is no longer given by $2rv$. Instead of the size of the sensor detection zone having a diameter of $2r$, the size changes with the approach angle of the sensor and the animal. The size of the detection zone presented to the animal (averaged across all approach angles) is defined as the profile $p$. However, different combinations of $\theta$ and $\alpha$ need different equations to calcuate $p$. 
+Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g., sensors have different detection widths and animals have different signal widths). For different combinations $\theta$ and $\alpha$, the area covered per unit time is no longer given by $2rv$. Instead of the size of the sensor detection zone having a diameter of $2r$, the size changes with the approach angle of the sensor and the animal. The size of the detection zone presented to the animal                                                                                                                                                                            	        (averaged across all approach angles) is defined as the profile $p$. However, different combinations of $\theta$ and $\alpha$ need different equations to calcuate $p$. 
 
 We have identified the parameter space for the combinations of$\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Figure~\ref{}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Figure~\ref{}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta$<$\pi/2$ and $\alpha = 2\pi$. We derive one gREM sub-model SE2 as an example below (where $4 \pi - 2 \alpha < \theta < 2\pi ,\; 0 < \alpha <\pi$) (see Appendix S2 for other gREM sub-models).
 
@@ -174,13 +174,39 @@ As the sensor travels anti-clockwise around the animal, the size of the detectio
 
 % will remain at $2r$ until the approach angle is greater than $\alpha/2$ (Figure~\ref{f:Slide2}). The size of the detection zone is therefore $2r\sin$($\alpha$/2). At this point, the size of $\alpha$ limits the size of the detection zone. This remains the case until the sensor reaches the right hand side of the animal where $x_1$  = $\theta$/2 + $\pi$/2 - $\alpha$/2 (Figure~\ref{f:Slide2}). The size of the detection zone is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta/$ limits the size of the detection zone. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin(\alpha/2)$. 
 
+
 %insert new figure
 \begin{figure}[t]
         \centering
+	\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/x1.pdf}
+                \caption{Location of $x_1$ }
+                \label{f:x2start}
+        \end{subfigure}%%
+	~ 
+	\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/integralOne.pdf}
+                \caption{First integral}
+                \label{f:firstInt}
+        \end{subfigure}%%
+	 
+	\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/secondIntegral.pdf}
+                \caption{Second Integral}
+                \label{f:secondInt}
+        \end{subfigure}%%
+	~ 
+	\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+		\includegraphics[width=1\textwidth]{imgs/thirdIntegral.pdf}
+                \caption{Third Integral}
+                \label{f:thirdInt}
+        \end{subfigure}%%
 \label{f:Slide2}
 \caption{Representation of size of the detection zone presented to the animal by the sensor for a focal angle of $x_1$ for (a) directly approaching blah, (b) blah, and (c) blah. The filled square and circle represent a sensor and an animal, respectively; dark grey shaded area, sensor detection zone; red line, size of the detection zone presented to the animal; $x_1$, focal angle; and the dashed arrow represents the movement of the sensor.}
-     }
-
 \end{figure}
 
 
