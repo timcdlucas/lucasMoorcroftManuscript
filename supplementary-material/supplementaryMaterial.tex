@@ -2,7 +2,7 @@
 \usepackage[small]{caption}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
-\usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, tikz, listings, geometry}
+\usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, tikz, listings, geometry, siunitx}
 \usepackage[pagewise, displaymath, mathlines]{lineno}
 %\usepackage{epstopdf}
 \geometry{verbose,a4paper,tmargin=25mm,bmargin=25mm,lmargin=28mm,rmargin=28mm}
@@ -13,7 +13,17 @@
 \makeatother
 
 \renewcommand\thefigure{S\arabic{figure}} 
-\renewcommand\thetable{S\arabic{table}}       
+\renewcommand\thetable{S\arabic{table}}     
+
+\renewcommand{\thesection}{S\arabic{section}}   
+
+% A list of supporting information
+% S1 A table
+% S2 Mathematical appendix
+% S3 Python script
+% S4 R Script
+
+% simulation script?
 
 
 \lstset{
@@ -102,10 +112,8 @@ emphstyle={\color{self}\slshape},
 
 
 % This declares the unit "animals". Also redefined days to be whole word *(not sure if thats what is needed.
-
-%\DeclareSIUnit{\animals}{animals}
-%\DeclareSIUnit{\day}{days}
-
+\DeclareSIUnit{\animals}{animals}
+\DeclareSIUnit{\day}{days}
 
 
 
@@ -115,10 +123,39 @@ emphstyle={\color{self}\slshape},
 
 \begin{document}
 
-\title[Supp. Material: Gas models.]{Supplementary material: A generalisation of ideal gas models for camera traps and acoustic sensors}
+\title[Supp Info: A generalised random encounter model for animals]{Supplementary Information: A generalised random encounter model for estimating animal density with remote sensor data}
 \maketitle
 
-\tableofcontents
+
+
+\section{Table of symbols}
+
+%move to appendix
+\begin{table}[h!]
+\centering
+\begin{tabular}{lll}
+Symbol 	& Description & Units\\\hline
+$v$		& Velocity & \SI{}{\meter\per\second}\\
+$\theta$	& Angle of detection & Radians \\
+$\alpha$	& Animal call/beam width & Radians \\
+$r$ 		& Detection distance & Metres\\
+$\bar{p}$ 		& Average profile width & Metres\\
+$p$ 		& A specific profile width & Metres\\
+$t$		& Time & Seconds\\
+$z$		& Number of detections & \\
+$D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
+$x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& Radians\\
+$T$ 		& Step length & Seconds\\
+$N$ 		& Number of steps per simulation & \\
+$d$ 		& Time step index &
+
+\end{tabular}
+\caption{List of symbols used to describe the gREM}
+\label{t:paras}
+\end{table}
+
+\clearpage
+
 \section{Supplementary Methods}
 \subsection{Introduction}
 This supplementary methods derives all the models used in the paper. For continuity, the gas model derivation is included here as well as in the main text. The derivation of all models is included in the Python script S2. 
@@ -136,10 +173,10 @@ This script uses the SymPy package \cite{sympy}, a computer algebra system to ca
 \lstinputlisting{REM-Analysis.py}
 
 
-
+\clearpage
 \section{Supplementary Script: R implementation of models}
 
-This is a simple implementation of the models derived in the paper in R \cite{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
+This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
 
 \lstinputlisting{supplementaryRscript.R}
 

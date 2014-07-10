@@ -9,14 +9,13 @@ from sympy import *
 import numpy as np
 import matplotlib.pyplot as pl
 from datetime import datetime
-import Image as Im
 
 
 # Use LaTeX printing
 from sympy import init_printing ;
 init_printing()
 # Make LaTeX output white. Because I use a dark theme
-init_printing(forecolor="White") 
+# init_printing(forecolor="White") 
 
 
 # Load symbols used for symbolic maths
@@ -24,8 +23,7 @@ t, a, r, x2, x3, x4, x1 = symbols('theta alpha r x_2 x_3 x_4 x_1', positive=True
 r1 = {r:1} # useful for lots of checks
 
 
-# Define functions to neaten up later code.
-
+# Define functions
 # Calculate the final profile averaged over pi.
 def calcModel(model):
         x = pi**-1 * sum( [integrate(m[0], m[1:]) for m in model] ).simplify().trigsimp()
@@ -90,11 +88,11 @@ def allChecks(prof):
         intsRange(model, reps)
         checkBounds(model, reps)
 
-#########################################################
+#######################################################
+### Define and solve all models                     ###
+#######################################################
+
 # NE1 animal: a = 2*pi.  sensor: t > pi, a > 3pi - t  #
-#########################################################
-
-
 
 mNE1 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  pi         ],
@@ -112,17 +110,13 @@ pNE1 = calcModel(mNE1)
 allChecks('pNE1')
 parseLaTeX('pNE1')
 
-###############################################################################
+
 # NE2 animal: a > pi.  sensor: t > pi Condition: a < 3pi - t, a > 4pi - 2t  #
-###############################################################################
-
-
 
 mNE2 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  5*pi/2 - t/2 - a/2 ],
          [r + r*cos(x1 + t/2), x1, 5*pi/2 - t/2 - a/2,   2*pi-t/2 ],
          [2*r,                 x1, 2*pi-t/2, 3*pi/2 ] ]
-
 
 # Replacement values in range
 repNE2 = {t:5*pi/3, a:4*pi/3-0.1} 
@@ -136,18 +130,13 @@ allChecks('pNE2')
 parseLaTeX('pNE2')
 
 
-##################################################################
 # NE3 animal: a > pi.  sensor: t > pi Condition: a < 4pi - 2t  #
-##################################################################
-
-
 
 mNE3 = [ [2*r,                 x1, pi/2, t/2        ],
          [r + r*cos(x1 - t/2), x1, t/2,  t/2 + pi/2         ],
          [r                  , x1, t/2 + pi/2,   5*pi/2 - t/2 - a/2 ],
          [r + r*cos(x1 + t/2), x1, 5*pi/2 - t/2 - a/2,   2*pi-t/2 ],
          [2*r,                 x1, 2*pi-t/2, 3*pi/2 ] ]
-
 
 # Replacement values in range
 repNE3 = {t:5*pi/4-0.1, a:3*pi/2}
@@ -161,11 +150,7 @@ allChecks('pNE3')
 parseLaTeX('pNE3')
 
 
-
-
-########################################################
 # NW1 animal: a = 2*pi.   sensor:  pi/2 <= t <= pi      #
-########################################################
 
 mNW1 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,      pi/2     ],
         [r - r*cos(x4 - t),     x4, 0,        t - pi/2 ],
@@ -186,10 +171,8 @@ parseLaTeX('pNW1')
 
 
 
-#################################################################################
-# NW2 animal: a > pi.  Sensor: pi/2 <= t <= pi. Condition: a > 2pi - t          #
-#################################################################################
 
+# NW2 animal: a > pi.  Sensor: pi/2 <= t <= pi. Condition: a > 2pi - t          #
 
 mNW2 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,          pi/2        ],
          [r - r*cos(x4 - t),    x4, 0,            t - pi/2    ],
@@ -209,10 +192,8 @@ allChecks('pNW2')
 parseLaTeX('pNW2')
 
 
-#################################################################################
-# NW3 animal: a > pi.  Sensor: pi/2 <= t <= pi. Cond: 2pi - t < a < 3pi - 2t    #
-#################################################################################
 
+# NW3 animal: a > pi.  Sensor: pi/2 <= t <= pi. Cond: 2pi - t < a < 3pi - 2t    #
 
 mNW3 = [ [2*r*sin(t/2)*sin(x2), x2, t/2,                pi/2              ],
          [r - r*cos(x4 - t),    x4, 0,                  t - pi/2          ],
@@ -232,9 +213,8 @@ allChecks('pNW3')
 parseLaTeX('pNW3')
 
 
-#################################################################################
+
 # NW4 animal:  a > pi.  Sensor: pi/2 <= t <= pi. Condition: a <= 2pi - t      #
-#################################################################################
 
 mNW4 = [ [2*r*sin(t/2)*sin(x2), x2, t/2, pi/2],
          [r - r*cos(x4 - t),    x4, 0, t - pi/2],
@@ -251,9 +231,8 @@ pNW4 = calcModel(mNW4)
 allChecks('pNW4')
 parseLaTeX('pNW4')
 
-###############################################################################
+
 # REM animal: a=2pi.  Sensor: t <= pi/2.                                      #
-###############################################################################
 
 mREM = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
@@ -273,9 +252,9 @@ allChecks('pREM')
 parseLaTeX('pREM')
 
 
-###############################################################################
+
 # NW5 animal: a>pi.  Sensor: t <= pi/2. Condition: 2*pi - t < a               #
-###############################################################################
+
 
 mNW5 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
@@ -295,9 +274,9 @@ pNW5 = calcModel(mNW5)
 allChecks('pNW5')
 parseLaTeX('pNW5')
 
-####################################################################################
+
 # NW6 animal: a>pi.  Sensor: t <= pi/2. Condition:  2*pi - 2*t <= a <= 2*pi - t  #
-####################################################################################
+
 
 mNW6 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
@@ -316,9 +295,9 @@ allChecks('pNW6')
 parseLaTeX('pNW6')
 
 
-#####################################################################
+
 # NW7 animal: a>pi.  Sensor: t <= pi/2. Condition: a <= 2pi - 2t  #
-#####################################################################
+
 
 mNW7 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2],
          [r*sin(x3),            x3, t,          pi/2],
@@ -336,10 +315,9 @@ pNW7 = calcModel(mNW7)
 allChecks('pNW7')
 parseLaTeX('pNW7')
 
-####################################################
-# SE1 animal: a <= pi.  Sensor: t =2pi.            #
-####################################################
 
+
+# SE1 animal: a <= pi.  Sensor: t =2pi.            #
 
 mSE1 = [ [ 2*r*sin(a/2),x1, pi/2, 3*pi/2       ],
          ]
@@ -357,10 +335,8 @@ parseLaTeX('pSE1')
 
 
 
-#################################################################################
-# SE2 animal: a <= pi.  Sensor: t > pi. Condition: a > 2pi - t, a > 4pi - 2t    #
-#################################################################################
 
+# SE2 animal: a <= pi.  Sensor: t > pi. Condition: a > 2pi - t, a > 4pi - 2t    #
 
 mSE2 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2       ],
          [ r*sin(a/2) + r*cos(x1 - t/2),        x1, t/2 + pi/2 - a/2,   5*pi/2 - a/2 - t/2 ], 
@@ -378,10 +354,7 @@ allChecks('pSE2')
 parseLaTeX('pSE2')
 
 
-
-#########################################################################################
 # SE3 animal: a <= pi.  Sensor: t > pi. Condition: 2pi - t < a < 4pi - 2t #
-#########################################################################################
 
 mSE3 = [ [ 2*r*sin(a/2),                        x1, pi/2,               t/2 + pi/2 - a/2  ],
          [ r*sin(a/2) + r*cos(x1 - t/2),        x1, t/2 + pi/2 - a/2,   t/2 + pi/2        ],
@@ -399,10 +372,8 @@ allChecks('pSE3')
 parseLaTeX('pSE3')
 
 
-
-###################################################################################
 # SE4 animal: a <= pi.  Sensor: t > pi. Condition: a <= 4*pi - 2*t and a < 2*pi - t #
-###################################################################################
+
 
 mSE4 = [ [ 2*r*sin(a/2),                       x1, pi/2,             t/2 + pi/2 - a/2  ],
          [ r*sin(a/2) + r*cos(x1 - t/2),       x1, t/2 + pi/2 - a/2, t/2 + pi/2        ], 
@@ -421,30 +392,7 @@ allChecks('pSE4')
 parseLaTeX('pSE4')
 
 
-###############################################################################
-
-
-"""
-Ccomplex profiles for a <= pi/2 
-These were specified using a very roundabout way that I realised isn't necessary.
-Worth keeping them here just for the record.
-
-# p-l-r for x2 profil. Calculated by AE in fig 22.4 minus AE in fig 22.3
-p1 = (2*r*sin(t/4 - x2/2 + pi/4 + a/4)*sin(a/4 + pi/4 + x2/2 - t/4) - \
-     2*r*sin((pi - a - 2*x2 + t)/4)*sin((pi - a + 2*x2 - t)/4)).simplify()
-
-# p-l for x2 profiles
-p2 = (2*r*sin(t/2)*sin(x2) - 2*r*sin((pi - a - 2*x2 + t)/4)*sin((pi - a + 2*x2 - t)/4)).simplify()
-
-# p-l for x3 profile. 
-p3 = (r*sin(x3) - (2*r*sin(x3/2 - a/4)*sin(pi/2 - x3/2 - a/4)).simplify()).trigsimp()
-"""
-
-
-###########################################################################################
 # SW1 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a >= t and a/2 >= t - pi/2 #
-###########################################################################################
-
 
 mSW1 =  [ [2*r*sin(t/2)*sin(x2),              x2, pi/2 - a/2 + t/2, pi/2            ],
           [r*sin(a/2) - r*cos(x2 + t/2),      x2, t/2,              pi/2 - a/2 + t/2],
@@ -463,12 +411,7 @@ allChecks('pSW1')
 parseLaTeX('pSW1')
 
 
-
-
-##########################################################################################
 # SW2 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 >= t- pi/2 #
-##########################################################################################
-
 
 mSW2 =  [ [2*r*sin(a/2),                 x2, pi/2 + a/2 - t/2, pi/2             ],
           [r*sin(a/2) - r*cos(x2 + t/2), x2, t/2,              pi/2 + a/2 - t/2],
@@ -488,15 +431,7 @@ parseLaTeX('pSW2')
 
 
 
-
-
-
-
-##########################################################################################
 # SW3 animal: a <= pi.  Sensor: pi/2 <= t <= pi. Condition: a <= t and a/2 <= t- pi/2 #
-##########################################################################################
-
-
 
 mSW3 =  [ [2*r*sin(a/2),                      x2, t/2,            pi/2           ],
           [2*r*sin(a/2),                      x4, 0,              t - pi/2 - a/2 ],
@@ -515,13 +450,7 @@ allChecks('pSW3')
 parseLaTeX('pSW3')
 
 
-
-
-
-##################################################################################
 # SW4 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a <= t      #
-##################################################################################
-
 
 mSW4 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 - t/2 + a/2],
@@ -539,10 +468,7 @@ allChecks('pSW4')
 parseLaTeX('pSW4')
 
 
-######################################################################################
 # SW5 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  t <= a <= 2t    #
-######################################################################################
-
 
 mSW5 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 + t/2 - a/2],
@@ -562,14 +488,7 @@ allChecks('pSW5')
 parseLaTeX('pSW5')
 
 
-
-
-
-##################################################################################
 # SW6 animal: a <= pi.  Sensor: t <= pi/2. Condition: a > pi - 2t &  a > 2t      #
-##################################################################################
-
-
 
 mSW6 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2            ],
          [r*sin(x3),            x3, t,          a/2             ],
@@ -589,11 +508,7 @@ allChecks('pSW6')
 parseLaTeX('pSW6')
 
 
-
-
-###################################################################################
 # SW7 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & a <= t     #
-###################################################################################
 
 mSW7 = [ [2*r*sin(a/2),                 x2, pi/2 - t/2 + a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 - t/2 + a/2],
@@ -611,12 +526,7 @@ allChecks('pSW7')
 parseLaTeX('pSW7')
 
 
-
-
-#######################################################################################
 # SW8 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t & t <= a <= 2t   #
-#######################################################################################
-
 
 mSW8 = [ [2*r*sin(t/2)*sin(x2),         x2, pi/2 + t/2 - a/2, pi/2            ],
          [r*sin(a/2) - r*cos(x2 + t/2), x2, pi/2 - t/2,       pi/2 + t/2 - a/2],
@@ -633,10 +543,7 @@ allChecks('pSW8')
 parseLaTeX('pSW8')
 
 
-
-##################################################################################
 # SW9 animal: a <= pi.  Sensor: t <= pi/2. Condition: a <= pi - 2t &  2t <= a      #
-##################################################################################
 
 mSW9 = [ [2*r*sin(t/2)*sin(x2), x2, pi/2 - t/2, pi/2    ],
          [r*sin(x3),            x3, t,          a/2     ],
@@ -654,10 +561,6 @@ allChecks('pSW9')
 parseLaTeX('pSW9')
 
 
-
-
-##################################################################################################################
-
 ####################
 ## Run tests     ###
 ####################
@@ -672,137 +575,92 @@ gas = 2*r
 
 
 allComps = [
-['gas', 'pNE1', {t:2*pi}],
-['gas', 'pSE1', {a:pi}],
+['gas', 'pNE1', {t:2*pi}], ['gas', 'pSE1', {a:pi}],
 
-['pNE1', 'gas', {t:2*pi}],
-['pNE1', 'pNW1', {t:pi}],
-['pNE1', 'pNE2',{a:3*pi-t}],
-['pNE1', 'pNE2',{t:3*pi-a}],
+['pNE1', 'gas', {t:2*pi}], ['pNE1', 'pNW1', {t:pi}], 
+['pNE1', 'pNE2',{a:3*pi-t}], ['pNE1', 'pNE2',{t:3*pi-a}],
 
-['pNE2', 'pNE1',{a:3*pi-t}],
-['pNE2', 'pNE1',{t:3*pi-a}],
-['pNE2', 'pNE3',{a:4*pi-2*t}],
-['pNE2', 'pNE3',{t:2*pi-a/2}],
+['pNE2', 'pNE1',{a:3*pi-t}], ['pNE2', 'pNE1',{t:3*pi-a}],
+['pNE2', 'pNE3',{a:4*pi-2*t}], ['pNE2', 'pNE3',{t:2*pi-a/2}],
 ['pNE2', 'pSE2',{a:pi}],
 
-['pNE3', 'pNE2',{a:4*pi-2*t}],
-['pNE3', 'pNE2',{t:2*pi-a/2}],
-['pNE3', 'pSE3',{a:pi}],
-['pNE3', 'pNW2',{t:pi}],
+['pNE3', 'pNE2',{a:4*pi-2*t}], ['pNE3', 'pNE2',{t:2*pi-a/2}],
+['pNE3', 'pSE3',{a:pi}], ['pNE3', 'pNW2',{t:pi}],
 
-['pNW1','pNE1', {t:pi}],
-['pNW1','pNW2',{a:2*pi}],
+['pNW1','pNE1', {t:pi}], ['pNW1','pNW2',{a:2*pi}],
 
-['pNW2','pNE3',{t:pi}],
-['pNW2','pNW3',{a:3*pi-2*t}],
-['pNW2','pNW3',{t:3*pi/2-a/2}],
-['pNW2','pNW1',{a:2*pi}],
+['pNW2','pNE3',{t:pi}], ['pNW2','pNW3',{a:3*pi-2*t}],
+['pNW2','pNW3',{t:3*pi/2-a/2}], ['pNW2','pNW1',{a:2*pi}],
 
-['pNW3','pNW5',{t:pi/2}],
-['pNW3','pNW4',{a:2*pi-t}],
-['pNW3','pNW4',{t:2*pi-a}],
-['pNW3','pNW2',{a:3*pi-2*t}],
+['pNW3','pNW5',{t:pi/2}], ['pNW3','pNW4',{a:2*pi-t}],
+['pNW3','pNW4',{t:2*pi-a}], ['pNW3','pNW2',{a:3*pi-2*t}],
 ['pNW3','pNW2',{t:3*pi/2-a/2}],
 
-['pNW4','pNW6',{t:pi/2}],
-['pNW4','pNW3',{t:2*pi-a}],
-['pNW4','pNW3',{a:2*pi-t}],
-['pNW4','pSW1',{a:pi}],
+['pNW4','pNW6',{t:pi/2}], ['pNW4','pNW3',{t:2*pi-a}],
+['pNW4','pNW3',{a:2*pi-t}], ['pNW4','pSW1',{a:pi}],
 
-['pREM','pNW1', {t:pi/2}],
-['pREM','pNW5',{a:2*pi}],
+['pREM','pNW1', {t:pi/2}], ['pREM','pNW5',{a:2*pi}],
 
-['pNW5','pREM',{a:2*pi}],
-['pNW5','pNW6',{a:2*pi-t}],
-['pNW5','pNW6',{t:2*pi-a}],
-['pNW5','pNW3',{t:pi/2}],
+['pNW5','pREM',{a:2*pi}], ['pNW5','pNW6',{a:2*pi-t}],
+['pNW5','pNW6',{t:2*pi-a}], ['pNW5','pNW3',{t:pi/2}],
 
-['pNW6','pNW5',{a:2*pi-t}], 
-['pNW6','pNW5',{t:2*pi-a}],
-['pNW6','pNW7',{t:pi-a/2}],
-['pNW6','pNW7',{a:2*pi-2*t}],
+['pNW6','pNW5',{a:2*pi-t}], ['pNW6','pNW5',{t:2*pi-a}],
+['pNW6','pNW7',{t:pi-a/2}], ['pNW6','pNW7',{a:2*pi-2*t}],
 ['pNW5','pNW4',{t:pi/2}],
 
-['pNW7','pNW6',{t:2*pi-2*a}],
-['pNW7','pNW6',{a:2*pi-2*t}],
+['pNW7','pNW6',{t:2*pi-2*a}], ['pNW7','pNW6',{a:2*pi-2*t}],
 ['pNW7','pSW6',{a:pi}],
 
-['pSE1','pSE2',{t:2*pi}],
-['pSE1','gas',{a:pi}],
+['pSE1','pSE2',{t:2*pi}], ['pSE1','gas',{a:pi}],
 
-['pSE2','pSE3',{t:2*pi-a/2}],
-['pSE2','pSE3',{a:4*pi-2*t}],
-['pSE2','pSE1',{t:2*pi}],
-['pSE2','pNE2',{a:pi}],
+['pSE2','pSE3',{t:2*pi-a/2}], ['pSE2','pSE3',{a:4*pi-2*t}],
+['pSE2','pSE1',{t:2*pi}], ['pSE2','pNE2',{a:pi}],
 
-['pSE3','pSE2',{a:4*pi-2*t}],
-['pSE3','pSE2',{t:2*pi-a/2}],
-['pSE3','pSE4',{a:2*pi-t}],
-['pSE3','pSE4',{t:2*pi-a}],
+['pSE3','pSE2',{a:4*pi-2*t}], ['pSE3','pSE2',{t:2*pi-a/2}],
+['pSE3','pSE4',{a:2*pi-t}], ['pSE3','pSE4',{t:2*pi-a}],
 ['pSE3','pNE3',{a:pi}],
 
-['pSE4','pSE3',{t:2*pi-a}],
-['pSE4','pSE3',{a:2*pi-t}],
+['pSE4','pSE3',{t:2*pi-a}], ['pSE4','pSE3',{a:2*pi-t}],
 ['pSE4','pSW3',{t:pi}],
 
-['pSW1','pSW5',{t:pi/2}],
-['pSW1','pSW2',{a:t}],
-['pSW1','pSW2',{t:a}],
-['pSW1','pNW4',{a:pi}],
+['pSW1','pSW5',{t:pi/2}], ['pSW1','pSW2',{a:t}],
+['pSW1','pSW2',{t:a}], ['pSW1','pNW4',{a:pi}],
 
-['pSW2','pSW1',{a:t}],
-['pSW2','pSW1',{t:a}],
-['pSW2','pSW4',{t:pi/2}],
-['pSW2','pSW3',{a:2*t-pi}],
+['pSW2','pSW1',{a:t}], ['pSW2','pSW1',{t:a}],
+['pSW2','pSW4',{t:pi/2}], ['pSW2','pSW3',{a:2*t-pi}],
 ['pSW2','pSW3',{t:a/2+pi/2}],
 
-['pSW3','pSW2',{t:a/2+pi/2}],
-['pSW3','pSW2',{a:2*t-pi}],
+['pSW3','pSW2',{t:a/2+pi/2}], ['pSW3','pSW2',{a:2*t-pi}],
 ['pSW3','pSE4',{t:pi}],
 
 
-['pSW4','pSW7',{a:pi-2*t}],
-['pSW4','pSW7',{t:pi/2-a/2}],
-['pSW4','pSW5',{t:a}],
-['pSW4','pSW5',{a:t}],
+['pSW4','pSW7',{a:pi-2*t}], ['pSW4','pSW7',{t:pi/2-a/2}],
+['pSW4','pSW5',{t:a}], ['pSW4','pSW5',{a:t}],
 ['pSW4','pSW2',{t:pi/2}],
 
-['pSW5','pSW4',{t:a}],
-['pSW5','pSW4',{a:t}],
-['pSW5','pSW8',{t:pi/2-a/2}],
-['pSW5','pSW8',{a:pi-2*t}],
-['pSW5','pSW6',{a:2*t}],
-['pSW5','pSW6',{t:a/2}],
+['pSW5','pSW4',{t:a}], ['pSW5','pSW4',{a:t}],
+['pSW5','pSW8',{t:pi/2-a/2}], ['pSW5','pSW8',{a:pi-2*t}],
+['pSW5','pSW6',{a:2*t}], ['pSW5','pSW6',{t:a/2}],
 ['pSW5','pSW1',{t:pi/2}],
 
-['pSW6','pSW9',{t:pi/2-a/2}],
-['pSW6','pSW9',{a:pi-2*t}],
-['pSW6','pSW5',{a:2*t}],
-['pSW6','pSW5',{t:a/2}],
+['pSW6','pSW9',{t:pi/2-a/2}], ['pSW6','pSW9',{a:pi-2*t}],
+['pSW6','pSW5',{a:2*t}], ['pSW6','pSW5',{t:a/2}],
 ['pSW6','pNW7',{a:pi}],
 
 
-['pSW7','pSW8',{t:a}],
-['pSW7','pSW8',{a:t}],
-['pSW7','pSW4',{t:pi/2-a/2}],
-['pSW7','pSW4',{a:pi-2*t}],
+['pSW7','pSW8',{t:a}], ['pSW7','pSW8',{a:t}],
+['pSW7','pSW4',{t:pi/2-a/2}], ['pSW7','pSW4',{a:pi-2*t}],
 
-['pSW8','pSW7',{a:t}],
-['pSW8','pSW7',{t:a}],
-['pSW8','pSW9',{a:2*t}],
-['pSW8','pSW9',{t:a/2}],
-['pSW8','pSW5',{a:pi-2*t}],
-['pSW8','pSW5',{t:pi/2-a/2}],
+['pSW8','pSW7',{a:t}], ['pSW8','pSW7',{t:a}],
+['pSW8','pSW9',{a:2*t}], ['pSW8','pSW9',{t:a/2}],
+['pSW8','pSW5',{a:pi-2*t}], ['pSW8','pSW5',{t:pi/2-a/2}],
 
-['pSW9','pSW8',{a:2*t}],
-['pSW9','pSW8',{t:a/2}],
-['pSW9','pSW6',{a:pi-2*t}],
-['pSW9','pSW6',{t:pi/2-a/2}]
+['pSW9','pSW8',{a:2*t}], ['pSW9','pSW8',{t:a/2}],
+['pSW9','pSW6',{a:pi-2*t}], ['pSW9','pSW6',{t:pi/2-a/2}]
 ]
 
 
-# List of regions that cover a=0. Should equal 0 when a=0.
+# List of regions that touch a=0. Should equal 0 when a=0.
 zeroRegions = ['pSW9', 'pSW8', 'pSW7', 'pSW4', 'pSW2', 'pSW3', 'pSE4', 'pSE3', 'pSE2', 'pSE1']
 
 # Run through all the comparisons. Need simplify(). Even together() gives some false negatives.
@@ -830,35 +688,10 @@ checkFile.close()
 #        if not (eval(allComps[i][0]).subs(allComps[i][2]) - eval(allComps[i][1]).subs(allComps[i][2])).simplify() == 0:
 #               print allComps[i][0] + ' and ' + allComps[i][1]+': Incorrect\n'
 
-#####################################
-## Check some that don't work well ##
-#####################################
 
-xRange = np.arange(0,pi/2, 0.01)
-ySW2Range = [pSW2.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
-plotSW2 = pl.plot(xRange, ySW2Range)
-pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pSW2Profile.pdf')
-pl.close()
-
-ySW4Range = [pSW4.subs({r:1,  t:pi/2, a:i}).n() for i in xRange]
-plotSW4 = pl.plot(xRange, ySW4Range)
-pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pSW4Profile.pdf')
-pl.close()
-
-
-
-#pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/pNE1Profile.pdf')
-#pl.close()
-
-
-
-
-
-
-
-####################################################################
-### Define a a function that calculates your answer.            ####
-####################################################################
+#####################################################################
+### Define a a function that calculates p bar answer.            ####
+#####################################################################
 
 def calcP(A, T, R): 
 	assert (A <= 2*pi and A >= 0), "a is out of bounds. Should be in 0<a<2*pi"
