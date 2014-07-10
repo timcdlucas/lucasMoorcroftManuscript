@@ -124,13 +124,13 @@ The REM presented by \citep{rowcliffe2008estimating} adapts the gas model to mod
 \begin{figure}[t]
         \centering
 	\includegraphics[width=0.2\textwidth]{imgs/angleDefinitions.pdf}
-\label{f:AngleDef}
-\caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); r, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled square and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.} % needs new description for the sensor detection zone  
 
+\caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); r, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled square and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.} % needs new description for the sensor detection zone  
+\label{f:AngleDef}
 \end{figure}
 
 
-
+\begin{comment}
 %move to appendix
 \begin{table}[t]
 \centering
@@ -153,7 +153,7 @@ $d$ 		& Time step index &
 \caption{List of symbols used to describe the gREM}
 \label{t:paras}
 \end{table}
-
+\end{comment}
 
 \subsubsection{Gas Model}
 
@@ -162,13 +162,20 @@ Following \cite{yapp1956theory}, we derive the gas model where sensors can captu
 For derivation purposes, we consider relative velocity from the reference frame of the animals. Conceptually, this requires us to imagine that all animals are stationary and randomly distributed in space, while the sensor moves with velocity $v$. If we calculate the area covered by the sensor during the survey period we can estimate the number of animals it should capture. As a circle moving across a plane, the area covered by the sensor per unit time is $2rv$. The number of expected captures, $z$, for a survey period of $t$, with an animal density of $D$ is $z = 2rvtD$. To estimate the density, we rearrange to get $D = z/2rvt$.
 
 \subsubsection{gREM derivations for different detection and signal widths}
-Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g., sensors have different detection widths and animals have different signal widths). For different combinations $\theta$ and $\alpha$, the area covered per unit time is no longer given by $2rv$. Instead of the size of the sensor detection zone having a diameter of $2r$, the size changes with the approach angle of the sensor and the animal. The size of the detection zone presented to the animal                                                                                                                                                                            	        (averaged across all approach angles) is defined as the profile $p$. However, different combinations of $\theta$ and $\alpha$ need different equations to calcuate $p$. 
+Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g., sensors have different detection widths and animals have different signal widths). For different combinations $\theta$ and $\alpha$, the area covered per unit time is no longer given by $2rv$. Instead of the size of the sensor detection zone having a diameter of $2r$, the size changes with the approach angle of the sensor and the animal. The size of the detection zone presented to the animal (averaged across all approach angles) is defined as the profile $p$. However, different combinations of $\theta$ and $\alpha$ need different equations to calcuate $p$. 
 
-We have identified the parameter space for the combinations of$\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Figure~\ref{}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Figure~\ref{}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta$<$\pi/2$ and $\alpha = 2\pi$. We derive one gREM sub-model SE2 as an example below (where $4 \pi - 2 \alpha < \theta < 2\pi ,\; 0 < \alpha <\pi$) (see Appendix S2 for other gREM sub-models).
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/equalRegions.pdf}
+\caption{The locations of gREM submodels in parameter space. Each polygon shows the parameter space (combination of sensor detection width and animal signal width) for which a given gREM submodel is needed. The submodels are named after the compass point of the quadrant they are in.}
+\label{f:equalRegions}
+\end{figure}
+
+We have identified the parameter space for the combinations of$\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Figure~\ref{f:equalRegions}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Figure~\ref{f:equalRegions}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta<\pi/2$ and $\alpha = 2\pi$. We derive one gREM sub-model SE2 as an example below (where $4 \pi - 2 \alpha < \theta < 2\pi ,\; 0 < \alpha <\pi$) (see Appendix S2 for other gREM sub-models).
 
 \subsubsection{Example derivation of SE2}
 
-In order to calculate the size of the detection zone presented to the animal (averaged across all approach angles), we have to integrate over the focal angle, $x_1$ (Figure~\ref{f:x2start}). This is the focal angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the detection zone depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal, $x_1  = \pi/2$ and the size of detection zone is $2r$ (Figure~\ref{f:firstInt}). 
+In order to calculate the size of the detection zone presented to the animal (averaged across all approach angles), we have to integrate over the focal angle, $x_1$ (Figure~\ref{f:xOne}). This is the focal angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the detection zone depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal, $x_1  = \pi/2$ and the size of detection zone is $2r$ (Figure~\ref{f:firstInt}). 
 
 As the sensor travels anti-clockwise around the animal, the size of the detection zone will remain at $2r$ until the approach angle is greater than $\alpha/2$ (Figure~\ref{f:firstInt}). The size of the detection zone is therefore $2r\sin$($\alpha$/2). At this point, the size of $\alpha$ limits the size of the detection zone. This remains the case until the sensor reaches the right hand side of the animal where $x_1$  = $\theta$/2 + $\pi$/2 - $\alpha$/2 (Figure~\ref{f:secondInt}). The size of the detection zone is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta/$ limits the size of the detection zone. Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ an animal can again be detected from the right side of the detector; the approach angle is far enough round to see past the `blind spot' of the sensor. In this region, until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin(\alpha/2)$ (Figure~\ref{f:thirdInt}). 
 
@@ -182,7 +189,7 @@ As the sensor travels anti-clockwise around the animal, the size of the detectio
                 \centering
 		\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/x1.pdf}
                 \caption{Location of $x_1$ }
-                \label{f:x2start}
+                \label{f:xOne}
         \end{subfigure}%%
 	~ 
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -228,17 +235,21 @@ We can also see what causes this model to be discontinuously different to SE3. E
 While specification of the models had to be done by hand, the calculation of the solutions was done using SymPy \citep{sympy} in Python. The models were checked for errors with a number of tests. The models were checked against each other by checking that models which are adjacent in parameter space are equal at the boundary between them (e.g., \ref{e:p321} is equal to 2r as in the gas model when $\alpha=\pi$ and $\theta=2\pi$). Models that border $ \alpha = 0$ should have $p = 0$ when $ \alpha = 0$ and this was checked for (e.g., \ref{e:p321} is 0 when $\alpha=0$ and $\theta=2\pi$). We checked that all solutions are between 0 and $2r$ and that each integral, divided by the range of angles that it is integrated over is between 0 and $2r$. These tests are included in Appendix S2), and all derivations in full are included in Appendix S2 with computer algebra scripts in Appendix S3, and the R \citep{} script for the gREM in Appendix S4.  
 
 %delete or reformat within the current version of figure 1
+\begin{comment}
 \begin{figure}[t]
         \centering
                 \begin{tikzpicture}[scale=0.39]
                 \fullAngleOne{0}{300}{120};
                 \end{tikzpicture}
+\label{f:x1}
 \caption{The focal angle $x_1$ used in models with $\theta>\pi$. This angle is integrated over to find the average profile size. The sector shaped detection zone (with $\theta>\pi$) is shown in black. The widest part of this region (the profile) is shown with a thick red line and a blue rectangle. The direction of animal movement is downwards, as indicated by the grey arrow. 
      }
-\label{f:x1}
 \end{figure}
+\end{comment}
+
 
 %delete 
+\begin{comment}
 \begin{figure}[t]
         \centering
         
@@ -303,7 +314,7 @@ While specification of the models had to be done by hand, the calculation of the
 \label{f:xis}
 \end{figure}
 %delete or reformat within the current version of figure 1
-
+\end{comment}
 
 \subsection{Simulation Model}
 
