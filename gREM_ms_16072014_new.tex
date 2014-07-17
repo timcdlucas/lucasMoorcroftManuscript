@@ -132,7 +132,7 @@ In this study we create a generalised REM (gREM), as an extension to the camera 
 
 \subsection{Analytical Model}
 
-The REM presented by \citep{rowcliffe2008estimating} adapts the gas model to model count data from camera trap surveys. The REM is derived assuming a stationary sensor with a detection width less than $\pi/2$ radians. However, in order to apply this approach more generally, and in particular to acoustic detectors, we need both to relax the constraint on sensor detection width, and allow for animals with directional signals. Consequently, we derive the gREM for any detection width, $ \theta$, between 0 and $2\pi$ with a detection distance $r$ giving a circular sector within which animals can be captured (the detection zone)(Fig.~\ref{f:AngleDef}). Additionally, we model the animal as having an associated signal width $\alpha$ between 0 and $2\pi$(Fig.~\ref{f:AngleDef}, see Appendix S1 for a list of symbols). We start deriving the gREM with the simplest situation, the gas model where $\theta =  2\pi$ and $ \alpha =  2\pi$. 
+The REM presented by \citep{rowcliffe2008estimating} adapts the gas model to model count data from camera trap surveys. The REM is derived assuming a stationary sensor with a detection width less than $\pi/2$ radians. However, in order to apply this approach more generally, and in particular to acoustic detectors, we need both to relax the constraint on sensor detection width, and allow for animals with directional signals. Consequently, we derive the gREM for any detection width, $ \theta$, between 0 and $2\pi$ with a detection distance $r$ giving a circular sector within which animals can be captured (the detection zone)(Figure~\ref{f:AngleDef}). Additionally, we model the animal as having an associated signal width $\alpha$ between 0 and $2\pi$(Figure~\ref{f:AngleDef}, see Appendix S1 for a list of symbols). We start deriving the gREM with the simplest situation, the gas model where $\theta =  2\pi$ and $ \alpha =  2\pi$. 
 
 %%% Put in new diagram.
 \begin{figure}[t]
@@ -161,13 +161,13 @@ Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g.
 \label{f:equalRegions}
 \end{figure}
 
-We have identified the parameter space for the combinations of $\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Fig.~\ref{f:equalRegions}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Fig.~\ref{f:equalRegions}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta<\pi/2$ and $\alpha = 2\pi$. We derive one gREM sub-model SE2 as an example below (where $4 \pi - 2 \alpha < \theta < 2\pi ,\; 0 < \alpha <\pi$) (see Appendix S2 for other gREM sub-models).
+We have identified the parameter space for the combinations of $\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Figure~\ref{f:equalRegions}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Figure~\ref{f:equalRegions}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta<\pi/2$ and $\alpha = 2\pi$. We derive one gREM sub-model SE2 as an example below (where $4 \pi - 2 \alpha < \theta < 2\pi ,\; 0 < \alpha <\pi$) (see Appendix S2 for other gREM sub-models).
 
 \subsubsection{Example derivation of SE2}
 
-In order to calculate $\bar{p}$, we have to integrate over the focal angle, $x_1$ (Fig.~\ref{f:xOne}). This is the angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the profile depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal $x_1  = \pi/2$.
+In order to calculate $\bar{p}$, we have to integrate over the focal angle, $x_1$ (Figure~\ref{f:xOne}). This is the angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the profile depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal $x_1  = \pi/2$.
 
-Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the profile is $2r\sin \alpha/2$ (Fig.~\ref{f:firstInt}). During this first interval, the size of $\alpha$ limits the width of the profile. When the animal reaches $x_1$  = $\theta/2 + \pi/2 - \alpha/2$ (Fig.~\ref{f:secondInt}), the size of the profile is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta/$ and $\alpha$ both limit the width of the profile (Fig.~\ref{f:secondInt}). Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin\alpha/2$ (Fig.~\ref{f:thirdInt}) and the size of $\alpha$ again limits the width of the profile. 
+Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the profile is $2r\sin \alpha/2$ (Figure~\ref{f:firstInt}). During this first interval, the size of $\alpha$ limits the width of the profile. When the animal reaches $x_1$  = $\theta/2 + \pi/2 - \alpha/2$ (Figure~\ref{f:secondInt}), the size of the profile is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta/$ and $\alpha$ both limit the width of the profile (Figure~\ref{f:secondInt}). Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin\alpha/2$ (Figure~\ref{f:thirdInt}) and the size of $\alpha$ again limits the width of the profile. 
 
 %insert new figure
 \begin{figure}[t]
@@ -203,7 +203,7 @@ Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the
 \caption{An overview of the derivation of SE2. The filled circles represent animals, with the animal signal shown as a unfilled sector and the direction of movement shown as an arrow. The detection zone of the sensors are shown as filled grey sectors with a detection distance of $r$. The SYMBOL shows the direction the sensor is facing;  $\theta$, sensor detection width; $\alpha$, animal signal width. The profile $p$ (the line an animal must pass through in order to be captured) is shown in red and $x_1$ is the focal angle, where (a) shows the location of $x_1$. The derivation of $p$ changes as the animal approaches the sensor from different directions where (b) is the derivation of $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2}, \frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}\rbrack$, (c)  $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}, \frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2} \rbrack$ and (d) $p$ when $x_1$ is in the interval $\lbrack\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}, \frac{3 \pi}{2}\rbrack$. The resultant equation for $p$ is shown beneath each figure.}
 \end{figure}
 
-The profile width $p$ for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor) is completely characterised by the three intervals (Fig. \ref{f:firstInt}--\ref{f:thirdInt}). Average profile width $\bar{p}$ is calculated by integrating these profiles over their appropriate intervals of $x_1$ and dividing by $\pi$ which gives
+The profile width $p$ for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor) is completely characterised by the three intervals (Figure \ref{f:firstInt}--\ref{f:thirdInt}). Average profile width $\bar{p}$ is calculated by integrating these profiles over their appropriate intervals of $x_1$ and dividing by $\pi$ which gives
 
 \begin{align}
     \bar{p} &=\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\frac{\alpha}{2} } + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1\right) \nonumber  \\
@@ -218,15 +218,7 @@ D = z/vt\bar{p}
 
 
 %fix this @Tim
-<<<<<<< HEAD
-
-As an example, if we look 
-
-
-gREM submodels differ discontinuously (Fig. 2) at differnt combinations of alpha and theta because the number and nature of intervals needed to describe the average profile width changes.  
-=======
 gREM submodels differ discontinuously (figure 2) at different combinations of $\alpha$ and $\theta$ because the number and nature of intervals needed to describe the average profile width changes.  
->>>>>>> e3a8a370c6d927d1a7949bc83757f3354af0579b
 Examine the profile at $x_1 = 	\theta/2 + \pi/2$ (the profile is perpendicular to the edge of the blind spot.) We see that there is potentially a case where the left side of the profile is $r\sin \alpha/2$ while the right side is zero. This profile does not exist if we return to the full $2r\sin \alpha/2$ profile before $x_1  = \theta/2 + \pi/2$. Therefore we solve $5\pi/2 - \theta/2 - \alpha/2 <  \theta/2 + \pi/2$. We find that this new profile only exists if $ \alpha < 4\pi - 2 \theta$. This inequality defines the line separating models SE2 and its neighbouring model, SE3.
 
 gREM submodel specifications were done by hand, and the integration was done using SymPy \citep{sympy} in Python (Appendix S3). The gREM submodels were checked by confirming that: 1) submodels adjacent in parameter space were equal at the boundary between them; 2) submodels that border $ \alpha = 0$ had$p = 0$ when $ \alpha = 0$; 3) average profile widths $\bar{p}$ were between 0 and $2r$ and; 4) each integral, divided by the range of angles that it was integrated over, was between 0 and $2r$. The scripts for these tests are included in Appendix S3 and the R \citep{R} implementation of the gREM is given in Appendix S4.  
@@ -240,20 +232,16 @@ Individuals were counted as they moved in and out of the detection zone of the s
 
 We calculated the estimated animal density from the gREM by summing the number of captures per simulation and inputting these values into the correct gREM submodel. gREM accuracy was determined by comparing the density in the simulation with the estimated density. High accuracy is indicated by the mean difference between the estimated and actual values converging to zero as sample size increases. gREM precision was determined by the standard deviation of estimated densities. We constructed box plots of the error between real and estimated densities to graphically test for accuracy and precision. 
 
-We compared the accuracy and precision of all the gREM submodels. As these submodels are derived for different combinations of $\alpha$ and $\theta$, we used the gREM submodel accuracy and precision to determine the impact of different values of $\alpha$ and $\theta$. The impact of the number of captures and animal movement models on accuracy and precision was investigated using 4 different gREM submodels representative of the range $\alpha$ and $\theta$ values (submodels NW1, SW1, NE1, and SE3, Fig.~\ref{f:equalRegions}). Using these four submodels, we calculated how long the simulation needed to run to generate a range of different capture numbers (from 10 to 100 captures in 10 unit intervals), and estimated animal density. These estimated densities were compared to the real density to assess the impact on the accuracy and precision on the gREM of different simulation lengths. We also used these four submodels to compare the accuracy and precision of a simple movement model, to stop-start movement models and random walk movement models. The gREM assumes that individuals move continuously with straight-line movement (simple movement model) and we therefore assess the impact of breaking the gREM assumptions. 
+We compared the accuracy and precision of all the gREM submodels. As these submodels are derived for different combinations of $\alpha$ and $\theta$, we used the gREM submodel accuracy and precision to determine the impact of different values of $\alpha$ and $\theta$. The impact of the number of captures and animal movement models on accuracy and precision was investigated using 4 different gREM submodels representative of the range $\alpha$ and $\theta$ values (submodels NW1, SW1, NE1, and SE3, Figure~\ref{f:equalRegions}). Using these four submodels, we calculated how long the simulation needed to run to generate a range of different capture numbers (from 10 to 100 captures in 10 unit intervals), and estimated animal density. These estimated densities were compared to the real density to assess the impact on the accuracy and precision on the gREM of different simulation lengths. We also used these four submodels to compare the accuracy and precision of a simple movement model, to stop-start movement models and random walk movement models. The gREM assumes that individuals move continuously with straight-line movement (simple movement model) and we therefore assess the impact of breaking the gREM assumptions. 
 
 
 \section{Results}
 
 \subsection{Analytical model}
 
-<<<<<<< HEAD
-Model results have been derived for each zone with all models except the gas model and REM being newly derived here. However, many models, although derived separately, have the same expression for $p$. Fig.~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct expression for $p$ is then substituted into \ref{e:gas}.
-=======
 The equation for $\bar{p}$ has been newly derived for each submodel in the gREM, except for the gas model and REM which have been calculated previously. However, many models, although derived separately, have the same expression for $\bar{p}$. Figure~\ref{f:equalModelResults} shows the expression for $\bar{p}$ in each case. The general equation for density, using the correct expression for $\bar{p}$ is then substituted into \ref{e:gas}.
->>>>>>> e3a8a370c6d927d1a7949bc83757f3354af0579b
 
-Although more thorough checks are performed in Appendix S3, it can be seen that all adjacent expressions in Fig.~\ref{f:equalModelResults} are equal when expressions for the boundaries between them are substituted in.
+Although more thorough checks are performed in Appendix S3, it can be seen that all adjacent expressions in Figure~\ref{f:equalModelResults} are equal when expressions for the boundaries between them are substituted in.
 
 \begin{figure}
 	\centering
@@ -289,12 +277,8 @@ For each model we compared the estimated densities to the true densities in a si
 	\label{f:AccAndPrec}
 \end{figure}
 
-<<<<<<< HEAD
-For each model we compared the estimated densities to the true densities in a simulation. None of the models showed any evidence of any significant differences between the estimated and true density values (Fig.~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Fig.~\ref{f:StandardDevaition}), such that larger widths have greater precision. However, even the models with small call and sensor angles have a relativity high level of precision. 
-=======
 
 \subsubsection{Impact of the number of captures}
->>>>>>> e3a8a370c6d927d1a7949bc83757f3354af0579b
 
 \begin{figure}[t]
        \centering
@@ -303,11 +287,11 @@ For each model we compared the estimated densities to the true densities in a si
         \caption{Accuracy of the gREM reminds unchanged, whilst precision increases, with captures. Box plots of four test models when given different numbers of captures where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Where the model names refer to Figure 1 in Appendix S2.} 
 \end{figure}
 
-The precision of the model is dependent on the number of captures during the survey. In Fig.~\ref{f:Captures} we can see that the model precision gets greater as the number of captures increase. As the number of captures reaches about 100 then the coefficient of variation falls below 10\% which could be considered negligible. %The number of captures is highly dependent on the speed of the animals, the size of the detection zone, and the length of the survey, as these values increase the number of captures is also likely to increase. 
+The precision of the model is dependent on the number of captures during the survey. In Figure~\ref{f:Captures} we can see that the model precision gets greater as the number of captures increase. As the number of captures reaches about 100 then the coefficient of variation falls below 10\% which could be considered negligible. %The number of captures is highly dependent on the speed of the animals, the size of the detection zone, and the length of the survey, as these values increase the number of captures is also likely to increase. 
 
 \subsubsection{Use of the gREM when animal movement is not consistent with model assumptions}
 
- Simulating start-stop instead of continuous movement had no effect the accuracy, or the precision, of the estimates (Fig.~\ref{f:Perch}) as long as the true overall speed of the animal is known. Relaxing straight line movement to allow random or correlated random walks did not effect the accuracy of the method (Fig.~\ref{f:Tort}). We allowed animals to change direction up to a maximum value at the end of each step, picked from a uniform distribution where the maximum angle ranged from 0 to $\pi$, which corresponds to straight line movement and random walk respectively. There is no significant difference in the variance for the change, this could be because of the between the step length of the animal movement, 15 minutes, means that immediate double counting of the same animal is unlikely.  In the case where large directional changes are likely to occur within short periods of time leading to double counting of the same animal within a short period of time may need to be adjusted because of this. 
+ Simulating start-stop instead of continuous movement had no effect the accuracy, or the precision, of the estimates (Figure~\ref{f:Perch}) as long as the true overall speed of the animal is known. Relaxing straight line movement to allow random or correlated random walks did not effect the accuracy of the method (Figure~\ref{f:Tort}). We allowed animals to change direction up to a maximum value at the end of each step, picked from a uniform distribution where the maximum angle ranged from 0 to $\pi$, which corresponds to straight line movement and random walk respectively. There is no significant difference in the variance for the change, this could be because of the between the step length of the animal movement, 15 minutes, means that immediate double counting of the same animal is unlikely.  In the case where large directional changes are likely to occur within short periods of time leading to double counting of the same animal within a short period of time may need to be adjusted because of this. 
 
 \begin{figure}[t]
 	\centering
@@ -344,7 +328,7 @@ The gREM is therefore available for the estimation of density of a number of tax
 
 Importantly the methods are noninvasive and do not require human marking or naturally identifying marks (as required for mark-recapture models). This makes them suitable for large, continuous monitoring projects with limited human resources. It also makes them suitable for species that are under pressure, species that cannot naturally be individually recognised or species that are difficult or dangerous to catch.
 
-From our simulations  we believe that this method has the potential produce accurate and precise estimates for many different species, using either camera or acoustic detectors. When choosing detectors a researcher should pick the detector with the largest radius and detection angle possible, but whilst a small capture area may reduce precision there is only a limited impact on the overall precision of the model (Fig.~\ref{f:StandardDevaition}). A range of factors will affect the overall precision of the model, like size of detection zone, speed of animal, density of animals and length of survey which are reflected in the number of captures. Increasing the number of captures leads to more precise estimates, for species which more slower, or have occur at lower densities, then the detection zone and length of survey need to be increased to compensate so that at least 100 captures are collected (Fig.~\ref{f:Captures}).
+From our simulations  we believe that this method has the potential produce accurate and precise estimates for many different species, using either camera or acoustic detectors. When choosing detectors a researcher should pick the detector with the largest radius and detection angle possible, but whilst a small capture area may reduce precision there is only a limited impact on the overall precision of the model (Figure~\ref{f:StandardDevaition}). A range of factors will affect the overall precision of the model, like size of detection zone, speed of animal, density of animals and length of survey which are reflected in the number of captures. Increasing the number of captures leads to more precise estimates, for species which more slower, or have occur at lower densities, then the detection zone and length of survey need to be increased to compensate so that at least 100 captures are collected (Figure~\ref{f:Captures}).
 
 Within the simulation we have assumed an equal density across the entire world, however in a field environment the situation would be much more complex, with additional variation coming from local changes in density between camera sites. We also assume perfect knowledge of the average speed of an animal and size of the detection zone, and instant triggering of the camera. All of which may lead to possible bias or decreased precision.    
 
@@ -364,4 +348,5 @@ Another interesting, and so far unstudied problem, is edge effects caused by tri
 \bibliography{lucas-moorcroft-etal-refs.bib}	
 
 \end{document}
+
 
