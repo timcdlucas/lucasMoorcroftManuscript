@@ -3,7 +3,7 @@
 %\usepackage[usenames,dvipsnames]{color}
 %\usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, siunitx,  flafter}
-\usepackage[pagewise,displaymath, mathlines]{lineno}
+\usepackage[running,displaymath, mathlines]{lineno} % running vs pagewise 
 \usepackage{epstopdf}
 \renewcommand{\theequation}{eqn \arabic{equation}}
 \makeatletter
@@ -11,6 +11,13 @@
 \makeatother
 
 
+\usepackage{fancyhdr} 
+%\fancyhf{}
+\lhead{}
+\rhead{}
+\chead{Lucas \emph{et al.}: A generalised random encounter model for animals}
+\cfoot{\footnotesize{\thepage}}
+\pagestyle{fancy}    
 
 \usepackage[nolists, nomarkers, tablesfirst]{endfloat}
 \linenumbers
@@ -18,14 +25,14 @@
 
 \usepackage[compress,semicolon]{natbib}
 
-
+%\renewcommand\thesubfigure{\alph{subfigure}}
 
 % This declares the unit "animals". Also redefined days to be whole word *(not sure if thats what is needed.
 \DeclareSIUnit{\animals}{animals}
 \DeclareSIUnit{\day}{days}
 
 
-
+\captionsetup{width=7cm}
 
 
 %\input{tikzREMmethods.tex}
@@ -33,7 +40,7 @@
 \begin{document}
 
 
-\title[A generalised random encounter model for animals]{A generalised random encounter model for estimating animal density with remote sensor data}
+\title[Lucas \emph{et al.}: A generalised random encounter model for animals]{A generalised random encounter model for estimating animal density with remote sensor data}
 \maketitle
 
 \subsection*{ Running title: A generalised random encounter model for animals}
@@ -124,9 +131,9 @@ The REM presented by \citep{rowcliffe2008estimating} adapts the gas model to mod
 %%% Put in new diagram.
 \begin{figure}[t]
         \centering
-	\includegraphics[width=0.2\textwidth]{imgs/angleDefinitions.pdf}
+	\includegraphics[width=4cm]{imgs/angleDefinitions.pdf}
 
-\caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); r, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled square and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.} % needs new description for the sensor detection zone  
+\caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); $r$, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled square and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.} % needs new description for the sensor detection zone  
 \label{f:AngleDef}
 \end{figure}
 
@@ -143,7 +150,7 @@ Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{imgs/equalRegions.pdf}
+\includegraphics[width=7cm]{imgs/equalRegions.pdf}
 \caption{Locations where derivation of the average profile $\bar{p}$ is the same for different combinations of sensor detection width and animal signal width. Symbols within each polygon refer to each gREM submodel named after their compass point, except for Gas and REM which highlight the position of these previously derived models within the gREM.}
 \label{f:equalRegions}
 \end{figure}
@@ -159,35 +166,35 @@ Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the
 %insert new figure
 \begin{figure}[t]
         \centering
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/x1.pdf}
+		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 0.3cm]{imgs/x1.pdf}
                 \caption{}
                 \label{f:xOne}
         \end{subfigure}%%
 	~ 
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/firstIntegral.pdf}
+		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 4cm]{imgs/firstIntegral.pdf}
                 \caption{}
                 \label{f:firstInt}
         \end{subfigure}%%
 	 
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/secondIntegral.pdf}
+		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 1cm]{imgs/secondIntegral.pdf}
                 \caption{}
                 \label{f:secondInt}
         \end{subfigure}%%
 	~ 
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/thirdIntegral.pdf}
+		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 4cm]{imgs/thirdIntegral.pdf}
                 \caption{}
                 \label{f:thirdInt}
         \end{subfigure}%%
 \label{f:x1AndInt}
-\caption{An overview of the derivation of SE2. The filled circles represent animals, with the animal signal shown as a unfilled sector and the direction of movement shown as an arrow. The detection zone of the sensors are shown as filled grey sectors with a detection distance of $r$. The SYMBOL shows the direction the sensor is facing;  $\theta$, sensor detection width; $\alpha$, animal signal width. The profile $p$ (the line an animal must pass through in order to be captured) is shown in red and $x_1$ is the focal angle, where (a) shows the location of $x_1$. The derivation of $p$ changes as the animal approaches the sensor from different directions where (b) is the derivation of $p$ when $x_1$ is in the interval $\[\frac{\pi}{2}, \frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}\]$, (c) $p$ when $x_1$ is in the interval $\[\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}, \frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}} \]$ and (d) $p$ when $x_1$ is in the interval $\[\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}, \frac{3 \pi}{2}\]$. The resultant equation for $p$ is shown beneath each figure.}
+\caption{An overview of the derivation of SE2. The filled circles represent animals, with the animal signal shown as a unfilled sector and the direction of movement shown as an arrow. The detection zone of the sensors are shown as filled grey sectors with a detection distance of $r$. The SYMBOL shows the direction the sensor is facing;  $\theta$, sensor detection width; $\alpha$, animal signal width. The profile $p$ (the line an animal must pass through in order to be captured) is shown in red and $x_1$ is the focal angle, where (a) shows the location of $x_1$. The derivation of $p$ changes as the animal approaches the sensor from different directions where (b) is the derivation of $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2}, \frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}\rbrack$, (c)  $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}, \frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2} \rbrack$ and (d) $p$ when $x_1$ is in the interval $\lbrack\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}, \frac{3 \pi}{2}\rbrack$. The resultant equation for $p$ is shown beneath each figure.}
 \end{figure}
 
 The profile width $p$ for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor) is completely characterised by the three intervals (Figure \ref{f:firstInt}--\ref{f:thirdInt}). Average profile width $\bar{p}$ is calculated by integrating these profiles over their appropriate intervals of $x_1$ and dividing by $\pi$ which gives
@@ -212,14 +219,32 @@ gREM submodel specifications were done by hand, and the integration was done usi
 
 \subsection{Simulation Model}
 
-We tested the accuracy and precision of the gREM by developing a spatially explicit simulation of the interaction of sensors and animals using different combinations of sensor detection widths, animal signal widths, number of captures, and models of animal movement. 100 simulations were run where each consisted of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square (with periodic boundaries). A stationary sensor of radius $r$ was set up in the exact centre of each simulation, covering 7 sensor detection widths $\theta$ between 0 and $\2pi$(x, x, x, x, x, x). Each simulation was populated with a density of \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild \citep{damuth1981population}. This created a total of 3937 individuals per simulation which were placed randomly at the start of the simulation. Individuals were assigned x signal detection widths $\alpha$ between 0 and $\pi$ (x,x,x,x,x).
+We tested the accuracy and precision of the gREM by developing a spatially explicit simulation of the interaction of sensors and animals using different combinations of sensor detection widths, animal signal widths, number of captures, and models of animal movement. 100 simulations were run where each consisted of a  \SI{7.5}{\kilo\meter} by \SI{7.5}{\kilo\meter} square (with periodic boundaries). A stationary sensor of radius $r$ was set up in the exact centre of each simulation, covering 7 sensor detection widths $\theta$ between 0 and $2\pi$(x, x, x, x, x, x). Each simulation was populated with a density of \SI{70}{\animals\per\kilo\meter\squared} to match an expected maximum density of mammals in the wild \citep{damuth1981population}. This created a total of 3937 individuals per simulation which were placed randomly at the start of the simulation. Individuals were assigned x signal detection widths $\alpha$ between 0 and $\pi$ (x,x,x,x,x).
 
-Each simulation lasted for $N$ steps (xx) of duration $T$ (15 minutes) giving a total duration of 150 days. The individuals moved within each step with a distance $d$, with an average speed, $v$. $d$, was sampled from a normal distribution with mean distance, $\mu_d = vT$, and standard deviation $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds. At the end step, individuals were allowed to either remain stationary for a time step (with a given propability, $S$), change direction ($A$) between 0 and $\pi$. This resulted in 7 different movement models where: (1) simple movement, where $S$ and $A$ = 0; (2)stop-start movement, where (i) $S$ = 0.25, $A$ = 0, (ii) $S$ = 0.5, $A$ = 0, (iii) $S$ = 0.75, $A$ = 0; (3) random walk movement, where (i) $S$ = 0, $A$ = $\pi/3$, (ii) $S$ = 0, $A$ = $2\pi/3$, iii) $S$ = 0, $A$ = $\pi$.  
-Individuals were counted as they moved in and out of the detection zone of the sensor per simulation. 
+The simulation lasted for $N$ steps of duration $T$ during which the individuals moved with a distance $d$, with an average speed, $v$. $d$, was sampled from a normal distribution with mean distance, $\mu_d = vT$, and standard deviation $\sigma_d = vT/10$. An average speed, $v = $ \SI{40}{\kilo\meter \per \day}, was chosen as this represents the largest day range of terrestrial animals \citep{carbone2005far}, and represents the upper limit of realistic speeds. At the end step, individuals were allowed to either remain stationary for a time step (with a given propability, $S$), change direction ($A$) between 0 and $\pi$. This resulted in 7 different movement models where: (1) simple movement, where $S$ and $A$ = 0; (2)stop-start movement, where (i) $S$ = 0.25, $A$ = 0, (ii) $S$ = 0.5, $A$ = 0, (iii) $S$ = 0.75, $A$ = 0; (3) random walk movement, where (i) $S$ = 0, $A$ = $\pi/3$, (ii) $S$ = 0, $A$ = $2\pi/3$, iii) $S$ = 0, $A$ = $\pi$.  
+Individuals were counted as they moved in and out of the detection zone of the sensor. 
 
-We calculated the estimated animal density from the gREM by summing the number of captures per simulation and inputting these values into the correct gREM submodel. gREM accuracy was determined by comparing the density in the simulation with the estimated density. High accuracy is indicated by the mean difference between the estimated and actual values converging to zero as sample size increases. gREM precision was determined by the standard deviation of estimated densities. We constructed boxplots of the error between real and estimated densities to graphically test for accuracy and precision. 
+We calculated the estimated animal density from the gREM by summing the number of captures per simulation and inputting these values into the correct gREM submodel. gREM accuracy was calculated by comparing the density in the simulation with the estimated density. High accuracy is indicated by the mean difference between the estimated and actual values converging to zero as sample size increases. 
 
-We compared the accuracy and precision of all the gREM submodels. As these submodels are derived for different combinations of $\alpha$ and $\theta$, we used the gREM submodel accuracy and precision to determine the impact of different values of $\alpha$ and $\theta$. The impact of the number of captures and animal movement models on accuracy and precision was investigated using 4 different gREM submodels represenative of the range $\alpha$ and $\theta$ values (submodels NW1, SW1, NE1, and SE3, Figure~\ref{f:equalRegions}). Using these four submodels, we calculated how long the simulation needed to run to generate a range of different capture numbers (from 10 to 100 captures in 10 unit intervals), and estimated animal density. These estimated desnities were compared to the real density to assess the impact on the accuracy and precision on the gREM of different simulation lengths. We also used these four submodels to compare the accuracy and precision of a simple movement model, to stop-start movement models and random walk movement models. The gREM assumes that individiuals move continuously with straight-line movement (simple movement model) and we therefore assess the impact of breaking the gREM assumptions. 
+
+For each of the 100 simulations we calculate the error (the difference between the known and estimated density) and so we got a distribution of errors which was approximately normal. We constructed boxplots of the estimates error to graphically test for significant differences between the true and estimated densities. 
+
+
+
+The details of each individual capture event, including the angle between the animals heading and the sensor, were saved from this information the number of capture events can be calculated for a given call angle. The total number of these detections were summed for each set of parameters in the simulation, the gREM was then applied in order to estimate the density in the simulation. 
+
+The difference between the true input density and density estimated by the gREM were used to 
+
+
+
+
+%We applied the analytical models to these data and compared it to the known input animal density in the simulation. We then tested whether the estimates were accurate (unbiased) and examined how precise they were.To reduce computation effort, a single set of 100 simulations was run for a long duration which could be subsampled. 
+
+
+Animals were counted as they moved in and out of the detection zone of stationary detectors in the simulation. Multiple detectors were set up in each simulation with varying detection angles with the results recorded separately. The details of each individual capture event, including the angle between the animals heading and the sensor, were saved from this information the number of capture events can be calculated for a given call angle. The total number of these detections were summed for each set of parameters in the simulation, the gREM was then applied in order to estimate the density in the simulation. The difference between the true input density and density estimated by the gREM were used to evaluate the bias in the analytical models. If the gREM is correct the mean difference between the two values were expected to converge to zero as sample size increases. For each of the 100 simulations we calculate the error (the difference between the known and estimated density) and so we got a distribution of errors which was approximately normal. We constructed boxplots of the estimates error to graphically test for significant differences between the true and estimated densities. 
+
+All the derived models were tested to demonstrate the accuracy and precision of the gREM while the assumptions of the analytical models were met. We selected four example models (models NW1, SW1, NE1, and SE3, as in Figure~\ref{f:equalRegions}) for demonstrating the accuracy and precision of the gREM with low captures rates, and the accuracy and precision when movement patterns brake the assumptions of the gREM.  We specifically looked at a non-continuous movement, and a range of correlated random walks, both of which would be seen in real field conditions. The four models were chosen as they represent one model from each quadrant of Figure~\ref{f:equalModelResults}. The accuracy and precision of all the derived models in the gREM follow the same pattern as the four that have been shown in the main text. 
+
 
 \section{Results}
 
@@ -231,7 +256,7 @@ Although more thorough checks are performed in Appendix S3, it can be seen that 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.6\textwidth]{imgs/equalModelResults.pdf}
+\includegraphics[width=7cm]{imgs/equalModelResults.pdf}
 \caption{Equations for the profile wide, $p$, given sensor and call widths. Each colour block represents one equation, despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour.}
 \label{f:equalModelResults}
 \end{figure}
@@ -242,7 +267,7 @@ Although more thorough checks are performed in Appendix S3, it can be seen that 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
+	\includegraphics[width=7cm]{imgs/AverageModelBias.pdf}
 	\caption{Distribution of the bias for each of the derived models. Percentage error of analytical model calculated from the simulation when settings are: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. The numbers referred to here can be found in Figure 1 Appendix S2, and the colour of each box plot match the functional form of the equation as seen in Figure~\ref{f:equalModelResults}.
   }
 	\label{f:ModelBias}
@@ -252,16 +277,16 @@ For each model we compared the estimated densities to the true densities in a si
 
 \begin{figure}[t]
         \centering
-		\includegraphics[width=1\textwidth]{imgs/ResultStandardDeviation.pdf}
-		\caption{Angle of detector}
-		\label{f:StandardDevaition}
+		\includegraphics[width=7cm]{imgs/ResultStandardDeviation.pdf}
+		%\caption{Angle of detector}
         \caption{The precision of the gREM given a range of detection and call angles. The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where red indicates a high standard deviation and blue represents a low standard deviation.} 
+		\label{f:StandardDevaition}
 \end{figure}
 
 \begin{figure}[t]
        \centering
-	\includegraphics[width=1\textwidth]{imgs/ResultsNoCaptures.pdf}
-         \caption{Number of captures}
+	\includegraphics[width=7cm]{imgs/ResultsNoCaptures.pdf}
+         %\caption{Number of captures}
            \label{f:Captures}
         \caption{Accuracy of the gREM reminds unchanged, whilst precision increases, with captures. Boxplots of four test models when given different numbers of captures where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Where the model names refer to Figure 1 in Appendix S2.} 
 \end{figure}
@@ -274,15 +299,16 @@ The precision of the model is dependent on the number of captures during the sur
 
 \begin{figure}[t]
       \centering
-	\includegraphics[width=1\textwidth]{imgs/ResultsPerch.pdf}
-          \caption{Proportion of time spent stationary}
+	\includegraphics[width=7cm]{imgs/ResultsPerch.pdf}
+          %\caption{Proportion of time spent stationary}
           \label{f:Perch}
 	\caption{Accuracy and the precision of the gREM given changes in the amount of time an animal spends stationary on average. Distribution of model error when simulated animals spend increasing proportion of time stationary where:  $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where the model names refer to Figure 1 in Appendix S2. } 
 \end{figure}
+
 \begin{figure}[t]
                 \centering
-		\includegraphics[width=1\textwidth]{imgs/ResultsTort.pdf}
-                \caption{Angle of correlated walk}
+		\includegraphics[width=7cm]{imgs/ResultsTort.pdf}
+                %\caption{Angle of correlated walk}
                 \label{f:Tort}
 	\caption{Accuracy and the precision of the gREM given different types of correlated walks. Distribution of model error when simulated animals move with different types of correlated walk where:  $r = $ \SI{10}{\meter}; $T = $ \SI{352}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Where the model names refer to Figure 1 in Appendix S2.} 
 \end{figure}
