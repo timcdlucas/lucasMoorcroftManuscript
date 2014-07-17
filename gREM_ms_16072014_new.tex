@@ -239,14 +239,14 @@ We compared the accuracy and precision of all the gREM submodels. As these submo
 
 \subsection{Analytical model}
 
-Model results have been derived for each zone with all models except the gas model and REM being newly derived here. However, many models, although derived separately, have the same expression for $p$. Figure~\ref{f:equalModelResults} shows the expression for $p$ in each case. The general equation for density, using the correct expression for $p$ is then substituted into \ref{e:gas}.
+The equation for $\bar{p}$ has been newly derived for each submodel in the gREM, except for the gas model and REM which have been calculated previously. However, many models, although derived separately, have the same expression for $\bar{p}$. Figure~\ref{f:equalModelResults} shows the expression for $\bar{p}$ in each case. The general equation for density, using the correct expression for $\bar{p}$ is then substituted into \ref{e:gas}.
 
 Although more thorough checks are performed in Appendix S3, it can be seen that all adjacent expressions in Figure~\ref{f:equalModelResults} are equal when expressions for the boundaries between them are substituted in.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=7cm]{imgs/equalModelResults.pdf}
-	\caption{Equations for the profile wide, $p$, given sensor and call widths. Each colour block represents one equation, despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour.}
+	\caption{Equations for the profile wide, $\bar{p}$, given sensor and signal widths. Each colour block represents one equation, despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour.}
 	\label{f:equalModelResults}
 \end{figure}
 
@@ -254,16 +254,18 @@ Although more thorough checks are performed in Appendix S3, it can be seen that 
 
 \subsection{Simulation model}
 
+For each model we compared the estimated densities to the true densities in a simulation. None of the models showed any evidence of any significant differences between the estimated and true density values (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. However, even the models with small call and sensor angles have a relativity high level of precision. 
+
 \begin{figure}
 	\centering
-	\begin{subfigure}[t]{60mm}
-		\includegraphics[width=60mm]{imgs/AverageModelBias.pdf}
+	\begin{subfigure}[t]{7cm}
+		\includegraphics[width=7cm]{imgs/AverageModelBias.pdf}
 		\label{f:ModelBias}
 		\caption{} 
 	\end{subfigure}
 	~
-	\begin{subfigure}[t]{60mm}
-		\includegraphics[width=60mm]{imgs/ResultStandardDeviation.pdf}
+	\begin{subfigure}[t]{7cm}
+		\includegraphics[width=7cm]{imgs/ResultStandardDeviation.pdf}
 		\label{f:StandardDevaition}
 		\caption{} 
         \end{subfigure}
@@ -271,7 +273,8 @@ Although more thorough checks are performed in Appendix S3, it can be seen that 
 	\label{f:AccAndPrec}
 \end{figure}
 
-For each model we compared the estimated densities to the true densities in a simulation. None of the models showed any evidence of any significant differences between the estimated and true density values (Figure~\ref{f:ModelBias}). The precision of the models do vary however. The standard deviation of the error is strongly related to the call and sensor width (Figure~\ref{f:StandardDevaition}), such that larger widths have greater precision. However, even the models with small call and sensor angles have a relativity high level of precision. 
+
+\subsubsection{Impact of the number of captures}
 
 \begin{figure}[t]
        \centering
@@ -314,7 +317,7 @@ The precision of the model is dependent on the number of captures during the sur
 %%%% ------- Discussion ---------%%%%
 \section{Discussion}
 
-
+%% Include one comments about day range not affecting
 We have developed the gREM such that it can be used to estimate density from acoustic and optical sensors. This has entailed a generalisation of the gas model and the model in \citep{rowcliffe2008estimating} to be applicable to any combination of sensor width and call directionality. We have used simulations to show, as a proof of principle, that these models are accurate and precise.
 
 The gREM is therefore available for the estimation of density of a number of taxa of importance to conservation, zoonotic diseases and ecosystem services. The models provided are suitable for certain groups for which there are currently no, or few, effective methods for density estimation. Any species that would be consistently recorded at least once when within range of a detector would be a suitable subject for the gREM, such as bats \citep{kunz2009methods}, songbirds \citep{buckland2006point}, Cetaceans \citep{marques2009estimating} or forest primates \citep{hassel2008reliable}. Within increasing technological capabilities, this list of species is likely to increase dramatically.
