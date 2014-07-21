@@ -206,20 +206,21 @@ Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the
 The profile width $p$ for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor) is completely characterised by the three intervals (Figure \ref{f:firstInt}--\ref{f:thirdInt}). Average profile width $\bar{p}$ is calculated by integrating these profiles over their appropriate intervals of $x_1$ and dividing by $\pi$ which gives
 
 \begin{align}
-    \bar{p} &=\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\frac{\alpha}{2} } + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1\right) \nonumber  \\
-     &= \frac{r}{\pi} \left(\theta \sin{\frac{\alpha}{2} } - \cos{\frac{\alpha}{2} } + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right) \label{e:p321}
+    \bar{p} &=\frac{1}{\pi} \left(\int\limits_{\frac{\pi}{2}}^{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1+\int\limits_{\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}r \sin{\frac{\alpha}{2} } + r \cos{\left (x_1 - \frac{\theta}{2} \right )}\;\mathrm{d}x_1+\int\limits_{\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}}^{\frac{3 \pi}{2}}2 r \sin{\frac{\alpha}{2} }\;\mathrm{d}x_1\right) \label{e:SE2int}  \\
+     &= \frac{r}{\pi} \left(\theta \sin{\frac{\alpha}{2} } - \cos{\frac{\alpha}{2} } + \cos{\left (\frac{\alpha}{2} + \theta \right )}\right) \label{e:SE2result}
 \end{align}
 
 We then, as with the gas model, use this expression to calculate density
 \begin{equation}
 \label{e:gas}
-D = z/vt\bar{p}
+D = z/vt\bar{p}.
 \end{equation}
 
 
 %fix this @Tim
+Rather than having one equation that describes $\bar{p}$ globally, the gREM must be split into submodels due to discontiunous changes in $p$ as $\alpha$ and $\beta$ change. These discontinuities can occur for a number of reasons such as a profile switching between being limited by $\alpha$ and $\theta$, the difference between very small profiles and profiles of size zero and the fact that the width of a sector stops increasing once the central angle reaches $pi$ radians (i.e., a semi circle is just as wide as a full circle.)
 
-The gREM must be split into submodels rather than having one equation that describes $\bar{p}$ everywhere in parameter space. The reason for this is that there are situations where a small parameter change causes a different expression for $p$ to be needed rather than the size of $p$ changing smoothly as it would in the above expressions. We can see this in the equations by noting, for example, that $p=r\sin\frac{\alpha}{2}$ starts to get smaller as $\alpha$ increases beyond $\pi$. A wider animal signal width cannot give a decreased area that the animal can be detected in and so the equation must be changed. As a more visual example, if $\alpha$ was small, there would be an interval between Fig.~\ref{f:secondInt} and \ref{f:thirdInt} where the `blind spot' would prevent animals being detected at all giving a profile width of 0. This would require an extra integral in our equation for $\bar{p}$ as simply putting our small value of $\alpha$ into eqn \ref{e:SE2int} would not give us this integral of $p=0$.
+As a visual example, if $\alpha$ is small, there is an interval between Fig.~\ref{f:secondInt} and \ref{f:thirdInt} where the `blind spot' would prevent animals being detected at all giving $p=0$. This would require an extra integral in our equation as simply putting our small value of $\alpha$ into eqn \ref{e:SE2int} would not give us this integral of $p=0$.
 
 gREM submodel specifications were done by hand, and the integration was done using SymPy \citep{sympy} in Python (Appendix S3). The gREM submodels were checked by confirming that: 1) submodels adjacent in parameter space were equal at the boundary between them; 2) submodels that border $ \alpha = 0$ had$p = 0$ when $ \alpha = 0$; 3) average profile widths $\bar{p}$ were between 0 and $2r$ and; 4) each integral, divided by the range of angles that it was integrated over, was between 0 and $2r$. The scripts for these tests are included in Appendix S3 and the R \citep{R} implementation of the gREM is given in Appendix S4.  
 
@@ -269,10 +270,7 @@ For each model we compared the estimated densities to the true densities in a si
 		\label{f:StandardDevaition}
 		\caption{} 
         \end{subfigure}
-        \caption{
-        
-        The precision of the gREM given a range of detection and call angles. The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where red indicates a high standard deviation and blue represents a low standard deviation.
-        
+        \caption{The precision of the gREM given a range of detection and call angles. The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where red indicates a high standard deviation and blue represents a low standard deviation.
         } 
 	\label{f:AccAndPrec}
 \end{figure}
