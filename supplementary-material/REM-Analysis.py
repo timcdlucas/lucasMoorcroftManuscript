@@ -15,7 +15,7 @@ from datetime import datetime
 from sympy import init_printing ;
 init_printing()
 # Make LaTeX output white. Because I use a dark theme
-# init_printing(forecolor="White") 
+init_printing(forecolor="White") 
 
 
 # Load symbols used for symbolic maths
@@ -64,16 +64,38 @@ def checkBounds(model, reps):
 # There's some if statements to split longer equations on two lines and get +s in the right place.
 def parseLaTeX(prof):
         m = eval( 'm' + prof[1:] )
+
         f = open('/home/tim/Dropbox/liz-paper/lucasMoorcroftManuscript/supplementary-material/latexFiles/'+prof+'.tex', 'w')
-        f.write('\\begin{align}\n    \\mathrm{' + prof + '} =&\\frac{1}{\pi} \left(\;\;')
+        f.write('\\begin{align}\n    \\bar{p}_{\\text{\\tiny{' + prof[1:] + '}}} =&\\frac{1}{\pi} \left(\;\;')
         for i in range(len(m)):
-                f.write('\int\limits_{'+latex(m[i][2], order='rev-lex')+'}^{'+latex(m[i][3], order='rev-lex')+'}'+latex(m[i][0], order='rev-lex')+'\;\mathrm{d}' +latex(m[i][1]))
+		# Roughly try and prevent expressions beginning with minus signs.
+		if latex(m[i][2])[0]=='-':
+			o1 = 'rev-lex'
+		else:
+			o1 = 'lex'    		
+
+		if latex(m[i][3])[0]=='-':
+			o2 = 'rev-lex'
+		else:
+			o2 = 'lex' 		
+		
+		if latex(m[i][0])[0]=='-':
+			o3 = 'rev-lex'
+		else:
+			o3 = 'lex' 
+		
+		if latex(m[i][1])[0]=='-':
+			o4 = 'rev-lex'
+		else:
+			o4 = 'lex'
+    		
+                f.write('\int\limits_{'+latex(m[i][2], order=o1)+'}^{'+latex(m[i][3], order=o2)+'}'+latex(m[i][0], order=o3)+'\;\mathrm{d}' +latex(m[i][1], order=o4))
                 if len(m)>3 and i==(len(m)/2)-1:
                         f.write( '\\right.\\notag\\\\\n &\left.' )
                 if i<len(m)-1:
                         f.write('+')                                            
         f.write('\\right)\label{' + prof + 'Def}\\\\\n    ')
-        f.write('\\mathrm{' + prof + '} =& ' + latex(eval(prof)) + '\label{' + prof + 'Sln}\n\\end{align}')
+        f.write('\\bar{p}_{\\text{\\tiny{' + prof[1:] + '}}}  =& ' + latex(eval(prof)) + '\label{' + prof + 'Sln}\n\\end{align}')
         f.close()
 
 

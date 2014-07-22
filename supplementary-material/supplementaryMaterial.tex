@@ -123,7 +123,7 @@ emphstyle={\color{self}\slshape},
 
 \begin{document}
 
-\title[Supp Info: A generalised random encounter model for animals]{Supplementary Information: A generalised random encounter model for estimating animal density with remote sensor data}
+\title[Supp. Info, Lucas \emph{et al.}: A generalised random encounter model for animals]{Supplementary Information: A generalised random encounter model for estimating animal density with remote sensor data}
 \maketitle
 
 
@@ -147,7 +147,9 @@ $D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
 $x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& Radians\\
 $T$ 		& Step length & Seconds\\
 $N$ 		& Number of steps per simulation & \\
-$d$ 		& Time step index &
+$d$ 		& Time step index &\\
+$S$ 		& Probability of remaining stationary & \\
+$A$ 		& Probabilty of changing direction & \\
 
 \end{tabular}
 \caption{List of symbols used to describe the gREM}
@@ -158,7 +160,7 @@ $d$ 		& Time step index &
 
 \section{Supplementary Methods}
 \subsection{Introduction}
-This supplementary methods derives all the models used in the paper. For continuity, the gas model derivation is included here as well as in the main text. The derivation of all models is included in the Python script S2. 
+This supplementary methods derives all the models used in the paper. For continuity, the gas model derivation is included here as well as in the main text. The calculation of all integrals is included in the Python script S3. 
 
 
 

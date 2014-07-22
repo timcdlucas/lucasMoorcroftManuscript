@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{{R Development Core Team}(2010)}]{R}
@@ -16,5 +16,9 @@ Rowcliffe, J., Field, J., Turvey, S. \& Carbone, C. (2008) Estimating animal
 \bibitem[{{SymPy Development Team}(2014)}]{sympy}
 {SymPy Development Team} (2014) \emph{SymPy: Python library for symbolic
   mathematics}.
+
+\bibitem[{Yapp(1956)}]{yapp1956theory}
+Yapp, W. (1956) The theory of line transects.
+\newblock \emph{Bird study}, \textbf{3}, 93--104.
 
 \end{thebibliography}
