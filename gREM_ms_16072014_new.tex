@@ -171,31 +171,33 @@ Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the
 
 %insert new figure
 \begin{figure}[t]
+        \captionsetup{width=14cm}
+        \captionsetup[subfigure]{labelformat=empty} % The labels will eventually go in the figures themselves, so this makes playing with sizes easier.
         \centering
 	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 0.3cm]{imgs/x1.pdf}
+		\includegraphics[width=45mm, trim= 6cm 7cm 6cm 4cm]{imgs/x1.pdf}
                 \caption{}
                 \label{f:xOne}
         \end{subfigure}%%
 	~ 
 	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 4cm]{imgs/firstIntegral.pdf}
+		\includegraphics[width=45mm, trim= 6cm 7cm 6cm 4cm]{imgs/firstIntegral.pdf}
                 \caption{}
                 \label{f:firstInt}
         \end{subfigure}%%
 	 
 	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 1cm]{imgs/secondIntegral.pdf}
+		\includegraphics[width=45mm, trim= 6cm 6cm 6cm 1cm]{imgs/secondIntegral.pdf}
                 \caption{}
                 \label{f:secondInt}
         \end{subfigure}%%
 	~ 
 	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=60mm, trim= 6cm 2cm 6cm 4cm]{imgs/thirdIntegral.pdf}
+		\includegraphics[width=45mm, trim= 6cm 6cm 6cm 1cm]{imgs/thirdIntegral.pdf}
                 \caption{}
                 \label{f:thirdInt}
         \end{subfigure}%%
@@ -218,9 +220,9 @@ D = z/vt\bar{p}.
 
 
 %fix this @Tim
-Rather than having one equation that describes $\bar{p}$ globally, the gREM must be split into submodels due to discontiunous changes in $p$ as $\alpha$ and $\beta$ change. These discontinuities can occur for a number of reasons such as a profile switching between being limited by $\alpha$ and $\theta$, the difference between very small profiles and profiles of size zero and the fact that the width of a sector stops increasing once the central angle reaches $pi$ radians (i.e., a semi circle is just as wide as a full circle.)
+Rather than having one equation that describes $\bar{p}$ globally, the gREM must be split into submodels due to discontiunous changes in $p$ as $\alpha$ and $\beta$ change. These discontinuities can occur for a number of reasons such as a profile switching between being limited by $\alpha$ and $\theta$, the difference between very small profiles and profiles of size zero and the fact that the width of a sector stops increasing once the central angle reaches $\pi$ radians (i.e., a semi circle is just as wide as a full circle.)
 
-As a visual example, if $\alpha$ is small, there is an interval between Fig.~\ref{f:secondInt} and \ref{f:thirdInt} where the `blind spot' would prevent animals being detected at all giving $p=0$. This would require an extra integral in our equation as simply putting our small value of $\alpha$ into eqn \ref{e:SE2int} would not give us this integral of $p=0$.
+As a visual example, if $\alpha$ is small, there is an interval between Fig.~\ref{f:secondInt} and \ref{f:thirdInt} where the `blind spot' would prevent animals being detected at all giving $p=0$. This would require an extra integral in our equation as simply putting our small value of $\alpha$ into \ref{e:SE2int} would not give us this integral of $p=0$.
 
 gREM submodel specifications were done by hand, and the integration was done using SymPy \citep{sympy} in Python (Appendix S3). The gREM submodels were checked by confirming that: 1) submodels adjacent in parameter space were equal at the boundary between them; 2) submodels that border $ \alpha = 0$ had$p = 0$ when $ \alpha = 0$; 3) average profile widths $\bar{p}$ were between 0 and $2r$ and; 4) each integral, divided by the range of angles that it was integrated over, was between 0 and $2r$. The scripts for these tests are included in Appendix S3 and the R \citep{R} implementation of the gREM is given in Appendix S4.  
 
