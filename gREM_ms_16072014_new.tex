@@ -1,10 +1,5 @@
 \documentclass[a4paper,10pt,reqno,oneside]{amsart}
 
-
-% I'm really Confused!
-
-
-
 \usepackage[footnotesize]{caption}
 %\usepackage[usenames,dvipsnames]{color}
 %\usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
@@ -30,8 +25,6 @@
 \doublespacing
 
 \usepackage[compress,semicolon]{natbib}
-
-%\renewcommand\thesubfigure{\alph{subfigure}}
 
 % This declares the unit "animals". Also redefined days to be whole word *(not sure if thats what is needed.
 \DeclareSIUnit{\animals}{animals}
@@ -157,7 +150,7 @@ Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g.
 \begin{figure}
 \centering
 \includegraphics[width=7cm]{imgs/equalRegions.pdf}
-\caption{Locations where derivation of the average profile $\bar{p}$ is the same for different combinations of sensor detection width and animal signal width. Symbols within each polygon refer to each gREM submodel named after their compass point, except for Gas and REM which highlight the position of these previously derived models within the gREM.}
+\caption{Locations where derivation of the average profile $\bar{p}$ is the same for different combinations of sensor detection width and animal signal width. Symbols within each polygon refer to each gREM submodel named after their compass point, except for Gas and REM which highlight the position of these previously derived models within the gREM. Symbols on the edge of the plot are for submodels with $\alpha, \theta = 2\pi$}
 \label{f:equalRegions}
 \end{figure}
 
@@ -249,7 +242,7 @@ Although more thorough checks are performed in Appendix S3, it can be seen that 
 \begin{figure}
 	\centering
 	\includegraphics[width=7cm]{imgs/equalModelResults.pdf}
-	\caption{Equations for the average profile wide, $\bar{p}$, given sensor and signal widths. Each colour block represents one equation, despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour.}
+	\caption{Expressions for the average profile wide, $\bar{p}$, given sensor and signal widths. Despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour. Expressions on the edge of the plot are for submodels with $\alpha, \theta = 2\pi$. }
 	\label{f:equalModelResults}
 \end{figure}
 
@@ -266,7 +259,7 @@ For each model we compared the estimated densities to the true densities in a si
 		\caption{} 
 		\label{f:ModelBias}
 	\end{subfigure}
-	~
+	
 	\begin{subfigure}[t]{7cm}
 		\includegraphics[width=7cm]{imgs/ResultStandardDeviation.pdf}
 		\caption{} 
@@ -301,7 +294,7 @@ The precision of the model is dependent on the number of captures during the sur
 		\caption{} 
          	 \label{f:Perch}
 	\end{subfigure}
-	~
+	
 	\begin{subfigure}[t]{60mm}
                 \centering
 		\includegraphics[width=60mm]{imgs/ResultsTort.pdf}
@@ -320,6 +313,8 @@ The precision of the model is dependent on the number of captures during the sur
                   
 %%%% ------- Discussion ---------%%%%
 \section{Discussion}
+
+% Point out the importance of the results and place them in the context of previous studies and in relation to the application of the work (expanding on the Synthesis and applications section of the Summary). Where appropriate, set out recommendations for management or policy
 
 %% Include one comments about day range not affecting
 We have developed the gREM such that it can be used to estimate density from acoustic and optical sensors. This has entailed a generalisation of the gas model and the model in \citep{rowcliffe2008estimating} to be applicable to any combination of sensor width and call directionality. We have used simulations to show, as a proof of principle, that these models are accurate and precise.

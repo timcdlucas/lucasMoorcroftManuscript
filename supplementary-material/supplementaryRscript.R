@@ -56,7 +56,7 @@ calcDensity <- function(z, alpha, theta, r, animalSpeed, t){
 
 # Calculate abundance rather than density.
 calcAbundance <- function(z, alpha, theta, r, animalSpeed, t, area){
-        if(area <= 0 | !is.numer(area)) stop('Area must be a positive number')
+        if(area <= 0 | !is.numeric(area)) stop('Area must be a positive number')
         D <- calcDensity(z, alpha, theta, r, animalSpeed, t)
         A <- D*area
         return(A)
