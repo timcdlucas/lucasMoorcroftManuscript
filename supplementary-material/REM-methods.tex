@@ -24,14 +24,15 @@ In order to derive animal density, we need to consider relative velocity from th
 \subsubsection{gREM derivations for different detection and signal widths}
 Different combinations of $\theta$ and $\alpha$ would be expected to occur (e.g., sensors have different detection widths and animals have different signal widths). For different combinations $\theta$ and $\alpha$, the area covered per unit time is no longer given by $2rv$. Instead of the size of the sensor detection zone having a diameter of $2r$, the size changes with the approach angle between the sensor and the animal. For any given signal width and detector width and depending on the angle that the animal approaches the sensor, the width of the area within which an animal can be detected is called the profile, $p$. The size of the profile (averaged across all approach angles) is defined as the average profile $\bar{p}$. However, different combinations of $\theta$ and $\alpha$ need different equations to calculate $\bar{p}$. 
 
-We have identified the parameter space for the combinations of $\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Figure~\ref{f:equalRegions}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Figure~\ref{f:equalRegions}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta<\pi/2$ and $\alpha = 2\pi$.
+We have identified the parameter space for the combinations of $\theta$ and $\alpha$ for which the derivation of the equations are the same (defined as sub-models in the gREM) (Fig.~\ref{f:equalRegions}). For example, the gas model becomes the simplest gREM sub-model (upper right in (Fig.~\ref{f:equalRegions}) and the REM from \citep{rowcliffe2008estimating} is another gREM sub-model where $\theta<\pi/2$ and $\alpha = 2\pi$.
 
-For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. The rest of the derivation is just calculating this value for all values of $\alpha$ and $\theta$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. The separate regions are shown in Figure~\ref{f:equalRegions}.
+For different values of $\theta$ and $\alpha$, the only thing that changes is that the area covered per unit time is no longer given by $2rv$. Instead of the sensor having a diameter of $2r$, the sensor has a complex diameter that changes with approach angle. The rest of the derivation is just calculating this value for all values of $\alpha$ and $\theta$. However, different regions of this two dimensional parameter space have noncontinuously different models, with different derivations. Therefore we have to identify the regions for which the derivation is the same, and then separately derive $p$ for each region. The separate regions are shown in Fig.~\ref{f:equalRegions}.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.6\textwidth]{../imgs/equalRegions.pdf}
-\caption{The location of each model in parameter space. Each named model must be derived separately. However, the results of the different models are often the same; areas coloured the same have the same result. Other than the gas model and th REM model, individual models are named after the compass point of the quadrant they are in. The region extends past $\alpha, \theta=2\pi$ to clearly display the models that are defined for only $\alpha=2\pi$ or $\theta=2\pi$ (e.g. the REM model is only definied for $\alpha=2\pi$.}
+
+\caption{The location of each model in parameter space. Each named model must be derived separately. However, the results of the different models are often the same; areas coloured the same have the same result. Other than the gas model and the REM model, individual models are named after the compass point of the quadrant they are in. The region extends past $\alpha, \theta=2\pi$ to clearly display the models that are defined for only $\alpha=2\pi$ or $\theta=2\pi$ (e.g. the REM model is only definied for $\alpha=2\pi$.}
 \label{f:equalRegions}
 \end{figure}
 
@@ -150,6 +151,7 @@ Model NE3 is bound by $\alpha \le 4\pi - 2\theta$, $\alpha \ge \pi$ and $\theta 
                 \caption{}
                 \label{f:NE3fourth}
         \end{subfigure}
+
 \caption{A) The second integral in NE with width $r + r\cos(x_1 - \theta/2)$ B) The third integral in NE3. $\alpha/2$ is labelled. As it is small, animals to the right of the detector cannot be detected (shown by a dashed red line.) C) After further rotation, $\alpha/2$ is now bigger than the angle shown and animals to the right of the detector can again be sensed.   }
 \label{f:NE}
 \end{figure}
@@ -160,7 +162,7 @@ Model NE3 is bound by $\alpha \le 4\pi - 2\theta$, $\alpha \ge \pi$ and $\theta 
 Quadrant SE contains three submodels (excluding SE1) that differ in ways reminiscent of the models in NE. There are four possible profiles.
 \begin{enumerate}
 \item As $\alpha$ is less than $\pi$ the profile is smaller than $2r$, even when the sensor width is a full diameter. The profile width starts as $2r\sin(\alpha/2)$.
-\item Similar to NE, at a certain point the blind spot of the sensor area limits the profile width on one side. This gives a profile width of $r\sin(\alpha/2) + r\cos(x_1 - \theta/2)$.
+\item Similar to NE, at a certain point the blind spot of the sensor area limits the profile width on one side. This gives a profile width of $r\sin(\alpha/2) + r\cos(x_1 - \theta/2)$ (see Fig.~\ref{f:se3}).
 \item Also similar to NE, there can be a point where the right side of the profile is 0 giving a profile width of $r\sin(\alpha/2)$. 
 \item If $\alpha \le 2\pi - \theta$, then at $x_1 = \theta/2 + \pi/2 + \alpha/2 $ the profile width becomes 0. This inequality distinguishes between SE3 and SE4. 
 \item The third profile $r\sin(\alpha/2)$ starts at $\theta/2 + \pi/2$ while at $5\pi/2 - \alpha/2 - \theta/2$ the profile returns to size $2r\sin(\alpha/2)$. If $\theta/2 + \pi/2 \ge 5\pi/2 - \alpha/2 - \theta/2$ we go straight into the  $2r\sin(\alpha/2)$ profile and miss the $r\sin(\alpha/2)$ profile.  SE2 and SE3 are seperated by this inequality which simplifies to $\alpha \le 4\pi - 2\theta$. 
@@ -209,7 +211,7 @@ Finally SE4 is bounded by  $\alpha \le 4\pi - 2\theta $, $\alpha\le\pi$ and $\th
 ~ 
         \begin{subfigure}[t]{0.35\textwidth}
                 \centering
-        \includegraphics[width=1\textwidth, trim=5cm 1cm 4cm 1cm]{imgs/nw4.pdf}
+        \includegraphics[width=1\textwidth, trim=0cm 1cm 4cm 1cm]{imgs/nw4.pdf}
                 \caption{}
                 \label{f:NW1behindFull}
         \end{subfigure}
@@ -241,7 +243,7 @@ The models NW2--4 have the five potential profiles in NW1 but not all profiles o
 \item When approaching the sensor from behind, there is a period where the profile is $r$ wide as in NW1 profile (3). 
 \item At some point the right side of the profile becomes viable again. If this occurs in the $x_4$ region, the profile width becomes  $r - r\cos(x_4)$ as in NW1.
 \item However, as $\alpha$ is now less than $2\pi$, the right side of the profile might not be viable until we are in the second $x_2$ region. In this case, when we first enter the second $x_2$ region, the profile has a width of $r\cos(x_2 - \theta/2)$. This occurs only if $\alpha \le 3\pi - 2\theta$. This is inequality is found by noting that the right side of the profile become viable at $x_4 = 3\pi/2 - \alpha$ but the $x_2$ region starts at $x_4 = \theta$. The new profile in $x_2$ will only occur if  $ \theta < 3\pi/2 - \alpha/2$ which is rearranged to find the inequality above. This defines the boundary between NW2 and NW3.
-\item As $\alpha \le 2\pi$ it is possible that when the angle of approach is from directly behind the sensor the animal will not be detected at all. This is the case if $\alpha/2\le \pi-\theta/2$ as shown in Fig.~\ref{f:NW2--4behind}. This inequality (simplified as $\alpha\le 2\pi-\theta$) defines the boundary between NW3 and NW4.
+\item As $\alpha \le 2\pi$ it is possible that when the angle of approach is from directly behind the sensor the animal will not be detected at all. This is the case if $\alpha/2\le \pi-\theta/2$ as shown in Fig.~\ref{f:NW2--4}. This inequality (simplified as $\alpha\le 2\pi-\theta$) defines the boundary between NW3 and NW4.
 \end{enumerate}
 
 
@@ -251,15 +253,15 @@ The models NW2--4 have the five potential profiles in NW1 but not all profiles o
         \begin{subfigure}[t]{0.35\textwidth}
                 \centering
         \includegraphics[width=1\textwidth, trim=5cm 6cm 4cm 1cm]{imgs/behind.pdf}
+                \label{f:NW2--4behind}
                 \caption{}
-                \label{f:NW1AT}
         \end{subfigure}
 ~ 
         \begin{subfigure}[t]{0.35\textwidth}
                 \centering
         \includegraphics[width=1\textwidth, trim=5cm 6cm 4cm 1cm]{imgs/behind2.pdf}
+                \label{f:NW2--4behind2}
                 \caption{}
-                \label{f:NW1behindFull}
         \end{subfigure}
 
 \caption{A) If $\alpha/2$ is less than $\pi - \theta/2$, as is the case here, then the width of the profile when an animal approaches directly from behind is zero. B) If $\alpha/2 > \pi - \theta/2$ the profile width from behind is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$.}
@@ -359,25 +361,25 @@ The models in SW1--3 are described with the two focal angles used in models NW2-
                 \centering
         \includegraphics[width=1\textwidth, trim=7cm 10cm 6cm 1cm]{imgs/forward.pdf}
                 \caption{}
-                \label{f:NW1AT}
+                \label{f:SWforward} %NW1AT
         \end{subfigure}
 ~ 
         \begin{subfigure}[t]{0.35\textwidth}
                 \centering
         \includegraphics[width=1\textwidth, trim=7cm 10cm 6cm 1cm]{imgs/forward2.pdf}
                 \caption{}
-                \label{f:NW1behindFull}
+                \label{f:SWforwad2}
         \end{subfigure}
 
 \caption{A)  As $\alpha/2 < \theta/2$ the profile width is limited by the call angle rather than the sensor region. The profile width is $2r\sin\left(\frac{\alpha}{2}\right)$ B) As $\alpha/2 > \theta/2$ the profile width is limited by the sensor region, not the call angle. The profile width is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$.    }
-\label{f:p33}
+\label{f:forward}
 \end{figure}
 
 
 There are five potential profile sizes. 
 \begin{enumerate}
 \item At the beginning of $x_2$, with an approach direction directly towards the sensor, the parameter that limits the width of the profile can either be the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$. 
-\item Or the call width can be the limiting parameter, in which case the profile width is instead $2r\sin(\alpha /2)$ (see Figure~\ref{f:p33})
+\item Or the call width can be the limiting parameter, in which case the profile width is instead $2r\sin(\alpha /2)$ (see Fig.~\ref{f:forward})
 \item The next potential profile in $x_2$ has a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$ as the right side of the profile is limited by the width of the sensor region while the left side is limited by the call width. However, the angle at which the profile starts depends on whether the first profile was 1) or 2) above. If the first profile is profile 1) then the profile is limited on both sides by the sensor region and then the left side of the profile becomes limited by the call width. This happens at $x_2 = \pi/2 - \alpha/2 + \theta/2$. If however the first profile was 2) then the first profile is limited by the call width. We move into the new profile when the right side of the profile becomes limited by the sensor region. This occurs at $x_2 = \pi/2 + \alpha/2 - \theta/2$.
 
 
@@ -420,11 +422,11 @@ SW3 is similar to SW2 except that the profile does not become limited by sensor 
 As $\alpha < \pi$, animals approaching the sensor from behind can never be detected, so unlike REM, the second $x_2$ and $x_3$ profiles are always zero. The six models are split by three inequalities that relate to the models as follows.
 
 \begin{enumerate}
-\item Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected as can be seen in Figure~\ref{f:SW4--9nox4} where $\alpha/2 < \pi/2 - \theta$ which simplifies to give the previous inequality.
+\item Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected as can be seen in Fig.~\ref{f:SW4--9nox4} where $\alpha/2 < \pi/2 - \theta$ which simplifies to give the previous inequality.
 
-\item Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region (see Figure~\ref{f:p33}), rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
+\item Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region (see Fig.~\ref{f:forward}), rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
 
-\item Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$ is (see Figure~\ref{f:SW4--9fig}). This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile does not occur in models with $\alpha \ge 2\theta$.
+\item Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$ is (see Fig.~\ref{f:4--9int3}). This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile does not occur in models with $\alpha \ge 2\theta$.
 
 \end{enumerate}
 
@@ -434,16 +436,16 @@ As $\alpha < \pi$, animals approaching the sensor from behind can never be detec
                 \centering
         \includegraphics[width=1\textwidth, trim=8cm 9cm 8cm 4cm]{imgs/x4is0.pdf}
                 \caption{}
-                \label{f:NW1AT}
+                \label{f:SW4--9nox4}
         \end{subfigure}
 ~ 
         \begin{subfigure}[t]{0.4\textwidth}
                 \centering
         \includegraphics[width=1\textwidth, trim=8cm 9cm 8cm 4cm]{imgs/4--9int3.pdf}
                 \caption{}
-                \label{f:NW1behindFull}
+                \label{f:4--9int3}
         \end{subfigure}
-     
+
 \caption{A) At $x_4 = 0$, if $\alpha/2 < \pi/2 - \theta$ then $\alpha/2$ is too small for an animal to be detected at all during the $x_4$ profile (shown with dashed red.) This inequality simplifies to $\alpha < \pi - 2\theta$. B) The right of the profile is limited by the call width, not the sensor. On the left, the profile is limited by the sensor and not the call. Overall the profile width is $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$.     }
 \label{f:SW4--9}
 \end{figure}
