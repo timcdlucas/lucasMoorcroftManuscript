@@ -14,6 +14,7 @@
 %Figure \ref{f:equalRegions} shows the different regions with the upper right being the gas model as derived above and REM being the model from \citep{rowcliffe2008estimating}. Parameter space is broadly split into three rows ($\alpha \le \pi, \pi \le \alpha < 2\pi$ and $\alpha = 2\pi$) and four columns $(\theta \le \pi/2,  \pi/2 \le \theta \le \pi,  \pi \le \theta < 2\pi$ and $\theta = 2\pi$.) Rows and columns define cells. The equation for $p$ in each region is denoted by three numbers referring to rows, columns and region within that cell (see Fig.~\ref{f:equalRegions}).
 
 
+
 \subsection{Gas model} \label{gas}
 
 Following \cite{yapp1956theory}, we derive the gas model where sensors can capture animals in any direction and animal's signal is detectable from any direction($ \theta =  2\pi$ and $ \alpha =  2\pi$). We assume that animals are in a homogeneous environment, and move in straight lines of random direction with velocity $v$. We allow that our stationary sensor can capture animals at a detection distance $r$ and that if an animal moves within this detection zone they are captured with a probability of one, while animals outside the zone are never captured.
@@ -29,7 +30,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.8\textwidth]{../imgs/equalRegions.pdf}
+\includegraphics[width=0.6\textwidth]{../imgs/equalRegions.pdf}
 \caption{The location of each model in parameter space. Each named model must be derived separately. However, the results of the different models are often the same; areas coloured the same have the same result. Other than the gas model and th REM model, individual models are named after the compass point of the quadrant they are in. The region extends past $\alpha, \theta=2\pi$ to clearly display the models that are defined for only $\alpha=2\pi$ or $\theta=2\pi$ (e.g. the REM model is only definied for $\alpha=2\pi$.}
 \label{f:equalRegions}
 \end{figure}
@@ -37,7 +38,7 @@ For different values of $\theta$ and $\alpha$, the only thing that changes is th
 
 \subsection{Model SE1} \label{SE1}
 
-SE1 is very similar to the gas model except that because $\alpha \le \pi$ the profile width is no longer $2r$ but is instead limited by the width of the animal call. We therefore get a profile width of $2r\sin(\alpha/2)$ instead (see Fig~\ref{f:callExplained}).
+SE1 is very similar to the gas model except that because $\alpha \le \pi$ the profile width is no longer $2r$ but is instead limited by the width of the animal call. We therefore get a profile width of $2r\sin(\alpha/2)$ instead.
 
 \begin{align}
     \bar{p}_{\text{\tiny{SE1}}} =&\frac{1}{\pi} \int\limits_{\frac{\pi}{2}}^{\frac{3 \pi}{2}}2 r \sin{\left (\frac{\alpha}{2} \right )}\;\mathrm{d}x_{1}\label{pSE1Def}\\
@@ -54,40 +55,32 @@ When the detection zone is not a circle, we have more complex profiles  and need
         \centering
         \begin{subfigure}[t]{0.34\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.39]
-                \fullAngleOne{0}{300}{120};
-                \end{tikzpicture}
-                \caption{$x_1$}
-                \label{f:tikz1}
+        \includegraphics[width=1\textwidth, trim=2cm 1cm 2cm 1cm]{imgs/x1.pdf}
+                \caption{$x_1$}               
+                \label{f:x1}
         \end{subfigure}
         ~ 
         \begin{subfigure}[t]{0.22\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.39]
-                \fullAngleTwo{0}{80}{75};
-                \end{tikzpicture}
-                \caption{$x_2$}
+        \includegraphics[width=1\textwidth, trim=9cm 2cm 9cm 2cm]{imgs/x2.pdf}
+                \caption{$x_2$}               
                 \label{f:x2}
         \end{subfigure}
         ~ 
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.39]
-                \fullAngleThree{0}{50}{70};
-                \end{tikzpicture}
-                \caption{$x_3$}
+        \includegraphics[width=1\textwidth, trim=9cm 2cm 9cm 2cm]{imgs/x3.pdf}
+                \caption{$x_3$}               
                 \label{f:x3}
         \end{subfigure}%%
 	~
 	\begin{subfigure}[t]{0.22\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.39]
-                \fullAngleFour{0}{80}{70};
-                \end{tikzpicture}
-                \caption{$x_4$}
+        \includegraphics[width=1\textwidth, trim=9cm 2cm 9cm 2cm]{imgs/x4.pdf}
+                \caption{$x_4$}               
                 \label{f:x4}
         \end{subfigure}%%
-\caption{The location of the focal angles $x_{i\in[1,4]}$. In these figures, the segment shaped detection region is shown in black. The width of this region is shown with a thick red line and a blue rectangle. The direction of animal movement is always downwards, as indicated by the grey arrow.}
+\caption{The location of the focal angles $x_{i\in[1,4]}$. In these figures, the sector shaped detection region is shown in grey. Animals are filled black circles and the animal signal is an unfilled sector. The animals direction of movement is indicated with an arrow. The profile $p$ is shown with a red line.}
 \label{f:xis}
 \end{figure}
 
@@ -99,7 +92,7 @@ These models have up to five profiles.
 
 \begin{enumerate}
 \item The profile width starts, from $x_1=\frac{\pi}{2}$ as $2r$. 
-\item At $x_1 = \theta/2$, the right hand side of the profile cannot be $r$ wide as the corner of the `blind spot' (see Fig.~\ref{f:blindSpot}) limits its size to being $r\cos(x_1 - \theta/2)$ wide (see Fig.~\ref{f:NELimit}). 
+\item At $x_1 = \theta/2$, the right hand side of the profile cannot be $r$ wide as the corner of the `blind spot' limits its size to being $r\cos(x_1 - \theta/2)$ wide (see Fig.~\ref{f:NELimit}). 
 
 \item The third profile is only found in NE3. If $\alpha < 4\pi - 2\theta$, then at $x_1=\theta/2$, when the profile is perpendicular to the edge of the blind spot, the whole right side of the profile is invisible to the sensor (see Fig.~\ref{f:NE3third}). This gives a profile size of just $r$.
 
@@ -117,33 +110,6 @@ Submodel NE1 exists within the area bounded by $\alpha\le2\pi$, $\theta\le2\pi$ 
 
 \input{latexFiles/pNE1.tex}
 
-
-\begin{figure}[t]
-        \centering
-        \begin{subfigure}[t]{0.3\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-        	\sensorOne{220}{120};
-       		\directionArrowOne{0}{220}{120};
-       		\segmentOne{220}{120};
-		\def\angRad{0.6}
-		\draw[profile] (0,0) ++  (180 - 120 + 220/2:\angRad) arc (180 - 120 + 220/2: 360 + 180 - 120 - 220/2  :\angRad);
-                \end{tikzpicture}
-                \caption{Blind spot}
-                \label{f:blindSpot}
-        \end{subfigure}
-~ 
-        \begin{subfigure}[t]{0.3\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullOne{100}{200}{170}
-                \end{tikzpicture}
-                \caption{Directional Call}
-                \label{f:callExplained}
-        \end{subfigure}
-\caption{A) Shows the area referred to as the `blind spot'. B) For directional calls, with $\alpha<\pi$, the width of the profile can be limited by the call angle or by the detector region.  The detector width is shown in blue, while the call width is shown as a red rectangle. Only where the two overlap, giving a purple area, can an animal be detected. Here we would say the right side of the profile is limited by the sensor, while the left side of the profile is limited by the call angle. The terms in equations would reflect this by containing $\alpha$ if call limited and containing $\theta$ if detector limited.  }
-\label{f:NE}
-\end{figure}
 
 
 
@@ -166,82 +132,51 @@ Model NE3 is bound by $\alpha \le 4\pi - 2\theta$, $\alpha \ge \pi$ and $\theta 
         \centering
         \begin{subfigure}[t]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullAngleOne{0}{220}{160};
-                \end{tikzpicture}
+        \includegraphics[width=1\textwidth, trim=5cm 3cm 4cm 1cm]{imgs/ne2.pdf}
                 \caption{}
                 \label{f:NELimit}
         \end{subfigure}
         ~ 
         \begin{subfigure}[t]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-        	\fill[opacity=\opac, sensCol] (0, \lwr) rectangle ({\r}, \upr);       
-        	\directionArrowOne{0}{220}{200};
-		\draw[profile]     (0,0)  -- (0:\r);
-		\fill[ focus]  (180 - 220/2 - 200:\r) ++ (- 220/2 - 220:2*\angRad) arc (- 220/2 - 220:-360-90:2*\angRad) -- (180 - 220/2 - 200:\r) -- cycle;
-        	\segmentOne{220}{200};
-		\draw  (0,0)  ++(180 - 220/2 - 200:\r) -- ++ (-90: 2);
-		\node[left] at (180 - 220/2 - 200:\r) {$\frac{\alpha}{2}$};
-                \end{tikzpicture}
+                       \includegraphics[width=1\textwidth, trim=4cm 2cm 6cm 0cm]{imgs/ne33.pdf}
                 \caption{}
                 \label{f:NE3third}
         \end{subfigure}
         ~ 
         \begin{subfigure}[t]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullOne{0}{220}{240};
-		\fill[ focus]  (180 - 220/2 - 240:\r) ++ (- 220/2 - 220:2*\angRad) arc (- 220/2 - 220:-360-90:2*\angRad) -- (180 - 220/2 - 240:\r) -- cycle;
-        	\segmentOne{220}{240};
-		\node[left] at (180 - 220/2 - 240:\r) {$\frac{\alpha}{2}$};
-                \end{tikzpicture}
+                       \includegraphics[width=1\textwidth, trim=5cm 1cm 4cm 1cm]{imgs/ne34.pdf}
                 \caption{}
                 \label{f:NE3fourth}
         \end{subfigure}
-\caption{A) The second integral in NE with width $r + r\cos(x_1 - \theta/2)$ B) The third integral in NE3. The angle shown in red is $\alpha/2$. As it is small, animals to the right of the detector cannot be detected. C) After further rotation, $\alpha/2$ is now bigger than the angle shown and animals to the right of the detector can again be sensed.   }
+\caption{A) The second integral in NE with width $r + r\cos(x_1 - \theta/2)$ B) The third integral in NE3. $\alpha/2$ is labelled. As it is small, animals to the right of the detector cannot be detected (shown by a dashed red line.) C) After further rotation, $\alpha/2$ is now bigger than the angle shown and animals to the right of the detector can again be sensed.   }
 \label{f:NE}
 \end{figure}
 
 
-\subsection{Models SE} \label{SE}
+\subsection{Models SE2--4} \label{SE}
 
 Quadrant SE contains three submodels (excluding SE1) that differ in ways reminiscent of the models in NE. There are four possible profiles.
 \begin{enumerate}
 \item As $\alpha$ is less than $\pi$ the profile is smaller than $2r$, even when the sensor width is a full diameter. The profile width starts as $2r\sin(\alpha/2)$.
-\item Similar to NE, at a certain point the blind spot of the sensor area limits the profile width (see Fig.~\ref{f:p32AT}). This gives a profile width of $r\sin(\alpha/2) + r\cos(x_1 - \theta/2)$.
+\item Similar to NE, at a certain point the blind spot of the sensor area limits the profile width on one side. This gives a profile width of $r\sin(\alpha/2) + r\cos(x_1 - \theta/2)$.
 \item Also similar to NE, there can be a point where the right side of the profile is 0 giving a profile width of $r\sin(\alpha/2)$. 
-\item If $\alpha \le 2\pi - \theta$, then at $\theta/2 + \pi/2 + \alpha/2 $ the profile width becomes 0 (see Fig.~\ref{f:p32Last}). This inequality distinguishes between SE3 and SE4. 
+\item If $\alpha \le 2\pi - \theta$, then at $x_1 = \theta/2 + \pi/2 + \alpha/2 $ the profile width becomes 0. This inequality distinguishes between SE3 and SE4. 
 \item The third profile $r\sin(\alpha/2)$ starts at $\theta/2 + \pi/2$ while at $5\pi/2 - \alpha/2 - \theta/2$ the profile returns to size $2r\sin(\alpha/2)$. If $\theta/2 + \pi/2 \ge 5\pi/2 - \alpha/2 - \theta/2$ we go straight into the  $2r\sin(\alpha/2)$ profile and miss the $r\sin(\alpha/2)$ profile.  SE2 and SE3 are seperated by this inequality which simplifies to $\alpha \le 4\pi - 2\theta$. 
 
 \end{enumerate}
 
 
 
-
-
 \begin{figure}[t]
         \centering
-        \begin{subfigure}[t]{0.3\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullOne{100}{200}{170}
-                \end{tikzpicture}
-                \caption{}
-                \label{f:p32AT}
-        \end{subfigure}
-~ 
-        \begin{subfigure}[t]{0.3\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullOne{0}{220}{330}; % 220/2 + 90 +130
-                \end{tikzpicture}
-                \caption{}
-                \label{f:p32Last}
-        \end{subfigure}
-\caption{A) The third integral in p32. The right side of the profile is limited by the size of the sensor region (blue region) while the left side of the profile is limited by the size of the call angle (red region). The profile width is the purple region where these two overlap. B)     }
-\label{f:p32}
+        \includegraphics[width=0.35\textwidth, trim=1cm 4cm 9cm 1cm]{imgs/se3.pdf}
+\caption{A) The second integral in SE. The right side of the profile ($p_R$) is limited by the size of the sensor region  while the left side of the profile ($p_L$) is limited by the size of the call angle. The full profile has width $p = r\sin(\alpha/2) +r\cos(\theta/2-x_1)$.      }
+\label{f:se3}
 \end{figure}
+
+
 
 \subsubsection{Model SE2} \label{SE2}
 
@@ -265,25 +200,20 @@ Finally SE4 is bounded by  $\alpha \le 4\pi - 2\theta $, $\alpha\le\pi$ and $\th
 
 \begin{figure}[t]
         \centering
-        \begin{subfigure}[t]{0.3\textwidth}
+        \begin{subfigure}[t]{0.35\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullAngleFour{0}{140}{30}
-		
-                \end{tikzpicture}
+        \includegraphics[width=1\textwidth, trim=5cm 1cm 4cm 1cm]{imgs/nw2.pdf}
                 \caption{}
                 \label{f:NW1AT}
         \end{subfigure}
 ~ 
-        \begin{subfigure}[t]{0.3\textwidth}
+        \begin{subfigure}[t]{0.35\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullAngleFour{0}{130}{110};
-                \end{tikzpicture}
+        \includegraphics[width=1\textwidth, trim=5cm 1cm 4cm 1cm]{imgs/nw4.pdf}
                 \caption{}
                 \label{f:NW1behindFull}
         \end{subfigure}
-\caption{A) and B) The third and fourth profiles of NW1. The left side of of both profiles is of width $r$ while the right side is $- r\cos(x_4 - \theta)$ and $- r\cos(x_4)$ respectively. }
+\caption{A) and B) The second and fourth profiles of NW1. The left side of of both profiles is of width $r$ while the right side is $r\cos(\pi+x_4-\theta) = - r\cos(\theta - x_4 )$ and $r\cos(\pi-x_4) = - r\cos x_4$ respectively. }
 \label{f:NW1}
 \end{figure}
 
@@ -293,9 +223,9 @@ NW1 is the first model with $\theta < \pi$. Whereas previously the focal angle h
 
 There are five different profiles in NW1.
 \begin{enumerate}
-\item $x_2$ has an interval of $[\pi/2, \theta/2]$ which is from the angle of approach being directly towards the sensor until the profile is parellel to the left hand radius of the sensor segment. During this interval the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$ which is calculated using the equation for the length of a chord (see Fig.~\ref{f:x2}). Note that while rotating anti-clockwise (as usual) $x_2$ decreases in size.
+\item $x_2$ has an interval of $[\pi/2, \theta/2]$ which is from the angle of approach being directly towards the sensor until the profile is parellel to the left hand radius of the sensor sector. During this interval the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$ which is calculated using the equation for the length of a chord (see Fig.~\ref{f:x2}). Note that while rotating anti-clockwise (as usual) $x_2$ decreases in size.
 \item From here, we examine focal angle $x_4$ (note that $x_3$ is used in later models, but is not relevant here.)  The left side of the profile is a full radius while the right side is limited to $- r\cos(x_4 - \theta)$ (see Fig.~\ref{f:NW1AT}).
-\item At $x_4 =  \theta - \pi/2$, the profile is perpendicular to the edge of the sensor area. Here, the right side of the profile is $0r$.
+\item At $x_4 =  \theta - \pi/2$, the profile is perpendicular to the edge of the sensor area. Here, the right side of the profile is $0r$ giving a profile size of $r$.   %@tim is left side r?
 \item When $x_4 = \pi/2$ the angle of approach is from behind the sensor, but we can once again be detected on the right side of the sensor (see Fig.~\ref{f:NW1behindFull}). Therefore the width of the profile is $r - r\cos(x_4)$.
 \item  Finally, we have the $x_2$ profile, but from behind. 
 \end{enumerate}
@@ -305,27 +235,34 @@ There are five different profiles in NW1.
 \input{latexFiles/pNW1.tex}
 
 \subsection{Models NW2--4} \label{NW2--4}
+% @tim this is still crap
+The models NW2--4 have the five potential profiles in NW1 but not all profiles occur in each model, and the angle at which transitions occur are different. Furthermore, there is one extra profile possible. 
+\begin{enumerate}
+\item When approaching the sensor from behind, there is a period where the profile is $r$ wide as in NW1 profile (3). 
+\item At some point the right side of the profile becomes viable again. If this occurs in the $x_4$ region, the profile width becomes  $r - r\cos(x_4)$ as in NW1.
+\item However, as $\alpha$ is now less than $2\pi$, the right side of the profile might not be viable until we are in the second $x_2$ region. In this case, when we first enter the second $x_2$ region, the profile has a width of $r\cos(x_2 - \theta/2)$. This occurs only if $\alpha \le 3\pi - 2\theta$. This is inequality is found by noting that the right side of the profile become viable at $x_4 = 3\pi/2 - \alpha$ but the $x_2$ region starts at $x_4 = \theta$. The new profile in $x_2$ will only occur if  $ \theta < 3\pi/2 - \alpha/2$ which is rearranged to find the inequality above. This defines the boundary between NW2 and NW3.
+\item As $\alpha \le 2\pi$ it is possible that when the angle of approach is from directly behind the sensor the animal will not be detected at all. This is the case if $\alpha/2\le \pi-\theta/2$ as shown in Fig.~\ref{f:NW2--4behind}. This inequality (simplified as $\alpha\le 2\pi-\theta$) defines the boundary between NW3 and NW4.
+\end{enumerate}
 
-The models NW2--4 have the five potential profiles in NW1 but not all profiles occur in each model, and the angle at which transitions occur are different. Furthermore, there is one extra profile possible. When approaching the sensor from behind, there is a period where the profile is $r$ wide as in NW1. At some point the right side of the profile becomes viable again. If this occurs in the $x_4$ region, the profile width becomes  $r - r\cos(x_4)$ as in NW1. However, as $\alpha$ is now less than $2\pi$, the right side of the profile might not be viable until we are in the second $x_2$ region. In this case, when we first enter the second $x_2$ region, the profile has a width of $r\cos(x_2 - \theta/2)$. This occurs only if $\alpha \le 3\pi - 2\theta$. This is inequality is found by noting that the right side of the profile become viable at $x_4 = 3\pi/2 - \alpha$ but the $x_2$ region starts at $x_4 = \theta$. The new profile in $x_2$ will only occur if  $ \theta < 3\pi/2 - \alpha/2$ which is rearranged to find the inequality above. This defines the boundary between NW2 and NW3.
 
-As $\alpha \le 2\pi$ it is possible that when the angle of approach is from directly behind the sensor the animal will not be detected at all. This is the case if $\alpha/2\le \pi-\theta/2$ as shown in Fig.~\ref{f:NW2--4behind}. This inequality defines the boundary between NW3 and NW4.
 
 \begin{figure}[t]
         \centering
-        \begin{subfigure}[t]{0.4\textwidth}
+        \begin{subfigure}[t]{0.35\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-		\sensorTwo{120}{270};
-		\directionArrowTwo{0}{120}{270};
-		\fill[ focus]  (180 + 90 - 120/2:\r) ++ (+ 90 - 150/2:2*\angRad) arc (+ 90 - 150/2:-90:2*\angRad) -- (180 + 90 - 120/2:\r) -- cycle;
-		\segmentTwo{120}{270};
-		\node[left] at (180 + 90 - 120/2:\r) {$\frac{\alpha}{2}$};
-                \end{tikzpicture}
+        \includegraphics[width=1\textwidth, trim=5cm 6cm 4cm 1cm]{imgs/behind.pdf}
                 \caption{}
-                \label{f:NW2--4behind}
+                \label{f:NW1AT}
+        \end{subfigure}
+~ 
+        \begin{subfigure}[t]{0.35\textwidth}
+                \centering
+        \includegraphics[width=1\textwidth, trim=5cm 6cm 4cm 1cm]{imgs/behind2.pdf}
+                \caption{}
+                \label{f:NW1behindFull}
         \end{subfigure}
 
-\caption{A) If $\alpha/2$, shown in green, is less than $\pi - \theta/2$, as is the case here, then the width of the profile when an animal approaches directly from behind is zero. }
+\caption{A) If $\alpha/2$ is less than $\pi - \theta/2$, as is the case here, then the width of the profile when an animal approaches directly from behind is zero. B) If $\alpha/2 > \pi - \theta/2$ the profile width from behind is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$.}
 \label{f:NW2--4}
 \end{figure}
 
@@ -341,7 +278,7 @@ NW2 has all five profiles as found in NW1. However, the change from the $r$ prof
 
 \subsubsection{Model NW3} \label{NW3}
 
-NW3 is bounded by $\alpha \le 3\pi - 2\theta$, $\alpha\ge 2\pi-\theta$ and $\theta\le\pi$.
+NW3 is bounded by $\alpha \le 3\pi - 2\theta$, $\alpha\ge 2\pi-\theta$ and $\theta\ge\pi/2$.
 
 NW3 does not have the fourth integral from NW2 as the right side of the profile does not become viable until after the $x_4$ region has ended and the $x_2$ region has begun. Therefore the second $x_4$ integral has an upper limit of $\theta $ and the integral after has a width of $r\cos(x_2 - \theta/2)$ and is integrated with respect to $x_2$. The final integral starts at $x_4 = 3\pi/2 - \alpha/2 - \theta/2$ and has the full width of $2r\sin(x_2)\sin(\theta/2)$.
 
@@ -349,90 +286,37 @@ NW3 does not have the fourth integral from NW2 as the right side of the profile 
 
 \subsubsection{Model NW4} \label{NW4}
 
-Finally, NW4 is bounded by $\alpha\le \pi$, $\theta\ge \pi/2$ and $\alpha \le 3\pi - 2\theta$. NW4 is the same as NW3 except that the final profile width is zero and this profile is reached at $\alpha/2+\theta/2-\pi/2$. 
+Finally, NW4 is bounded by $\alpha\ge \pi$, $\theta\ge \pi/2$ and $\alpha \le 2\pi - \theta$. NW4 is the same as NW3 except that the final profile width is zero and this profile is reached at $\alpha/2+\theta/2-\pi/2$. 
 
 \input{latexFiles/pNW4.tex}
 
-\subsection{Model p33} \label{p33}
- 
-The models in p33 are described with the two focal angles used in models NW2--4, $x_2$ and $x_4$. As $\alpha \le\pi$ an animal can never be detected if it is approaching the detector from behind. This makes these models simpler in that they go through the $x_2$ and $x_4$ profiles only once each. 
-
-There are five potential profile sizes. At the beginning of $x_2$, with an approach direction directly towards the sensor, the factor that limits the width of the profile can either be 1) the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$, or 2) the call width, in which case the profile width is instead $2r\sin(\alpha /2)$ (see Figure~\ref{f:p33})
-
-\begin{figure}[t]
-        \centering
-        \begin{subfigure}[t]{0.4\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-		\fullTwo{170}{100}{80};
-                \end{tikzpicture}
-                \caption{}
-                \label{f:p33x2a}
-        \end{subfigure}
-	~
-	\begin{subfigure}[t]{0.4\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-		\fullTwo{40}{100}{80};
-                \end{tikzpicture}
-                \caption{}
-                \label{f:p33x2t}
-        \end{subfigure}
-
-\caption{A) As $\alpha > \theta$ the profile width (purple) is limited by the sensor region, not the call angle (red). The profile width is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$. B) As $\alpha < \theta$ the profile width is limited by the call angle rather than the sensor region (blue). The profile width is $2r\sin\left(\frac{\alpha}{2}\right)$   }
-\label{f:p33}
-\end{figure}
-
-3) The next potential profile in $x_2$ has a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$ as the right side of the profile is limited by the width of the sensor region while the left side is limited by the call width. However, the angle at which the profile starts depends on whether the first profile was 1) or 2) above. If the first profile is profile 1) then the profile is limited on both sides by the sensor region and then the left side of the profile becomes limited by the call width. This happens at $x_2 = \pi/2 - \alpha/2 + \theta/2$. If however the first profile was 2) then the first profile is limited by the call width. We move into the new profile when the right side of the profile becomes limited by the sensor region. This occurs at $x_2 = \pi/2 + \alpha/2 - \theta/2$.
-
-
-In the $x_4$ region the left side of the profile is always $r\sin(\alpha /2)$ while the right side is either 4) 0, giving a profile of $r\sin(\alpha /2)$, or 5) limited by the sensor giving a profile of size $r\sin (\alpha /2) -r\cos(x_4-\theta) $.
-
-\subsubsection{Model SW1} \label{SW1}
-
-SW1 is bounded by $\alpha \ge \theta$, $\alpha \le\pi$ and $\theta \le \pi$.
-
-As $\alpha $ is large the first profile is limited by the size of the sensor region giving it a width of $2r\sin\left(\theta/2\right)\sin(x_2)$. It is the only one of the three p33 models to start in this way. Later on, still with $x_2$ as the focal angle the left side of the profile does become limited by the call width. So at $x_2= \pi/2 - \alpha/2 + \theta/2$ the profile width becomes $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. 
-
-As we enter the $x_4$ region, the profile remains limited by the call on the left and by the sensor on the right, giving a profile width of  $r\sin (\alpha /2) -r\cos(x_4-\theta) $. Finally, at $x_4 = \theta - \pi/2$ the right side of the profile becomes zero and the profile is width is $r\sin(\alpha /2)$.
-
-\input{latexFiles/pSW1.tex}
-
-\subsubsection{Model SW2} \label{SW2}
-
-SW2 is bounded by $\theta \ge \pi/2$, $\alpha \le \theta$ and $\alpha \ge 2\theta -\pi$.
-
-SW2 is largely similar to SW1. However, as $\alpha \le \theta$ the first profile is limited by $\alpha$ and not by the detection region. Therefore the first profile has width $2r\sin(\alpha /2)$. This also means the transition to the second profile occurs at  $x_2 = \pi/2 + \alpha/2 - \theta/2$ instead of  $x_2 = \pi/2 - \alpha/2 + \theta/2$.
-
-\input{latexFiles/pSW2.tex}
-
-
-
-\subsubsection{Model SW3} \label{SW3}
-
-SW3 is bounded by $\alpha \le 2\theta -\pi$ and $\theta \le \pi$.
-
-SW3 is similar to SW2 except that the profile does not become limited by sensor at all during the the $x_4$ regions. Therefore, at $x_4 = 0 $ the profile is still of width $2r\sin(\alpha /2)$. Only at $x_4 = \theta - \pi/2 - \alpha/2$ does the profile become limited on the right by the sensor region.
-
-\input{latexFiles/pSW3.tex}
 
 \subsection{Model REM} \label{REM}
 
 REM is the model from \citep{rowcliffe2008estimating}. It has $\alpha =2\pi$ and $\theta \le \pi/2$. It has three profile widths, two of which are repeated, once as the animal approaches from on front of the sensor and once as the animal approaches from behind the sensor.
 
-Starting with an approach direction of directly towards the sensor, and examining focal angle $x_2$, the profile width is $2r\sin(x_2)\sin(\theta/2)$. When the profile is perpendicular to the radius edge of the segment sensor region, we instead examine $x_3$ where the profile width is $r\sin(x_3)$. At $x_3=\pi/2$ the profile becomes simply $r$ and this continues for $\theta $ radians of $x_4$. Finally the $x_3$ and $x_2$ are repeated with an approach direction from behind the sensor. 
+\begin{enumerate}
+\item Starting with an approach direction of directly towards the sensor, and examining focal angle $x_2$, the profile width is $2r\sin(x_2)\sin(\theta/2)$. 
+\item When the profile is perpendicular to the radius edge of the sector sensor region, we instead examine $x_3$ where the profile width is $r\sin(x_3)$.
+\item At $x_3=\pi/2$ the profile becomes simply $r$ and this continues for $\theta $ radians of $x_4$. 
+\item The $x_3$ profile is then repeated with an approach direction from behind the sensor. 
+\item Finally the $x_2$ profile is repeated, again with an approach direction from behind the sensor. 
+\end{enumerate}
 
 \input{latexFiles/pREM.tex}
 
 \subsection{Model NW5--7} \label{NW57}
 
 In the models in NW5--7, the sensor has $\theta \le \pi/2$ as in the REM. As $\alpha \ge \pi/2$ a lot of the profiles are similar to the REM. Specifically, the first three profiles are always the same as the first three profiles of the REM. This is because when an animal is moving towards the sensor, the $\alpha \ge \pi$ call is no different to a $2\pi$ call. However, when approaching the sensor from behind, things are slightly different. The animal can only be detected by the sensor if the signal width is large enough that it can be detected once it has passed the sensor. 
-
-The second $x_3$ profile is always the same width as in REM. This is because there is no detection region to one side of the sensor so this side is unaffected by call width, while the width of the other side of the profile is unaffected by $\alpha$ as when $\alpha>\pi$ the profile width will never be limited by $\alpha$. If $\alpha \le 2\pi + 2\theta$, the animal becomes undetectable during this profile when  $x_3$ has decreased in size to $\pi - \alpha/2$. This inequality marks the boundary between NW7 and NW6. 
-
-As the focal angle moves from $x_3$ to $x_2$  at $x_3=\theta$, we can see that if $\alpha \ge 2\pi + 2\theta$, then the $x_2$ region is reached before the animal become undetectable. When this second $x_2$ region is reached, the profile starts with width $r\cos(x_2 - \theta/2)$ as at the beginning of the $x_2$ profile as only animals approaching to the left of the sensor are detectable. The sensor is directly behind the right side of the profile.
-
-During this second $x_2$ profile the call angle needed for animals to be detected to the left of the detector is increasing while the angle needed for animals to be detected to the right of the detector is decreasing. Therefore, either the left side becomes undetectable, making both sides undetectable (this occurs if $\alpha \le 2\pi - \theta$ as in NW6) or the right becomes detectable (if $\alpha \ge 2\pi - \theta$ as in NW5), making both sides detectable and giving a profile width of $2r\sin(x_2)\sin(\theta/2)$.
+                    
+\begin{enumerate}
+\item Starting with an approach direction of directly towards the sensor, and examining focal angle $x_2$, the profile width is $2r\sin(x_2)\sin(\theta/2)$. 
+\item When the profile is perpendicular to the radius edge of the sector sensor region, we instead examine $x_3$ where the profile width is $r\sin(x_3)$.
+\item At $x_3=\pi/2$ the profile becomes simply $r$ and this continues for $\theta $ radians of $x_4$. 
+\item If $\alpha \le 2\pi + 2\theta$, the animal becomes undetectable during this profile when  $x_3$ has decreased in size to $\pi - \alpha/2$. This inequality marks the boundary between NW7 and NW6. 
+\item If instead $\alpha \ge 2\pi + 2\theta$ then the animal does not become undetectable during the $x_3$ focal angle. Instead the profile has width greater than zero for the whole of the $x_3$ angle and the the second $x_2$ angle is reached. The profile starts with width $r\cos(x_2 - \theta/2)$ as only animals approaching to the left of the sensor are detectable. 
+\item During this second $x_2$ profile the call angle needed for animals to be detected to the left of the detector is increasing while the angle needed for animals to be detected to the right of the detector is decreasing. Therefore, either the left side becomes undetectable, making both sides undetectable (this occurs if $\alpha \le 2\pi - \theta$ as in NW6) \item or the right becomes detectable (if $\alpha \ge 2\pi - \theta$ as in NW5), making both sides detectable and giving a profile width of $2r\sin(x_2)\sin(\theta/2)$.
+\end{enumerate}
 
 
 \subsubsection{Model NW5} \label{NW5}
@@ -465,44 +349,104 @@ It is similar to NW6 but does not include the last integral as during the $x_3$ 
 
 
 
+\subsection{Model SW1--3} \label{SW13}
+ 
+The models in SW1--3 are described with the two focal angles used in models NW2--4, $x_2$ and $x_4$. As $\alpha \le\pi$ an animal can never be detected if it is approaching the detector from behind. This makes these models simpler in that they go through the $x_2$ and $x_4$ profiles only once each. 
+
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}[t]{0.35\textwidth}
+                \centering
+        \includegraphics[width=1\textwidth, trim=7cm 10cm 6cm 1cm]{imgs/forward.pdf}
+                \caption{}
+                \label{f:NW1AT}
+        \end{subfigure}
+~ 
+        \begin{subfigure}[t]{0.35\textwidth}
+                \centering
+        \includegraphics[width=1\textwidth, trim=7cm 10cm 6cm 1cm]{imgs/forward2.pdf}
+                \caption{}
+                \label{f:NW1behindFull}
+        \end{subfigure}
+
+\caption{A)  As $\alpha/2 < \theta/2$ the profile width is limited by the call angle rather than the sensor region. The profile width is $2r\sin\left(\frac{\alpha}{2}\right)$ B) As $\alpha/2 > \theta/2$ the profile width is limited by the sensor region, not the call angle. The profile width is $2r\sin\left(\frac{\theta}{2}\right)\sin(x_2)$.    }
+\label{f:p33}
+\end{figure}
+
+
+There are five potential profile sizes. 
+\begin{enumerate}
+\item At the beginning of $x_2$, with an approach direction directly towards the sensor, the parameter that limits the width of the profile can either be the sensor width,  in which case the profile width is $2r\sin\left(\theta/2\right)\sin(x_2)$. 
+\item Or the call width can be the limiting parameter, in which case the profile width is instead $2r\sin(\alpha /2)$ (see Figure~\ref{f:p33})
+\item The next potential profile in $x_2$ has a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$ as the right side of the profile is limited by the width of the sensor region while the left side is limited by the call width. However, the angle at which the profile starts depends on whether the first profile was 1) or 2) above. If the first profile is profile 1) then the profile is limited on both sides by the sensor region and then the left side of the profile becomes limited by the call width. This happens at $x_2 = \pi/2 - \alpha/2 + \theta/2$. If however the first profile was 2) then the first profile is limited by the call width. We move into the new profile when the right side of the profile becomes limited by the sensor region. This occurs at $x_2 = \pi/2 + \alpha/2 - \theta/2$.
+
+
+\item In the $x_4$ region the left side of the profile is always $r\sin(\alpha /2)$ while the right side is either 0, giving a profile of $r\sin(\alpha /2)$. 
+
+\item Or limited by the sensor giving a profile of size $r\sin (\alpha /2) -r\cos(x_4-\theta) $.
+\end{enumerate}
+
+\subsubsection{Model SW1} \label{SW1}
+
+SW1 is bounded by $\alpha \ge \theta$, $\alpha \le\pi$ and $\theta \le \pi$.
+
+As $\alpha $ is large the first profile is limited by the size of the sensor region giving it a width of $2r\sin\left(\theta/2\right)\sin(x_2)$. It is the only one of the three SW models to start in this way. Later on, still with $x_2$ as the focal angle the left side of the profile does become limited by the call width. So at $x_2= \pi/2 - \alpha/2 + \theta/2$ the profile width becomes $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. 
+
+As we enter the $x_4$ region, the profile remains limited by the call on the left and by the sensor on the right, giving a profile width of  $r\sin (\alpha /2) -r\cos(x_4-\theta) $. Finally, at $x_4 = \theta - \pi/2$ the right side of the profile becomes zero and the profile is width is $r\sin(\alpha /2)$.
+
+\input{latexFiles/pSW1.tex}
+
+\subsubsection{Model SW2} \label{SW2}
+
+SW2 is bounded by $\theta \ge \pi/2$, $\alpha \le \theta$ and $\alpha \ge 2\theta -\pi$.
+
+SW2 is largely similar to SW1. However, as $\alpha \le \theta$ the first profile is limited by $\alpha$ and not by the detection region. Therefore the first profile has width $2r\sin(\alpha /2)$. This also means the transition to the second profile occurs at  $x_2 = \pi/2 + \alpha/2 - \theta/2$ instead of  $x_2 = \pi/2 - \alpha/2 + \theta/2$.
+
+\input{latexFiles/pSW2.tex}
+
+
+
+\subsubsection{Model SW3} \label{SW3}
+
+SW3 is bounded by $\alpha \le 2\theta -\pi$ and $\theta \le \pi$.
+
+SW3 is similar to SW2 except that the profile does not become limited by sensor at all during the the $x_4$ regions. Therefore, at $x_4 = 0 $ the profile is still of width $2r\sin(\alpha /2)$. Only at $x_4 = \theta - \pi/2 - \alpha/2$ does the profile become limited on the right by the sensor region.
+
+\input{latexFiles/pSW3.tex}
+
+
 \subsection{Model SW4--9} \label{SW4--9}
 
 As $\alpha < \pi$, animals approaching the sensor from behind can never be detected, so unlike REM, the second $x_2$ and $x_3$ profiles are always zero. The six models are split by three inequalities that relate to the models as follows.
 
-\begin{figure}[t]
-        \centering
+\begin{enumerate}
+\item Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected as can be seen in Figure~\ref{f:SW4--9nox4} where $\alpha/2 < \pi/2 - \theta$ which simplifies to give the previous inequality.
 
+\item Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region (see Figure~\ref{f:p33}), rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
+
+\item Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$ is (see Figure~\ref{f:SW4--9fig}). This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile does not occur in models with $\alpha \ge 2\theta$.
+
+\end{enumerate}
+
+\begin{figure}[t]
+       \centering
         \begin{subfigure}[t]{0.4\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.38]
-                \fullFour{0}{40}{0};
-		\fill[ focus] (40:3*\angRad) -- ++  (-90:3.5*\angRad) arc (-90:-90-40:3.5*\angRad) --cycle;
-		\draw (40:3*\angRad) -- ++  (-90:5*\angRad) node[ left] {$\frac{\alpha}{2}$};
-		%\segmentOne{220}{240};
-		%\node[left] at (180 - 220/2 - 240:\r) {$\frac{\alpha}{2}$};
-                \end{tikzpicture}
-                \caption{$x_4=0$}
-                \label{f:SW4--9nox4}
-        \end{subfigure}
-	~
-        \begin{subfigure}[t]{0.4\textwidth}
-                \centering
-                \begin{tikzpicture}[scale=0.38]
-		\fullTwo{50}{80}{65};
-                \end{tikzpicture}
+        \includegraphics[width=1\textwidth, trim=8cm 9cm 8cm 4cm]{imgs/x4is0.pdf}
                 \caption{}
-                \label{f:SW4--9fig}
+                \label{f:NW1AT}
         \end{subfigure}
-        
-\caption{A) At $x_4 = 0$, if $\alpha < \pi - 2\theta$ then $\alpha/2$ is too small for an animal to be detected at all during the $x_4$ profile. B) The left of the profile is limited by the call width, not the sensor (blue). On the right, the profile is limited by the sensor and not the call (red). Overall the profile width is $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$.     }
+~ 
+        \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+        \includegraphics[width=1\textwidth, trim=8cm 9cm 8cm 4cm]{imgs/4--9int3.pdf}
+                \caption{}
+                \label{f:NW1behindFull}
+        \end{subfigure}
+     
+\caption{A) At $x_4 = 0$, if $\alpha/2 < \pi/2 - \theta$ then $\alpha/2$ is too small for an animal to be detected at all during the $x_4$ profile (shown with dashed red.) This inequality simplifies to $\alpha < \pi - 2\theta$. B) The right of the profile is limited by the call width, not the sensor. On the left, the profile is limited by the sensor and not the call. Overall the profile width is $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$.     }
 \label{f:SW4--9}
 \end{figure}
-
-Models with $\alpha \le \pi - 2\theta$  have no $x_4$ profile. This is because at $x_4 = 0$, the call angle is already too small to be detected as can be seen in Figure~\ref{f:SW4--9nox4} where $\alpha/2 < \pi/2 - \theta$ which simplifies to give the previous inequality.
-
-Models with $\alpha \le \theta$ are limited by $\alpha$ in the first, $x_2$ region (see Figure~\ref{f:p33}), rather than being limited by $\theta$. Therefore this first profile is of width $2r\sin(\alpha/2)$ rather than $2r\sin(\theta/2)\sin(x_2)$.
-
-Finally, models with $\alpha \le 2\theta$ have a second profile in $x_2$ where to one side of the sensor $\alpha$ is the limiting factor of profile width, while on the other side $\theta$ is (see Figure~\ref{f:SW4--9fig}). This gives a width of $r\sin(\alpha/2) - r\cos(x_2 + \theta/2)$. This profile does not occur in models with $\alpha \ge 2\theta$.
 
 \subsubsection{Model SW4} \label{SW4}
 

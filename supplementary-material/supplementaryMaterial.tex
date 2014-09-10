@@ -135,21 +135,21 @@ emphstyle={\color{self}\slshape},
 \centering
 \begin{tabular}{lll}
 Symbol 	& Description & Units\\\hline
+$\theta$	& Sensor width & \SI{}{\radian} \\
+$\alpha$	& Animal call/beam width & \SI{}{\radian} \\
+$x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& \SI{}{\radian}\\
+$r$ 		& Detection distance & \SI{}{\meter}\\
+$\bar{p}$ 		& Average profile width & \SI{}{\meter}\\
+$p$ 		& A specific profile width & \SI{}{\meter}\\
 $v$		& Velocity & \SI{}{\meter\per\second}\\
-$\theta$	& Angle of detection & Radians \\
-$\alpha$	& Animal call/beam width & Radians \\
-$r$ 		& Detection distance & Metres\\
-$\bar{p}$ 		& Average profile width & Metres\\
-$p$ 		& A specific profile width & Metres\\
-$t$		& Time & Seconds\\
-$z$		& Number of detections & \\
-$D$		& Animal density & \SI{}{\animals\per\meter\squared} \\
-$x_i$	        & Focal Angle $i \in \{1,2,3,4\} $ 	& Radians\\
-$T$ 		& Step length & Seconds\\
-$N$ 		& Number of steps per simulation & \\
-$d$ 		& Time step index &\\
-$S$ 		& Probability of remaining stationary & \\
-$A$ 		& Probabilty of changing direction & \\
+$t$		& Time & \SI{}{\second}\\
+$z$		& Number of detections & -\\
+$D$		& Animal density & \SI{}{\per\meter\squared} \\
+$T$ 		& Step length & \SI{}{\second}\\
+$N$ 		& Number of steps per simulation & -\\
+$d$ 		& Distance moved in a time step & \SI{}{\meter}\\
+$S$ 		& Probability of remaining stationary & -\\
+$A$ 		& Maximum turning angle & \SI{}{\radian}\\
 
 \end{tabular}
 \caption{List of symbols used to describe the gREM}
@@ -165,7 +165,7 @@ This supplementary methods derives all the models used in the paper. For continu
 
 
 
-\input{/home/tim/Dropbox/liz-paper/lucasMoorcroftManuscript/supplementary-material/REM-methods.tex}
+\input{REM-methods.tex}
 
 
 \clearpage
