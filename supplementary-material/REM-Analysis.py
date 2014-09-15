@@ -9,7 +9,10 @@ from sympy import *
 import numpy as np
 import matplotlib.pyplot as pl
 from datetime import datetime
+import os as os
 
+
+os.chdir('/home/tim/Dropbox/liz-paper/lucasMoorcroftManuscript/supplementary-material')
 
 # Use LaTeX printing
 from sympy import init_printing ;
@@ -21,6 +24,7 @@ init_printing(forecolor="White")
 # Load symbols used for symbolic maths
 t, a, r, x2, x3, x4, x1 = symbols('theta alpha r x_2 x_3 x_4 x_1', positive=True)
 r1 = {r:1} # useful for lots of checks
+
 
 
 # Define functions
@@ -65,7 +69,7 @@ def checkBounds(model, reps):
 def parseLaTeX(prof):
         m = eval( 'm' + prof[1:] )
 
-        f = open('/home/tim/Dropbox/liz-paper/lucasMoorcroftManuscript/supplementary-material/latexFiles/'+prof+'.tex', 'w')
+        f = open('/latexFiles/'+prof+'.tex', 'w')
         f.write('\\begin{align}\n    \\bar{p}_{\\text{\\tiny{' + prof[1:] + '}}} =&\\frac{1}{\pi} \left(\;\;')
         for i in range(len(m)):
 		# Roughly try and prevent expressions beginning with minus signs.
@@ -592,7 +596,7 @@ gas = 2*r
 
 
 # for each model run through every adjacent model. 
-# Contains duplicatea but better for avoiding missed comparisons.
+# Contains duplicates but better for avoiding missed comparisons.
 # Also contains replacement t->a and a->t just in case. 
 
 
@@ -683,11 +687,12 @@ allComps = [
 
 
 # List of regions that touch a=0. Should equal 0 when a=0.
-zeroRegions = ['pSW9', 'pSW8', 'pSW7', 'pSW4', 'pSW2', 'pSW3', 'pSE4', 'pSE3', 'pSE2', 'pSE1']
+zeroRegions = ['pSW9', 'pSW8', 'pSW7', 'pSW4', 'pSW2', 'pSW3', 'pSE4', 'pSE3',  'pSE1']
+
 
 # Run through all the comparisons. Need simplify(). Even together() gives some false negatives.
 
-checkFile = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/checksFile.tex','w')
+checkFile = open('checksFile.tex','w')
 
 checkFile.write('All checks evaluated.\nTim Lucas - ' + str(datetime.now()) + '\n')
 for i in range(len(allComps)):
@@ -698,10 +703,16 @@ for i in range(len(allComps)):
 
 for i in range(len(zeroRegions)):
         if eval(zeroRegions[i]).subs({a:0}).simplify() == 0:
-                checkFile.write(zeroRegions[i] + ' at a=0: OK\n')
+                checkFile.write(zeroRegions[i] + ' at a = 0: OK\n')
         else:
-                checkFile.write(zeroRegions[i] + ' at a=0: Incorrect\n')
+                checkFile.write(zeroRegions[i] + ' at a = 0: Incorrect\n')
 
+# pSE2 is slightly different. Only one corner touches a=0, so need theta value as well. I'm not sure why this isn't 
+# A problem for some other regions.
+if pSE2.subs({a:0, t:2*pi}) == 0:
+       checkFile.write('pSE2 at a = 0, t = 2pi: OK\n')
+else:
+       checkFile.write('pSE2 at a = 0, t = 2pi: Incorrect\n')
 checkFile.close()
 
 
@@ -757,9 +768,10 @@ pImage = np.flipud(pArray)
 
 # Plot and save.
 pl.imshow(pImage, interpolation='none', cmap=pl.get_cmap('Blues') )
-#pl.show()
 
-pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/profilesCalculated.png')
+# Show or save image.
+# pl.show()
+# pl.savefig('/imgs/profilesCalculated.png')
 
 
 
@@ -770,7 +782,7 @@ pl.savefig('/home/tim/Dropbox/phd/Analysis/REM-chapter/imgs/profilesCalculated.p
 # To reduce mistakes, output R function directly from python.
 # However, the if statements, which correspond to the bounds of each model, are not automatic.
 
-Rfunc = open('/home/tim/Dropbox/phd/Analysis/REM-chapter/supplementaryRscript.R', 'w')
+Rfunc = open('supplementaryRscript.R', 'w')
 
 Rfunc.write("""
 # Functions to calculate density.
@@ -793,9 +805,9 @@ Rfunc.write("""
 # Internal function to calculate profile width as described in the text
 calcProfileWidth <- function(alpha, theta, r){
         if(alpha > 2*pi | alpha < 0) 
-		stop('alpha is out of bounds. alpha should be in interval 0<a<2*pi')
+		        stop('alpha is out of bounds. alpha should be in interval 0<a<2*pi')
         if(theta > 2*pi | theta < 0) 
-		stop('theta is out of bounds. theta should be in interval 0<a<2*pi')
+		        stop('theta is out of bounds. theta should be in interval 0<a<2*pi')
 
 	if(alpha > pi){
 	        if(alpha < 4*pi - 2*theta){
