@@ -17,7 +17,7 @@
  
 \begin{figure}[t]
         \centering
-\includegraphics[width=7cm]{imgs/fourIntegrals.pdf}
+\includegraphics[width=7cm]{imgs/fourIntegrals.svg}
   \label{f:x1AndInt}
 \caption{An overview of the derivation of SE2. The filled circles represent animals, with the animal signal shown as a unfilled sector and the direction of movement shown as an arrow. The detection zone of the sensor is shown as filled grey sectors with a detection distance of $r$. The vertical black line within the circle shows the direction the sensor is facing;  $\theta$, sensor detection width; $\alpha$, animal signal width. The profile $p$ (the line an animal must pass through in order to be captured) is shown in red and $x_1$ is the focal angle, where (a) shows the location of $x_1$. The derivation of $p$ changes as the animal approaches the sensor from different directions where (b) is the derivation of $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2}, \frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}\rbrack$, (c)  $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}, \frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2} \rbrack$ and (d) $p$ when $x_1$ is in the interval $\lbrack\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}, \frac{3 \pi}{2}\rbrack$. The resultant equation for $p$ is shown beneath each figure.}
 \end{figure}
