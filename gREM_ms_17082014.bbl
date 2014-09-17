@@ -1,4 +1,4 @@
-\begin{thebibliography}{58}
+\begin{thebibliography}{61}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Acevedo \& Villanueva-Rivera(2006)}]{acevedo2006using}
@@ -30,6 +30,13 @@ Blumstein, D.T., Mennill, D.J., Clemins, P., Girod, L., Yao, K., Patricelli,
   (2011) Acoustic monitoring in terrestrial environments using microphone
   arrays: applications, technological considerations and prospectus.
 \newblock \emph{Journal of Applied Ecology}, \textbf{48}, 758--767.
+
+\bibitem[{Borchers \emph{et~al.}(2014)Borchers, Distiller, Foster, Harmsen \&
+  Milazzo}]{borchers2014continuous}
+Borchers, D., Distiller, G., Foster, R., Harmsen, B. \& Milazzo, L. (2014)
+  Continuous-time spatially explicit capture--recapture models, with an
+  application to a jaguar camera-trap survey.
+\newblock \emph{Methods in Ecology and Evolution}.
 
 \bibitem[{Brusa \& Bunker(2014)}]{brusa2014increasing}
 Brusa, A. \& Bunker, D.E. (2014) Increasing the precision of canopy closure
@@ -125,6 +132,11 @@ Hassel-Finnegan, H.M., Borries, C., Larney, E., Umponjan, M. \& Koenig, A.
   (2008) How reliable are density estimates for diurnal primates?
 \newblock \emph{International Journal of Primatology}, \textbf{29}, 1175--1187.
 
+\bibitem[{Hayes(2000)}]{hayes2000assumptions}
+Hayes, J.P. (2000) Assumptions and practical considerations in the design and
+  interpretation of echolocation-monitoring studies.
+\newblock \emph{Acta Chiropterologica}, \textbf{2}, 225--236.
+
 \bibitem[{Hutchinson \& Waser(2007)}]{Hutchinson_Waser_2007}
 Hutchinson, J.M.C. \& Waser, P.M. (2007) Use, misuse and extensions of ``ideal
   gas'' models of animal encounter.
@@ -150,6 +162,16 @@ Jones, K.E., Bielby, J., Cardillo, M., Fritz, S.A., O'Dell, J., Orme, C.D.L.,
   {PanTHERIA}: a species-level database of life history, ecology, and geography
   of extant and recently extinct mammals: Ecological archives e090-184.
 \newblock \emph{Ecology}, \textbf{90}, 2648--2648.
+
+\bibitem[{Jones \emph{et~al.}(2011)Jones, Russ, Bashta, Bilhari, Catto,
+  Cs{\H{o}}sz, Gorbachev, Gy{\H{o}}rfi, Hughes, Ivashkiv
+  \emph{et~al.}}]{jones2011indicator}
+Jones, K.E., Russ, J.A., Bashta, A.T., Bilhari, Z., Catto, C., Cs{\H{o}}sz, I.,
+  Gorbachev, A., Gy{\H{o}}rfi, P., Hughes, A., Ivashkiv, I. \emph{et~al.}
+  (2011) Indicator bats program: a system for the global acoustic monitoring of
+  bats.
+\newblock \emph{Biodiversity Monitoring and Conservation: Bridging the Gap
+  between Global Commitment and Local Action}, pp. 211--247.
 
 \bibitem[{Karanth(1995)}]{karanth1995estimating}
 Karanth, K. (1995) Estimating tiger (\emph{Panthera tigris}) populations from
