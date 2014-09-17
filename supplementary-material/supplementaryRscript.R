@@ -49,7 +49,6 @@ calcDensity <- function(z, alpha, theta, r, animalSpeed, t){
 
         # Calculate profile width, then density.
         p <- calcProfileWidth(alpha, theta, r)
-        if(p <= 0) stop('Calculated profile width is 0. We would therefore expect 0 captures. If z is not zero, then the density is undefined.')
         D <- z/{animalSpeed*t*p}
         return(D)
 }
