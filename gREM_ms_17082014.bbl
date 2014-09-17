@@ -7,6 +7,13 @@ Acevedo, M.A. \& Villanueva-Rivera, L.J. (2006) Using automated digital
   amphibians.
 \newblock \emph{Wildlife Society Bulletin}, \textbf{34}, 211--214.
 
+\bibitem[{Adams \emph{et~al.}(2013)Adams, Pedersen, Walters, Collen, Lucas,
+  Mroz, Sayer \& Jones}]{walters2013challenges}
+Adams, R.A., Pedersen, S.C., Walters, C., Collen, A., Lucas, T., Mroz, K.,
+  Sayer, C. \& Jones, K. (2013) \emph{Challenges of Using Bioacoustics to
+  Globally Monitor Bats}, pp. 479--499.
+\newblock Springer New York.
+
 \bibitem[{Ahlen \& Baag{\o}e(1999)}]{ahlen1999use}
 Ahlen, I. \& Baag{\o}e, H.J. (1999) Use of ultrasound detectors for bat studies
   in europe: experiences from field identification, surveys, and monitoring.
@@ -15,7 +22,7 @@ Ahlen, I. \& Baag{\o}e, H.J. (1999) Use of ultrasound detectors for bat studies
 \bibitem[{Anderson(2001)}]{anderson2001need}
 Anderson, D.R. (2001) The need to get the basics right in wildlife field
   studies.
-\newblock \emph{Wildlife Society Bulletin}, pp. 1294--1297.
+\newblock \emph{Wildlife Society Bulletin}, \textbf{29}, 1294--1297.
 
 \bibitem[{Barlow \& Taylor(2005)}]{barlow2005estimates}
 Barlow, J. \& Taylor, B. (2005) Estimates of sperm whale abundance in the
@@ -59,7 +66,7 @@ Buckland, S.T., Marsden, S.J. \& Green, R.E. (2008) Estimating bird abundance:
   Schountz}]{calisher2006bats}
 Calisher, C., Childs, J., Field, H., Holmes, K. \& Schountz, T. (2006) Bats:
   important reservoir hosts of emerging viruses.
-\newblock \emph{Clinical microbiology reviews}, \textbf{19}, 531--545.
+\newblock \emph{Clinical Microbiology Reviews}, \textbf{19}, 531--545.
 
 \bibitem[{Carbone \emph{et~al.}(2005)Carbone, Cowlishaw, Isaac \&
   Rowcliffe}]{carbone2005far}
@@ -88,7 +95,7 @@ Crespo, E.A., Pedraza, S.N., Grandi, M.F., Dans, S.L. \& Garaffo, G.V. (2010)
 \bibitem[{Cutler \& Swann(1999)}]{cutler1999using}
 Cutler, T.L. \& Swann, D.E. (1999) Using remote photography in wildlife
   ecology: a review.
-\newblock \emph{Wildlife Society Bulletin}, pp. 571--581.
+\newblock \emph{Wildlife Society Bulletin}, \textbf{27}, 571--581.
 
 \bibitem[{Damuth(1981)}]{damuth1981population}
 Damuth, J. (1981) Population density and body size in mammals.
@@ -156,22 +163,30 @@ Jirinec, V., Campos, B.R. \& Johnson, M.D. (2011) Roosting behaviour of a
 \newblock \emph{Bird Conservation International}, \textbf{21}, 353--361.
 
 \bibitem[{Jones \emph{et~al.}(2009)Jones, Bielby, Cardillo, Fritz, O'Dell,
-  Orme, Safi, Sechrest, Boakes, Carbone \emph{et~al.}}]{jones2009pantheria}
+  Orme, Safi, Sechrest, Boakes, Carbone, Connolly, Cutts, Foster, Grenyer,
+  Habib, Plaster, Price, Rigby, Rist, Teacher, Bininda-Emonds, Gittleman, Mace,
+  Purvis \& Michener}]{jones2009pantheria}
 Jones, K.E., Bielby, J., Cardillo, M., Fritz, S.A., O'Dell, J., Orme, C.D.L.,
-  Safi, K., Sechrest, W., Boakes, E.H., Carbone, C. \emph{et~al.} (2009)
-  {PanTHERIA}: a species-level database of life history, ecology, and geography
-  of extant and recently extinct mammals: Ecological archives e090-184.
-\newblock \emph{Ecology}, \textbf{90}, 2648--2648.
+  Safi, K., Sechrest, W., Boakes, E.H., Carbone, C., Connolly, C., Cutts, M.J.,
+  Foster, J.K., Grenyer, R., Habib, M., Plaster, C.A., Price, S.A., Rigby,
+  E.A., Rist, J., Teacher, A., Bininda-Emonds, O.R.P., Gittleman, J.L., Mace,
+  G.M., Purvis, A. \& Michener, W.K. (2009) Pantheria: a species-level database
+  of life history, ecology, and geography of extant and recently extinct
+  mammals.
+\newblock \emph{Ecology}, \textbf{90}, 2648.
 
-\bibitem[{Jones \emph{et~al.}(2011)Jones, Russ, Bashta, Bilhari, Catto,
-  Cs{\H{o}}sz, Gorbachev, Gy{\H{o}}rfi, Hughes, Ivashkiv
-  \emph{et~al.}}]{jones2011indicator}
-Jones, K.E., Russ, J.A., Bashta, A.T., Bilhari, Z., Catto, C., Cs{\H{o}}sz, I.,
-  Gorbachev, A., Gy{\H{o}}rfi, P., Hughes, A., Ivashkiv, I. \emph{et~al.}
-  (2011) Indicator bats program: a system for the global acoustic monitoring of
-  bats.
-\newblock \emph{Biodiversity Monitoring and Conservation: Bridging the Gap
-  between Global Commitment and Local Action}, pp. 211--247.
+\bibitem[{Jones \emph{et~al.}(2013)Jones, Russ, Bashta, Bilhari, Catto, Cs{\H
+  o}sz, Gorbachev, Gy{\H o}rfi, Hughes, Ivashkiv, Koryagina, Kurali, Langton,
+  Collen, Margiean, Pandourski, Parsons, Prokofev, Szodoray-Paradi,
+  Szodoray-Paradi, Tilova, Walters, Weatherill \&
+  Zavarzin}]{jones2011indicator}
+Jones, K.E., Russ, J.A., Bashta, A.T., Bilhari, Z., Catto, C., Cs{\H o}sz, I.,
+  Gorbachev, A., Gy{\H o}rfi, P., Hughes, A., Ivashkiv, I., Koryagina, N.,
+  Kurali, A., Langton, S., Collen, A., Margiean, G., Pandourski, I., Parsons,
+  S., Prokofev, I., Szodoray-Paradi, A., Szodoray-Paradi, F., Tilova, E.,
+  Walters, C.L., Weatherill, A. \& Zavarzin, O. (2013) \emph{Indicator Bats
+  Program: A System for the Global Acoustic Monitoring of Bats}, pp. 211--247.
+\newblock Wiley-Blackwell.
 
 \bibitem[{Karanth(1995)}]{karanth1995estimating}
 Karanth, K. (1995) Estimating tiger (\emph{Panthera tigris}) populations from
@@ -234,7 +249,7 @@ Manzo, E., Bartolommei, P., Rowcliffe, J.M. \& Cozzolino, R. (2012) Estimation
 Marcoux, M., Auger-M{\'e}th{\'e}, M., Chmelnitsky, E.G., Ferguson, S.H. \&
   Humphries, M.M. (2011) Local passive acoustic monitoring of narwhal presence
   in the canadian arctic: a pilot project.
-\newblock \emph{Arctic}, pp. 307--316.
+\newblock \emph{Arctic}, \textbf{64}, 307--316.
 
 \bibitem[{Marques \emph{et~al.}(2011)Marques, Munger, Thomas, Wiggins \&
   Hildebrand}]{marques2011estimating}
@@ -260,7 +275,7 @@ O'Brien, T.G., Kinnaird, M.F. \& Wibisono, H.T. (2003) Crouching tigers, hidden
 \bibitem[{O'Farrell \& Gannon(1999)}]{ofarrel1999comparison}
 O'Farrell, M.J. \& Gannon, W.L. (1999) A comparison of acoustic versus capture
   techniques for the inventory of bats.
-\newblock \emph{Journal of Mammalogy}, pp. 24--30.
+\newblock \emph{Journal of Mammalogy}, \textbf{80}, 24--30.
 
 \bibitem[{Proctor \emph{et~al.}(2010)Proctor, McLellan, Boulanger, Apps,
   Stenhouse, Paetkau \& Mowat}]{proctor2010ecological}
@@ -276,12 +291,6 @@ Purvis, A., Gittleman, J.L., Cowlishaw, G. \& Mace, G.M. (2000) Predicting
 \newblock \emph{Proceedings of the Royal Society of London Series B: Biological
   Sciences}, \textbf{267}, 1947--1952.
 
-\bibitem[{{R Development Core Team}(2010)}]{R}
-{R Development Core Team} (2010) \emph{R: A Language And Environment For
-  Statistical Computing}.
-\newblock R Foundation For Statistical Computing, Vienna, Austria.
-\newblock ISBN 3-900051-07-0.
-
 \bibitem[{Richter-Dyn \& Goel(1972)}]{richter1972extinction}
 Richter-Dyn, N. \& Goel, N.S. (1972) On the extinction of a colonizing species.
 \newblock \emph{Theoretical Population Biology}, \textbf{3}, 406--433.
@@ -294,10 +303,10 @@ Rogers, T.L., Ciaglia, M.B., Klinck, H. \& Southwell, C. (2013) Density can be
 
 \bibitem[{Rovero \emph{et~al.}(2013)Rovero, Zimmermann, Berzi \&
   Meek}]{rovero2013camera}
-Rovero, F., Zimmermann, F., Berzi, D. \& Meek, P. (2013) " which camera trap
-  type and how many do i need?" a review of camera features and study designs
-  for a range of wildlife research applications.
-\newblock \emph{Hystrix}.
+Rovero, F., Zimmermann, F., Berzi, D. \& Meek, P. (2013) \enquote{Which camera
+  trap type and how many do I need?} a review of camera features and study
+  designs for a range of wildlife research applications.
+\newblock \emph{Hystrix}, \textbf{24}, 148--156.
 
 \bibitem[{Rowcliffe \& Carbone(2008)}]{rowcliffe2008surveys}
 Rowcliffe, J.M. \& Carbone, C. (2008) Surveys using camera traps: are we
@@ -339,6 +348,11 @@ Sollmann, R., Gardner, B., Chandler, R.B., Shindle, D.B., Onorato, D.P., Royle,
 {SymPy Development Team} (2014) \emph{SymPy: Python library for symbolic
   mathematics}.
 
+\bibitem[{Team(2014)}]{R}
+Team, R.C. (2014) \emph{R: A Language and Environment for Statistical
+  Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
 \bibitem[{Thomas \& Marques(2012)}]{thomas2012passive}
 Thomas, L. \& Marques, T.A. (2012) Passive acoustic monitoring for estimating
   animal density.
@@ -347,20 +361,13 @@ Thomas, L. \& Marques, T.A. (2012) Passive acoustic monitoring for estimating
 \bibitem[{Trolle \& K{\'e}ry(2003)}]{trolle2003estimation}
 Trolle, M. \& K{\'e}ry, M. (2003) Estimation of ocelot density in the
   {Pantanal} using capture-recapture analysis of camera-trapping data.
-\newblock \emph{Journal of mammalogy}, \textbf{84}, 607--614.
+\newblock \emph{Journal of Mammalogy}, \textbf{84}, 607--614.
 
 \bibitem[{Trolle \emph{et~al.}(2007)Trolle, Noss, Lima \&
   Dalponte}]{trolle2007camera}
 Trolle, M., Noss, A.J., Lima, E.D.S. \& Dalponte, J.C. (2007) Camera-trap
   studies of maned wolf density in the {Cerrado and the Pantanal of Brazil}.
 \newblock \emph{Biodiversity and Conservation}, \textbf{16}, 1197--1204.
-
-\bibitem[{Walters \emph{et~al.}(2013)Walters, Collen, Lucas, Mroz, Sayer \&
-  Jones}]{walters2013challenges}
-Walters, C.L., Collen, A., Lucas, T.C.D., Mroz, K., Sayer, C.A. \& Jones, K.E.
-  (2013) Challenges of using bioacoustics to globally monitor bats.
-\newblock \emph{Bat Evolution, Ecology, and Conservation}, pp. 479--499.
-  Springer.
 
 \bibitem[{Wright \& Hubbell(1983)}]{wright1983stochastic}
 Wright, S.J. \& Hubbell, S.P. (1983) Stochastic extinction and reserve size: a
@@ -369,7 +376,7 @@ Wright, S.J. \& Hubbell, S.P. (1983) Stochastic extinction and reserve size: a
 
 \bibitem[{Yapp(1956)}]{yapp1956theory}
 Yapp, W. (1956) The theory of line transects.
-\newblock \emph{Bird study}, \textbf{3}, 93--104.
+\newblock \emph{Bird Study}, \textbf{3}, 93--104.
 
 \bibitem[{Zero \emph{et~al.}(2013)Zero, Sundaresan, O'Brien \&
   Kinnaird}]{zero2013monitoring}
