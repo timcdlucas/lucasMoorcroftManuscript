@@ -150,18 +150,20 @@ We have identified the parameter space for the combinations of $\theta$ and $\al
 
 \subsubsection*{Example derivation of SE2}
 
-In order to calculate $\bar{p}$, we have to integrate over the focal angle, $x_1$ (Figure~\ref{f:xOne}). This is the angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the profile depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal $x_1  = \pi/2$.
+In order to calculate $\bar{p}$, we have to integrate over the focal angle, $x_1$ (Figure~\ref{f:x1AndInt}a). This is the angle taken from the centre line of the sensor. Other focal angles are possible ($x_2$, $x_3$, $x_4$) and are used in other gREM sub-models (see Appendix S2). As the size of the profile depends on the approach angle, we present the derivation across all approach angles. When the sensor is directly approaching the animal $x_1  = \pi/2$.
 
-Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the profile is $2r\sin \alpha/2$ (Figure~\ref{f:x1AndInt}a). During this first interval, the size of $\alpha$ limits the width of the profile. When the animal reaches $x_1$  = $\theta/2 + \pi/2 - \alpha/2$ (Figure~\ref{f:x1AndInt}b), the size of the profile is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta$ and $\alpha$ both limit the width of the profile (Figure~ \ref{f:x1AndInt}c). Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin\alpha/2$ (Figure~ \ref{f:x1AndInt}d) and the size of $\alpha$ again limits the width of the profile. 
+Starting from $x_1 = \pi/2$ until $\theta/2 + \pi/2 - \alpha/2$, the size of the profile is $2r\sin \alpha/2$ (Figure~\ref{f:x1AndInt}b). During this first interval, the size of $\alpha$ limits the width of the profile. When the animal reaches $x_1$  = $\theta/2 + \pi/2 - \alpha/2$ (Figure~\ref{f:x1AndInt}c), the size of the profile is $r\sin( \alpha/2) + r\cos( x_1  - \theta/2)$ and the size of $\theta$ and $\alpha$ both limit the width of the profile (Figure~ \ref{f:x1AndInt}c). Finally, at $x_1  = 5\pi/2 - \theta/2  - \alpha/2$ until $x_1  = 3\pi/2$, the width of the profile is again $2r\sin\alpha/2$ (Figure~ \ref{f:x1AndInt}d) and the size of $\alpha$ again limits the width of the profile. 
 
 %insert new figure
 
 \begin{figure}[t]
         \centering
 	\includegraphics[width=7cm]{imgs/fourIntegrals.pdf}
- 	\label{f:x1AndInt}
 \caption{An overview of the derivation of SE2. The filled circles represent animals, with the animal signal shown as a unfilled sector and the direction of movement shown as an arrow. The detection zone of the sensor is shown as filled grey sectors with a detection distance of $r$. The vertical black line within the circle shows the direction the sensor is facing;  $\theta$, sensor detection width; $\alpha$, animal signal width. The profile $p$ (the line an animal must pass through in order to be captured) is shown in red and $x_1$ is the focal angle, where (a) shows the location of $x_1$. The derivation of $p$ changes as the animal approaches the sensor from different directions where (b) is the derivation of $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2}, \frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}\rbrack$, (c)  $p$ when $x_1$ is in the interval $\lbrack\frac{\pi}{2} + \frac{\theta}{2} - \frac{\alpha}{2}, \frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2} \rbrack$ and (d) $p$ when $x_1$ is in the interval $\lbrack\frac{5 \pi}{2} - \frac{\theta}{2} - \frac{\alpha}{2}, \frac{3 \pi}{2}\rbrack$. The resultant equation for $p$ is shown beneath each figure.}
+ 	\label{f:x1AndInt}
+
 \end{figure}
+
 
 The profile width $p$ for $\pi$ radians of rotation (from directly towards the sensor to directly behind the sensor) is completely characterised by the three intervals (Figure \ref{f:x1AndInt}b--d). Average profile width $\bar{p}$ is calculated by integrating these profiles over their appropriate intervals of $x_1$ and dividing by $\pi$ which gives
 
@@ -180,7 +182,7 @@ D = z/vt\bar{p}.
 %fix this @Tim
 Rather than having one equation that describes $\bar{p}$ globally, the gREM must be split into submodels due to discontiunous changes in $p$ as $\alpha$ and $\beta$ change. These discontinuities can occur for a number of reasons such as a profile switching between being limited by $\alpha$ and $\theta$, the difference between very small profiles and profiles of size zero and the fact that the width of a sector stops increasing once the central angle reaches $\pi$ radians (i.e., a semi circle is just as wide as a full circle.)
 
-As a visual example, if $\alpha$ is small, there is an interval between Figure \ref{f:x1AndInt}c and \ref{f:x1AndInt}d where the 'blind spot' would prevent animals being detected at all giving $p=0$. This would require an extra integral in our equation as simply putting our small value of $\alpha$ into \ref{e:SE2int} would not give us this integral of $p=0$.
+As a visual example, if $\alpha$ is small, there is an interval between Figure \ref{f:x1AndInt}c and \ref{f:x1AndInt}d where the `blind spot' would prevent animals being detected at all giving $p=0$. This would require an extra integral in our equation as simply putting our small value of $\alpha$ into \ref{e:SE2int} would not give us this integral of $p=0$.
 
 gREM submodel specifications were done by hand, and the integration was done using SymPy \citep{sympy} in Python (Appendix S3). The gREM submodels were checked by confirming that: (1) submodels adjacent in parameter space were equal at the boundary between them; (2) submodels that border $ \alpha = 0$ had$p = 0$ when $ \alpha = 0$; (3) average profile widths $\bar{p}$ were between 0 and $2r$ and; (4) each integral, divided by the range of angles that it was integrated over, was between 0 and $2r$. The scripts for these tests are included in Appendix S3 and the R \citep{R} implementation of the gREM is given in Appendix S4.  
 
