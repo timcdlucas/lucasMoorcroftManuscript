@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt,reqno,oneside]{amsart}
-\usepackage[small]{caption}
+\usepackage{caption}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[colorlinks=TRUE,linkcolor=Black,urlcolor=Black,citecolor=Black,pagebackref=TRUE,]{hyperref} %Have to change href email.
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage,subcaption,array,verbatim,setspace, tikz, listings, geometry, siunitx}
@@ -13,7 +13,14 @@
 \makeatother
 
 \renewcommand\thefigure{S\arabic{figure}} 
+\renewcommand\thesubfigure{\alph{subfigure}}
 \renewcommand\thetable{S\arabic{table}}     
+
+\captionsetup{
+  format = plain,
+  font = small,
+  labelfont = normalfont,
+}
 
 \renewcommand{\thesection}{S\arabic{section}}   
 
@@ -100,6 +107,8 @@ emphstyle={\color{self}\slshape},
 %
 }}{}
 
+
+
 %\setcounter{tocdepth}{2}
 
 %\linenumbers
@@ -110,6 +119,13 @@ emphstyle={\color{self}\slshape},
 \usepackage[sort&compress,comma]{natbib}
 
 
+\usepackage{fancyhdr} 
+%\fancyhf{}
+\lhead{}
+\rhead{}
+\chead{Lucas \emph{et al.} A generalised random encounter model for animals}
+\cfoot{\footnotesize{\thepage}}
+\pagestyle{fancy}    
 
 % This declares the unit "animals". Also redefined days to be whole word *(not sure if thats what is needed.
 \DeclareSIUnit{\animals}{animals}
@@ -127,6 +143,20 @@ emphstyle={\color{self}\slshape},
 \maketitle
 
 
+\noindent{\bf Authors:}%
+
+\noindent Tim C.D. Lucas\textsuperscript{1,2,3}$\dagger$, Elizabeth A. Moorcroft\textsuperscript{1,4,5}$\dagger$, Robin Freeman\textsuperscript{5}, Marcus J. Rowcliffe\textsuperscript{5}, Kate E. Jones\textsuperscript{2,5}\\
+
+
+\noindent{\bf Addresses:}
+
+\noindent 1 CoMPLEX, University College London, Physics Building, Gower Street, London, WC1E 6BT, UK\\ 
+2 Centre for Biodiversity and Environment Research, Department of Genetics, Evolution and Environment, University College London, Gower Street, London, WC1E 6BT, UK\\ 
+3 Department of Statistical Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
+4 Department of Computer Science, University College London, Gower Street, London, WC1E 6BT, UK\\ 
+5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK\\
+$\dagger$ First authorship shared. 
+
 
 \section{Table of symbols}
 
@@ -136,7 +166,7 @@ emphstyle={\color{self}\slshape},
 \begin{tabular}{lll}
 Symbol 	& Description & Units\\\hline
 $\theta$	& Sensor width & \SI{}{\radian} \\
-$\alpha$	& Animal call/beam width & \SI{}{\radian} \\
+$\alpha$	& Animal signal/beam width & \SI{}{\radian} \\
 $x_i$	        & Focal angle, $i \in \{1,2,3,4\} $ 	& \SI{}{\radian}\\
 $r$ 		& Detection distance & \SI{}{\meter}\\
 $\bar{p}$ 		& Average profile width & \SI{}{\meter}\\
@@ -150,9 +180,9 @@ $N$ 		& Number of steps per simulation & -\\
 $d$ 		& Distance moved in a time step & \SI{}{\meter}\\
 $S$ 		& Probability of remaining stationary & -\\
 $A$ 		& Maximum turning angle & \SI{}{\radian}\\
-
+\\
 \end{tabular}
-\caption{List of symbols used to describe the gREM and simulations}
+\caption{List of symbols used to describe the gREM and simulations. `-' means the quantity has no units.}
 \label{t:paras}
 \end{table}
 
@@ -160,7 +190,7 @@ $A$ 		& Maximum turning angle & \SI{}{\radian}\\
 
 \section{Supplementary Methods}
 \subsection{Introduction}
-These supplementary methods derives all the models used in the paper. For continuity, the gas model derivation is included here as well as in the main text. The calculation of all integrals is included in the Python script S3. 
+These supplementary methods derive all the models used. For continuity, the gas model derivation is included here as well as in the main text. The calculation of all integrals is included in the Python script S3. 
 
 
 
@@ -168,19 +198,19 @@ These supplementary methods derives all the models used in the paper. For contin
 \input{REM-methods.tex}
 
 
-\clearpage
-\section{Supplementary Script: Symbolic algebra Python Script}
-This script uses the SymPy package \cite{sympy}, a computer algebra system to calculate the equations for $p$ in the various models and to perform unit checks on the results.
+%\clearpage
+%\section{Supplementary Script: Symbolic algebra Python Script}
+%This script uses the SymPy package \cite{sympy}, a computer algebra system to calculate the equations for $p$ in the %various models and to perform unit checks on the results.
 
-\lstinputlisting{REM-Analysis.py}
+%\lstinputlisting{REM-Analysis.py}
 
 
-\clearpage
-\section{Supplementary Script: R implementation of models}
+%\clearpage
+%\section{Supplementary Script: R implementation of models}
 
-This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
+%This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
 
-\lstinputlisting{supplementaryRscript.R}
+%\lstinputlisting{supplementaryRscript.R}
 
 \bibliographystyle{../mee.bst}	
 \bibliography{../lucas-moorcroft-etal-refs.bib}	
