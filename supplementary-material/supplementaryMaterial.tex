@@ -12,7 +12,7 @@
 \def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
 \makeatother
 
-\renewcommand\thefigure{S\arabic{figure}} 
+\renewcommand\thefigure{\thesection.\arabic{figure}} 
 \renewcommand\thesubfigure{\alph{subfigure}}
 \renewcommand\thetable{S\arabic{table}}     
 
@@ -23,6 +23,9 @@
 }
 
 \renewcommand{\thesection}{S\arabic{section}}   
+
+
+% \titlespacing{\chapter}{0pt}{40pt}{40pt}
 
 % A list of supporting information
 % S1 A table
@@ -166,7 +169,7 @@ $\dagger$ First authorship shared.
 \begin{tabular}{lll}
 Symbol 	& Description & Units\\\hline
 $\theta$	& Sensor width & \SI{}{\radian} \\
-$\alpha$	& Animal signal/beam width & \SI{}{\radian} \\
+$\alpha$	& Animal signal width & \SI{}{\radian} \\
 $x_i$	        & Focal angle, $i \in \{1,2,3,4\} $ 	& \SI{}{\radian}\\
 $r$ 		& Detection distance & \SI{}{\meter}\\
 $\bar{p}$ 		& Average profile width & \SI{}{\meter}\\
@@ -190,36 +193,37 @@ $A$ 		& Maximum turning angle & \SI{}{\radian}\\
 
 \section{Supplementary Methods}
 \subsection{Introduction}
-These supplementary methods derive all the models used. For continuity, the gas model derivation is included here as well as in the main text. The calculation of all integrals is included in the Python script S3. 
+These supplementary methods derive all the models used. For continuity, the gas model derivation is included here as well as in the main text. The calculation of all integrals use in the gREM is included in the Python script S3. 
 
 
 
 
 \input{REM-methods.tex}
 
+\vspace{1cm}
 
 \bibliographystyle{../mee.bst}	
 \bibliography{../lucas-moorcroft-etal-refs.bib}	
 
 \clearpage
-\section{Supplementary Script: Symbolic algebra Python Script}
-\begin{itemize}
-\item[] This script uses the SymPy package \citep{sympy}, a computer algebra system to calculate the equations for $p$ in the various models and to perform unit checks on the results.
+\section{Supplementary Script: Symbolic algebra python script}
 
-\item[] The script can also be found in the plain text file supplementaryS3Python.py.
-\end{itemize}
+\noindent This script uses the SymPy package \citep{sympy}, a computer algebra system to calculate the equations for $p$ in the various models and to perform unit checks on the results.
+\vspace{0.3cm}\\
+\noindent The script can also be found in the plain text file supplementaryS3Python.py. It will also be hosted and given a DOI on Github at the time of publication.
+\vspace{0.5cm}
 \lstinputlisting{supplementaryS3Python.py}
 
 
 \clearpage
 \section{Supplementary Script: R implementation of models}
 
-\begin{itemize}
-\item[] This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
 
-\item[] The script can also be found in the plain text file supplementaryS4R.R.
+\noindent This is an implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
+\vspace{0.3cm}\\
+\noindent The script can also be found in the plain text file supplementaryS4R.R. It will also be hosted and given a DOI on Github at the time of publication.
 
-\end{itemize}
+\vspace{0.5cm}
 \lstinputlisting{supplementaryS4R.R}
 
 \clearpage
