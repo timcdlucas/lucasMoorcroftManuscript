@@ -12,7 +12,7 @@
 \def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
 \makeatother
 
-\renewcommand\thefigure{\thesection.\arabic{figure}} 
+\renewcommand\thefigure{S\arabic{figure}} 
 \renewcommand\thesubfigure{\alph{subfigure}}
 \renewcommand\thetable{S\arabic{table}}     
 
@@ -223,8 +223,8 @@ These supplementary methods derive all the models used. For continuity, the gas 
 \lstinputlisting{supplementaryS4R.R}
 
 \clearpage
-\section{Supplementary Figure: Simulation model results of the gREM precision}
-\renewcommand\thefigure{\thesection} 
+\section{Supplementary Information: Simulation model results of the gREM precision}
+\setcounter{figure}{0}    
 
 \begin{figure}[h!]
 	\includegraphics[width=7cm]{../imgs/ResultStandardDeviation.pdf}
