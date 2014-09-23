@@ -42,14 +42,6 @@
 \efloatseparator
  
 \begin{figure}[t]
-\includegraphics[width=7cm]{imgs/ResultStandardDeviation.pdf}
-\caption{Simulation model results of the gREM precision given a range of sensor and signal widths, shown by the standard deviation of the error between the estimated and true densities. Standard deviations are shown from deep red to pink, representing high to low values between $0.483\times10^{-6}$ to $3.74\times10^{-6}$.
-        }
-\label{f:StandardDevaition}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[t]
        \centering
 \includegraphics[width=7cm]{imgs/ResultsNoCaptures.pdf}
         \caption{Simulation model results of the accuracy and precision of four gREM submodels (NW1, SW1, SE3 and NE1) given different numbers of captures. The percentage error between estimated and true density within each gREM sub model for capture rate is shown within each box plot, where the black line represents the median percentage error across all simulations, boxes represent the middle 50\% of the data, whiskers represent variability outside the upper and lower quartiles with outliers plotted as individual points. Sensor and signal widths vary between submodels. The numbers beneath each plot represent the coefficient of variation. The colour of each box plot corresponds to the expressions for average profile width $\bar{p}$ given in Figure 4. }
@@ -61,15 +53,15 @@
 \centering
 \begin{subfigure}[t]{60mm}
        \centering
-\includegraphics[width=60mm]{imgs/ResultsPerch(new).pdf}
-%\caption{}
+\includegraphics[width=60mm]{imgs/ResultsPerch.pdf}
+\caption{}
            \label{f:Perch}
 \end{subfigure}
 
 \begin{subfigure}[t]{60mm}
                 \centering
-\includegraphics[width=60mm]{imgs/ResultsTort(new).pdf}
-                %\caption{}
+\includegraphics[width=60mm]{imgs/ResultsTort.pdf}
+                \caption{}
                 \label{f:Tort}
          \end{subfigure}
 \label{f:BreakAssump}

@@ -6,6 +6,11 @@
 \usepackage{amsfonts,fancyhdr,graphicx,lastpage,rotating,multirow,fixltx2e, stfloats,txfonts,palatino,url,xcolor,multicol,hanging, setspace,lscape, paralist, changepage, subcaption,array,verbatim,setspace, siunitx,  flafter}
 \usepackage[running,displaymath, mathlines]{lineno} % running vs pagewise 
 \usepackage{epstopdf}
+\captionsetup{
+  format = plain,
+  font = small,
+  labelfont = normalfont,
+}
 \renewcommand{\thesubfigure}{\alph{subfigure}}
 \renewcommand{\theequation}{eqn \arabic{equation}}
 
@@ -47,7 +52,7 @@
 
 \subsection*{ Running title: A generalised random encounter model for animals}
 
-\subsection*{ Word count:} 9837
+\subsection*{ Word count:} 6614
 
 \subsection*{ Authors:\\}
 Tim C.D. Lucas\textsuperscript{1,2,3}$\dagger$, Elizabeth A. Moorcroft\textsuperscript{1,4,5}$\dagger$, Robin Freeman\textsuperscript{5}, Marcus J. Rowcliffe\textsuperscript{5}, Kate E. Jones\textsuperscript{2,5}
@@ -216,7 +221,7 @@ The equation for $\bar{p}$ has been newly derived for each submodel in the gREM,
 \subsection*{Simulation model}
 
 \subsubsection*{gREM submodels}
-All gREM submodels showed a high accuracy, i.e., the mean difference between the estimated and actual values was not significantly different from zero across all models, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.002) (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (), such that larger widths have lower standard deviations (greater precision).
+All gREM submodels showed a high accuracy, i.e., the mean difference between the estimated and actual values was not significantly different from zero across all models, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.002) (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (Appendix S5), such that larger widths have lower standard deviations (greater precision).
 
 \begin{figure}[t]
 	\centering
@@ -225,7 +230,6 @@ All gREM submodels showed a high accuracy, i.e., the mean difference between the
 } 
 	\label{f:ModelBias}
 \end{figure}
-	
 
 \subsubsection*{Number of captures}
 
@@ -248,15 +252,15 @@ Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy
 	\centering
 	\begin{subfigure}[t]{60mm}
       		\centering
-		\includegraphics[width=60mm]{imgs/ResultsPerch(new).pdf}
-		%\caption{} 
+		\includegraphics[width=60mm]{imgs/ResultsPerch.pdf}
+		\caption{} 
          	 \label{f:Perch}
 	\end{subfigure}
 	
 	\begin{subfigure}[t]{60mm}
                 \centering
-		\includegraphics[width=60mm]{imgs/ResultsTort(new).pdf}
-                %\caption{} 
+		\includegraphics[width=60mm]{imgs/ResultsTort.pdf}
+                \caption{} 
                 \label{f:Tort}
          \end{subfigure}
 	\label{f:BreakAssump}
