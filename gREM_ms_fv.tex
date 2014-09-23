@@ -52,7 +52,7 @@
 
 \subsection*{ Running title: A generalised random encounter model for animals}
 
-\subsection*{ Word count:} 6614
+\subsection*{ Word count:} 7154
 
 \subsection*{ Authors:\\}
 Tim C.D. Lucas\textsuperscript{1,2,3}$\dagger$, Elizabeth A. Moorcroft\textsuperscript{1,4,5}$\dagger$, Robin Freeman\textsuperscript{5}, Marcus J. Rowcliffe\textsuperscript{5}, Kate E. Jones\textsuperscript{2,5}
@@ -115,7 +115,7 @@ Existing methods for estimating animal density often require additional informat
 
 Whilst these restrictions are not problematic for most camera trap makes (e.g., Reconyx, Cuddeback), the REM cannot be used to estimate densities from camera traps with a wider sensor width (e.g. canopy monitoring with fish eye lenses, \citet{brusa2014increasing}). Additionally, the REM method is not useful in estimating densities from acoustic survey data as acoustic detector angles are often wider than $\pi/2$ radians.  Acoustic detectors are designed for a range of diverse tasks and environments \citep{kessel2014review}, which naturally leads to a wide range of sensor detection widths and detection distances. In addition to this, calls emitted by many animals are directional \citep{blumstein2011acoustic}, breaking the assumption of the REM method. 
 
-There has been a sharp rise in interest around passive acoustic detectors in recent years, with a 10 fold increase in publications in the decade between 2000 and 2010 \citep{kessel2014review}. Acoustic monitoring is being developed to study many aspects of ecology, including the interactions of animals and their environments \citep{blumstein2011acoustic, rogers2013density}, the presence and relative abundances of species \citep{marcoux2011local}, biodiversity of an area \citep{depraetere2012monitoring}, and monitoring population trends% \citep{waltersetalreview}. 
+There has been a sharp rise in interest around passive acoustic detectors in recent years, with a 10 fold increase in publications in the decade between 2000 and 2010 \citep{kessel2014review}. Acoustic monitoring is being developed to study many aspects of ecology, including the interactions of animals and their environments \citep{blumstein2011acoustic, rogers2013density}, the presence and relative abundances of species \citep{marcoux2011local}, biodiversity of an area \citep{depraetere2012monitoring}, and monitoring population trends \citep{walters2013challenges}. 
 
 Acoustic data suffers from many of the problems associated with data from camera trap surveys in that individuals are often unmarked, so capture-mark-recapture methods cannot be used to estimate densities. In some cases the distance between the animal and the sensor is known, for example when an array of sensors is deployed and the position of the animal is estimated by triangulation \citep{lewis2007sperm}. In these situations distance-sampling methods can be applied, a method typically used for marine mammals \citep{rogers2013density}. However, in many cases distance estimation is not possible, for example when single sensors are deployed, a situation typical in the majority of terrestrial acoustic surveys  \citep{elphick2008you, buckland2008estimating}. In these cases, only relative measures of local abundance can be calculated, and not absolute densities. This means that comparison of populations between species and sites is problematic without assuming equal detectability \citep{hayes2000assumptions, schmidt2003count, walters2013challenges}. Equal detectability is unlikely because of differences in environmental conditions, sensor type, habitat, and species biology. 
 
@@ -221,7 +221,7 @@ The equation for $\bar{p}$ has been newly derived for each submodel in the gREM,
 \subsection*{Simulation model}
 
 \subsubsection*{gREM submodels}
-All gREM submodels showed a high accuracy, i.e., the mean difference between the estimated and actual values was not significantly different from zero across all models, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.002) (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (Appendix S5), such that larger widths have lower standard deviations (greater precision).
+All gREM submodels showed a high accuracy, i.e., the mean difference between the estimated and actual values was not significantly different from zero across all models, at p \textless 0.05, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test) (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (Appendix S5), such that larger widths have lower standard deviations (greater precision).
 
 \begin{figure}[t]
 	\centering
@@ -233,7 +233,7 @@ All gREM submodels showed a high accuracy, i.e., the mean difference between the
 
 \subsubsection*{Number of captures}
 
-Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was not affected by the number of captures, where the mean difference between the estimated and actual values was not significantly different from zero across all capture rates, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.008) (Figure~\ref{f:Captures}). However, the precision was dependent on the number of captures across all four of the gREM submodels, where precision increases as number of captures increases (Figure~\ref{f:Captures}). For all gREM submodels, the the coefficient of variation falls to 10\% at 100 captures. 
+Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was not affected by the number of captures. The mean difference between the estimated and actual values was not significantly different from zero across all capture rates, at p \textless 0.05, corrected for multiple tests (Wilcoxon signed-rank test) (Figure~\ref{f:Captures}). However, the precision was dependent on the number of captures across all four of the gREM submodels, where precision increases as number of captures increases (Figure~\ref{f:Captures}). For all gREM submodels, the the coefficient of variation falls to 10\% at 100 captures. 
 
 \begin{figure}[t]
        \centering
@@ -245,7 +245,7 @@ Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was no
 
 \subsubsection*{Movement models}
 
-Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy or precision was affected by the amount of time spent stationary. The mean difference between the estimated and actual values was not significantly different from zero for each category of stationary time (0, 0.25, 0.5 and 0.75), corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.12) (Figure~\ref{f:Perch}). Altering the maximum change in direction in each step (0, pi/3, 2pi/3, and pi) did not affect the accuracy or precision of the four gREM submodels tested (all gREM sub models Wilcoxon signed-rank test, p \textgreater 0.05) (Figure~\ref{f:Tort}). 
+Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy or precision was affected by the amount of time spent stationary. The mean difference between the estimated and actual values was not significantly different from zero for each category of stationary time (0, 0.25, 0.5 and 0.75), at p \textless 0.05, corrected for multiple tests (all gREM sub models Wilcoxon signed-rank test) (Figure~\ref{f:Perch}). Altering the maximum change in direction in each step (0, pi/3, 2pi/3, and pi) did not affect the accuracy or precision of the four gREM submodels tested, at p \textless 0.05, corrected for multiple testing (Wilcoxon signed-rank test) (Figure~\ref{f:Tort}). 
 
 
 \begin{figure}[t]
