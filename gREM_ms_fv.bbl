@@ -1,4 +1,4 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{59}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Acevedo \& Villanueva-Rivera(2006)}]{acevedo2006using}
@@ -267,11 +267,6 @@ O'Brien, T.G., Kinnaird, M.F. \& Wibisono, H.T. (2003) Crouching tigers, hidden
   prey: Sumatran tiger and prey populations in a tropical forest landscape.
 \newblock \emph{Animal Conservation}, \textbf{6}, 131--139.
 
-\bibitem[{O'Farrell \& Gannon(1999)}]{ofarrel1999comparison}
-O'Farrell, M.J. \& Gannon, W.L. (1999) A comparison of acoustic versus capture
-  techniques for the inventory of bats.
-\newblock \emph{Journal of Mammalogy}, \textbf{80}, 24--30.
-
 \bibitem[{Proctor \emph{et~al.}(2010)Proctor, McLellan, Boulanger, Apps,
   Stenhouse, Paetkau \& Mowat}]{proctor2010ecological}
 Proctor, M., McLellan, B., Boulanger, J., Apps, C., Stenhouse, G., Paetkau, D.
@@ -326,12 +321,6 @@ Smouse, P.E., Focardi, S., Moorcroft, P.R., Kie, J.G., Forester, J.D. \&
 \newblock \emph{Philosophical Transactions of the Royal Society B: Biological
   Sciences}, \textbf{365}, 2201--2211.
 
-\bibitem[{Soisalo \& Cavalcanti(2006)}]{soisalo2006estimating}
-Soisalo, M.K. \& Cavalcanti, S. (2006) Estimating the density of a jaguar
-  population in the {Brazilian Pantanal} using camera-traps and
-  capture-recapture sampling in combination with {GPS} radio-telemetry.
-\newblock \emph{Biological Conservation}, \textbf{129}, 487--496.
-
 \bibitem[{Sollmann \emph{et~al.}(2013)Sollmann, Gardner, Chandler, Shindle,
   Onorato, Royle \& O'Connell}]{sollmann2013using}
 Sollmann, R., Gardner, B., Chandler, R.B., Shindle, D.B., Onorato, D.P., Royle,
@@ -352,11 +341,6 @@ Team, R.C. (2014) \emph{R: A Language and Environment for Statistical
 Thomas, L. \& Marques, T.A. (2012) Passive acoustic monitoring for estimating
   animal density.
 \newblock \emph{Acoustics Today}, \textbf{8}, 35--44.
-
-\bibitem[{Trolle \& K{\'e}ry(2003)}]{trolle2003estimation}
-Trolle, M. \& K{\'e}ry, M. (2003) Estimation of ocelot density in the
-  {Pantanal} using capture-recapture analysis of camera-trapping data.
-\newblock \emph{Journal of Mammalogy}, \textbf{84}, 607--614.
 
 \bibitem[{Trolle \emph{et~al.}(2007)Trolle, Noss, Lima \&
   Dalponte}]{trolle2007camera}
