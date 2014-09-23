@@ -133,7 +133,7 @@ emphstyle={\color{self}\slshape},
 
 
 
-\input{../tikzREMmethods.tex}
+%\input{../tikzREMmethods.tex}
 
 
 
@@ -157,7 +157,7 @@ emphstyle={\color{self}\slshape},
 5 Institute of Zoology, Zoological Society of London, Regents Park, London, NW1 4RY, UK\\
 $\dagger$ First authorship shared. 
 
-
+\clearpage
 \section{Table of symbols}
 
 %move to appendix
@@ -198,19 +198,26 @@ These supplementary methods derive all the models used. For continuity, the gas 
 \input{REM-methods.tex}
 
 
-%\clearpage
-%\section{Supplementary Script: Symbolic algebra Python Script}
-%This script uses the SymPy package \cite{sympy}, a computer algebra system to calculate the equations for $p$ in the %various models and to perform unit checks on the results.
+\clearpage
+\section{Supplementary Script: Symbolic algebra Python Script}
+\begin{itemize}
+\item[] This script uses the SymPy package \citep{sympy}, a computer algebra system to calculate the equations for $p$ in the various models and to perform unit checks on the results.
 
-%\lstinputlisting{REM-Analysis.py}
+\item[] The script can also be found in the plain text file supplementaryS3Python.py.
+\end{itemize}
+\lstinputlisting{supplementaryS3Python.py}
 
 
-%\clearpage
-%\section{Supplementary Script: R implementation of models}
+\clearpage
+\section{Supplementary Script: R implementation of models}
 
-%This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
+\begin{itemize}
+\item[] This is a simple implementation of the models derived in the paper in R \citep{R}. Once given the parameters $\theta$ and $\alpha$ it automatically selects the correct model to apply.
 
-%\lstinputlisting{supplementaryRscript.R}
+\item[] The script can also be found in the plain text file supplementaryS4R.R.
+
+\end{itemize}
+\lstinputlisting{supplementaryS4R.R}
 
 \bibliographystyle{../mee.bst}	
 \bibliography{../lucas-moorcroft-etal-refs.bib}	
