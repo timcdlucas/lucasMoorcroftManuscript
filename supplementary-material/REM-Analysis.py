@@ -766,12 +766,29 @@ for i in range(nParas):
 # Turn the array upside down so origin is at bottom left.
 pImage = np.flipud(pArray)
 
+
+
+tickPos = np.array([1,50,99])
+
+xRadTicks = ['$0$', '$\\pi$', '$2\\pi$']
+yRadTicks = ['$2\\pi$', '$\\pi$', '$0$']
+
+
 # Plot and save.
 pl.imshow(pImage, interpolation='none', cmap=pl.get_cmap('Blues') )
+pl.xlabel('$\\theta$', fontsize=18)
+pl.ylabel('$\\alpha$', fontsize=16)
+pl.xticks(tickPos, radTicks)
+pl.yticks(tickPos, radTicks)
+pl.tick_params(top="off")
+pl.tick_params(right="off")
+
 
 # Show or save image.
-# pl.show()
-# pl.savefig('/imgs/profilesCalculated.png')
+#pl.show()
+
+
+#pl.savefig('/home/tim/Dropbox/liz-paper/profilesCalculated.png')
 
 
 
