@@ -204,7 +204,10 @@ Each simulation lasted for $N$ steps (14400) of duration $T$ (15 minutes) giving
 
 We calculated the estimated animal density from the gREM by summing the number of captures per simulation and inputting these values into the correct gREM submodel. The accuracy of the gREM was determined by comparing the true simulation density with the estimated density. gREM precision was determined by the standard deviation of estimated densities. We used this method to compare the accuracy and precision of all the gREM submodels. As these submodels are derived for different combinations of $\alpha$ and $\theta$, the accuracy and precision of the submodels was used to determine the impact of different values of $\alpha$ and $\theta$. 
 
-The influence of the number of captures and animal movement models on accuracy and precision was investigated using four different gREM submodels representative of the range $\alpha$ and $\theta$ values (submodels NW1, SW1, NE1, and SE3, Figure~\ref{f:equalRegions}). From a random starting point we ran the simulation until a range of different capture numbers were recorded (from 10 to 100 captures), recorded the length of time this took, and estimated the animal density for each of the four sub-models. These estimated densities were compared to the true density to assess the impact on the accuracy and precision of the gREM. We calculated the coefficient of variation in order to compare the precision of the density estimates from simulations with different expected numbers of captures. The gREM also assumes that individuals move continuously with straight-line movement (simple movement model) and we therefore assessed the impact of breaking the gREM assumptions. We used the four submodels to compare the accuracy and precision of a simple movement model, stop-start movement models (using different average amounts of time spent stationary), and random walk movement models.
+The influence of the number of captures and animal movement models on accuracy and precision was investigated using four different gREM submodels representative of the range $\alpha$ and $\theta$ values (submodels NW1, SW1, NE1, and SE3, Figure~\ref{f:equalRegions}). From a random starting point we ran the simulation until a range of different capture numbers were recorded (from 10 to 100 captures), recorded the length of time this took, and estimated the animal density for each of the four sub-models. These estimated densities were compared to the true density to assess the impact on the accuracy and precision of the gREM. We calculated the coefficient of variation in order to compare the precision of the density estimates from simulations with different expected numbers of captures. The gREM also assumes that individuals move continuously with straight-line movement (simple movement model) and we therefore assessed the impact of breaking the gREM assumptions. We used the four submodels to compare the accuracy and precision of a simple movement model, stop-start movement models (using different average amounts of time spent stationary), and random walk movement models. As the parameters ($\alpha$, $\beta$, $r$ and $v$) are likely to be measured with error, we compared true simulation densities to densities estimated with parameters with errors of $0\%$, $\pm 5\%$ and $\pm 10\%$.
+
+% @tim what did we actually do accuracy, precision? 
+
 
 \section*{Results}
 
@@ -249,6 +252,11 @@ Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was no
 \subsubsection*{Movement models}
 
 Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy or precision was affected by the average amount of time spent stationary. The mean difference between the estimated and actual values was not significantly different from zero for each category of stationary time (0, 0.25, 0.5 and 0.75) (Figure~\ref{f:Perch}). Altering the maximum change in direction in each step (0, $\pi/3$, $2\pi/3$, and $\pi$) did not affect the accuracy or precision of the four gREM submodels (Figure~\ref{f:Tort}). 
+
+\subsubsection*{Impact of parameter error}
+
+
+
 
 
 \begin{figure}[t]

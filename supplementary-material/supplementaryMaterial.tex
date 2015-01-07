@@ -239,34 +239,49 @@ These supplementary methods derive all the models used. For continuity, the gas 
 
 
 \clearpage
-\section{Supplementary Information: Simulation model results of the gREM precision  }
+\section{Supplementary Information: Impact of parameter error}
 \setcounter{figure}{0}    
 
-\begin{figure}[h!]
-	\includegraphics[width=7cm]{imgs/AverageModelBias_callerror.pdf}
-	\caption{Model sensitivity (for all gREM submodels) to error in call parameter ($\alpha$) estimates. Estimates are -10\% (red), -1\% (orange), accurate (yellow), +1\% (green) and +10\% (blue) of the true value. } 
-	\label{f:sensCallError}
-\end{figure}
 
 
-\begin{figure}[h!]
-	\includegraphics[width=7cm]{imgs/AverageModelBias_cameraerror.pdf}
-	\caption{Model sensitivity (for all gREM submodels) to error in call parameter ($\theta$) estimates. Estimates are -10\% (red), -1\% (orange), accurate (yellow), +1\% (green) and +10\% (blue) of the true value. } 
-	\label{f:sensCallError}
-\end{figure}
 
+\begin{figure}[t]
+        \centering
+        \begin{subfigure}[t]{7cm}
+                \centering
+        \includegraphics[width=1\textwidth]{imgs/AverageModelBias_callerror.pdf}
+                \caption{}               
+                \label{f:signal}
+        \end{subfigure}
+        ~ 
+        \begin{subfigure}[t]{7cm}
+                \centering
+        \includegraphics[width=1\textwidth]{imgs/AverageModelBias_cameraerror.pdf}
+                \caption{}               
+                \label{f:sensor}
+        \end{subfigure}
+        
+	\begin{subfigure}[t]{7cm}
+                \centering
+        \includegraphics[width=1\textwidth]{imgs/AverageModelBias_radiuserror.pdf}
+                \caption{}               
+                \label{f:radius}
+        \end{subfigure}%%
+	~
+	\begin{subfigure}[t]{7cm}
+                \centering
+        \includegraphics[width=1\textwidth]{imgs/AverageModelBias_speederror.pdf}
+                \caption{}               
+                \label{f:speed}
+        \end{subfigure}%%
+\caption{Model sensitivity (for all gREM submodels) to error in estimates of a) signal width ($\alpha$)  b) sensor width ($\theta$), c) sensor radius ($r$), d) animal movement speed ($v$). Estimates are -10\% (red), -1\% (orange), 0\% (yellow), +1\% (green) and +10\% (blue) of the true parameter value. The grey dashed line indicates zero error in density estimates. The error bars indicate standard error across all simulations.
+%@tim double check this is standard error 
+%@tim yellow and orange is similar
+%@tim yellow is invisible
+%@tim grey line to black and yellow to grey. 707371ff
+}
 
-\begin{figure}[h!]
-	\includegraphics[width=7cm]{imgs/AverageModelBias_radiuserror.pdf}
-	\caption{Model sensitivity (for all gREM submodels) to error in sensor radis parameter ($r$) estimates. Estimates are -10\% (red), -1\% (orange), accurate (yellow), +1\% (green) and +10\% (blue) of the true value. } 
-	\label{f:sensCallError}
-\end{figure}
-
-
-\begin{figure}[h!]
-	\includegraphics[width=7cm]{imgs/AverageModelBias_speederror.pdf}
-	\caption{Model sensitivity (for all gREM submodels) to error in animal movement speed parameter ($v$) estimates. Estimates are -10\% (red), -1\% (orange), accurate (yellow), +1\% (green) and +10\% (blue) of the true value. } 
-	\label{f:sensCallError}
+\label{f:sensitivity}
 \end{figure}
 
 
