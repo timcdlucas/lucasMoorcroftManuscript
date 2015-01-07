@@ -227,7 +227,7 @@ The equation for $\bar{p}$ has been newly derived for each submodel in the gREM,
 \subsection*{Simulation model}
 
 \subsubsection*{gREM submodels}
-All gREM submodels showed a high accuracy, i.e., the mean difference between the estimated and actual values was not significantly different from zero across all models (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (Appendix S5), such that larger widths have lower standard deviations (greater precision) due to the increased capture rate of these models.
+All gREM submodels showed a high accuracy, i.e., the median difference between the estimated and true values was less than 2\% across all models (Figure~\ref{f:ModelBias}). However, the precision of the submodels do vary, where the gas model is the most precise and the SW7 sub model the least precise, having the smallest and the largest interquartile range, respectively (Figure~\ref{f:ModelBias}). The standard deviation of the error between the estimated and true densities is strongly related to both the sensor and signal widths (Appendix S5), such that larger widths have lower standard deviations (greater precision) due to the increased capture rate of these models.
 
 \begin{figure}[t]
 	\centering
@@ -239,7 +239,7 @@ All gREM submodels showed a high accuracy, i.e., the mean difference between the
 
 \subsubsection*{Number of captures}
 
-Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was not affected by the number of captures. The mean difference between the estimated and actual values was not significantly different from zero across all capture rates (Figure~\ref{f:Captures}). However, the precision was dependent on the number of captures across all four of the gREM submodels, where precision increases as number of captures increases, as would be expected for any statistical estimate (Figure~\ref{f:Captures}). For all gREM submodels, the the coefficient of variation falls to 10\% at 100 captures. 
+Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the accuracy was not strongly affected by the number of captures. The median difference between the estimated and true values was less than 15\% across all capture rates (Figure~\ref{f:Captures}). However, the precision was dependent on the number of captures across all four of the gREM submodels, where precision increases as number of captures increases, as would be expected for any statistical estimate (Figure~\ref{f:Captures}). For all gREM submodels, the the coefficient of variation falls to 10\% at 100 captures. 
 
 \begin{figure}[t]
        \centering
@@ -251,7 +251,7 @@ Within the four gREM submodels tested (NW1, SW1, SE3, NE1), the  accuracy was no
 
 \subsubsection*{Movement models}
 
-Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy or precision was affected by the average amount of time spent stationary. The mean difference between the estimated and actual values was not significantly different from zero for each category of stationary time (0, 0.25, 0.5 and 0.75) (Figure~\ref{f:Perch}). Altering the maximum change in direction in each step (0, $\pi/3$, $2\pi/3$, and $\pi$) did not affect the accuracy or precision of the four gREM submodels (Figure~\ref{f:Tort}). 
+Within the four gREM submodels tested (NW1, SW1, SE3, NE1), neither the accuracy or precision was affected by the average amount of time spent stationary. The median difference between the estimated and true values was less than 2\% for each category of stationary time (0, 0.25, 0.5 and 0.75) (Figure~\ref{f:Perch}). Altering the maximum change in direction in each step (0, $\pi/3$, $2\pi/3$, and $\pi$) did not affect the accuracy or precision of the four gREM submodels (Figure~\ref{f:Tort}). 
 
 \subsubsection*{Impact of parameter error}
 
@@ -305,25 +305,11 @@ The gREM was both accurate and precise for all the movement models we tested (st
 
 We found that the sensitivity of the gREM to inaccurate parameter estimates was both predictable and reasonable (Appendix S6), although this varies between different parameters and gREM submodels. Care should be taken while estimating these parameters when analysing both acoustic and camera trap data, however acoustic data poses particular problems. For acoustic surveys, estimates of $r$ (detection distance) can be measured directly or calculated using sound attenuation models (e.g. \citep{holderied2003echolocation}), while the sensor angle is often easily measured \citep{adams2012you} or in the manufacturer's specifications. When estimating animal movement speed $v$, only the speed of movement during the survey period should be used. The signal width is the most sensitive parameter to inaccurate estimates (Appendix S6) and is also the most difficult to measure.  While this parameter is typically assumed to be $2\pi$ for camera trap surveys, fewer estimates exist for acoustic signal widths. Although signal width has been measured for echolocating bats using arrays of microphones \citep{brinklov2011}, more work should be done on obtaining estimates for a range of acoustically surveyed species.
 
-The measurement of parameters is taxon dependant although there are many commonalities. . Call directionality has been though the measurements are rarely of $\alpha$ exactly.  
-%However it should be noted that under live survey conditions, where there is uncertainty and natural variation around animal speeds, call and signal widths, it may take more captures to reach this level of precision.  
 
-% While estimates are needed, model not too sensitive
-% 
-% need to be carefuil with all
-%
-% alpha is most sensitive, should be careful. Different across parameters
-% Not important for camera trap.
-% practical holdereid
-% further work should focus on this
 
 \subsection*{Limitations}
-Although we have used simulations to validate the gREM submodels, much more robust testing is needed. Although difficult, proper field test validation would be required before the models could be fully trusted.  The REM \citep{rowcliffe2008estimating} has already been field tested, and both \citet{rowcliffe2008estimating} and \citet{zero2013monitoring} both found that the REM was an effective manner of estimating animal densities \citep{rowcliffe2008estimating, zero2013monitoring}. In some taxa gold standard methods of estimating animal density exist, such as capture-mark-recapture \citep{sollmann2013using}. Where these gold standard exist or true numbers are known, a simultaneous gREM study could be completed to test the accuracy under field conditions, similar to the tests in \citet{rowcliffe2008estimating}. An easier way to continue to evaluate the models is to run more extensive simulations which break the assumptions of the analytical models. The main element that cannot be analytically treated is the complex movement of real animals. Therefore testing these methods against true animal traces, or more complex movement models would be required.
 
-
-%though it is expected that nonlinear movement will increase variance \citep{Hutchinson_Waser_2007} and this might be evident given other simulation setups. Furthermore, these movement models are still simple representations of true animal movement which are dependent on multiple factors such as behavioural state and existence of home ranges \citep{smouse2010stochastic}. 
-
-
+Although the REM has been found to be effective in field tests \citet{rowcliffe2008estimating, zero2013monitoring}, the gREM requires further validation by both field tests and simulations. For example capture-mark-recapture methods could be used alongside the gREM to test the accuracy under field conditions \citet{rowcliffe2008estimating}. While we found no effect of movement on the accuracy or precision of the gREM, the movement models we have used in our simulations to validate the gREM are still simple representations of true animal movement. Animal movement may be highly nonlinear and often dependent on multiple factors such as behavioural state and existence of home ranges \citep{smouse2010stochastic}, therefore testing the gREM against real animal data, or further simulations with more complex movement models would be beneficial.
 
 
 Within the simulation we have assumed an equal density across the study area, however in a field environment the situation would be much more complex, with additional variation coming from local changes in density between sensor sites. Though theoretically unequal densities should not affect accuracy \citep{Hutchinson_Waser_2007}, it will affect precision and further simulations should be used to quantify this effect. We allowed the sensor to be stationary and continuously detecting, negating the triggering, and non-continuous recording issues that could exist with some sensors. In the simulation animals moved at a speed of $\SI{40}{\kilo\meter \per \day}$, equivalent to the largest day range of terrestrial animals \citep{carbone2005far}. Other speed values should not alter the accuracy of the gREM, however, precision would be affected, all else being equal, since slower speeds produce fewer records. We also assume perfect knowledge of the average speed of an animal and size of the detection zone. All of which may lead to possible bias or a decrease in precision. 
