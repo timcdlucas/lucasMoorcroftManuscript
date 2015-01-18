@@ -1,0 +1,36 @@
+\contentsline {section}{\tocsection {}{S1}{Table of symbols}}{1}{section.1}
+\contentsline {section}{\tocsection {}{S2}{Supplementary Methods}}{2}{section.2}
+\contentsline {subsection}{\tocsubsection {}{S2.1}{Introduction}}{2}{subsection.2.1}
+\contentsline {subsection}{\tocsubsection {}{S2.2}{Gas model}}{2}{subsection.2.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.2.1}{gREM derivations for different detection and signal widths}}{3}{subsubsection.2.2.1}
+\contentsline {subsection}{\tocsubsection {}{S2.3}{Model SE1}}{3}{subsection.2.3}
+\contentsline {subsection}{\tocsubsection {}{S2.4}{ Models NE1--3}}{4}{subsection.2.4}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.4.1}{Model NE1}}{4}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.4.2}{Model NE2}}{5}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.4.3}{Model NE3}}{5}{subsubsection.2.4.3}
+\contentsline {subsection}{\tocsubsection {}{S2.5}{Models SE2--4}}{5}{subsection.2.5}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.5.1}{Model SE2}}{6}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.5.2}{Model SE3}}{6}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.5.3}{Model SE4}}{6}{subsubsection.2.5.3}
+\contentsline {subsection}{\tocsubsection {}{S2.6}{Model NW1}}{6}{subsection.2.6}
+\contentsline {subsection}{\tocsubsection {}{S2.7}{Models NW2--4}}{7}{subsection.2.7}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.7.1}{Model NW2}}{7}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.7.2}{Model NW3}}{8}{subsubsection.2.7.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.7.3}{Model NW4}}{8}{subsubsection.2.7.3}
+\contentsline {subsection}{\tocsubsection {}{S2.8}{Model REM}}{9}{subsection.2.8}
+\contentsline {subsection}{\tocsubsection {}{S2.9}{Model NW5--7}}{9}{subsection.2.9}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.9.1}{Model NW5}}{10}{subsubsection.2.9.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.9.2}{Model NW6}}{10}{subsubsection.2.9.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.9.3}{Model NW7}}{10}{subsubsection.2.9.3}
+\contentsline {subsection}{\tocsubsection {}{S2.10}{Model SW1--3}}{10}{subsection.2.10}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.10.1}{Model SW1}}{11}{subsubsection.2.10.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.10.2}{Model SW2}}{11}{subsubsection.2.10.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.10.3}{Model SW3}}{12}{subsubsection.2.10.3}
+\contentsline {subsection}{\tocsubsection {}{S2.11}{Model SW4--9}}{12}{subsection.2.11}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.1}{Model SW4}}{12}{subsubsection.2.11.1}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.2}{Model SW5}}{13}{subsubsection.2.11.2}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.3}{Model SW6}}{13}{subsubsection.2.11.3}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.4}{Model SW7}}{13}{subsubsection.2.11.4}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.5}{Model SW8}}{13}{subsubsection.2.11.5}
+\contentsline {subsubsection}{\tocsubsubsection {}{S2.11.6}{Model SW9}}{14}{subsubsection.2.11.6}
+\contentsline {section}{\tocsection {}{}{References}}{14}{section*.11}

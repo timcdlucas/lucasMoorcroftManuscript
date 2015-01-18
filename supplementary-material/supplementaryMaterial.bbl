@@ -1,0 +1,24 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[{{R Development Core Team}(2010)}]{R}
+{R Development Core Team} (2010) \emph{R: A Language And Environment For
+  Statistical Computing}.
+\newblock R Foundation For Statistical Computing, Vienna, Austria.
+\newblock ISBN 3-900051-07-0.
+
+\bibitem[{Rowcliffe \emph{et~al.}(2008)Rowcliffe, Field, Turvey \&
+  Carbone}]{rowcliffe2008estimating}
+Rowcliffe, J., Field, J., Turvey, S. \& Carbone, C. (2008) Estimating animal
+  density using camera traps without the need for individual recognition.
+\newblock \emph{Journal of Applied Ecology}, \textbf{45}, 1228--1236.
+
+\bibitem[{{SymPy Development Team}(2014)}]{sympy}
+{SymPy Development Team} (2014) \emph{SymPy: Python library for symbolic
+  mathematics}.
+
+\bibitem[{Yapp(1956)}]{yapp1956theory}
+Yapp, W. (1956) The theory of line transects.
+\newblock \emph{Bird study}, \textbf{3}, 93--104.
+
+\end{thebibliography}

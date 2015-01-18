@@ -1,0 +1,104 @@
+\begin{figure}[t]
+        \centering
+\includegraphics[width=0.2\textwidth]{imgs/angleDefinitions.pdf}
+
+\caption{Representation of sensor detection width and animal signal width. The filled square and circle represent a sensor and an animal, respectively; $\theta$, sensor detection width (radians); r, sensor detection distance; dark grey shaded area, sensor detection zone; $\alpha$, animal signal width (radians). Dashed lines around the filled square and circle represents the maximum extent of $\theta$ and $\alpha$, respectively.} % needs new description for the sensor detection zone
+\label{f:AngleDef}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/equalRegions.pdf}
+\caption{The locations of gREM submodels in parameter space. Each polygon shows the parameter space (combination of sensor detection width and animal signal width) for which a given gREM submodel is needed. The submodels are named after the compass point of the quadrant they are in.}
+\label{f:equalRegions}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+        \centering
+\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/x1.pdf}
+                \caption{Location of $x_1$ }
+                \label{f:xOne}
+        \end{subfigure}%%
+~
+\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/firstIntegral.pdf}
+                \caption{First integral}
+                \label{f:firstInt}
+        \end{subfigure}%%
+
+\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/secondIntegral.pdf}
+                \caption{Second Integral}
+                \label{f:secondInt}
+        \end{subfigure}%%
+~
+\begin{subfigure}[t]{0.45\textwidth}
+                \centering
+\includegraphics[width=1\textwidth, trim= 6cm 1cm 6cm 0.3cm]{imgs/thirdIntegral.pdf}
+                \caption{Third Integral}
+                \label{f:thirdInt}
+        \end{subfigure}%%
+\label{f:x1AndInt}
+\caption{Representation of size of the detection zone presented to the animal by the sensor for a focal angle of $x_1$ for (a) directly approaching blah, (b) blah, and (c) blah. The filled square and circle represent a sensor and an animal, respectively; dark grey shaded area, sensor detection zone; red line, size of the detection zone presented to the animal; $x_1$, focal angle; and the dashed arrow represents the movement of the sensor.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{imgs/equalModelResults.pdf}
+\caption{Equations for the profile wide, $p$, given sensor and call widths. Each colour block represents one equation, despite independent derivation within each block, many models result in the same expression. These are collected together and presented as one block of colour.}
+\label{f:equalModelResults}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{imgs/AverageModelBias.pdf}
+\caption{Distribution of the bias for each of the derived models. Percentage error of analytical model calculated from the simulation when settings are: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. The numbers referred to here can be found in Figure 1 Appendix S2, and the colour of each box plot match the functional form of the equation as seen in Figure~\ref{f:equalModelResults}.
+  }
+\label{f:ModelBias}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+        \centering
+\includegraphics[width=1\textwidth]{imgs/ResultStandardDeviation.pdf}
+\caption{Angle of detector}
+\label{f:StandardDevaition}
+        \caption{The precision of the gREM given a range of detection and call angles. The standard deviation of the percentage error for sensor, and call angles between 0 and $2\pi$ where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where red indicates a high standard deviation and blue represents a low standard deviation.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+       \centering
+\includegraphics[width=1\textwidth]{imgs/ResultsNoCaptures.pdf}
+         \caption{Number of captures}
+           \label{f:Captures}
+        \caption{Accuracy of the gREM reminds unchanged, whilst precision increases, with captures. Boxplots of four test models when given different numbers of captures where: $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Where the model names refer to Figure 1 in Appendix S2.}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+      \centering
+\includegraphics[width=1\textwidth]{imgs/ResultsPerch.pdf}
+          \caption{Proportion of time spent stationary}
+          \label{f:Perch}
+\caption{Accuracy and the precision of the gREM given changes in the amount of time an animal spends stationary on average. Distribution of model error when simulated animals spend increasing proportion of time stationary where:  $r = $ \SI{100}{\meter}; $T = $ \SI{150}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with detection angles varying between models. Where the model names refer to Figure 1 in Appendix S2. }
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[t]
+                \centering
+\includegraphics[width=1\textwidth]{imgs/ResultsTort.pdf}
+                \caption{Angle of correlated walk}
+                \label{f:Tort}
+\caption{Accuracy and the precision of the gREM given different types of correlated walks. Distribution of model error when simulated animals move with different types of correlated walk where:  $r = $ \SI{10}{\meter}; $T = $ \SI{352}{\day}; $v = $ \SI{40}{\kilo\meter\per\day}; $D = $ \SI{70}{\animals\per\kilo\meter\squared}; and with angles varying between models. Where the model names refer to Figure 1 in Appendix S2.}
+\end{figure}
+\efloatseparator
+ 
