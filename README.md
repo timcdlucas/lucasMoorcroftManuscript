@@ -16,20 +16,20 @@ There are two main branches.
 
 ### postPeerReview
 
-`gREM_ms_revisions_*date*.tex` contains the main manuscript.
+`lucas_et_al_mainms_*date*.tex` contains the main manuscript.
 
-`gREM_ms_revisions_*date*.pdf` is a compiled, unformatted pdf of the manuscript.
+`lucas_et_al_mainms_*date*.pdf` is a compiled, unformatted pdf of the manuscript.
 
-`lucas-moorcroft-etal-refs.bib` and `mee.bst` are the latex reference and style file.
+`lucas_et_al_tex_suppl_file_2015-01-20.bib` and `lucas_et_al_tex_suppl_file_2015-01-20.bst` are the latex reference and style file.
 
 `imgs/` Contains all the .pdf figures for the paper.
 
 
 `supplementary-material/` contains:
-- `REM-methods.tex`, `supplementaryMaterial.tex` and a directory of .tex files,  `latexFiles/`, that make up the text of the supplementary material.
-- `supplementaryS3Python.py` and `supplementaryS4R.R` make up the code supplement.
+- `REM-methods.tex`, `lucas_et_al_supplementarymaterial_2015-01-20.tex` and a directory of .tex files,  `latexFiles/`, that make up the text of the supplementary material.
+- `lucas_et_al_S3.py` and `lucas_et_al_S4.R` make up the code supplement.
 - `imgs/` contains the pdf images needed for the supplementary material. 
-- `testSupplementaryRscript.R` contains some unit tests for the functions in `supplementaryS4R.R`.
+- `testSupplementaryRscript.R` contains some unit tests for the functions in `lucas_et_al_S4.R`.
 
 
 
