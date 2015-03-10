@@ -1,8 +1,8 @@
 # Repo for "A generalised random encounter model for estimating animal density with remote sensor data"
 
-This is a private repo with our manuscript and code.
-It will be opened up once the paper is published.
-The paper has been accepted by Methods in Ecology and Evolution.
+This is a repo with our manuscript and code.
+
+The paper can be found here [http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12346/abstract](http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12346/abstract)
 
 
 ## Navigation
@@ -26,10 +26,13 @@ There are two main branches.
 
 
 `supplementary-material/` contains:
-- `REM-methods.tex`, `lucas_et_al_supplementarymaterial_2015-01-20.tex` and a directory of .tex files,  `latexFiles/`, that make up the text of the supplementary material.
-- `lucas_et_al_S3.py` and `lucas_et_al_S4.R` make up the code supplement.
+- [REM-methods.tex](supplementary-material/REM-methods.tex), `lucas_et_al_supplementarymaterial_2015-01-20.tex` and a directory of .tex files,  `latexFiles/`, that make up the text of the supplementary material.
 - `imgs/` contains the pdf images needed for the supplementary material. 
 - `testSupplementaryRscript.R` contains some unit tests for the functions in `lucas_et_al_S4.R`.
+- `lucas_et_al_S3.py` and `lucas_et_al_S4.R` make up the code supplement.
+
+Specifically
+
 
 
 
