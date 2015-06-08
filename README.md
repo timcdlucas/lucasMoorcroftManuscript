@@ -25,7 +25,6 @@ There are two main branches.
 [imgs/](imgs/) contains all the .pdf figures for the paper.
 
 
-
 [supplementary-material/](supplementary-material/) contains:
 - [REM-methods.tex](supplementary-material/REM-methods.tex), [lucas_et_al_supplementarymaterial_2015-01-20.tex](supplementary-material/lucas_et_al_supplementarymaterial_2015-01-20.tex) and a directory of .tex files,  [latexFiles/](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/postPeerReview/supplementary-material/latexFiles), that make up the text of the supplementary material.
 - [imgs/](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/postPeerReview/imgs) contains the pdf images needed for the supplementary material. 
@@ -34,7 +33,7 @@ Code:
 The code supplement include with the paper includes
 - [lucas_et_al_S3.py](supplementary-material/lucas_et_al_S3.py) a python script which performs the analytical maths for the paper. It also provides checks that the model specifications are correct. 
 - [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R) is a simple script that implements the gREM in R.
-- [supplementary-material/testSupplementaryRscript.R](testSupplementaryRscript.R) contains some unit tests for the functions in [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R).
+- [testSupplementaryRscript.R](supplementary-material/testSupplementaryRscript.R) contains some unit tests for the functions in [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R).
 
 
 
