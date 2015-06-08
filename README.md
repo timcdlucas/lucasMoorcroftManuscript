@@ -33,7 +33,7 @@ Code:
 The code supplement include with the paper includes
 - [lucas_et_al_S3.py](supplementary-material/lucas_et_al_S3.py) a python script which performs the analytical maths for the paper. It also provides checks that the model specifications are correct. 
 - [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R) is a simple script that implements the gREM in R.
-- [supplementary-material/testSupplementaryRscript.R](testSupplementaryRscript.R) contains some unit tests for the functions in [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R).
+- [testSupplementaryRscript.R](supplementary-material/testSupplementaryRscript.R) contains some unit tests for the functions in [lucas_et_al_S4.R](supplementary-material/lucas_et_al_S4.R).
 
 
 
