@@ -28,6 +28,7 @@ Click the [raw](https://github.com/timcdlucas/lucasMoorcroftManuscript/raw/postP
 
 
 [supplementary-material/](https://github.com/timcdlucas/lucasMoorcroftManuscript/blob/postPeerReview/supplementary-material/) contains:
+- [lucas_et_al_supplementarymaterial_2015-01-20.pdf](https://github.com/timcdlucas/lucasMoorcroftManuscript/blob/postPeerReview/supplementary-material/lucas_et_al_supplementarymaterial_2015-01-20.pdf) is the full supplementary material pdf. It will render in Github or click the [raw](https://github.com/timcdlucas/lucasMoorcroftManuscript/raw/postPeerReview/supplementary-material/lucas_et_al_supplementarymaterial_2015-01-20.pdf) button to download it.
 - [REM-methods.tex](https://github.com/timcdlucas/lucasMoorcroftManuscript/blob/postPeerReview/supplementary-material/REM-methods.tex), [lucas_et_al_supplementarymaterial_2015-01-20.tex](https://github.com/timcdlucas/lucasMoorcroftManuscript/blob/postPeerReview/supplementary-material/lucas_et_al_supplementarymaterial_2015-01-20.tex) and a directory of .tex files,  [latexFiles/](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/postPeerReview/supplementary-material/latexFiles), that make up the text of the supplementary material.
 - [imgs/](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/postPeerReview/imgs) contains the pdf images needed for the supplementary material. 
 
@@ -42,7 +43,7 @@ The code supplement include with the paper includes
 
 ### master
 
-The (Master](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/master) branch is basically a mess. It follows the same structure as `postPeerReview` but without any of the tidying. 
+The [Master](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/master) branch is basically a mess. It follows the same structure as `postPeerReview` but without any of the tidying. 
 
 
 
