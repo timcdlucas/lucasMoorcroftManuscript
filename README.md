@@ -42,7 +42,7 @@ The code supplement include with the paper includes
 
 ### master
 
-This branch is basically a mess. It follows the same structure as `postPeerReview` but without any of the tidying. 
+The (Master](https://github.com/timcdlucas/lucasMoorcroftManuscript/tree/master) branch is basically a mess. It follows the same structure as `postPeerReview` but without any of the tidying. 
 
 
 
